@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- DEFAULT / EN -->
+  <url>
+    <loc>https://www.vcore.gr/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+  <!-- GREEK -->
+  <url>
+    <loc>https://www.vcore.gr/el/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+  <!-- TURKISH -->
+  <url>
+    <loc>https://www.vcore.gr/tr/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+  <!-- CHINESE -->
+  <url>
+    <loc>https://www.vcore.gr/zh/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+  <!-- UKRAINIAN -->
+  <url>
+    <loc>https://www.vcore.gr/uk/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+</urlset>
