@@ -1,2 +1,0 @@
-# vcore
-Virtual Office
