@@ -1490,15 +1490,10 @@
 			<i class="fas fa-handshake"></i>
 
 			<span class="feature-text">
-				----------------
+				任何额外需求的服务都可以根据您的具体需要进行讨论和调整。
 			</span>
 
-			<span class="info-tooltip">
-				<button class="info-btn" aria-label="更多关于邮件扫描的信息">?</button>
-				<span class="tooltip-box">
-				在当局、银行、会计师和合作伙伴之间安全交付和收集原始文件、合同和官方文件。
-				</span>
-			</span>
+		
 			</li>
              
             </ul>
@@ -1925,7 +1920,7 @@
     </nav>
 
     <div class="footer-meta">
-      <p>&copy; 2026 vcore. 版权所有。</p>
+      <p>&copy; 2026 VCORE. 版权所有。</p>
       <p>虚拟办公室 · 商务管理 · 礼宾服务</p>
     </div>
 
@@ -1938,19 +1933,28 @@ const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 const submitBtn = form.querySelector('.btn-accent');
 
+console.log("CONTACT FORM JS LOADED");
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  console.log("FORM SUBMITTED");
 
+  // Show loading state
   status.className = 'form-status loading show';
-  status.textContent = "正在发送消息...";
-
-  submitBtn.disabled = true;
+  status.textContent = "Sending your message...";
+  
+  if (submitBtn) {
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+  }
 
   const data = {
     name: form.name.value,
     email: form.email.value,
     message: form.message.value
   };
+
+  console.log("Data to send:", data);
 
   try {
     const res = await fetch("https://contact-form-worker.simsonakos23.workers.dev/", {
@@ -1959,33 +1963,73 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify(data)
     });
 
+    console.log("Response status:", res.status);
     const result = await res.json();
+    console.log("Result:", result);
 
     if (result.success) {
       status.className = 'form-status success show';
-      status.textContent = "消息已成功发送！我们将在24小时内联系您。";
+      status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
       form.reset();
+      
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => {
+          status.className = 'form-status';
+        }, 500);
+      }, 6000);
     } else {
       status.className = 'form-status error show';
-      status.textContent = "服务器错误，请稍后再试或发送邮件至 contact@vcore.gr";
+      status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
+      
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => {
+          status.className = 'form-status';
+        }, 500);
+      }, 8000);
     }
 
   } catch (err) {
+    console.error("Error:", err);
     status.className = 'form-status error show';
-    status.textContent = "网络错误，请检查您的网络连接后重试。";
+    status.textContent = "Network error. Please check your connection and try again.";
+    
+    setTimeout(() => {
+      status.classList.remove('show');
+      setTimeout(() => {
+        status.className = 'form-status';
+      }, 500);
+    }, 8000);
   } finally {
-    submitBtn.disabled = false;
+    if (submitBtn) {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
   }
 });
 </script>
 
-
-
+<!-- MAIN SITE SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Detect device type
+  const isMobile = window.innerWidth <= 768;
+  
+  console.log(isMobile ? '📱 Mobile Mode' : '💻 Desktop Mode');
+
+  if (isMobile) {
+    // Κάνε όλα αμέσως ορατά
+    document.querySelectorAll('.section-animate, .intro-card, .service-card, .animate-ready').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    console.log('📱 Fast loading enabled');
+  }
+  
   /* =====================================================
-     1. HEADER HIDE / SHOW ON SCROLL
+     HEADER SCROLL - WORKS ON ALL DEVICES
   ===================================================== */
   let lastScroll = 0;
   const header = document.querySelector('#site-header');
@@ -2011,20 +2055,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     2. PARALLAX HERO BACKGROUND - OPTIMIZED
+     2. PARALLAX HERO BACKGROUND - OPTIMIZED & MOBILE-SAFE
   ===================================================== */
   const heroBg = document.querySelector('.hero-bg');
-  let latestScroll = 0;
-  let tickingHero = false;
 
   if (heroBg) {
-    // ✅ Skip parallax εντελώς σε mobile
-    if (window.innerWidth <= 768) {
-      console.log('📱 Mobile detected - Parallax disabled');
-      return; // Σταματάει ΕΔΩ για mobile
-    }
+    // ✅ Parallax ΜΟΝΟ σε desktop
+    console.log('🖥️ Parallax enabled for desktop');
     
-    // Προσθήκη will-change για καλύτερη απόδοση
+    let latestScroll = 0;
+    let tickingHero = false;
+    
     heroBg.style.willChange = 'transform';
     
     window.addEventListener('scroll', () => {
@@ -2033,11 +2074,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!tickingHero) {
         window.requestAnimationFrame(() => {
           const hero = document.querySelector('.hero');
-          const heroHeight = hero.offsetHeight;
+          if (hero) {
+            const heroHeight = hero.offsetHeight;
 
-          if (latestScroll <= heroHeight) {
-            // Χρήση translate3d για hardware acceleration
-            heroBg.style.transform = `translate3d(0, ${latestScroll * 0.7}px, 0)`;
+            if (latestScroll <= heroHeight) {
+              heroBg.style.transform = `translate3d(0, ${latestScroll * 0.5}px, 0)`;
+            }
           }
 
           tickingHero = false;
@@ -2046,128 +2088,170 @@ document.addEventListener('DOMContentLoaded', () => {
         tickingHero = true;
       }
     });
-  }
+  } 
 
   /* =====================================================
      3. INTERSECTION OBSERVER — ALL ANIMATIONS
   ===================================================== */
-  const animateObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        animateObserver.unobserve(entry.target);
-      }
+  if (!isMobile) {
+    const animateObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          animateObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
 
-  const animatedElements = document.querySelectorAll(`
-    .service-card,
-    .compare-column,
-    .compare-vs,
-    .challenge-card,
-    .timeline-item,
-    .speech-bubble
-  `);
+    const animatedElements = document.querySelectorAll(`
+      .service-card,
+      .compare-column,
+      .compare-vs,
+      .challenge-card,
+      .timeline-item,
+      .speech-bubble
+    `);
 
-  animatedElements.forEach(el => {
-    el.classList.add('animate-ready');
-    animateObserver.observe(el);
-  });
-
+    animatedElements.forEach(el => {
+      el.classList.add('animate-ready');
+      animateObserver.observe(el);
+    });
+  } else {
+    // MOBILE: Instant visibility
+    document.querySelectorAll('.service-card, .compare-column, .compare-vs, .challenge-card, .timeline-item, .speech-bubble').forEach(el => {
+      el.classList.add('animate-in');
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+ }
   /* =====================================================
      4. SECTION FADE-IN
   ===================================================== */
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('section-visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  const sections = document.querySelectorAll(
+   const sections = document.querySelectorAll(
     '.intro, .virtual-office, .business-support, .cta-section'
   );
 
-  sections.forEach(section => {
-    section.classList.add('section-animate');
-    sectionObserver.observe(section);
-  });
+  if (!isMobile) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    });
+
+    sections.forEach(section => {
+      section.classList.add('section-animate');
+      sectionObserver.observe(section);
+    });
+  } else {
+    // MOBILE: Instant visibility
+    sections.forEach(section => {
+      section.classList.add('section-visible');
+      section.style.opacity = '1';
+      section.style.transform = 'none';
+    });
+  }
 
   /* =====================================================
-     5. SERVICE CARDS MAGNETIC HOVER
+     5. SERVICE CARDS MAGNETIC HOVER - DESKTOP ONLY
   ===================================================== */
-  const serviceCards = document.querySelectorAll('.service-card');
+  if (!isMobile) {
+    const serviceCards = document.querySelectorAll('.service-card');
 
-  serviceCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    serviceCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-      const moveX = ((x - centerX) / centerX) * 8;
-      const moveY = ((y - centerY) / centerY) * 8;
+        const moveX = ((x - centerX) / centerX) * 8;
+        const moveY = ((y - centerY) / centerY) * 8;
 
-      card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translate(0, 0)';
+      });
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'translate(0, 0)';
-    });
-  });
+  }
 
   /* =====================================================
-     6. PRICING TABLE HOVER
+     6. PRICING TABLE HOVER - DESKTOP ONLY
   ===================================================== */
-  const pricingColumns = document.querySelectorAll(
-    '.pricing-column:not(.pricing-features)'
-  );
+  if (!isMobile) {
+    const pricingColumns = document.querySelectorAll(
+      '.pricing-column:not(.pricing-features)'
+    );
 
-  pricingColumns.forEach(column => {
-    column.addEventListener('mouseenter', () => {
-      column.classList.add('pricing-highlight');
-    });
+    pricingColumns.forEach(column => {
+      column.addEventListener('mouseenter', () => {
+        column.classList.add('pricing-highlight');
+      });
 
-    column.addEventListener('mouseleave', () => {
-      column.classList.remove('pricing-highlight');
+      column.addEventListener('mouseleave', () => {
+        column.classList.remove('pricing-highlight');
+      });
     });
-  });
+  }
 
   /* =====================================================
-     7. FAQ ACCORDION
+     7. FAQ ACCORDION - IMPROVED FOR MOBILE
   ===================================================== */
   const faqButtons = document.querySelectorAll('.faq-button');
+  console.log(`📋 Found ${faqButtons.length} FAQ buttons`);
 
-  faqButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const faqCard = button.closest('.faq-card');
+  faqButtons.forEach((button, index) => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log(`FAQ ${index + 1} clicked`);
+      
+      const faqCard = this.closest('.faq-card');
+      if (!faqCard) return;
+      
       const isOpen = faqCard.classList.contains('active');
 
+      // Close all FAQs
       document.querySelectorAll('.faq-card').forEach(card => {
         card.classList.remove('active');
         const badge = card.querySelector('.faq-badge');
         if (badge) badge.textContent = '+';
       });
 
+      // Toggle current FAQ
       if (!isOpen) {
         faqCard.classList.add('active');
-        const badge = button.querySelector('.faq-badge');
+        const badge = this.querySelector('.faq-badge');
         if (badge) badge.textContent = '−';
+        console.log(`FAQ ${index + 1} opened`);
+      } else {
+        console.log(`FAQ ${index + 1} closed`);
       }
     });
+    
+    // Better mobile support
+    if (isMobile) {
+      button.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        this.click();
+      });
+    }
   });
 
   /* =====================================================
-     🆕 8. INTRO CARDS - STAGGER ON SCROLL
+     8. INTRO CARDS - STAGGER ON SCROLL
   ===================================================== */
   const introCards = document.querySelectorAll('.intro-card');
   
@@ -2192,7 +2276,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =====================================================
-     🆕 9. SMOOTH SCROLL FOR NAVIGATION LINKS
+     9. SMOOTH SCROLL FOR NAVIGATION LINKS
   ===================================================== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -2218,7 +2302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* =====================================================
-     🆕 10. CHALLENGE CARDS - BUBBLE POP ON SCROLL
+     10. CHALLENGE CARDS - BUBBLE POP ON SCROLL
   ===================================================== */
   const challengeCards = document.querySelectorAll('.challenge-card');
   const bubbles = document.querySelectorAll('.speech-bubble');
@@ -2245,7 +2329,7 @@ document.addEventListener('DOMContentLoaded', () => {
   challengeCards.forEach(card => bubbleObserver.observe(card));
 
   /* =====================================================
-     🆕 11. FORM VALIDATION & FEEDBACK
+     11. FORM VALIDATION & FEEDBACK
   ===================================================== */
   const ctaForm = document.querySelector('.cta-form');
   
@@ -2262,16 +2346,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      button.textContent = '发送中...';
+      button.textContent = 'Sending...';
       button.disabled = true;
       
       setTimeout(() => {
-        button.textContent = '✓ 消息已发送！';
+        button.textContent = '✓ Message Sent!';
         button.style.background = '#00c853';
         emailInput.value = '';
         
         setTimeout(() => {
-          button.textContent = '联系！';
+          button.textContent = 'Contact!';
           button.style.background = '';
           button.disabled = false;
         }, 3000);
@@ -2280,23 +2364,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     🆕 12. LAZY LOAD IMAGES WITH BLUR EFFECT
+     12. LAZY LOAD IMAGES WITH BLUR EFFECT
   ===================================================== */
   const lazyImages = document.querySelectorAll('img[loading="lazy"]');
   
   lazyImages.forEach(img => {
-    img.style.filter = 'blur(10px)';
-    img.style.transition = 'filter 0.3s ease';
-    
-    img.addEventListener('load', () => {
-      img.style.filter = 'blur(0)';
-    });
+    if (!img.complete) {
+      img.style.filter = 'blur(5px)';
+      img.style.transition = 'filter 0.3s ease';
+      
+      const handleLoad = () => {
+        img.style.filter = 'none';
+        img.removeEventListener('load', handleLoad);
+      };
+      
+      img.addEventListener('load', handleLoad);
+      
+      setTimeout(() => {
+        if (img.complete) {
+          img.style.filter = 'none';
+        }
+      }, 1000);
+    } else {
+      img.style.filter = 'none';
+    }
   });
 
   /* =====================================================
-     🆕 13. ADDRESS CARDS - FLIP ON CLICK (Mobile)
+     13. ADDRESS CARDS - FLIP ON CLICK (Mobile Only)
   ===================================================== */
-  if (window.innerWidth <= 768) {
+  if (isMobile) {
     const addressCards = document.querySelectorAll('.address-card');
     
     addressCards.forEach(card => {
@@ -2309,7 +2406,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================================================
-     PERFORMANCE THROTTLE
+     PERFORMANCE OPTIMIZATION
   ===================================================== */
   let ticking = false;
 
@@ -2320,11 +2417,30 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       ticking = true;
     }
-  });
+  }, { passive: true });
+
+  /* =====================================================
+     MOBILE-SPECIFIC OPTIMIZATIONS
+  ===================================================== */
+  if (isMobile) {
+    // Disable hover effects that don't work well on touch
+    document.body.classList.add('mobile-device');
+    
+    // Prevent double-tap zoom on buttons
+    document.querySelectorAll('button:not(.faq-button), .btn:not(.faq-button)').forEach(btn => {
+      btn.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        this.click();
+      }, { passive: false });
+    });
+    
+    console.log('📱 Mobile optimizations applied');
+  }
 
   console.log('✅ VCORE Enhanced JS loaded successfully');
 
-}); // ← ΚΛΕΙΣΙΜΟ DOMContentLoaded
+}); // ← END DOMContentLoaded
 </script>
+
 </body>
-																	</html>
+</html>
