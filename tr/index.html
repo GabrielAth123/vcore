@@ -301,7 +301,7 @@
     </p>
 
     <p>
-      Uzaktan yönetimi yerel destekle birleştiriyoruz
+      Uzaktan yönetimi yerel destekle birleştiriyoruz.
     </p>	  
 
     <!-- Call to Action Button -->
@@ -1489,15 +1489,10 @@ Gelen aramaları yanıtlar, temel şirket bilgilerini sağlar, ayrıntılı mesa
 			<i class="fas fa-handshake"></i>
 
 			<span class="feature-text">
-				----------------
+				Talep edilen diğer hizmetler için, ihtiyaçlarınıza göre paketi görüşmek ve uyarlayabiliriz.
 			</span>
 
-			<span class="info-tooltip">
-				<button class="info-btn" aria-label="Posta Tarama hakkında daha fazla bilgi">?</button>
-				<span class="tooltip-box">
-				Yetkili makamlar, bankalar, muhasebeciler ve ortaklar arasında orijinal belgelerin, sözleşmelerin ve resmi dosyaların güvenli bir şekilde teslim edilmesi ve toplanması.
-				</span>
-			</span>
+			
 			</li>
              
             </ul>
@@ -1710,7 +1705,7 @@ Gelen aramaları yanıtlar, temel şirket bilgilerini sağlar, ayrıntılı mesa
 					</h3>
 					<div class="faq-card-body">
 					<p>
-						 Business Concierge, Kavala'da yerel, yerinde iş desteği sunar. Belge teslimi, kamu kurumlarına şahsen temsil,
+						 İş Concierge, Kavala'da yerel, yerinde iş desteği sunar. Belge teslimi, kamu kurumlarına şahsen temsil,
 						 muhasebeciler ve avukatlarla koordinasyon ve uzaktan yapılamayan günlük operasyonel işlerin yürütülmesi gibi fiziksel varlık 
 						 gerektiren görevleri kapsar.
 					</p>
@@ -2262,12 +2257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Better mobile support
-    if (isMobile) {
-      button.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        this.click();
-      });
-    }
+    
   });
 
   /* =====================================================
@@ -2445,14 +2435,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isMobile) {
     // Disable hover effects that don't work well on touch
     document.body.classList.add('mobile-device');
-    
-    // Prevent double-tap zoom on buttons
-    document.querySelectorAll('button:not(.faq-button), .btn:not(.faq-button)').forEach(btn => {
-      btn.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        this.click();
-      }, { passive: false });
-    });
     
     console.log('📱 Mobile optimizations applied');
   }

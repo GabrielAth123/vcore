@@ -2174,12 +2174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Better mobile support
-    if (isMobile) {
-      button.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        this.click();
-      });
-    }
+    
   });
 
   /* =====================================================
@@ -2357,14 +2352,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isMobile) {
     // Disable hover effects that don't work well on touch
     document.body.classList.add('mobile-device');
-    
-    // Prevent double-tap zoom on buttons
-    document.querySelectorAll('button:not(.faq-button), .btn:not(.faq-button)').forEach(btn => {
-      btn.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        this.click();
-      }, { passive: false });
-    });
     
     console.log('📱 Mobile optimizations applied');
   }
