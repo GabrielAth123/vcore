@@ -4207,9 +4207,23 @@ img {
   }
 
   .info-tooltip {
-    display: none;
-  }
+  display: inline-flex !important; /* ⬅️ ΕΜΦΑΝΙΣΗ σε mobile */
+}
 
+/* Κάνε το tooltip box πιο mobile-friendly */
+.tooltip-box {
+  width: 220px !important;
+  font-size: 0.8rem !important;
+  left: auto !important;
+  right: -10px !important;
+  transform: none !important;
+}
+
+.info-tooltip:hover .tooltip-box,
+.info-tooltip:active .tooltip-box {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
   /* =================== CONTACT FORM - Compact & Clean =================== */
   
   .section.contact {
