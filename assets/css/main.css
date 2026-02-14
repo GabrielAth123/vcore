@@ -113,6 +113,7 @@
  		 --color-primary: #2b2d42;
 		--color-secondary: #edf2f4;
  		 --color-accent: #d90429;
+     --color-success: #22c55e;
 
 	 /* Base */
 		--color-bg: #edf2f4;
@@ -385,18 +386,18 @@ a:focus-visible {
 
 
 
-/* Playfair Display Fix — restore previous look */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  /* αυξάνουμε λίγο το weight για να μοιάζει πιο bold */
+
   font-weight: 800;
   
-  /* αν θέλεις πιο bold ακόμα, μπορείς να βάλεις 800 αν υπάρχει το woff2 */
-  letter-spacing: -1.8/* να μοιάζει με Google Fonts */
+
+  letter-spacing: -0.02em;
   
 }
 
-/* Προσαρμογή font-size για να επανέλθουν σε “παλιό” μέγεθος */
+
 h1 { font-size: 4.1rem; line-height: 1; }
 h2 { font-size: 2.6rem; line-height: 1; }
 h3 { font-size: 2.1rem; line-height: 1; }
@@ -439,13 +440,11 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
-
-  /* Brand dark glass */
+  z-index: 1000; /* ← από 100 */
+  transition: transform 0.3s ease; /* ← ΠΡΟΣΘΗΚΗ */
   background: rgba(43, 45, 66, 0.95);
   backdrop-filter: saturate(120%) blur(8px);
   -webkit-backdrop-filter: saturate(120%) blur(8px);
-
   border-bottom: 1px solid rgba(237, 242, 244, 0.08);
 }
 
@@ -469,14 +468,18 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
-  padding: 0;
-   padding: 1rem 2rem;   /* ⬅️ μέγεθος κουμπιού */
-  font-size: 1.5rem;          /* ⬅️ μέγεθος γραμματοσειράς */
+  padding: 0; /* ← καθαρό, χωρίς padding στο ul */
+  font-size: 1.2rem;
   line-height: 1;
   font-weight: 500;
+}
+
+.main-nav a {
+  padding: 0.5rem 1rem; /* ← το padding πηγαίνει εδώ */
+  display: inline-block;
 }
 
 /* ==========================================================
@@ -630,6 +633,41 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================
    Hero
 ========================================================== */
@@ -700,41 +738,6 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 .hero-content p strong {
   color: var(--color-accent);
 }
-
-/* Crypto highlight box */
-.hero-crypto-highlight {
-  margin-top: 1rem;
-  padding: 0.9rem 1.1rem;
-
-  background: rgba(217, 4, 41, 0.14);
-  border-left: 4px solid var(--color-accent);
-  border-radius: 4px;
-
-  max-width: 560px;
-  align-self: flex-start;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.hero-crypto-highlight strong {
-  color: var(--color-text);
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.hero-crypto-highlight span {
-  font-size: 0.8rem;
-  opacity: 0.9;
-}
-
-.hero-crypto-highlight p {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
 
 
 
@@ -877,91 +880,6 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 
 
-
-
-
-
-
-
-
-
-
-/* ================= Virtual Office Section ================= */
-
-.virtual-office {
-  background-color: var(--color-secondary);
-  background-image: 
-    linear-gradient(rgba(43, 45, 66, 0.02) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(43, 45, 66, 0.02) 2px, transparent 2px);
-  background-size: 30px 30px;
-  color: var(--color-muted);
-  position: relative;
-  isolation: isolate;
-}
-
-.virtual-office h1,
-.virtual-office h2,
-.virtual-office h3,
-.virtual-office h4,
-.virtual-office h5,
-.virtual-office h6 {
-  color: var(--color-muted);
-}
-
-
-/* ================= Layout ================= */
-
-.virtual-office .section-inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-
-/* ===== TEXT + IMAGE BLOCK ===== */
-
-.virtual-office .text-image {
-  display: flex;
-  gap: 3rem;
-  align-items: stretch; /* κάθετη ευθυγράμμιση text + image */
-}
-
-.virtual-office .text-image.reverse {
-  flex-direction: row-reverse;
-}
-
-
-/* ίσο πλάτος */
-
-.virtual-office .text-image .text,
-.virtual-office .text-image .image {
-  flex: 1 1 0;
-}
-
-
-/* ===== TEXT ===== */
-
-.virtual-office .text-image .text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-/* ===== IMAGE ===== */
-
-.virtual-office .text-image .image {
-  aspect-ratio: 16 / 9;          /* σταθερό ύψος */
-  overflow: hidden;
-  border-radius: var(--radius-md);
-}
-
-.virtual-office .text-image .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 
 
@@ -1326,6 +1244,121 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 
 
+
+
+
+/* ================= Virtual Office Section ================= */
+
+.virtual-office {
+  background-color: var(--color-secondary);
+  background-image: 
+    linear-gradient(rgba(43, 45, 66, 0.02) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(43, 45, 66, 0.02) 2px, transparent 2px);
+  background-size: 30px 30px;
+  color: var(--color-muted);
+  position: relative;
+  isolation: isolate;
+}
+
+.virtual-office h1,
+.virtual-office h2,
+.virtual-office h3,
+.virtual-office h4,
+.virtual-office h5,
+.virtual-office h6 {
+  color: var(--color-muted);
+}
+
+
+/* ================= Layout ================= */
+
+.virtual-office .section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+
+/* ===== TEXT + IMAGE BLOCK ===== */
+
+.virtual-office .text-image {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch; /* κάθετη ευθυγράμμιση text + image */
+}
+
+.virtual-office .text-image.reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* ίσο πλάτος */
+
+.virtual-office .text-image .text,
+.virtual-office .text-image .image {
+  flex: 1 1 0;
+}
+
+
+/* ===== TEXT ===== */
+
+.virtual-office .text-image .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* ===== IMAGE ===== */
+
+.virtual-office .text-image .image {
+  aspect-ratio: 16 / 9;          /* σταθερό ύψος */
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.virtual-office .text-image .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.btn-cta {
+  font-size: 1.25rem;
+  padding: 1.2rem 2.8rem;
+  border-radius: 60px;
+
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: var(--color-accent);
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 25px rgba(217, 4, 41, 0.35),
+    0 0 40px rgba(217, 4, 41, 0.25);
+
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    filter var(--duration-fast) var(--ease-standard);
+}
+
+.btn-cta:hover {
+  transform: translateY(-6px) scale(1.07);
+
+  box-shadow:
+    0 25px 60px rgba(217, 4, 41, 0.9),
+    0 0 80px rgba(217, 4, 41, 0.6);
+
+  filter: brightness(1.2);
+}
+
+.virtual-office .vo-cta {
+  margin-top: var(--space-6);
+  display: flex;
+  justify-content: center;
+}
 
 
 
@@ -1995,13 +2028,13 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   text-align: center;
 }
 
-.video-container .section-header {
-  margin-bottom: var(--space-4);
-}
-
 .video-container .section-header h2,
-.video-container .section-header p {
-  color: var(--color-text);
+.faq-title h2 {
+  color: var(--color-primary);  /* ← Ή var(--color-text) */
+      /* ← Ίδιο μέγεθος */
+  font-weight: 700;             /* ← Ίδιο weight */
+  line-height: 1.2;             /* ← Ίδιο line-height */
+  letter-spacing: -0.02em;      /* ← Ίδιο spacing */
 }
 
 .video-wrapper {
@@ -2024,16 +2057,11 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 /* FAQ Section */
 .faq-section {
   /* Προσθήκη url('path/to/image.jpg') στο τέλος */
-  background: 
-     linear-gradient(rgba(43, 45, 66, 0.95), rgba(43, 45, 66, 0.95)),
-    url("../../images/pic04.webp");
-    var(--color-primary);
-  
-  /* Ρυθμίσεις για τη σωστή εμφάνιση της εικόνας */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Ή fixed για εφέ parallax */
+  background-color: var(--color-secondary);
+  background-image: 
+    linear-gradient(rgba(43, 45, 66, 0.02) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(43, 45, 66, 0.02) 2px, transparent 2px);
+  background-size: 30px 30px;
 
   min-height: auto;
   padding-block: clamp(4rem, 10vh, 10rem);
@@ -2045,7 +2073,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   display: inline-block;
   font-weight: 600;
   line-height: 1;
-  color: var(--color-text);
+  color: var(--color-muted);
   margin-bottom: 45px;
 }
 
@@ -2055,13 +2083,13 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   left: 50%;
   width: 60px;
   height: 2px;
-  background: var(--color-text);
+  background: var(--color-accent);
   bottom: -25px;
   margin-left: -30px;
 }
 
 .faq-title p {
-  color: var(--color-text);
+  color: var(--color-muted);
   max-width: 600px;
   margin-inline: auto;
 }
@@ -2088,19 +2116,19 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   border-bottom: none;
 }
 
-/* ✅ FAQ Card Header - ΜΟΝΟ ΕΔΩ */
+/* FAQ Card Header - FIXED */
 .faq-card-header {
   padding: 0;
   border: none;
   background: none;
   transition: 
-    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .faq-card-header:hover {
   background: linear-gradient(var(--overlay-bg), var(--overlay-bg));
-  transform: translateX(8px) scale(1.01);
+  /* ← ΑΦΑΙΡΕΣΑ το transform: translateX(8px) scale(1.01); */
 }
 
 .faq-card.active .faq-card-header {
@@ -2140,7 +2168,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   border-radius: 50%;
   background: var(--color-accent);
   color: var(--color-text);
-  font-size: var(--fs-lg);
+  
   font-weight: 700;
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
               background 0.3s ease;
@@ -2158,7 +2186,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   padding: 0 30px;
   padding-left: 77px;
   font-weight: 400;
-  font-size: var(--fs-base);
+  
   color: var(--color-text);
   line-height: var(--lh-loose);
   letter-spacing: 0.3px;
@@ -2186,367 +2214,6 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 .faq-section .section-inner {
   max-width: 1400px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================================================
-   PRICES - NEW 3-SECTION LAYOUT
-========================================================= */
-
-.pricing {
-  background: var(--color-secondary);
-  padding-block: clamp(4rem, 6vw, 7rem);
-}
-
-.pricing .section-header {
-  text-align: center;
-  margin-bottom: var(--space-6);
-}
-
-.pricing .section-header h2 {
-  color: var(--color-primary);
-  font-size: var(--fs-3xl);
-  margin-bottom: var(--space-2);
-}
-
-.pricing .section-header p {
-  color: var(--color-muted);
-  font-size: var(--fs-lg);
-}
-
-/* ========== PRICING CATEGORY ========== */
-
-.pricing-category {
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-6);
-  border-bottom: 2px solid rgba(43, 45, 66, 0.1);
-}
-
-.pricing-category:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.category-title {
-  font-family: var(--font-heading);
-  font-size: var(--fs-2xl);
-  color: var(--color-primary);
-  text-align: center;
-  margin-bottom: var(--space-2);
-}
-
-.category-description {
-  text-align: center;
-  color: var(--color-muted);
-  font-size: var(--fs-base);
-  margin-bottom: var(--space-5);
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-/* ========== PRICING GRID ========== */
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
-  max-width: 1000px; /* ΑΝΟΙΓΕΙ ΟΛΑ */
-  margin-inline: auto;
-  
-}
-
-.pricing-category:nth-of-type(2) .pricing-grid {
-  grid-template-columns: minmax(0, 1fr);
-  max-width: 500px;
-}
-
-
-/* ========== PRICING CARD ========== */
-
-.pricing-card {
-  background: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-md);
-  border: 2px solid rgba(43, 45, 66, 0.08);
-
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-
-  transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(43, 45, 66, 0.15);
-  border-color: var(--color-accent);
-
- 
-}
-
-
-
-/* Featured Card */
-.pricing-card.featured {
-  border: 3px solid var(--color-accent);
-  position: relative;
-  transform: scale(1.05);
-}
-
-.pricing-card.featured:hover {
-  transform: translateY(-8px) scale(1.05);
-}
-
-.featured-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  background: var(--color-accent);
-  color: var(--color-text);
-  
-  padding: 0.4rem 1.2rem;
-  border-radius: var(--radius-md);
-  
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  
-  box-shadow: 0 4px 12px rgba(217, 4, 41, 0.3);
-}
-
-/* ========== CARD HEADER ========== */
-
-.pricing-card-header {
-  text-align: center;
-  padding-bottom: var(--space-4);
-  border-bottom: 2px solid rgba(43, 45, 66, 0.1);
-  margin-bottom: var(--space-4);
-}
-
-.plan-name {
-  font-family: var(--font-heading);
-  font-size: var(--fs-xl);
-  color: var(--color-primary);
-  margin-bottom: var(--space-3);
-}
-
-.plan-price {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.3rem;
-}
-
-.price-amount {
-  font-size: var(--fs-3xl);
-  font-weight: 700;
-  color: var(--color-accent);
-}
-
-.price-period {
-  font-size: var(--fs-sm);
-  color: var(--color-muted);
-}
-
-/* ========== FEATURES LIST ========== */
-
-.features-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-5);
-  flex-grow: 1;
-}
-
-.feature-item {
-  display: flex;
-  align-items: flex-start; /* όλα ξεκινάνε από πάνω */
-  gap: var(--space-2);
-  padding: var(--space-2) 0;
-  color: var(--color-muted);
-  font-size: var(--fs-base);
-  line-height: var(--lh-normal);
-  position: relative;
-}
-
-.feature-item i {
-  color: #2ea44f;
-  font-size: 1rem;
-  margin-top: 0.15rem;
-  flex-shrink: 0;
-}
-
-/* Agreement items (handshake icon) */
-.feature-item.agreement i {
-  color: var(--color-accent);
-}
-
-/* ========== CONCIERGE SECTIONS ========== */
-
-.concierge-card {
-  padding: var(--space-6);
-    max-width: 1100px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.concierge-section {
-  margin-bottom: var(--space-4);
-}
-
-.section-subtitle {
-  font-family: var(--font-heading);
-  font-size: var(--fs-lg);
-  color: var(--color-primary);
-  margin-bottom: var(--space-3);
-  padding-bottom: var(--space-2);
-  border-bottom: 1px solid rgba(43, 45, 66, 0.1);
-}
-
-
-
-
-
-
-/* ========== PRICING BUTTON ========== */
-
-.pricing-btn {
-  width: 100%;
-  margin-top: auto;
-  text-align: center;
-  padding: 0.85em 1.5em;
-  font-size: var(--fs-base);
-}
-
-
-
-
-
-/* Tooltip wrapper */
-.info-tooltip {
-  position: relative;
-  display: inline-flex;
-}
-
-/* ? button */
-.info-btn {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: none;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 12px;
-  line-height: 1;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-}
-
-/* Tooltip box */
-.tooltip-box {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%);
-
-  width: 260px;
-  padding: 0.9rem 1rem;
-
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  font-size: 0.85rem;
-  line-height: 1.4;
-
-  border-radius: 0.6rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-/* Arrow */
-.tooltip-box::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  border-width: 6px;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
-}
-
-/* Show on hover */
-.info-tooltip:hover .tooltip-box,
-.info-tooltip:focus-within .tooltip-box {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(-4px);
-}
-.feature-row {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  align-items: start; /* ΑΠΟ ΠΑΝΩ */
-  column-gap: 0.5rem;
-  width: 100%;
-}
-
-.feature-label {
-  justify-self: start;
-  white-space: nowrap;
-}
-
-.info-tooltip {
-  margin-left: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3031,8 +2698,71 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 
 
+/* ================= COOKIE BANNER ================= */
 
+.cookie-banner {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(95%, 1000px);
+  background: rgba(15, 20, 35, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+ padding: 36px 48px;
+border-radius: 18px;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
 
+.cookie-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  color: #ffffff;
+  font-size: 14px;
+line-height: 1.7;
+  flex: 1;
+  min-width: 260px;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-btn {
+  padding: 14px 28px;
+font-size: 15px;
+border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.cookie-accept {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.cookie-accept:hover {
+  transform: translateY(-2px);
+}
+
+.cookie-reject {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.cookie-reject:hover {
+  background: rgba(255,255,255,0.08);
+}
 
 
 
@@ -3227,6 +2957,48 @@ img {
   image-rendering: crisp-edges;
   filter: none !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

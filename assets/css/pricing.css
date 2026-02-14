@@ -1,0 +1,1458 @@
+
+
+/* ✅ ΠΡΟΣΘΗΚΗ: Ενιαίο Eyebrow Badge Style - ΙΔΙΑ ΓΙΑ ΟΛΑ */
+.cc-eyebrow,
+.cc-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  
+  /* Πιο έντονα χρώματα - όχι τόσο ανοιχτά */
+  background: rgba(217, 4, 41, 0.15);
+  border: 1px solid rgba(217, 4, 41, 0.4);
+  
+  /* Μεγέθη */
+  padding: var(--space-3) var(--space-6);
+  border-radius: 50px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  
+  /* Glassmorphism */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  animation: badgePulse 3s infinite;
+  
+  /* Έντονο shadow */
+  box-shadow: 
+    0 4px 20px rgba(217, 4, 41, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@keyframes badgePulse {
+  0%, 100% { 
+    box-shadow: 
+      0 4px 20px rgba(217, 4, 41, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 0 15px rgba(217, 4, 41, 0.15);
+  }
+  50% { 
+    box-shadow: 
+      0 8px 30px rgba(217, 4, 41, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(217, 4, 41, 0.25);
+  }
+}
+
+.cc-eyebrow::before,
+.cc-ai-badge::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: badgeDotBlink 2s infinite;
+  box-shadow: 0 0 12px rgba(217, 4, 41, 0.6);
+}
+
+@keyframes badgeDotBlink {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(217, 4, 41, 0.6);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(217, 4, 41, 0.9);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   1. HERO SECTION - ΜΕ BACKGROUND ΜΟΝΟ ΕΔΩ
+======================================== */
+
+.pricing-hero {
+  position: relative;
+  background: 
+    linear-gradient(rgba(43, 45, 66, 0.85), rgba(43, 45, 66, 0.75)),
+    url("../../images/pic04.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding-block: clamp(var(--space-6), 10vw, 8rem);
+  padding-inline: var(--container-padding);
+  min-height: 80vh;
+}
+
+.pricing-hero .container {
+  max-width: 1400px;
+  width: 100%;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.pricing-hero h1 {
+  color: var(--color-text);
+  max-width: 950px;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.pricing-hero h2 {
+  color: var(--color-text);
+  max-width: 720px;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-hero p {
+  color: var(--color-text);
+  max-width: 720px;
+  text-align: left;
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+/* ========================================
+   HERO SERVICES - ANIMATED BUTTONS
+======================================== */
+
+.hero-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero-service-btn {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px 16px;
+    color: #00d4ff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hero-service-btn:hover,
+.hero-service-btn.active {
+    background: #00d4ff;
+    color: var(--color-secondary);
+    box-shadow: 0 0 3px #00d4ff,      /* από 5px → 3px */
+                0 0 10px #00d4ff,     /* από 25px → 10px */
+                0 0 20px #00d4ff,     /* από 50px → 20px */
+                0 0 40px #00d4ff;     /* από 200px → 40px */
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.pricing-intro-section .process-step:hover,
+.pricing-intro-section .process-step.active {
+    background: #00d4ff;
+    color: var(--color-secondary);
+    box-shadow: 0 0 3px #00d4ff,
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff,
+                0 0 40px #00d4ff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* Gray circle when active */
+.hero-service-btn.active .step-circle {
+    background: var(--color-secondary);
+    opacity: 1;
+}
+
+/* ========================================
+   ANIMATED BORDER LINES - HERO BUTTONS
+======================================== */
+
+.hero-service-btn span {
+    position: absolute;
+    display: block;
+}
+
+/* Top line - left to right */
+.hero-service-btn span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff);
+    animation: heroAnimate1 1s linear infinite;
+}
+
+.hero-service-btn.active span:nth-child(1) {
+    background: linear-gradient(90deg, transparent, #00d4ff);
+}
+
+/* Right line - top to bottom */
+.hero-service-btn span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00d4ff);
+    animation: heroAnimate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+.hero-service-btn.active span:nth-child(2) {
+    background: linear-gradient(180deg, transparent, #00d4ff);
+}
+
+/* Bottom line - right to left */
+.hero-service-btn span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00d4ff);
+    animation: heroAnimate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+.hero-service-btn.active span:nth-child(3) {
+    background: linear-gradient(270deg, transparent, #00d4ff);
+}
+
+/* Left line - bottom to top */
+.hero-service-btn span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00d4ff);
+    animation: heroAnimate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.hero-service-btn.active span:nth-child(4) {
+    background: linear-gradient(360deg, transparent, #00d4ff);
+}
+
+/* ========================================
+   KEYFRAMES - HERO ANIMATIONS
+======================================== */
+
+@keyframes heroAnimate1 {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes heroAnimate2 {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+@keyframes heroAnimate3 {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+@keyframes heroAnimate4 {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+/* ========================================
+   CONTENT INSIDE HERO BUTTON
+======================================== */
+
+.hero-service-btn .step-circle {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+}
+
+.hero-service-btn h4 {
+    font-weight: 400;
+    color: var(--color-secondary); 
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE - HERO
+======================================== */
+
+@media (max-width: 768px) {
+    .hero-services {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .hero-service-btn {
+        padding: 20px 25px;
+        letter-spacing: 2px;
+    }
+}
+
+/* ========================================
+   PRICING INTRO SECTION
+======================================== */
+
+.pricing-intro-section {
+  position: relative;
+  min-height: auto;
+  padding: var(--space-2) var(--container-padding);
+  background-color: var(--color-secondary);
+  background-image: 
+    linear-gradient(rgba(237, 242, 244, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(237, 242, 244, 0.05) 2px, transparent 2px);
+  background-size: 30px 30px;
+  isolation: isolate;
+}
+
+.pricing-intro-section .container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ========================================
+   NEON BUTTONS (Process Steps)
+======================================== */
+
+.pricing-intro-section .process-steps {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.pricing-intro-section .process-step {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #00d4ff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pricing-intro-section .process-step:hover {
+    background: #00d4ff;
+    color: var(--color-secondary);
+    box-shadow: 0 0 5px #00d4ff,
+                0 0 25px #00d4ff,
+                0 0 50px #00d4ff,
+                0 0 200px #00d4ff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.pricing-intro-section .process-step.active {
+    background: #00d4ff;
+    color: var(--color-secondary);
+    box-shadow: 0 0 5px #00d4ff,
+                0 0 25px #00d4ff,
+                0 0 50px #00d4ff,
+                0 0 200px #00d4ff;
+}
+
+.pricing-intro-section .process-step.active .step-circle {
+    background: var(--color-secondary);
+    opacity: 1;
+}
+
+/* ========================================
+   ANIMATED BORDER LINES
+======================================== */
+
+.pricing-intro-section .process-step span {
+    position: absolute;
+    display: block;
+}
+
+/* Top line - left to right */
+.pricing-intro-section .process-step span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff);
+    animation: animate1 1s linear infinite;
+}
+
+.pricing-intro-section .process-step.active span:nth-child(1) {
+    background: linear-gradient(90deg, transparent, #00d4ff);
+}
+
+/* Right line - top to bottom */
+.pricing-intro-section .process-step span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00d4ff);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+.pricing-intro-section .process-step.active span:nth-child(2) {
+    background: linear-gradient(180deg, transparent, #00d4ff);
+}
+
+/* Bottom line - right to left */
+.pricing-intro-section .process-step span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00d4ff);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+.pricing-intro-section .process-step.active span:nth-child(3) {
+    background: linear-gradient(270deg, transparent, #00d4ff);
+}
+
+/* Left line - bottom to top */
+.pricing-intro-section .process-step span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00d4ff);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.pricing-intro-section .process-step.active span:nth-child(4) {
+    background: linear-gradient(360deg, transparent, #00d4ff);
+}
+
+/* ========================================
+   KEYFRAMES
+======================================== */
+
+@keyframes animate1 {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes animate2 {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+@keyframes animate3 {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+@keyframes animate4 {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+/* ========================================
+   CONTENT INSIDE BUTTON
+======================================== */
+
+.pricing-intro-section .step-circle {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   PRICING SECTION - BASE
+======================================== */
+
+.pricing-section {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(var(--space-4), 8vw, 7rem);
+  margin-top: 0;
+  padding-top: var(--space-4);  /* ← Πολύ μικρό padding */
+}
+
+.pricing-section .container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ========================================
+   SECTION HEADER (PER SERVICE)
+======================================== */
+
+.pricing-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 70px;
+}
+
+.pricing-header h2 {
+  margin: 12px 0 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.pricing-intro {
+  color: var(--color-muted);
+  line-height: 1.65;
+  
+}
+
+/* ========================================
+   PRICING GRID
+======================================== */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+/* ========================================
+   PRICING CARD
+======================================== */
+
+.pricing-card {
+  position: relative;
+  background: rgba(255,255,255,0.95);
+  
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid rgba(255,255,255,0.6);
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05),
+    0 20px 60px rgba(0,0,0,0.04);
+
+  transition:
+    transform 0.35s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.35s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Featured Card */
+
+.pricing-card.featured {
+  background: linear-gradient(
+    145deg,
+    rgba(58,61,82,0.98),
+    rgba(46,48,65,0.98)
+  );
+  border: 1px solid rgba(217,4,41,0.4);
+  box-shadow:
+    0 25px 70px rgba(217,4,41,0.25),
+    0 10px 40px rgba(0,0,0,0.4);
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .pricing-card.featured {
+    transform: none;
+  }
+}
+
+/* ========================================
+   FEATURED BADGE
+======================================== */
+
+.featured-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  white-space: nowrap;
+}
+
+/* ========================================
+   CARD HEADER
+======================================== */
+
+.pricing-card-header {
+  text-align: center;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  position: relative;
+}
+
+.pricing-card-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60px;
+  height: 2px;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+
+/* ========================================
+   PRICE DISPLAY
+======================================== */
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.plan-price::before {
+  content: "€";
+  
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+
+.pricing-card.featured .plan-price::before {
+  color: var(--color-secondary);
+}
+
+.price-amount {
+  font-family: 'Bebas Neue', sans-serif; /* ή 'Poppins' */
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+}
+
+
+.pricing-card.featured .price-amount {
+  color: var(--color-secondary);
+}
+
+.price-period {
+    font-size: 16px; /* ή 1rem */
+    font-weight: 400;
+    color: #666;
+    font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
+}
+
+.pricing-card.featured .price-period {
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+
+
+
+/* ========================================
+   FEATURES
+======================================== */
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+  flex-grow: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  
+  color: var(--color-muted);
+  line-height: var(--lh-normal);
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.pricing-card.featured .feature-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--color-secondary);
+}
+
+/* Icon */
+
+.feature-item::before {
+  content: "✓";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34,197,94,0.15);
+  color: var(--color-success);
+  
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Agreement */
+
+.feature-item.agreement::before {
+  content: "◆◆◆";
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+  
+}
+
+/* Feature Text Blocks */
+
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-title {
+  font-weight: 600;
+}
+
+.feature-sub {
+  
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CONCIERGE SUBSECTIONS
+======================================== */
+
+.concierge-section {
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+ 
+  font-weight: 700;
+  text-align: center; 
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+}
+
+.pricing-card.featured .section-subtitle {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.pricing-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+
+/* ========================================
+   PRICING SECTIONS - Simple & Clean
+======================================== */
+/* Option 4: Με τα χρώματα σου */
+.virtual-office {
+  background: linear-gradient(180deg, #f8fcff 0%, #eff6fc 100%);
+}
+
+.call-handling {
+  background: linear-gradient(180deg, #f8fcff 0%, #eff6fc 100%);
+}
+
+.business-concierge {
+  background: linear-gradient(180deg, #f8fcff 0%, #eff6fc 100%);
+}
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .pricing-card {
+    padding: var(--space-4);
+  }
+
+  .featured-badge {
+ 
+    padding: 6px 12px;
+  }
+
+}
+
+
+/* ========================================
+   PLAN NAME (missing)
+======================================== */
+.plan-name {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.pricing-card.featured .plan-name {
+  color: var(--color-secondary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   COMBINE SECTION
+======================================== */
+
+.combine-section {
+  position: relative;
+  z-index: 1;
+    position: relative;
+  padding: var(--space-6) var(--container-padding);
+  background-color: var(--color-primary);
+  background-image:
+    linear-gradient(rgba(237, 242, 244, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(237, 242, 244, 0.05) 2px, transparent 2px);
+    
+  background-size: 30px 30px;
+
+}
+
+/* ========================================
+   GRID (reuse pricing system)
+======================================== */
+
+.combine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+/* ========================================
+   CARD (extends pricing-card logic)
+======================================== */
+
+
+.combine-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+/* ========================================
+   HEADER TYPOGRAPHY
+======================================== */
+
+.combine-section .pricing-header h2 {
+  color:var(--color-secondary)
+}
+
+.combine-section .pricing-header .pricing-intro {
+  color:var(--color-secondary)
+}
+
+.combine-section .pricing-header .cc-ai-badge {
+  color:var(--color-secondary)
+}
+/* ========================================
+   ICON
+======================================== */
+
+.combine-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.combine-icon svg {
+  width: 32px;   /* από 24px */
+  height: 32px;  /* από 24px */
+  fill: var(--color-accent);
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+.combine-card h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.combine-card p {
+  color: var(--color-muted);
+  line-height: var(--lh-normal);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ========================================
+   CTA
+======================================== */
+
+.combine-cta {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+.combine-btn {
+  display: inline-flex;
+}
+
+
+.combine-icon svg path {
+    fill: currentColor; /* ή συγκεκριμένο χρώμα */
+}
+
+/* ή για συγκεκριμένο χρώμα */
+.combine-icon svg path {
+    fill: var(--accent-gold);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes ctaPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 8px 30px rgba(217, 4, 41, 0.4),
+      0 0 60px rgba(217, 4, 41, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 
+      0 12px 40px rgba(217, 4, 41, 0.6),
+      0 0 80px rgba(217, 4, 41, 0.5);
+  }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 1366px) {
+  .pricing-connector {
+    display: none !important;
+  }
+}
+
+.connector-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.conn-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.conn-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #2b2d42;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 3px rgba(217, 4, 41, 0.2);
+  transition: all 0.3s ease;
+}
+
+.conn-label:hover .conn-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(217, 4, 41, 0.3), 0 0 0 4px rgba(217, 4, 41, 0.4);
+}
+
+.conn-text {
+  background: #2b2d42;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.conn-label:hover .conn-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.conn-label-final .conn-icon {
+  background: #d90429;
+  color: white;
+  width: 64px;
+  height: 64px;
+  animation: finalPulse 2s infinite;
+}
+
+@keyframes finalPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(217, 4, 41, 0); }
+}
+
+/* ========================================
+   TABS FUNCTIONALITY - ΠΡΟΣΘΗΚΗ
+======================================== */
+
+.pricing-tab-content {
+    display: none;
+}
+
+.pricing-tab-content.active {
+    display: block;
+    animation: fadeInTab 0.5s ease;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-service-btn.active {
+    background: var(--color-accent) !important;
+    color: var(--color-secondary) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   🔥 RESPONSIVE - MOBILE & TABLET 🔥
+======================================== */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+  .pricing-hero {
+    min-height: 60vh;
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+  
+  .combine-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .pricing-intro-section .process-steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .pricing-intro-section .process-step {
+    margin: 20px 0;
+    margin-right: 0;
+    padding: 20px 25px;
+  }
+}
+
+/* MOBILE (max 768px) */
+@media (max-width: 768px) {
+  
+  /* HERO */
+  .pricing-hero {
+    min-height: auto;
+    padding-block: 3rem;
+    text-align: center;
+  }
+  
+  .pricing-hero .container {
+    align-items: center;
+    padding-inline: 1.25rem;
+  }
+  
+  .pricing-hero h1,
+  .pricing-hero h2,
+  .pricing-hero p {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .pricing-hero h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+  
+  .pricing-hero h2 {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .pricing-hero p {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* HERO SERVICES BUTTONS */
+  .hero-services {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .hero-service-btn {
+    padding: 18px 20px;
+    letter-spacing: 2px;
+  }
+  
+  .hero-service-btn h4 {
+    font-size: 0.875rem;
+  }
+  
+  .hero-service-btn .step-circle {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* BADGES */
+  .cc-eyebrow,
+  .cc-ai-badge {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  
+  /* PRICING INTRO SECTION */
+  .pricing-intro-section {
+    padding: var(--space-4) var(--container-padding);
+  }
+  
+  .pricing-intro-section .process-steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .pricing-intro-section .process-step {
+    padding: 18px 20px;
+    margin: 15px 0;
+    margin-right: 0;
+    letter-spacing: 2px;
+  }
+  
+  .pricing-intro-section .step-circle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* PRICING SECTION */
+  .pricing-section {
+    padding-block: clamp(2rem, 6vw, 4rem);
+  }
+  
+  .pricing-header {
+    margin-bottom: 40px;
+  }
+  
+  .pricing-header h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  /* PRICING CARDS */
+  .pricing-card {
+    padding: var(--space-4) var(--space-3);
+  }
+  
+  .pricing-card.featured {
+    transform: none;
+    margin-bottom: var(--space-4);
+  }
+  
+  .featured-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    top: -10px;
+  }
+  
+  .price-amount {
+    font-size: 48px;
+  }
+  
+  .price-period {
+    font-size: 14px;
+  }
+  
+  .plan-name {
+    font-size: 1.25rem;
+  }
+  
+  .feature-item {
+    padding: var(--space-2) 0;
+    font-size: 0.9rem;
+  }
+  
+  .feature-item::before {
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+  }
+  
+  /* COMBINE SECTION */
+  .combine-section {
+    padding: var(--space-5) var(--container-padding);
+  }
+  
+  .combine-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .combine-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .combine-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .combine-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .combine-card p {
+    font-size: 0.95rem;
+  }
+  
+  /* HIDE CONNECTORS ON MOBILE */
+  .pricing-connector,
+  .connector-labels {
+    display: none !important;
+  }
+  
+  /* CTA BUTTONS */
+  .hero-cta,
+  .combine-cta {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .pricing-btn,
+  .combine-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* EXTRA SMALL MOBILE (max 480px) */
+@media (max-width: 480px) {
+  .pricing-hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .pricing-hero h2 {
+    font-size: 1.15rem;
+  }
+  
+  .price-amount {
+    font-size: 42px;
+  }
+  
+  .hero-service-btn,
+  .pricing-intro-section .process-step {
+    padding: 15px 18px;
+    letter-spacing: 1.5px;
+  }
+  
+  .feature-item {
+    font-size: 0.85rem;
+  }
+}
