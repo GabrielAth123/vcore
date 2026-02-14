@@ -2518,16 +2518,18 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 ========================================================= */
 
 .footer {
-   position: relative;
-
+  position: relative;
   background-image:
     linear-gradient(rgba(43, 45, 66, 0.95), rgba(43, 45, 66, 0.95)),
     url("../../images/intro-bg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  padding-block: 3.5rem 2.5rem;
+  
+ 
+  background-attachment: fixed;
+  
+  padding-block: 2 2.5rem; 
 }
 
 .footer .section-inner {

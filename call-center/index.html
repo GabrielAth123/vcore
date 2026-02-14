@@ -83,60 +83,15 @@
 							>
 						</a>
 
-						<nav class="main-nav">
-						<ul>
-							<li><a href="/">Home</a></li>
-							
-							<li><a href="/pricing/index.html#call-handling">Pricing</a></li>
-							<li><a href="/#faq">FAQ</a></li>
-								<li><a href="/#contact" class="btn">Contact Us</a></li>
-              
-						
-						
-						
-						
-							<li class="language-switcher">
-								<div class="lang-dropdown">
-									<button class="lang-toggle" aria-label="Language Selection">
-										 EN <i class="fas fa-chevron-down"></i>
-									</button>
-									<div class="lang-menu">
-										<a href="index.html" class="lang-option active"><svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-label="United Kingdom">
-											<rect width="60" height="30" fill="#012169"/>
-											<!-- white diagonals -->
-											<polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff"/>
-											<polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff"/>
-											<!-- red diagonals -->
-											<polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E"/>
-											<polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E"/>
-											<!-- white cross -->
-											<rect x="24" width="12" height="30" fill="#ffffff"/>
-											<rect y="9" width="60" height="12" fill="#ffffff"/>
-											<!-- red cross -->
-											<rect x="26" width="8" height="30" fill="#C8102E"/>
-											<rect y="11" width="60" height="8" fill="#C8102E"/>
-											</svg>
-											English</a>
-										<a href="el/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
-										<rect width="27" height="18" fill="#0D5EAF"/>
-										<!-- white stripes -->
-										<rect y="2" width="27" height="2" fill="#ffffff"/>
-										<rect y="6" width="27" height="2" fill="#ffffff"/>
-										<rect y="10" width="27" height="2" fill="#ffffff"/>
-										<rect y="14" width="27" height="2" fill="#ffffff"/>
-										<!-- canton -->
-										<rect width="10" height="10" fill="#0D5EAF"/>
-										<rect x="4" width="2" height="10" fill="#ffffff"/>
-										<rect y="4" width="10" height="2" fill="#ffffff"/>
-										</svg>
-										Ελληνικά</a>
-									
-									</div>
-								</div>
-							</li>
-
-						  </ul>
-						</nav>
+					<nav class="main-nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+       <li><a href="/pricing/index.html#call-handling">Pricing</a></li>  
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact" class="btn">Contact Us</a></li>
+    </ul>
+</nav>
 
 					</div>
 					</header>
@@ -451,7 +406,7 @@
           <span class="cc-pillar-num">02</span>
         </div>
         <div class="cc-pillar-content">
-          <h3>Automated Opportunity Capture</h3>
+          <h3>Opportunity Capture</h3>
           <p>Each interaction is transformed into structured business data, eliminating manual intake and information loss.</p>
           <div class="cc-feature-tags">
             <span class="cc-tag">CRM Sync</span>
@@ -1408,16 +1363,21 @@ function initScrollProgress() {
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
 }
 
-
 // ================= TIMELINE OBSERVER =================
 function initTimelineObserver() {
+  const animatedSteps = new Set(); // Κρατάει ποια έχουν παίξει
 
   const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         const step = entry.target.dataset.step;
-        if (step) triggerStepAnimation(parseInt(step));
+        
+        // Παίζει ΜΟΝΟ αν δεν έχει παίξει ξανά
+        if (step && !animatedSteps.has(step)) {
+          animatedSteps.add(step);
+          triggerStepAnimation(parseInt(step));
+        }
       }
     });
   }, { threshold: 0.2 });
@@ -1426,7 +1386,6 @@ function initTimelineObserver() {
     timelineObserver.observe(el);
   });
 }
-
 
 function triggerStepAnimation(step) {
   switch(step) {
@@ -1438,48 +1397,37 @@ function triggerStepAnimation(step) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ================= STEP 1: INCOMING CALL =================
+let callAnimated = false;
+
 function animateIncomingCall() {
+  if (callAnimated) return; // Μία φορά
+  callAnimated = true;
+
   const callStatus = document.getElementById('callStatus');
   const robotStatus = document.getElementById('robotStatus1');
   const transcript = document.getElementById('transcript1');
   const waveform = document.getElementById('waveform1');
   const phoneInterface = document.querySelector('.phone-interface');
-  const ringingIndicator = phoneInterface ? phoneInterface.querySelector('.ringing-indicator') : null;
   const phoneIcon = phoneInterface ? phoneInterface.querySelector('.phone-icon') : null;
   const rings = phoneInterface ? phoneInterface.querySelectorAll('.ring') : [];
   const robotAvatar = document.querySelector('.robot-avatar');
 
   if (!callStatus || !transcript) return;
 
-  // RESET - Αρχική κατάσταση
+  // RESET
   callStatus.textContent = 'Incoming Call...';
   callStatus.classList.remove('answered');
   
   if (robotStatus) {
     robotStatus.textContent = 'Waiting...';
-    robotStatus.classList.remove('active'); // Κόκκινο
+    robotStatus.classList.remove('active');
   }
   if (robotAvatar) robotAvatar.classList.remove('active');
   
   if (waveform) waveform.classList.remove('active');
   transcript.innerHTML = '<span class="typing-cursor"></span>';
   
-  // Rings κόκκινα
   rings.forEach(ring => {
     ring.style.background = '';
     ring.style.boxShadow = '';
@@ -1491,20 +1439,15 @@ function animateIncomingCall() {
     phoneIcon.innerHTML = '📞';
   }
 
-  // Step 2: AI Answering
   setTimeout(() => {
     callStatus.textContent = 'AI Answering...';
-    if (robotStatus) {
-      robotStatus.textContent = 'Connecting...';
-    }
+    if (robotStatus) robotStatus.textContent = 'Connecting...';
   }, 1500);
 
-  // Step 3: Connected - ΟΛΑ ΠΡΑΣΙΝΑ
   setTimeout(() => {
     callStatus.textContent = 'Connected ✓';
     callStatus.classList.add('answered');
     
-    // Rings πράσινα
     rings.forEach(ring => {
       ring.style.background = '#10b981';
       ring.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.5)';
@@ -1516,17 +1459,14 @@ function animateIncomingCall() {
       phoneIcon.innerHTML = '🔊';
     }
     
-    // Robot πράσινο
     if (robotStatus) {
       robotStatus.textContent = 'Speaking...';
       robotStatus.classList.add('active');
     }
     if (robotAvatar) robotAvatar.classList.add('active');
-    
     if (waveform) waveform.classList.add('active');
   }, 2500);
 
-  // Step 4: Speaking text
   const text = "Hello, thank you for calling VCORE. I am Victor, your digital assistant. How may I assist you today?";
   let i = 0;
 
@@ -1540,7 +1480,6 @@ function animateIncomingCall() {
         clearInterval(interval);
         transcript.innerHTML += '<span class="typing-cursor"></span>';
 
-        // Step 5: Listening - Πίσω σε κόκκινο
         setTimeout(() => {
           if (waveform) waveform.classList.remove('active');
           if (robotStatus) {
@@ -1553,217 +1492,222 @@ function animateIncomingCall() {
     }, 40);
   }, 3000);
 }
-  // ================= STEP 2: CHAT =================
-  const conversation = [
-    { sender: 'ai', text: "Good morning, you're speaking with VCORE. I'm Victor, your digital assistant. How may I help you today?", typing: true },
-    { sender: 'caller', text: 'Ναι καλημέρα σας', typing: false },
-    { sender: 'ai', text: 'Καλημέρα! Πώς μπορώ να σας εξυπηρετήσω;', typing: true },
-    { sender: 'caller', text: 'Ονομάζομαι Γαβριήλ Αθανασίου, και θέλω να κλείσω ένα ραντεβού.', typing: false },
-    { sender: 'ai', text: 'Χαίρομαι πολύ κύριε Αθανασίου! Μπορώ να έχω το τηλέφωνο σας;', typing: true },
-    { sender: 'caller', text: 'Ναι, 694 123 4567.', typing: false },
-    { sender: 'ai', text: 'Ευχαριστώ πολύ. Για ποια ημερομηνία θα προτιμούσατε το ραντεβού σας;', typing: true },
-    { sender: 'caller', text: 'Θα μπορούσαμε να το κλείσουμε για την επόμενη Τρίτη;', typing: false },
-    { sender: 'ai', text: 'Φυσικά! Ελέγχω τη διαθεσιμότητα για την Τρίτη 10 Φεβρουαρίου... Έχουμε διαθέσιμα slots στις 10:00, 11:30, 14:00 και 16:00. Ποια ώρα σας βολεύει καλύτερα;', typing: true },
-    { sender: 'caller', text: 'Θα προτιμούσα τις 14:00 το μεσημέρι.', typing: false },
-    { sender: 'ai', text: 'Τέλεια! Κρατάω το ραντεβού για Τρίτη 10 Φεβρουαρίου στις 14:00. Η διάρκεια θα είναι περίπου 45 λεπτά. Θα χρειαστείτε online meeting ή θα προτιμούσατε να έρθετε στα γραφεία μας;', typing: true },
-    { sender: 'caller', text: 'Θα προτιμούσα online μέσω Zoom.', typing: false },
-    { sender: 'ai', text: 'Εντάξει! Το ραντεβού σας είναι επιβεβαιωμένο. Θα σας στείλω SMS επιβεβαίωσης με το Zoom link στο τηλέφωνο 694 123 4567. Υπάρχει κάτι άλλο που μπορώ να κάνω για εσάς σήμερα κύριε Αθανασίου;', typing: true },
-    { sender: 'caller', text: 'Όχι ευχαριστώ.', typing: false },
-    { sender: 'ai', text: 'Χαίρομαι που μπόρεσα να βοηθήσω! Να έχετε μια υπέροχη μέρα!', typing: true }
-  ];
 
-  const TIMING = {
-    afterCaller: 2500,
-    afterAI: 2000,
-    typingDuration: 1200,
-    beforeRestart: 4000
-  };
+// ================= STEP 2: CHAT =================
+const conversation = [
+  { sender: 'ai', text: "Good morning, you're speaking with VCORE. I'm Victor, your digital assistant. How may I help you today?", typing: true },
+  { sender: 'caller', text: 'Ναι καλημέρα σας', typing: false },
+  { sender: 'ai', text: 'Καλημέρα! Πώς μπορώ να σας εξυπηρετήσω;', typing: true },
+  { sender: 'caller', text: 'Ονομάζομαι Γαβριήλ Αθανασίου, και θέλω να κλείσω ένα ραντεβού.', typing: false },
+  { sender: 'ai', text: 'Χαίρομαι πολύ κύριε Αθανασίου! Μπορώ να έχω το τηλέφωνο σας;', typing: true },
+  { sender: 'caller', text: 'Ναι, 694 123 4567.', typing: false },
+  { sender: 'ai', text: 'Ευχαριστώ πολύ. Για ποια ημερομηνία θα προτιμούσατε το ραντεβού σας;', typing: true },
+  { sender: 'caller', text: 'Θα μπορούσαμε να το κλείσουμε για την επόμενη Τρίτη;', typing: false },
+  { sender: 'ai', text: 'Φυσικά! Ελέγχω τη διαθεσιμότητα για την Τρίτη 10 Φεβρουαρίου... Έχουμε διαθέσιμα slots στις 10:00, 11:30, 14:00 και 16:00. Ποια ώρα σας βολεύει καλύτερα;', typing: true },
+  { sender: 'caller', text: 'Θα προτιμούσα τις 14:00 το μεσημέρι.', typing: false },
+  { sender: 'ai', text: 'Τέλεια! Κρατάω το ραντεβού για Τρίτη 10 Φεβρουαρίου στις 14:00. Η διάρκεια θα είναι περίπου 45 λεπτά. Θα χρειαστείτε online meeting ή θα προτιμούσατε να έρθετε στα γραφεία μας;', typing: true },
+  { sender: 'caller', text: 'Θα προτιμούσα online μέσω Zoom.', typing: false },
+  { sender: 'ai', text: 'Εντάξει! Το ραντεβού σας είναι επιβεβαιωμένο. Θα σας στείλω SMS επιβεβαίωσης με το Zoom link στο τηλέφωνο 694 123 4567. Υπάρχει κάτι άλλο που μπορώ να κάνω για εσάς σήμερα κύριε Αθανασίου;', typing: true },
+  { sender: 'caller', text: 'Όχι ευχαριστώ.', typing: false },
+  { sender: 'ai', text: 'Χαίρομαι που μπόρεσα να βοηθήσω! Να έχετε μια υπέροχη μέρα!', typing: true }
+];
 
-  let chatRunning = false;
+const TIMING = {
+  afterCaller: 2500,
+  afterAI: 2000,
+  typingDuration: 1200
+};
 
-  function wait(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+let chatAnimated = false;
+let chatRunning = false;
 
-  function showTyping(container) {
-    const typing = document.createElement('div');
-    typing.className = 'chat-bubble ai typing';
-    typing.id = 'typing-indicator';
-    typing.innerHTML = `
-      <div class="voice-waveform">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-    `;
-    container.appendChild(typing);
-    container.scrollTop = container.scrollHeight;
-  }
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-  function removeTyping(container) {
-    const indicator = document.getElementById('typing-indicator');
-    if (indicator) indicator.remove();
-  }
+function showTyping(container) {
+  const typing = document.createElement('div');
+  typing.className = 'chat-bubble ai typing';
+  typing.id = 'typing-indicator';
+  typing.innerHTML = `
+    <div class="voice-waveform">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  `;
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+}
 
-  function addMessage(container, msg) {
-    const bubble = document.createElement('div');
-    bubble.className = `chat-bubble ${msg.sender}`;
-    bubble.textContent = msg.text;
-    container.appendChild(bubble);
+function removeTyping(container) {
+  const indicator = document.getElementById('typing-indicator');
+  if (indicator) indicator.remove();
+}
 
-    const messages = container.querySelectorAll('.chat-bubble:not(.typing)');
-    if (messages.length > 12) messages[0].remove();
-  }
+function addMessage(container, msg) {
+  const bubble = document.createElement('div');
+  bubble.className = `chat-bubble ${msg.sender}`;
+  bubble.textContent = msg.text;
+  container.appendChild(bubble);
 
-  async function runChatLoop(container, intentDetection) {
-    container.innerHTML = '';
-    intentDetection.classList.remove('visible');
+  const messages = container.querySelectorAll('.chat-bubble:not(.typing)');
+  if (messages.length > 12) messages[0].remove();
+}
 
-    for (let i = 0; i < conversation.length; i++) {
-      if (!chatRunning) return;
+// ΧΩΡΙΣ LOOP - μία φορά μόνο
+async function runChatOnce(container, intentDetection) {
+  container.innerHTML = '';
+  intentDetection.classList.remove('visible');
 
-      const msg = conversation[i];
+  for (let i = 0; i < conversation.length; i++) {
+    const msg = conversation[i];
 
-      if (msg.typing && msg.sender === 'ai') {
-        showTyping(container);
-        await wait(TIMING.typingDuration);
-        removeTyping(container);
-      }
-
-      addMessage(container, msg);
-      container.scrollTop = container.scrollHeight;
-
-      if (i === 4) intentDetection.classList.add('visible');
-
-      if (i < conversation.length - 1) {
-        await wait(msg.sender === 'caller' ? TIMING.afterCaller : TIMING.afterAI);
-      }
+    if (msg.typing && msg.sender === 'ai') {
+      showTyping(container);
+      await wait(TIMING.typingDuration);
+      removeTyping(container);
     }
 
-    await wait(TIMING.beforeRestart);
+    addMessage(container, msg);
+    container.scrollTop = container.scrollHeight;
 
-    if (chatRunning) runChatLoop(container, intentDetection);
+    if (i === 4) intentDetection.classList.add('visible');
+
+    if (i < conversation.length - 1) {
+      await wait(msg.sender === 'caller' ? TIMING.afterCaller : TIMING.afterAI);
+    }
   }
+  
+  chatRunning = false;
+}
 
-  function animateChat() {
-    if (chatRunning) return;
+function animateChat() {
+  if (chatAnimated) return; // Μία φορά
+  chatAnimated = true;
+  
+  if (chatRunning) return;
+  
+  const container = document.getElementById('chatContainer');
+  const intentDetection = document.getElementById('intentDetection');
 
-    const container = document.getElementById('chatContainer');
-    const intentDetection = document.getElementById('intentDetection');
+  if (!container || !intentDetection) return;
 
-    if (!container || !intentDetection) return;
+  chatRunning = true;
+  runChatOnce(container, intentDetection); // Όχι loop
+}
 
-    chatRunning = true;
-    runChatLoop(container, intentDetection);
-  }
+// ================= STEP 4: CALENDAR =================
+let calendarAnimated = false;
 
-  // ================= STEP 4: CALENDAR =================
-  function animateCalendar() {
-    const day10 = document.getElementById('day10');
-    const timeSlots = document.querySelectorAll('.time-slot');
-    const slot14 = document.getElementById('slot14');
-    const confirmation = document.getElementById('confirmation');
+function animateCalendar() {
+  if (calendarAnimated) return; // Μία φορά
+  calendarAnimated = true;
 
-    if (!day10 || !confirmation) return;
+  const day10 = document.getElementById('day10');
+  const timeSlots = document.querySelectorAll('.time-slot');
+  const slot14 = document.getElementById('slot14');
+  const confirmation = document.getElementById('confirmation');
 
-    day10.classList.remove('selected');
-    timeSlots.forEach(slot => {
-      slot.classList.remove('selected');
-      slot.style.opacity = '0';
-      slot.style.transform = 'translateY(10px)';
-      slot.style.transition = 'all 0.3s ease-out';
+  if (!day10 || !confirmation) return;
+
+  day10.classList.remove('selected');
+  timeSlots.forEach(slot => {
+    slot.classList.remove('selected');
+    slot.style.opacity = '0';
+    slot.style.transform = 'translateY(10px)';
+    slot.style.transition = 'all 0.3s ease-out';
+  });
+  confirmation.classList.remove('show');
+
+  setTimeout(() => {
+    day10.classList.add('selected');
+  }, 1000);
+
+  setTimeout(() => {
+    timeSlots.forEach((slot, index) => {
+      setTimeout(() => {
+        slot.style.opacity = '1';
+        slot.style.transform = 'translateY(0)';
+      }, index * 200);
     });
-    confirmation.classList.remove('show');
+  }, 2000);
 
+  setTimeout(() => {
+    if (slot14) slot14.classList.add('selected');
+  }, 4000);
+
+  setTimeout(() => {
+    confirmation.classList.add('show');
+  }, 5000);
+}
+
+// ================= STEP 5: CRM =================
+let crmAnimated = false;
+
+function animateCRM() {
+  if (crmAnimated) return; // Μία φορά
+  crmAnimated = true;
+
+  const fields = [
+    { id: 'fieldName',    value: 'Athanasiou Gabriel',  field: 'name'    },
+    { id: 'fieldPhone',   value: '+30 694 123 4567',    field: 'phone'   },
+    { id: 'fieldReason',  value: 'Appointment Request', field: 'reason'  },
+    { id: 'fieldUrgency', value: 'Low Priority',        field: 'urgency' }
+  ];
+
+  const tagContainer = document.getElementById('tagContainer');
+
+  fields.forEach(field => {
+    const container = document.querySelector(`[data-field="${field.field}"]`);
+    const element = document.getElementById(field.id);
+    if (container) container.classList.remove('visible');
+    if (element) {
+      element.classList.remove('filled');
+      element.innerHTML = '';
+    }
+  });
+  if (tagContainer) tagContainer.classList.remove('visible');
+
+  fields.forEach((field, index) => {
     setTimeout(() => {
-      day10.classList.add('selected');
-    }, 1000);
-
-    setTimeout(() => {
-      timeSlots.forEach((slot, index) => {
-        setTimeout(() => {
-          slot.style.opacity = '1';
-          slot.style.transform = 'translateY(0)';
-        }, index * 200);
-      });
-    }, 2000);
-
-    setTimeout(() => {
-      if (slot14) slot14.classList.add('selected');
-    }, 4000);
-
-    setTimeout(() => {
-      confirmation.classList.add('show');
-    }, 5000);
-
-    
-  }
-
-  // ================= STEP 5: CRM =================
-  function animateCRM() {
-    const fields = [
-      { id: 'fieldName',    value: 'Athanasiou Gabriel',  field: 'name'    },
-      { id: 'fieldPhone',   value: '+30 694 123 4567',    field: 'phone'   },
-      { id: 'fieldReason',  value: 'Appointment Request', field: 'reason'  },
-      { id: 'fieldUrgency', value: 'Low Priority',        field: 'urgency' }
-    ];
-
-    const tagContainer = document.getElementById('tagContainer');
-
-    // Reset
-    fields.forEach(field => {
       const container = document.querySelector(`[data-field="${field.field}"]`);
       const element = document.getElementById(field.id);
-      if (container) container.classList.remove('visible');
+
+      if (container) container.classList.add('visible');
+
       if (element) {
-        element.classList.remove('filled');
-        element.innerHTML = '';
+        setTimeout(() => {
+          element.classList.add('filled');
+          element.innerHTML = `<span class="typing-fill">${field.value}</span>`;
+        }, 200);
       }
-    });
-    if (tagContainer) tagContainer.classList.remove('visible');
+    }, index * 600);
+  });
 
-    // Animate fields
-    fields.forEach((field, index) => {
-      setTimeout(() => {
-        const container = document.querySelector(`[data-field="${field.field}"]`);
-        const element = document.getElementById(field.id);
+  setTimeout(() => {
+    if (tagContainer) tagContainer.classList.add('visible');
+  }, fields.length * 600 + 400);
+}
 
-        if (container) container.classList.add('visible');
+// ================= STEP 6: NOTIFICATIONS =================
+let notificationsAnimated = false;
 
-        if (element) {
-          setTimeout(() => {
-            element.classList.add('filled');
-            element.innerHTML = `<span class="typing-fill">${field.value}</span>`;
-          }, 200);
-        }
-      }, index * 600);
-    });
+function animateNotifications() {
+  if (notificationsAnimated) return; // Μία φορά
+  notificationsAnimated = true;
 
-    // Show tags
+  const cards = document.querySelectorAll('.notification-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.classList.remove('show');
+  });
+
+  cards.forEach((card, index) => {
     setTimeout(() => {
-      if (tagContainer) tagContainer.classList.add('visible');
-    }, fields.length * 600 + 400);
-
-    
-  }
-
-  // ================= STEP 6: NOTIFICATIONS =================
-  function animateNotifications() {
-    const cards = document.querySelectorAll('.notification-card');
-    if (!cards.length) return;
-
-    // Reset
-    cards.forEach(card => {
-      card.classList.remove('show');
-    });
-
-    // Animate in
-    cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add('show');
-      }, index * 150);
-    });
-  }
-
-
+      card.classList.add('show');
+    }, index * 150);
+  });
+}
 
 
 

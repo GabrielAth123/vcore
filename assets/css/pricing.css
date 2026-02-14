@@ -160,7 +160,7 @@
     align-items: center;
     text-align: center;
     padding: 12px 16px;
-    color: #00d4ff;
+    color: var(--color-secondary);
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
@@ -173,23 +173,23 @@
 
 .hero-service-btn:hover,
 .hero-service-btn.active {
-    background: #00d4ff;
+    background: var(--color-accent);
     color: var(--color-secondary);
-    box-shadow: 0 0 3px #00d4ff,      /* από 5px → 3px */
-                0 0 10px #00d4ff,     /* από 25px → 10px */
-                0 0 20px #00d4ff,     /* από 50px → 20px */
-                0 0 40px #00d4ff;     /* από 200px → 40px */
+    box-shadow: 0 0 3px var(--color-secondary),      
+                0 0 10px var(--color-secondary),    
+                0 0 20px var(--color-secondary),    
+                0 0 40px var(--color-secondary);     
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 .pricing-intro-section .process-step:hover,
 .pricing-intro-section .process-step.active {
-    background: #00d4ff;
+    background: var(--color-secondary);
     color: var(--color-secondary);
-    box-shadow: 0 0 3px #00d4ff,
-                0 0 10px #00d4ff,
-                0 0 20px #00d4ff,
-                0 0 40px #00d4ff;
+    box-shadow: 0 0 3px var(--color-secondary),
+                0 0 10px var(--color-secondary),
+                0 0 20px var(--color-secondary),
+                0 0 40px var(--color-secondary);
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
@@ -214,12 +214,12 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #00d4ff);
+    background: linear-gradient(90deg, transparent, var(--color-secondary));
     animation: heroAnimate1 1s linear infinite;
 }
 
 .hero-service-btn.active span:nth-child(1) {
-    background: linear-gradient(90deg, transparent, #00d4ff);
+    background: linear-gradient(90deg, transparent, var(--color-secondary));
 }
 
 /* Right line - top to bottom */
@@ -228,13 +228,13 @@
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #00d4ff);
+    background: linear-gradient(180deg, transparent, var(--color-secondary));
     animation: heroAnimate2 1s linear infinite;
     animation-delay: 0.25s;
 }
 
 .hero-service-btn.active span:nth-child(2) {
-    background: linear-gradient(180deg, transparent, #00d4ff);
+    background: linear-gradient(180deg, transparent, var(--color-secondary));
 }
 
 /* Bottom line - right to left */
@@ -243,13 +243,13 @@
     right: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #00d4ff);
+    background: linear-gradient(270deg, transparent, var(--color-secondary));
     animation: heroAnimate3 1s linear infinite;
     animation-delay: 0.50s;
 }
 
 .hero-service-btn.active span:nth-child(3) {
-    background: linear-gradient(270deg, transparent, #00d4ff);
+    background: linear-gradient(270deg, transparent, var(--color-secondary));
 }
 
 /* Left line - bottom to top */
@@ -258,13 +258,13 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #00d4ff);
+    background: linear-gradient(360deg, transparent, var(--color-secondary));
     animation: heroAnimate4 1s linear infinite;
     animation-delay: 0.75s;
 }
 
 .hero-service-btn.active span:nth-child(4) {
-    background: linear-gradient(360deg, transparent, #00d4ff);
+    background: linear-gradient(360deg, transparent, var(--color-secondary));
 }
 
 /* ========================================
@@ -368,7 +368,7 @@
     text-align: center;
     padding: 25px 30px;
     margin: 40px 0;
-    color: #00d4ff;
+    color: var(--color-secondary);
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
@@ -381,22 +381,22 @@
 }
 
 .pricing-intro-section .process-step:hover {
-    background: #00d4ff;
-    color: var(--color-secondary);
-    box-shadow: 0 0 5px #00d4ff,
-                0 0 25px #00d4ff,
-                0 0 50px #00d4ff,
-                0 0 200px #00d4ff;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    box-shadow: 0 0 5px var(--color-secondary),
+                0 0 25px var(--color-secondary),
+                0 0 50px var(--color-secondary),
+                0 0 200px var(--color-secondary);
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 .pricing-intro-section .process-step.active {
-    background: #00d4ff;
-    color: var(--color-secondary);
-    box-shadow: 0 0 5px #00d4ff,
-                0 0 25px #00d4ff,
-                0 0 50px #00d4ff,
-                0 0 200px #00d4ff;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    box-shadow: 0 0 5px var(--color-secondary),
+                0 0 25px var(--color-secondary),
+                0 0 50px var(--color-secondary),
+                0 0 200px var(--color-secondary);
 }
 
 .pricing-intro-section .process-step.active .step-circle {
@@ -419,12 +419,12 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #00d4ff);
+    background: linear-gradient(90deg, transparent, var(--color-secondary));
     animation: animate1 1s linear infinite;
 }
 
 .pricing-intro-section .process-step.active span:nth-child(1) {
-    background: linear-gradient(90deg, transparent, #00d4ff);
+    background: linear-gradient(90deg, transparent, var(--color-secondary));
 }
 
 /* Right line - top to bottom */
@@ -433,13 +433,13 @@
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #00d4ff);
+    background: linear-gradient(180deg, transparent, var(--color-secondary));
     animation: animate2 1s linear infinite;
     animation-delay: 0.25s;
 }
 
 .pricing-intro-section .process-step.active span:nth-child(2) {
-    background: linear-gradient(180deg, transparent, #00d4ff);
+    background: linear-gradient(180deg, transparent, var(--color-secondary));
 }
 
 /* Bottom line - right to left */
@@ -448,13 +448,13 @@
     right: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #00d4ff);
+    background: linear-gradient(270deg, transparent, var(--color-secondary));
     animation: animate3 1s linear infinite;
     animation-delay: 0.50s;
 }
 
 .pricing-intro-section .process-step.active span:nth-child(3) {
-    background: linear-gradient(270deg, transparent, #00d4ff);
+    background: linear-gradient(270deg, transparent, var(--color-secondary));
 }
 
 /* Left line - bottom to top */
@@ -463,13 +463,13 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #00d4ff);
+    background: linear-gradient(360deg, transparent, var(--color-secondary));
     animation: animate4 1s linear infinite;
     animation-delay: 0.75s;
 }
 
 .pricing-intro-section .process-step.active span:nth-child(4) {
-    background: linear-gradient(360deg, transparent, #00d4ff);
+    background: linear-gradient(360deg, transparent, var(--color-secondary));
 }
 
 /* ========================================
@@ -936,16 +936,20 @@
 
 .combine-section {
   position: relative;
-  z-index: 1;
-    position: relative;
-  padding: var(--space-6) var(--container-padding);
-  background-color: var(--color-primary);
+  
+  /* Ίδιο background με το footer */
   background-image:
-    linear-gradient(rgba(237, 242, 244, 0.05) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(237, 242, 244, 0.05) 2px, transparent 2px);
-    
-  background-size: 30px 30px;
-
+    linear-gradient(rgba(43, 45, 66, 0.95), rgba(43, 45, 66, 0.95)),
+    url("../../images/intro-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Σημαντικό: "κλείδωμα" του background για seamless εφέ */
+  background-attachment: fixed; /* ή scroll αν προτιμάς */
+  
+  padding-block: 5rem 0; /* Περισσότερο padding πάνω, 0 κάτω */
+  margin-bottom: 0;
 }
 
 /* ========================================
