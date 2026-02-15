@@ -5,7 +5,7 @@
   <!-- ==================== MAIN PAGE ==================== -->
   <url>
     <loc>https://www.vcore.gr/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
@@ -19,7 +19,7 @@
   <!-- ==================== PRICING PAGE ==================== -->
   <url>
     <loc>https://www.vcore.gr/pricing/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/pricing/"/>
@@ -28,8 +28,8 @@
 
   <!-- ==================== CALL CENTER PAGE ==================== -->
   <url>
-    <loc>https://www.vcore.gr/Call-Center/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <loc>https://www.vcore.gr/call-center/</loc>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -37,7 +37,7 @@
   <!-- ==================== GREEK VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/el/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
@@ -51,7 +51,7 @@
   <!-- ==================== TURKISH VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/tr/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
@@ -65,7 +65,7 @@
   <!-- ==================== CHINESE VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/zh/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
@@ -79,7 +79,7 @@
   <!-- ==================== UKRAINIAN VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/uk/</loc>
-    <lastmod>2025-02-14</lastmod>
+    <lastmod>2025-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>

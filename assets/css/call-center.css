@@ -197,7 +197,7 @@
 
 .cc-problem-header .cc-section-title {
   font-family: var(--font-heading);
-  font-size: clamp(var(--fs-2xl), 3vw, 2.5rem);
+  
   color: var(--color-secondary);
   margin-bottom: var(--space-4);
   line-height: var(--lh-tight);
@@ -206,7 +206,7 @@
 
 .cc-problem-header .cc-section-desc {
   font-family: var(--font-base);
-  font-size: var(--fs-base);
+  
   line-height: var(--lh-normal);
   max-width: 600px;
   margin: 0 auto;
@@ -260,7 +260,7 @@
   align-items: flex-start;
   gap: var(--space-3);
   font-family: var(--font-base);
-  font-size: var(--fs-sm);
+
   color: var(--color-primary);
   line-height: var(--lh-normal);
 }
@@ -400,7 +400,7 @@
 .cc-solution-header .cc-section-title {
   margin-top: var(--space-6); /* ← ΠΡΟΣΘΗΚΗ */
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+ 
   font-weight: 700;
   color: var(--color-muted);
   margin-bottom: var(--space-4);
@@ -408,7 +408,7 @@
 }
 
 .cc-solution-header .cc-section-desc {
-  font-size: var(--fs-lg);
+ 
   color: var(--color-muted);
   line-height: var(--lh-loose);
   max-width: 600px;
@@ -543,14 +543,15 @@
 }
 
 .cc-pillar-content h3 {
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  color: var(--color-muted);
-  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);  /* ← Πρόσθεσε αυτό */
+  font-weight: 600;                   /* ← Άλλαξε από 700 σε 600 για να ταιριάζει */
+  color: var(--color-primary);        /* ← Και άλλαξε το χρώμα */
+  text-align: center;                 /* ← Κέντρο όπως το Problem */
+  margin-bottom: var(--space-4);
 }
 
 .cc-pillar-content p {
-  font-size: var(--fs-base);
+  font-family: var(--font-base); /* ← ΛΕΙΠΕΙ */
   line-height: var(--lh-loose);
   color: var(--color-muted);
   opacity: 0.8;
@@ -583,7 +584,7 @@
 
 .cc-connection-svg {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 0;
   width: 100%;
   height: 200px;
@@ -854,8 +855,8 @@
   bottom: var(--space-6);
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 3px;
+  width: clamp(200px, 40vw, 600px);  /* ← 40% του viewport width, min 200px, max 600px */
+  height: 4px;
   background: rgba(43, 45, 66, 0.1);
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -3179,17 +3180,13 @@
     overflow-x: hidden;
   }
 
+ 
   img, video {
     max-width: 100%;
     height: auto;
   }
 
-  /* ✅ HEADER */
-  .header-inner {
-    min-height: 70px;
-    padding-inline: 1rem;
-    flex-wrap: wrap;
-  }
+  
 
   .logo img { 
     height: 50px; 
@@ -3411,6 +3408,11 @@
   }
 }
 
+
+
+
+
+
 /* ================= SMALL MOBILE (480px) ================= */
 @media (max-width: 480px) {
   :root {
@@ -3528,3 +3530,4 @@
     display: none;
   }
 }
+

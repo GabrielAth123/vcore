@@ -2969,10 +2969,9 @@ img {
 
 
 
-
-
-
-
+#llm-context {
+  display: none;
+}
 
 
 
@@ -3536,6 +3535,7 @@ img {
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
   }
+  
 
   /* =================== SECTIONS SPACING =================== */
   
@@ -4177,6 +4177,93 @@ img {
 
 
 
+/* =================== HAMBURGER MENU =================== */
 
+.hamburger {
+  display: none;
+}
 
+.mobile-nav-overlay {
+  display: none;  /* ← Αυτό ήταν το λάθος, ήταν block */
+}
 
+@media (max-width: 640px) {
+  
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+.mobile-nav-overlay {
+  display: block;
+  position: fixed;
+  top: -100vh;  /* ← Κρυμμένο έξω από την οθόνη */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: rgba(43, 45, 66, 0.98);
+  backdrop-filter: saturate(120%) blur(10px);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  z-index: 999;  /* ← Κάτω από header */
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+  transition: top 0.3s ease;  /* ← Transition το top */
+}
+
+.mobile-nav-overlay.active {
+  top: 60px;  /* ← Εμφανίζεται κάτω από header */
+}
+  
+  .mobile-nav-overlay ul {
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-nav-overlay ul li {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-nav-overlay ul li a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  
+  .mobile-nav-overlay ul li a:hover {
+    color: var(--color-accent);
+  }
+}

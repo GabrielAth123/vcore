@@ -145,98 +145,116 @@
 <body class="page-pricing">
 
 		<!-- ================= Header ================= -->
-					<header id="site-header" class="header">
-					<div class="header-inner">
+<header id="site-header" class="header">
+  <div class="header-inner">
 
-						<a href="index.html" class="logo">
-									<img
-							src="../images/logo/logo.webp"
-							alt="vcore – Virtual Office & Business Services"
-							width="180"
-							height="48"
-							loading="eager"
-							>
-						</a>
+    <a href="/" class="logo">
+      <img
+        src="../images/logo/logo.webp"
+        alt="vcore – Virtual Office & Business Services"
+        width="180"
+        height="48"
+        loading="eager"
+      >
+    </a>
 
-						<nav class="main-nav">
-						<ul>
-							<li><a href="../index.html#page-wrapper">Home</a></li>
-                            <li><a href="../index.html#services">Services</a></li>
-                           <li><a href="../Call-Center/index.html">Call Handling</a></li>
-                            <li><a href="../index.html#faq">FAQ</a></li>
-                            <li><a href="../index.html#contact" class="btn">Contact Us</a></li>
-						
-						
-						
-							<li class="language-switcher">
-								<div class="lang-dropdown">
-									<button class="lang-toggle" aria-label="Language Selection">
-										 EN <i class="fas fa-chevron-down"></i>
-									</button>
-									<div class="lang-menu">
-										<a href="index.html" class="lang-option active"><svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-label="United Kingdom">
-											<rect width="60" height="30" fill="#012169"/>
-											<!-- white diagonals -->
-											<polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff"/>
-											<polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff"/>
-											<!-- red diagonals -->
-											<polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E"/>
-											<polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E"/>
-											<!-- white cross -->
-											<rect x="24" width="12" height="30" fill="#ffffff"/>
-											<rect y="9" width="60" height="12" fill="#ffffff"/>
-											<!-- red cross -->
-											<rect x="26" width="8" height="30" fill="#C8102E"/>
-											<rect y="11" width="60" height="8" fill="#C8102E"/>
-											</svg>
-											English</a>
-										<a href="el/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
-										<rect width="27" height="18" fill="#0D5EAF"/>
-										<!-- white stripes -->
-										<rect y="2" width="27" height="2" fill="#ffffff"/>
-										<rect y="6" width="27" height="2" fill="#ffffff"/>
-										<rect y="10" width="27" height="2" fill="#ffffff"/>
-										<rect y="14" width="27" height="2" fill="#ffffff"/>
-										<!-- canton -->
-										<rect width="10" height="10" fill="#0D5EAF"/>
-										<rect x="4" width="2" height="10" fill="#ffffff"/>
-										<rect y="4" width="10" height="2" fill="#ffffff"/>
-										</svg>
-										Ελληνικά</a>
-										<a href="tr/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Turkey">
-											<rect width="30" height="20" fill="#E30A17"/>
-											<!-- crescent -->
-											<circle cx="12" cy="10" r="6" fill="#ffffff"/>
-											<circle cx="14" cy="10" r="5" fill="#E30A17"/>
-											<!-- star -->
-											<polygon fill="#ffffff" points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6"/>
-											</svg>
-											Türkçe</a>
-										<a href="zh/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
-											<rect width="30" height="20" fill="#DE2910"/>
-											<polygon fill="#FFDE00" points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6"/>
-											<polygon fill="#FFDE00" points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5"/>
-											<polygon fill="#FFDE00" points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5"/>
-											<polygon fill="#FFDE00" points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5"/>
-											<polygon fill="#FFDE00" points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5"/>
-											</svg>
-											中文</a>
-										<a href="uk/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Ukraine">
-											<!-- top blue -->
-											<rect width="30" height="10" y="0" fill="#0057B7"/>
-											<!-- bottom yellow -->
-											<rect width="30" height="10" y="10" fill="#FFD700"/>
-											</svg>
-											Українська</a>
-									</div>
-								</div>
-							</li>
+    <!-- Hamburger Button (Mobile Only) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-						  </ul>
-						</nav>
+    <!-- Desktop Navigation -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/call-center/">Call Handling</a></li>  
+        <li><a href="/pricing/">Prices</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact" class="btn">Contact Us</a></li>
+        
+        <li class="language-switcher">
+          <div class="lang-dropdown">
+            <button class="lang-toggle" aria-label="Language Selection">
+              EN <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-menu">
+              <a href="/" class="lang-option active">
+                <svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-label="United Kingdom">
+                  <rect width="60" height="30" fill="#012169"/>
+                  <polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff"/>
+                  <polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff"/>
+                  <polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E"/>
+                  <polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E"/>
+                  <rect x="24" width="12" height="30" fill="#ffffff"/>
+                  <rect y="9" width="60" height="12" fill="#ffffff"/>
+                  <rect x="26" width="8" height="30" fill="#C8102E"/>
+                  <rect y="11" width="60" height="8" fill="#C8102E"/>
+                </svg>
+                English
+              </a>
+              <a href="/el/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
+                  <rect width="27" height="18" fill="#0D5EAF"/>
+                  <rect y="2" width="27" height="2" fill="#ffffff"/>
+                  <rect y="6" width="27" height="2" fill="#ffffff"/>
+                  <rect y="10" width="27" height="2" fill="#ffffff"/>
+                  <rect y="14" width="27" height="2" fill="#ffffff"/>
+                  <rect width="10" height="10" fill="#0D5EAF"/>
+                  <rect x="4" width="2" height="10" fill="#ffffff"/>
+                  <rect y="4" width="10" height="2" fill="#ffffff"/>
+                </svg>
+                Ελληνικά
+              </a>
+              <a href="/tr/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Turkey">
+                  <rect width="30" height="20" fill="#E30A17"/>
+                  <circle cx="12" cy="10" r="6" fill="#ffffff"/>
+                  <circle cx="14" cy="10" r="5" fill="#E30A17"/>
+                  <polygon fill="#ffffff" points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6"/>
+                </svg>
+                Türkçe
+              </a>
+              <a href="/zh/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
+                  <rect width="30" height="20" fill="#DE2910"/>
+                  <polygon fill="#FFDE00" points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6"/>
+                  <polygon fill="#FFDE00" points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5"/>
+                  <polygon fill="#FFDE00" points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5"/>
+                  <polygon fill="#FFDE00" points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5"/>
+                  <polygon fill="#FFDE00" points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5"/>
+                </svg>
+                中文
+              </a>
+              <a href="/uk/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Ukraine">
+                  <rect width="30" height="10" y="0" fill="#0057B7"/>
+                  <rect width="30" height="10" y="10" fill="#FFD700"/>
+                </svg>
+                Українська
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
 
-					</div>
-					</header>
+  </div>
+  
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/call-center/">Call Handling</a></li>
+      <li><a href="/pricing/">Prices</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
 
 <main>
 
@@ -1090,7 +1108,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+ /* =====================================================
+     HEADER SCROLL - WORKS ON ALL DEVICES
+  ===================================================== */
+  let lastScroll = 0;
+  const header = document.querySelector('#site-header');
+  const scrollThreshold = 100;
 
+  if (header) {
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll <= scrollThreshold) {
+        header.style.transform = 'translateY(0)';
+        return;
+      }
+
+      if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+        header.style.transform = 'translateY(-100%)';
+      } else if (currentScroll < lastScroll) {
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScroll = currentScroll;
+    });
+  }
 
 // Tab switching functionality
 const tabButtons = document.querySelectorAll('.hero-service-btn');
@@ -1139,10 +1181,145 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger-btn');
+const mobileNav = document.getElementById('mobile-nav');
 
-
-
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  });
+  
+  // Close menu when clicking a link
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
 
 </script>
+
+
+
+
+
+
+
+
+<!-- ================= COOKIE CONSENT ================= -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-container">
+    <div class="cookie-text" id="cookie-text"></div>
+
+    <div class="cookie-actions">
+      <button id="accept-cookies" class="cookie-btn cookie-accept"></button>
+      <button id="reject-cookies" class="cookie-btn cookie-reject"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= TRANSLATIONS ================= */
+const cookieTranslations = {
+  en: {
+    text: "We use cookies to enhance your browsing experience, analyze website traffic, and improve our services. Analytics cookies help us understand how visitors interact with the website. You can accept or reject these cookies at any time. You may withdraw your consent later through our Privacy Policy page.",
+    accept: "Accept",
+    reject: "Reject"
+  },
+  el: {
+    text: "Χρησιμοποιούμε cookies για τη βελτίωση της εμπειρίας περιήγησης, την ανάλυση της επισκεψιμότητας και τη βελτίωση των υπηρεσιών μας. Τα cookies ανάλυσης μας βοηθούν να κατανοούμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies οποιαδήποτε στιγμή. Μπορείτε επίσης να ανακαλέσετε τη συγκατάθεσή σας μέσω της σελίδας Πολιτικής Απορρήτου.",
+    accept: "Αποδοχή",
+    reject: "Απόρριψη"
+  },
+  tr: {
+    text: "Tarama deneyiminizi geliştirmek, site trafiğini analiz etmek ve hizmetlerimizi iyileştirmek için çerezler kullanıyoruz. Analitik çerezler, ziyaretçilerin web sitesini nasıl kullandığını anlamamıza yardımcı olur. Bu çerezleri istediğiniz zaman kabul edebilir veya reddedebilirsiniz. Onayınızı daha sonra Gizlilik Politikası sayfamızdan geri çekebilirsiniz.",
+    accept: "Kabul Et",
+    reject: "Reddet"
+  },
+  uk: {
+    text: "Ми використовуємо файли cookie для покращення роботи сайту, аналізу трафіку та вдосконалення наших послуг. Аналітичні файли cookie допомагають нам зрозуміти, як відвідувачі взаємодіють із сайтом. Ви можете прийняти або відхилити ці файли cookie в будь-який час. Ви також можете відкликати свою згоду через сторінку Політики конфіденційності.",
+    accept: "Прийняти",
+    reject: "Відхилити"
+  },
+  zh: {
+    text: "我们使用 Cookie 来提升您的浏览体验、分析网站流量并改进我们的服务。分析类 Cookie 帮助我们了解访客如何与网站互动。您可以随时接受或拒绝这些 Cookie。您也可以通过我们的隐私政策页面撤回您的同意。",
+    accept: "接受",
+    reject: "拒绝"
+  }
+};
+
+/* ================= LOAD GOOGLE ANALYTICS ================= */
+function loadGA() {
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
+  document.head.appendChild(script);
+
+  script.onload = function() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-BH19G8VX5B', {
+      anonymize_ip: true
+    });
+  };
+}
+
+
+
+
+/* ================= INIT ================= */
+document.addEventListener("DOMContentLoaded", function() {
+
+  const banner = document.getElementById("cookie-banner");
+  const textEl = document.getElementById("cookie-text");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
+
+  const savedConsent = localStorage.getItem("cookiesConsent");
+
+  const lang = document.documentElement.lang || "en";
+  const translation = cookieTranslations[lang] || cookieTranslations.en;
+
+  textEl.innerHTML = translation.text + 
+    ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+
+  acceptBtn.textContent = translation.accept;
+  rejectBtn.textContent = translation.reject;
+
+  if (savedConsent === "accepted") {
+    loadGA();
+    banner.style.display = "none";
+    return;
+  }
+
+  if (savedConsent === "rejected") {
+    banner.style.display = "none";
+    return;
+  }
+
+  banner.style.display = "block";
+
+  acceptBtn.addEventListener("click", function() {
+    localStorage.setItem("cookiesConsent", "accepted");
+    loadGA();
+    banner.style.display = "none";
+  });
+
+  rejectBtn.addEventListener("click", function() {
+    localStorage.setItem("cookiesConsent", "rejected");
+    banner.style.display = "none";
+  });
+
+});
+</script>
+
 </body>
 </html>

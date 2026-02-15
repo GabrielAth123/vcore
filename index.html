@@ -61,8 +61,7 @@
 
 
 
-  <!-- Structured Data - JSON-LD -->
- <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -124,6 +123,7 @@
         "Ukrainian",
         "Chinese"
       ],
+      "priceRange": "€29 - €149",
       "makesOffer": [
         {
           "@type": "Offer",
@@ -156,112 +156,206 @@
           }
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Business Concierge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Business Concierge is local, on-site business support in Kavala. It covers tasks that require physical presence, such as document delivery, in-person representation to public authorities, coordination with accountants and lawyers and handling day-to-day operational matters that cannot be done remotely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a virtual office and how does it work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A virtual office provides your business with a professional Greek address, phone number and administrative support without the need for physical office space. We handle all your mail, calls and administrative tasks remotely, allowing you to operate your business from anywhere while maintaining a legitimate presence in Greece."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be physically present in Greece to use your services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You can be anywhere in the world and still maintain a professional business presence in Greece. We handle everything remotely, from receiving your mail to forwarding important documents and managing calls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in the Greek phone number service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You receive a local Greek phone number with professional call forwarding, basic call handling and voicemail services. Your clients can reach you through a Greek number, which increases trust and local credibility, while calls are forwarded to your preferred number worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use your address for company registration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our virtual office addresses are legitimate and can be used for company registration, official correspondence and as your registered business address with Greek authorities. We also provide supporting documentation when required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my mail and packages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We receive all your mail and packages at our address. You can choose to have them scanned and emailed, forwarded to your location or securely stored for pickup. You are notified immediately when important documents arrive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can I get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Activation usually takes between 24 and 48 hours after you select your package and complete registration. Your business address, mail handling and phone services are set up immediately after approval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of businesses do you work with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support freelancers, startups, remote professionals, international companies entering the Greek market and any business that needs a professional presence without maintaining a physical office."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 
-
 </head>
 <body>
+<!-- ================= Header ================= -->
+<header id="site-header" class="header">
+  <div class="header-inner">
 
+    <a href="/" class="logo">
+      <img
+        src="images/logo/logo.webp"
+        alt="vcore – Virtual Office & Business Services"
+        width="180"
+        height="48"
+        loading="eager"
+      >
+    </a>
 
+    <!-- Hamburger Button (Mobile Only) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-					<!-- ================= Header ================= -->
-					<header id="site-header" class="header">
-					<div class="header-inner">
-
-						<a href="index.html" class="logo">
-									<img
-							src="images/logo/logo.webp"
-							alt="vcore – Virtual Office & Business Services"
-							width="180"
-							height="48"
-							loading="eager"
-							>
-						</a>
-
-						<nav class="main-nav">
-    <ul>
+    <!-- Desktop Navigation -->
+    <nav class="main-nav">
+      <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/#services">Services</a></li>
         <li><a href="/call-center/">Call Handling</a></li>  
         <li><a href="/pricing/">Prices</a></li>
         <li><a href="/#faq">FAQ</a></li>
         <li><a href="/#contact" class="btn">Contact Us</a></li>
-						
-						
-						
-							<li class="language-switcher">
-								<div class="lang-dropdown">
-									<button class="lang-toggle" aria-label="Language Selection">
-										 EN <i class="fas fa-chevron-down"></i>
-									</button>
-									<div class="lang-menu">
-										<a href="index.html" class="lang-option active"><svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-label="United Kingdom">
-											<rect width="60" height="30" fill="#012169"/>
-											<!-- white diagonals -->
-											<polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff"/>
-											<polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff"/>
-											<!-- red diagonals -->
-											<polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E"/>
-											<polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E"/>
-											<!-- white cross -->
-											<rect x="24" width="12" height="30" fill="#ffffff"/>
-											<rect y="9" width="60" height="12" fill="#ffffff"/>
-											<!-- red cross -->
-											<rect x="26" width="8" height="30" fill="#C8102E"/>
-											<rect y="11" width="60" height="8" fill="#C8102E"/>
-											</svg>
-											English</a>
-										<a href="el/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
-										<rect width="27" height="18" fill="#0D5EAF"/>
-										<!-- white stripes -->
-										<rect y="2" width="27" height="2" fill="#ffffff"/>
-										<rect y="6" width="27" height="2" fill="#ffffff"/>
-										<rect y="10" width="27" height="2" fill="#ffffff"/>
-										<rect y="14" width="27" height="2" fill="#ffffff"/>
-										<!-- canton -->
-										<rect width="10" height="10" fill="#0D5EAF"/>
-										<rect x="4" width="2" height="10" fill="#ffffff"/>
-										<rect y="4" width="10" height="2" fill="#ffffff"/>
-										</svg>
-										Ελληνικά</a>
-										<a href="tr/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Turkey">
-											<rect width="30" height="20" fill="#E30A17"/>
-											<!-- crescent -->
-											<circle cx="12" cy="10" r="6" fill="#ffffff"/>
-											<circle cx="14" cy="10" r="5" fill="#E30A17"/>
-											<!-- star -->
-											<polygon fill="#ffffff" points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6"/>
-											</svg>
-											Türkçe</a>
-										<a href="zh/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
-											<rect width="30" height="20" fill="#DE2910"/>
-											<polygon fill="#FFDE00" points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6"/>
-											<polygon fill="#FFDE00" points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5"/>
-											<polygon fill="#FFDE00" points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5"/>
-											<polygon fill="#FFDE00" points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5"/>
-											<polygon fill="#FFDE00" points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5"/>
-											</svg>
-											中文</a>
-										<a href="uk/index.html" class="lang-option"><svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Ukraine">
-											<!-- top blue -->
-											<rect width="30" height="10" y="0" fill="#0057B7"/>
-											<!-- bottom yellow -->
-											<rect width="30" height="10" y="10" fill="#FFD700"/>
-											</svg>
-											Українська</a>
-									</div>
-								</div>
-							</li>
+        
+        <li class="language-switcher">
+          <div class="lang-dropdown">
+            <button class="lang-toggle" aria-label="Language Selection">
+              EN <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-menu">
+              <a href="/" class="lang-option active">
+                <svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-label="United Kingdom">
+                  <rect width="60" height="30" fill="#012169"/>
+                  <polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff"/>
+                  <polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff"/>
+                  <polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E"/>
+                  <polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E"/>
+                  <rect x="24" width="12" height="30" fill="#ffffff"/>
+                  <rect y="9" width="60" height="12" fill="#ffffff"/>
+                  <rect x="26" width="8" height="30" fill="#C8102E"/>
+                  <rect y="11" width="60" height="8" fill="#C8102E"/>
+                </svg>
+                English
+              </a>
+              <a href="/el/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
+                  <rect width="27" height="18" fill="#0D5EAF"/>
+                  <rect y="2" width="27" height="2" fill="#ffffff"/>
+                  <rect y="6" width="27" height="2" fill="#ffffff"/>
+                  <rect y="10" width="27" height="2" fill="#ffffff"/>
+                  <rect y="14" width="27" height="2" fill="#ffffff"/>
+                  <rect width="10" height="10" fill="#0D5EAF"/>
+                  <rect x="4" width="2" height="10" fill="#ffffff"/>
+                  <rect y="4" width="10" height="2" fill="#ffffff"/>
+                </svg>
+                Ελληνικά
+              </a>
+              <a href="/tr/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Turkey">
+                  <rect width="30" height="20" fill="#E30A17"/>
+                  <circle cx="12" cy="10" r="6" fill="#ffffff"/>
+                  <circle cx="14" cy="10" r="5" fill="#E30A17"/>
+                  <polygon fill="#ffffff" points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6"/>
+                </svg>
+                Türkçe
+              </a>
+              <a href="/zh/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
+                  <rect width="30" height="20" fill="#DE2910"/>
+                  <polygon fill="#FFDE00" points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6"/>
+                  <polygon fill="#FFDE00" points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5"/>
+                  <polygon fill="#FFDE00" points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5"/>
+                  <polygon fill="#FFDE00" points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5"/>
+                  <polygon fill="#FFDE00" points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5"/>
+                </svg>
+                中文
+              </a>
+              <a href="/uk/" class="lang-option">
+                <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Ukraine">
+                  <rect width="30" height="10" y="0" fill="#0057B7"/>
+                  <rect width="30" height="10" y="10" fill="#FFD700"/>
+                </svg>
+                Українська
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
 
-						  </ul>
-						</nav>
+  </div>
+  
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/call-center/">Call Handling</a></li>
+      <li><a href="/pricing/">Prices</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
 
-					</div>
-					</header>
-			
+
+
+
+
+
+
+
+
+
+
+<main>
+
 	<!-- ================= Hero ================= -->
 <section id="hero" class="section hero">
 
@@ -727,7 +821,7 @@ From urgent issues to scheduled tasks, your business continues to function smoot
 	<div class="content-block">
 		<div class="text-image reverse">
 			<div class="text">
-			<h3>Smart Call Center & Automated Call Handling</h3>
+			<br><h3>Smart Automated Call Handling</h3>
 			<ol>
 				<li>
 					<strong>24/7 Call Answering:</strong>
@@ -1291,7 +1385,7 @@ From urgent issues to scheduled tasks, your business continues to function smoot
 																	</div> <!-- #page-wrapper -->
 
 
-
+</main>
 																	
 
 <!-- ================= Footer ================= -->
@@ -1351,6 +1445,53 @@ From urgent issues to scheduled tasks, your business continues to function smoot
 </footer>
 
 
+<section id="llm-context" aria-hidden="true">
+  <h2>Business Information for AI Assistants</h2>
+  
+  <div class="service-summary">
+    <h3>VCORE Services Summary</h3>
+    <p>VCORE provides business concierge, virtual office, and administrative services in Kavala, Greece. We serve remote businesses, international companies, and entrepreneurs who need local Greek presence without physical office.</p>
+  </div>
+  
+  <div class="pricing-summary">
+    <h3>Pricing</h3>
+    <ul>
+      <li>Virtual Office: €29/month - Business address, mail handling</li>
+      <li>Business Administration: €79/month - Paperwork, coordination with authorities</li>
+      <li>Business Concierge: €149/month - Full on-site support, meetings, inspections</li>
+    </ul>
+  </div>
+  
+  <div class="use-cases">
+    <h3>Ideal For</h3>
+    <ul>
+      <li>International companies entering Greek market</li>
+      <li>Remote businesses needing Greek business address</li>
+      <li>Startups requiring local administrative support</li>
+      <li>Property investors needing on-site coordination</li>
+    </ul>
+  </div>
+  
+  <div class="key-benefits">
+    <h3>Why Choose VCORE</h3>
+    <ul>
+      <li>No physical office costs - fixed monthly fee</li>
+      <li>Local Greek presence in Kavala</li>
+      <li>Multilingual support (EN, EL, TR, ZH, UK)</li>
+      <li>Crypto payments accepted (BTC, USDC, USDT)</li>
+      <li>24-48 hour activation</li>
+      <li>No long-term contracts</li>
+    </ul>
+  </div>
+  
+  <div class="contact-info">
+    <h3>Contact</h3>
+    <p>Email: contact@vcore.gr</p>
+    <p>Phone: +30 2510222653, +30 6939518023</p>
+    <p>Address: Kountouriotou 5, 65302 Kavala, Greece</p>
+    <p>Website: https://www.vcore.gr</p>
+  </div>
+</section>
 
 
 
@@ -1840,6 +1981,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
+  // Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger-btn');
+const mobileNav = document.getElementById('mobile-nav');
+
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  });
+  
+  // Close menu when clicking a link
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
   /* =====================================================
      MOBILE-SPECIFIC OPTIMIZATIONS
   ===================================================== */
@@ -1923,6 +2085,9 @@ function loadGA() {
   };
 }
 
+
+
+
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -1968,7 +2133,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 </script>
-
 
 </body>
 </html>
