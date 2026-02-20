@@ -130,7 +130,7 @@
   color: var(--color-text);
   max-width: 720px;
   text-align: left;
-  margin-top: 3rem;
+  margin-top: 5rem;
   margin-bottom: 0;
 }
 
@@ -254,7 +254,7 @@
 
 /* Left line - bottom to top */
 .hero-service-btn span:nth-child(4) {
-    bottom: -100%;
+    
     left: 0;
     width: 2px;
     height: 100%;
@@ -907,18 +907,121 @@
 
 
 
+.hero-crypto-badge {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 1. Αλλαγή από center σε flex-start */
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03); 
+    border-radius: 4px; 
+    padding: 12px 30px;
+    margin: 50px 0 0 0; /* 2. Αλλαγή: margin-top: 50px και όλα τα άλλα 0 (όχι auto) */
+    
+    
+    width: fit-content;
+    text-align: left; 
+}
+
+.crypto-status-dot {
+    width: 16px;
+    height: 16px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    /* Εσωτερικό δυνατό φως */
+    box-shadow: 
+        0 0 10px #00ff88,
+        0 0 20px rgba(0, 255, 136, 0.5),
+        inset 0 0 4px rgba(255, 255, 255, 0.8);
+}
 
 
+.crypto-status-dot::before,
+.crypto-status-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #00ff88;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
 
+/* Πρώτο κύμα */
+.crypto-status-dot::after {
+    animation: pulse-radar 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
 
+/* Δεύτερο κύμα με καθυστέρηση για βάθος */
+.crypto-status-dot::before {
+    animation: pulse-radar 2s cubic-bezier(0.24, 0, 0.38, 1) infinite 1s;
+}
 
+@keyframes pulse-radar {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
 
+.crypto-label {
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.9;
+    white-space: nowrap;
+}
 
+.crypto-icons-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
+.crypto-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08); 
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Πιο έντονο border */
+    transition: 0.3s;
+}
 
+.crypto-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    border-color: rgba(247, 147, 26, 0.5); /* Πορτοκαλί hover effect */
+}
 
+.crypto-item span {
+    color: #ffffff ; /* Force λευκό χρώμα */
+    font-weight: 700;
+    font-size: 0.9rem;
+}
 
+.crypto-item svg {
+    display: block ;
+    width: 20px ;
+    height: 20px; 
+    flex-shrink: 0;
+}
 
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(3.5); opacity: 0; }
+}
 
 
 
@@ -1078,12 +1181,6 @@
 
 
 
-
-
-
-
-
-
 @keyframes ctaPulse {
   0%, 100% {
     transform: scale(1);
@@ -1179,66 +1276,67 @@
 }
 
 /* ========================================
-   TABS FUNCTIONALITY - ΠΡΟΣΘΗΚΗ
+   TABS FUNCTIONALITY
 ======================================== */
 
 .pricing-tab-content {
-    display: none;
+  display: none;
 }
 
 .pricing-tab-content.active {
-    display: block;
-    animation: fadeInTab 0.5s ease;
+  display: block;
+  animation: fadeInTab 0.5s ease;
 }
 
 @keyframes fadeInTab {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-service-btn.active {
-    background: var(--color-accent) !important;
-    color: var(--color-secondary) !important;
+  background: var(--color-accent) !important;
+  color: var(--color-secondary) !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ========================================
    🔥 RESPONSIVE - MOBILE & TABLET 🔥
 ======================================== */
 
-/* TABLET (768px - 1024px) */
+/* Reduced motion - accessibility + performance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   TABLET (768px - 1024px)
+======================================== */
 @media (max-width: 1024px) {
+  .combine-section {
+    background-attachment: scroll;
+  }
+
   .pricing-hero {
     min-height: 60vh;
     padding-block: clamp(3rem, 8vw, 5rem);
   }
-  
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
   .combine-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  
+
   .pricing-intro-section .process-steps {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .pricing-intro-section .process-step {
     margin: 20px 0;
     margin-right: 0;
@@ -1246,43 +1344,45 @@
   }
 }
 
-/* MOBILE (max 768px) */
+/* ========================================
+   MOBILE (max 768px)
+======================================== */
 @media (max-width: 768px) {
-  
+
   /* HERO */
   .pricing-hero {
     min-height: auto;
-    padding-block: 3rem;
+    padding-block: clamp(2.5rem, 8vw, 4rem);
     text-align: center;
   }
-  
+
   .pricing-hero .container {
     align-items: center;
     padding-inline: 1.25rem;
   }
-  
+
   .pricing-hero h1,
   .pricing-hero h2,
   .pricing-hero p {
     text-align: center;
     max-width: 100%;
   }
-  
+
   .pricing-hero h1 {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
     margin-bottom: 0.75rem;
   }
-  
+
   .pricing-hero h2 {
     font-size: clamp(1.25rem, 4vw, 1.5rem);
     margin-bottom: 0.5rem;
   }
-  
+
   .pricing-hero p {
     font-size: 0.95rem;
     margin-top: 1.5rem;
   }
-  
+
   /* HERO SERVICES BUTTONS */
   .hero-services {
     grid-template-columns: 1fr;
@@ -1290,21 +1390,21 @@
     margin-top: 1.5rem;
     max-width: 100%;
   }
-  
+
   .hero-service-btn {
     padding: 18px 20px;
     letter-spacing: 2px;
   }
-  
+
   .hero-service-btn h4 {
     font-size: 0.875rem;
   }
-  
+
   .hero-service-btn .step-circle {
     width: 24px;
     height: 24px;
   }
-  
+
   /* BADGES */
   .cc-eyebrow,
   .cc-ai-badge {
@@ -1312,122 +1412,171 @@
     font-size: 0.75rem;
     letter-spacing: 0.1em;
   }
-  
+
   /* PRICING INTRO SECTION */
   .pricing-intro-section {
     padding: var(--space-4) var(--container-padding);
   }
-  
+
   .pricing-intro-section .process-steps {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .pricing-intro-section .process-step {
     padding: 18px 20px;
     margin: 15px 0;
     margin-right: 0;
     letter-spacing: 2px;
   }
-  
+
   .pricing-intro-section .step-circle {
     width: 32px;
     height: 32px;
   }
-  
+
   /* PRICING SECTION */
   .pricing-section {
     padding-block: clamp(2rem, 6vw, 4rem);
   }
-  
+
   .pricing-header {
     margin-bottom: 40px;
   }
-  
+
   .pricing-header h2 {
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
-  
+
   /* PRICING CARDS */
   .pricing-card {
     padding: var(--space-4) var(--space-3);
   }
-  
+
   .pricing-card.featured {
     transform: none;
     margin-bottom: var(--space-4);
   }
-  
+
   .featured-badge {
     font-size: 0.75rem;
     padding: 6px 12px;
     top: -10px;
   }
-  
+
   .price-amount {
     font-size: 48px;
   }
-  
+
   .price-period {
     font-size: 14px;
   }
-  
+
   .plan-name {
     font-size: 1.25rem;
   }
-  
+
   .feature-item {
     padding: var(--space-2) 0;
     font-size: 0.9rem;
   }
-  
+
   .feature-item::before {
     width: 20px;
     height: 20px;
     font-size: 0.75rem;
   }
-  
+
   /* COMBINE SECTION */
   .combine-section {
     padding: var(--space-5) var(--container-padding);
+    background-attachment: scroll;
   }
-  
+
   .combine-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  
+
   .combine-icon {
     width: 48px;
     height: 48px;
   }
-  
+
   .combine-icon svg {
     width: 28px;
     height: 28px;
   }
-  
+
   .combine-card h3 {
     font-size: 1.25rem;
   }
-  
+
   .combine-card p {
     font-size: 0.95rem;
   }
-  
-  /* HIDE CONNECTORS ON MOBILE */
+
+  /* CRYPTO BADGE */
+  .hero-crypto-badge {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px 20px;
+    gap: 12px;
+    width: 100% !important; /* override fit-content */
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 2rem 0 0 0;
+  }
+
+  .crypto-label {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  .crypto-status-dot {
+    margin: 0 auto;
+  }
+
+ .crypto-icons-wrap {
+    display: flex;
+    flex-wrap: nowrap; /* ← ΟΧΙ wrap, κρατάει 1 γραμμή */
+    justify-content: center;
+    gap: 8px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .crypto-item {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+
+  .crypto-item span {
+    font-size: 0.85rem;
+  }
+
+  .crypto-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* HIDE CONNECTORS */
   .pricing-connector,
   .connector-labels {
     display: none !important;
   }
-  
+
   /* CTA BUTTONS */
   .hero-cta,
   .combine-cta {
     margin-top: 1.5rem;
     text-align: center;
+    width: 100%;
   }
-  
+
   .pricing-btn,
   .combine-btn {
     width: 100%;
@@ -1436,27 +1585,35 @@
   }
 }
 
-/* EXTRA SMALL MOBILE (max 480px) */
+/* ========================================
+   EXTRA SMALL MOBILE (max 480px)
+======================================== */
 @media (max-width: 480px) {
   .pricing-hero h1 {
     font-size: 1.75rem;
   }
-  
+
   .pricing-hero h2 {
     font-size: 1.15rem;
   }
-  
+
   .price-amount {
     font-size: 42px;
   }
-  
+
   .hero-service-btn,
   .pricing-intro-section .process-step {
     padding: 15px 18px;
     letter-spacing: 1.5px;
   }
-  
+
   .feature-item {
     font-size: 0.85rem;
+  }
+
+  .cc-eyebrow,
+  .cc-ai-badge {
+    font-size: 0.7rem;
+    padding: var(--space-1) var(--space-3);
   }
 }

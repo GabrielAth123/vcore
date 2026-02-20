@@ -2881,16 +2881,11 @@
 
 
 
-
-
-
-
-
 /* ==========================================================
    📱 MOBILE & TABLET RESPONSIVE FIXES - COMPLETE
    ========================================================== */
-   
-/* ================= SCALE DOWN - 1200px και κάτω ================= */
+
+/* ================= SCALE DOWN - 1200px ================= */
 @media (max-width: 1200px) {
   :root {
     --fs-3xl: 2.8rem;
@@ -2972,8 +2967,44 @@
     gap: 2rem;
   }
 
+  /* call-flow-section κρυμμένο intentionally */
   .call-flow-section {
     display: none;
+  }
+}
+
+/* ================= HEADER - SCROLL FIX ================= */
+.header,
+header,
+.site-header,
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  transition: transform 0.3s ease, background 0.3s ease;
+  will-change: transform;
+}
+
+/* Κρυμμένο header όταν scroll down */
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+/* Φαίνεται όταν scroll up */
+.header.visible {
+  transform: translateY(0);
+}
+
+/* Offset για το body ώστε να μην κρύβεται το περιεχόμενο */
+body {
+  padding-top: var(--header-height, 80px);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: var(--header-height, 60px);
   }
 }
 
@@ -3017,6 +3048,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Μόνο μία φορά εδώ, δεν επαναλαμβάνεται */
   .cc-integration-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -3043,12 +3075,10 @@
   }
 
   section {
-    overflow-x: clip;
+    overflow-x: hidden; /* fix: clip δεν υποστηρίζεται παντού σε iOS */
   }
 
- 
-
-  /* ✅ HORIZONTAL SCROLL → ΚΑΝΟΝΙΚΗ ΣΤΗΛΗ */
+  /* HORIZONTAL SCROLL → ΚΑΝΟΝΙΚΗ ΣΤΗΛΗ */
   .cc-horizontal-section {
     height: auto;
     padding: 3rem 0;
@@ -3065,7 +3095,7 @@
     flex-direction: column;
     gap: 2rem;
     padding: 0 var(--container-padding);
-    transform: none !important;
+    transform: none; /* fix: είχε missing semicolon */
   }
 
   .cc-horizontal-slide {
@@ -3074,8 +3104,8 @@
     min-width: auto;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;     /* override JS animations */
+    transform: none !important; /* override JS animations */
   }
 
   .cc-slide-media {
@@ -3083,20 +3113,20 @@
     max-width: 100%;
     height: 300px;
     margin: 0;
-}
+  }
 
- .cc-slide-video {
+  .cc-slide-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-}
+  }
 
   .cc-horizontal-progress {
     display: none;
   }
 
-  /* ✅ PARALLAX STATS - 2 ΣΤΗΛΕΣ */
+  /* PARALLAX STATS - 2 ΣΤΗΛΕΣ */
   .cc-parallax-section {
     padding: 3rem 0;
   }
@@ -3123,14 +3153,9 @@
     margin-bottom: 2rem;
   }
 
-  /* ✅ INTEGRATION SECTION */
+  /* INTEGRATION SECTION */
   .cc-integration-section {
     padding: 3rem var(--container-padding);
-  }
-
-  .cc-integration-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .cc-phone-mockup {
@@ -3143,7 +3168,7 @@
     gap: 1.5rem;
   }
 
-  /* ✅ PRICING */
+  /* PRICING */
   .pricing {
     padding: 3rem var(--container-padding);
   }
@@ -3156,9 +3181,6 @@
   .pricing-card.featured {
     transform: none;
   }
-
- 
-
 }
 
 /* ================= MOBILE (768px) ================= */
@@ -3180,21 +3202,17 @@
     overflow-x: hidden;
   }
 
- 
   img, video {
     max-width: 100%;
     height: auto;
   }
 
-  
-
-  .logo img { 
-    height: 50px; 
+  .logo img {
+    height: 50px;
   }
 
   .main-nav ul {
     gap: 0.5rem;
-    font-size: 0.8rem;
     flex-wrap: wrap;
     padding: 0;
   }
@@ -3204,7 +3222,7 @@
     font-size: 0.8rem;
   }
 
-  /* ✅ HERO */
+  /* HERO */
   .cc-hero-parallax {
     min-height: auto;
     padding: 2rem 0;
@@ -3213,20 +3231,21 @@
   .cc-hero-inner {
     padding: 1.5rem var(--container-padding);
     gap: 1.5rem;
+    min-height: 300px; /* fix: αν το robot δεν φορτώσει */
   }
 
-  .cc-hero-robot img { 
-    max-width: 250px; 
+  .cc-hero-robot img {
+    max-width: 250px;
   }
 
-  .cc-hero-title { 
-    font-size: 1.75rem; 
-    margin-bottom: 1rem; 
+  .cc-hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
   }
 
-  .cc-hero-subtitle { 
-    font-size: 0.9375rem; 
-    margin-bottom: 1.5rem; 
+  .cc-hero-subtitle {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
   }
 
   .cc-hero-cta {
@@ -3246,7 +3265,7 @@
     padding: 0.375rem 0.75rem;
   }
 
-  /* ✅ PROBLEM SECTION */
+  /* PROBLEM SECTION */
   .cc-problem-section {
     padding: 3rem 1rem;
   }
@@ -3264,49 +3283,86 @@
     display: none;
   }
 
-  /* ✅ SOLUTION SECTION */
+  /* SOLUTION SECTION */
   .cc-solution-section {
     padding: 3rem 1rem;
   }
 
   .cc-hologram-pillars {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .cc-pillar-beam,
-  .cc-connection-svg {
+  .cc-connection-svg,
+  .cc-core-ring {
     display: none;
   }
 
   .cc-solution-pillar {
-    padding: 1.5rem;
+    padding: 0;
+    width: 100%;
   }
 
-  /* ✅ HORIZONTAL SECTION */
+  .cc-pillar-core {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .cc-pillar-num {
+    font-size: 1.5rem;
+  }
+
+  .cc-pillar-content {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .cc-pillar-content h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .cc-pillar-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .cc-feature-tags {
+    gap: 0.5rem;
+  }
+
+  .cc-tag {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* HORIZONTAL SECTION */
   .cc-horizontal-section {
     padding: 3rem 0;
   }
 
-  .cc-slide-content h3 { 
-    font-size: 1.25rem; 
+  .cc-slide-content h3 {
+    font-size: 1.25rem;
   }
 
-  .cc-slide-content p { 
-    font-size: 0.875rem; 
+  .cc-slide-content p {
+    font-size: 0.875rem;
   }
 
   .cc-slide-media {
     width: 100%;
     height: 220px;
     border-radius: 12px;
-}
+  }
+
   .cc-slide-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-}
+  }
 
   .cc-slide-media::before,
   .cc-slide-media::after {
@@ -3315,7 +3371,7 @@
     border-width: 2px;
   }
 
-  /* ✅ PARALLAX STATS */
+  /* PARALLAX STATS */
   .cc-parallax-section {
     padding: 2.5rem 0;
   }
@@ -3329,17 +3385,17 @@
     gap: 0.75rem;
   }
 
-  .cc-parallax-stat { 
-    padding: 1.25rem 1rem; 
+  .cc-parallax-stat {
+    padding: 1.25rem 1rem;
   }
 
-  .cc-parallax-number { 
+  .cc-parallax-number {
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
   }
 
-  .cc-parallax-stat.fulltime .cc-parallax-number span { 
-    font-size: 1.25rem; 
+  .cc-parallax-stat.fulltime .cc-parallax-number span {
+    font-size: 1.25rem;
   }
 
   .cc-parallax-stat.fulltime small {
@@ -3348,17 +3404,17 @@
     margin-right: 4px;
   }
 
-  .cc-parallax-label { 
+  .cc-parallax-label {
     font-size: 0.625rem;
     line-height: 1.3;
   }
 
-  .cc-parallax-title { 
-    font-size: 1.5rem; 
-    margin-bottom: 1.5rem; 
+  .cc-parallax-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  /* ✅ INTEGRATION SECTION */
+  /* INTEGRATION SECTION */
   .cc-integration-section {
     padding: 3rem 1rem;
   }
@@ -3389,7 +3445,7 @@
     font-size: 0.9375rem;
   }
 
-  /* ✅ PRICING */
+  /* PRICING */
   .pricing {
     padding: 3rem 1rem;
   }
@@ -3408,11 +3464,6 @@
   }
 }
 
-
-
-
-
-
 /* ================= SMALL MOBILE (480px) ================= */
 @media (max-width: 480px) {
   :root {
@@ -3427,28 +3478,28 @@
     padding-inline: 0.75rem;
   }
 
-  .logo img { 
-    height: 45px; 
+  .logo img {
+    height: 45px;
   }
 
-  .cc-hero-robot img { 
-    max-width: 180px; 
+  .cc-hero-robot img {
+    max-width: 180px;
   }
 
-  .cc-hero-title { 
-    font-size: 1.5rem; 
+  .cc-hero-title {
+    font-size: 1.5rem;
   }
 
   .cc-slide-media {
     width: 100%;
     height: 180px;
-}
-
-  .cc-slide-content h3 { 
-    font-size: 1.125rem; 
   }
 
-  /* ✅ PARALLAX STATS - 1 ΣΤΗΛΗ */
+  .cc-slide-content h3 {
+    font-size: 1.125rem;
+  }
+
+  /* PARALLAX STATS - 1 ΣΤΗΛΗ σε πολύ μικρές οθόνες */
   .cc-parallax-section {
     padding: 2rem 0;
   }
@@ -3457,27 +3508,25 @@
     padding: 0 0.875rem;
   }
 
-  .cc-parallax-stats { 
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 280px;
-    margin: 0 auto;
+  .cc-parallax-stats {
+    grid-template-columns: repeat(2, 1fr); /* fix: 280px max-width ήταν πολύ στενό */
+    gap: 0.75rem;
   }
 
   .cc-parallax-stat {
     padding: 1.25rem;
   }
 
-  .cc-parallax-number { 
-    font-size: 2rem; 
+  .cc-parallax-number {
+    font-size: 1.75rem;
   }
 
   .cc-parallax-stat.fulltime .cc-parallax-number span {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .cc-parallax-label {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
   }
 
   .cc-parallax-title {
@@ -3506,7 +3555,7 @@
   .cc-horizontal-slide,
   .cc-parallax-section .container,
   .cc-integration-content {
-    overflow-x: clip;
+    overflow-x: hidden; /* fix: clip → hidden για iOS Safari */
   }
 
   .cc-slide-media,
@@ -3530,4 +3579,3 @@
     display: none;
   }
 }
-

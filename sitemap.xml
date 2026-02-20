@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- ==================== MAIN PAGE ==================== -->
+
+  <!-- ==================== HOMEPAGE CLUSTER ==================== -->
+
   <url>
     <loc>https://www.vcore.gr/</loc>
     <lastmod>2025-02-15</lastmod>
@@ -12,29 +13,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
-  <!-- ==================== PRICING PAGE ==================== -->
-  <url>
-    <loc>https://www.vcore.gr/pricing/</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/pricing/"/>
-    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/pricing/"/>
-  </url>
-
-  <!-- ==================== CALL CENTER PAGE ==================== -->
-  <url>
-    <loc>https://www.vcore.gr/call-center/</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- ==================== GREEK VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/el/</loc>
     <lastmod>2025-02-15</lastmod>
@@ -44,11 +26,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
-  <!-- ==================== TURKISH VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/tr/</loc>
     <lastmod>2025-02-15</lastmod>
@@ -58,11 +39,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
-  <!-- ==================== CHINESE VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/zh/</loc>
     <lastmod>2025-02-15</lastmod>
@@ -72,11 +52,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
-  <!-- ==================== UKRAINIAN VERSION ==================== -->
   <url>
     <loc>https://www.vcore.gr/uk/</loc>
     <lastmod>2025-02-15</lastmod>
@@ -86,8 +65,45 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
+  </url>
+
+  <!-- ==================== PRICING CLUSTER ==================== -->
+
+  <url>
+    <loc>https://www.vcore.gr/pricing/</loc>
+    <lastmod>2025-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/pricing/"/>
+  </url>
+
+  <url>
+    <loc>https://www.vcore.gr/el/pricing/</loc>
+    <lastmod>2025-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/pricing/"/>
+  </url>
+
+  <!-- ==================== CALL CENTER (EN ONLY) ==================== -->
+
+  <url>
+    <loc>https://www.vcore.gr/call-center/</loc>
+    <lastmod>2025-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

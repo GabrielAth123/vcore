@@ -1,10 +1,10 @@
 /* ==========================================================
-   Local Fonts — Inter
+   Local Fonts — Inter (Full Charset: Latin, Greek, Cyrillic)
 ========================================================== */
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter/inter-v20-latin-regular.woff2") format("woff2");
+  src: url("../fonts/inter/inter-v20-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter/inter-v20-latin-500.woff2") format("woff2");
+  src: url("../fonts/inter/inter-v20-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-500.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter/inter-v20-latin-600.woff2") format("woff2");
+  src: url("../fonts/inter/inter-v20-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-600.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -31,7 +31,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter/inter-v20-latin-700.woff2") format("woff2");
+  src: url("../fonts/inter/inter-v20-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -89,14 +89,7 @@
 
 
 
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("../fonts/playfair/playfair-v10-latin-900.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
+		
 
 
 
@@ -126,7 +119,7 @@
 
 	/*images overlay */
 	
-	--overlay-bg: rgba(43, 45, 66, 0.65); /* ⬅️ ΠΡΟΣΘΗΚΗ */
+	--overlay-bg: rgba(43, 45, 66, 0.75); /* ⬅️ ΠΡΟΣΘΗΚΗ */
 	
 	/* Global Typography */
 
@@ -404,16 +397,6 @@ h3 { font-size: 2.1rem; line-height: 1; }
 h4 { font-size: 1.25rem; line-height: 1.35; }
 h5 { font-size: 1rem; line-height: 1.4; }
 h6 { font-size: 0.875rem; line-height: 1.4; }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1064,7 +1047,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 /* Front Side */
 .card-front {
-  background: rgba(43, 45, 66, 0.75);
+  background: rgba(43, 45, 66, 0.85);
   backdrop-filter: blur(1.5px);
   flex-direction: column;
   gap: var(--space-3);
@@ -1106,7 +1089,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 /* Back Side */
 .card-back {
   transform: rotateY(180deg);
-  background: rgba(43, 45, 66, 0.75);
+  background: rgba(43, 45, 66, 0.95);
   color: var(--color-text);
   flex-direction: column;
   transform-style: preserve-3d;
@@ -1275,7 +1258,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 .virtual-office .section-inner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 
@@ -1324,7 +1307,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   display: block;
 }
 .btn-cta {
-  font-size: 1.25rem;
+  
   padding: 1.2rem 2.8rem;
   border-radius: 60px;
 
@@ -2231,14 +2214,13 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 
 
 .section.contact {
-  
   background:
     linear-gradient(
-      var(--overlay-bg),
-      var(--overlay-bg)
+      rgba(0, 0, 0, 0.3), /* 0.6 = 60% σκοτάδι. Ανέβασέ το για πιο σκούρο */
+      rgba(0, 0, 0, 0.3)
     ),
     var(--color-accent);
-  color: var(--color-text);   /* ⬅️ ΑΥΤΟ αλλάζεις */
+  color: var(--color-text);
   padding-block: clamp(4rem, 8vw, 7rem);
 }
 
@@ -2394,7 +2376,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: #ff1744;
+  background: #5f0315;
   color: white;
   border-radius: 50%;
   font-size: var(--fs-xl);
@@ -2837,33 +2819,6 @@ border-radius: 10px;
 }
 
 
-/* ===================================================================
-   5. SPEECH BUBBLES POP-IN
-=================================================================== */
-.speech-bubble {
-  will-change: transform, opacity;
-}
-
-.speech-bubble.bubble-hidden {
-  opacity: 0;
-  transform: scale(0.6) translateY(24px);
-  transition:
-    opacity 0.35s ease,
-    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.speech-bubble.bubble-pop {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-/* Stagger via DOM order */
-.challenge-card:nth-child(1) .speech-bubble { transition-delay: 0.05s; }
-.challenge-card:nth-child(2) .speech-bubble { transition-delay: 0.12s; }
-.challenge-card:nth-child(3) .speech-bubble { transition-delay: 0.18s; }
-.challenge-card:nth-child(4) .speech-bubble { transition-delay: 0.24s; }
-.challenge-card:nth-child(5) .speech-bubble { transition-delay: 0.30s; }
-.challenge-card:nth-child(6) .speech-bubble { transition-delay: 0.36s; }
 
 
 /* ===================================================================
