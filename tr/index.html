@@ -64,7 +64,9 @@
   <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="../../assets/css/main.css">
+   <!-- Main CSS -->
+  <link rel="stylesheet" href="/../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/splitting.css">
 
   <script type="application/ld+json">
 {
@@ -167,6 +169,33 @@
 </script>
 
 </head>
+
+
+<div class="side-float">
+  <a href="https://wa.me/306947568023"
+     class="side-float-btn whatsapp"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.96 14.07c-.21.59-1.21 1.15-1.66 1.22-.45.07-.97.1-1.56-.1-.36-.12-.82-.28-1.41-.55-2.48-1.07-4.1-3.56-4.22-3.72-.12-.16-.98-1.3-.98-2.48s.62-1.76.84-2c.22-.24.48-.3.64-.3h.46c.15 0 .35-.06.55.42.2.48.68 1.66.74 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.11-.24.23-.1.45.14.22.62.97 1.33 1.57.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.56-.15 1.15z"/>
+    </svg>
+    
+  </a>
+
+  <a href="https://t.me/vcoregr"
+     class="side-float-btn telegram"
+     target="_blank"
+     rel="noopener"
+     aria-label="Telegram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M22 2L2.9 9.3c-.8.3-.8 1.4 0 1.7l4.9 1.5 1.8 5.7c.2.7 1 .9 1.5.4l2.8-2.7 4.6 3.4c.6.4 1.4.1 1.6-.6L23.9 3c.2-.8-.6-1.5-1.4-1z"/>
+    </svg>
+    
+  </a>
+</div>
+
+
 <body class="landing">
 
 	<div id="page-wrapper">
@@ -309,10 +338,24 @@
 			<section id="hero" class="section hero">
 
 				<!-- Background Image -->
-				<img class="hero-bg" src="../images/banner.webp"
-					alt="Virtual office business environment in Kavala, Greece" width="1600" height="900"
-					loading="eager" fetchpriority="high" decoding="async">
+		  <video 
+  class="hero-bg"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+>
+  <source src="../images/hero.webm" type="video/webm">
 
+  <!-- Fallback image -->
+  <img 
+    src="../images/banner.webp" 
+    alt="Virtual Office in Kavala – Professional Business Support"
+    loading="eager"
+    decoding="async"
+  >
+</video>
 
 
 				<!-- Content -->
@@ -363,7 +406,12 @@
 					<div class="intro-grid">
 
 						<article class="intro-card">
-							<span class="intro-icon"></span>
+							 <span class="intro-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d90429" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+</span>
 							<h3>Yasal Yerel İşletme Varlığı</h3>
 							<p>
 								Yunanistan'da kamu hizmetleri, bankalar ve iş ortakları için uygun, tam posta yönetimi
@@ -374,7 +422,15 @@
 						</article>
 
 						<article class="intro-card">
-							<span class="intro-icon"></span>
+							 <span class="intro-icon">
+   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d90429" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"></path>
+    <path d="M3 12c0-2.4 1.2-4.8 3-6.3a9 9 0 0 1 12 0C19.8 7.2 21 9.6 21 12"></path>
+    <path d="M8.5 19.5L12 17l3.5 2.5"></path>
+    <path d="M12 17v-5"></path>
+    <path d="M5 20c1.5-1 3.5-1.5 7-1.5s5.5.5 7 1.5"></path>
+  </svg>
+</span>
 							<h3>Kavala'daki Yerel İş Ortağınız</h3>
 							<p>
 								Kavala'da güvenilir iş ortağınız olarak, Doğu Makedonya ve Trakya'nın tamamında idari ve
@@ -383,7 +439,13 @@
 						</article>
 
 						<article class="intro-card">
-							<span class="intro-icon"></span>
+						<span class="intro-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d90429" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M9 8h5a2 2 0 0 1 0 4H9v4h5a2 2 0 0 0 0-4"></path>
+    <line x1="9" y1="12" x2="15" y2="12"></line>
+  </svg>
+</span>
 							<h3>Kripto Ödemeleri Kabul Edilir</h3>
 							<p>
 								BTC, USDC ve USDT kabul ediyoruz, böylece uzak mesafedeki girişimciler ve yatırımcılar
@@ -443,7 +505,116 @@
 								height="600" loading="lazy" decoding="async">
 						</div>
 					</div>
+<div class="text-image concierge-audience-card">
+  <div class="text-side">
+    <h3>Kime Yöneliktir</h3>
+    <p>
+      Business Concierge hizmeti, Yunanistan’da kalıcı bir ofis kurmadan
+      güvenilir fiziksel temsil ve yerel operasyonel destek gerektiren
+      şirketler ve profesyoneller için tasarlanmıştır.
+    </p>
+  </div>
+  
+  <div class="grid-side">
+    <div class="audience-grid-pro">
+      
+        <div class="audience-box">
+        <div class="icon-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+  <circle cx="9" cy="7" r="4"></circle>
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+        </div>
+  <h4>Yurt Dışındaki Şirket Sahipleri</h4>
+  <p>
+  Yunan şirketlerini uzaktan yöneten ve resmi işlemler,
+  kamu kurumlarıyla iletişim ve operasyonel konular için
+  güvenilir yerel temsil ihtiyacı olan girişimciler.
+  </p>
+</div>
 
+<div class="audience-box">
+        <div class="icon-circle">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        <path d="M2 9h20" opacity="0.3"></path>
+    </svg>
+        </div>
+  <h4>Yatırımcılar & Gayrimenkul Sahipleri</h4>
+  <p>
+  Varlıklarının yerinde denetimi, teknik süreçlerin koordinasyonu
+  ve idari işlemlerin takibi için yerel destek arayan yatırımcılar.
+  </p>
+</div>
+
+<div class="audience-box">
+        <div class="icon-circle">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 21h20"></path>
+  <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4a11.6 11.6 0 0 0 1.62 6"></path>
+  <path d="M12 10V2"></path>
+</svg>
+        </div>
+  <h4>Denizcilik Şirketleri</h4>
+  <p>
+  Kavala Limanı’nda faaliyet gösteren ve belge yönetimi,
+  yerel koordinasyon ve operasyonel temsil gerektiren şirketler.
+  </p>
+</div>
+
+  <div class="audience-box">
+        <div class="icon-circle">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+</svg>
+        </div>
+  <h4>Uluslararası Şirketler</h4>
+  <p>
+  Yunanistan pazarına giren ve ilk aşama işlemler,
+  resmi süreçler ve yerel iş koordinasyonu için
+  güvenilir bir temsilciye ihtiyaç duyan işletmeler.
+  </p>
+</div>
+
+<div class="audience-box">
+        <div class="icon-circle">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+  <path d="m3.3 7 8.7 5 8.7-5"></path>
+  <path d="M12 22V12"></path>
+</svg>
+        </div>
+  <h4>Lojistik Şirketleri</h4>
+  <p>
+  Taşımacılık ve gümrük süreçlerini yöneten ve
+  yerinde müdahale ile süreç takibi gerektiren kuruluşlar.
+  </p>
+</div>
+
+  <div class="audience-box">
+        <div class="icon-circle">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+  <polyline points="14 2 14 8 20 8"></polyline>
+  <path d="M8 13h4"></path>
+  <path d="M8 17h8"></path>
+  <path d="M10 9h1"></path>
+</svg>
+        </div>
+  <h4>Hukuk & Muhasebe Ofisleri</h4>
+  <p>
+  Uluslararası müvekkilleri adına resmi işlemler,
+  belge teslimi ve yüz yüze süreçler için
+  güvenilir yerel temsil arayan profesyonel ofisler.
+  </p>
+</div>
+
+    </div>
+  </div>
+</div>
 					<div class="text-image">
 						<div class="text">
 							<h3>Siz büyümeye odaklanın, biz sahadaki işleri üstlenelim.</h3>
@@ -1227,6 +1398,47 @@
 
 					</form>
 
+					<div class="instant-contact">
+
+  <h2 class="instant-title">Anında iletişimi tercih eder misiniz?</h2>
+
+  <div class="instant-buttons">
+
+    <!-- WhatsApp -->
+
+<a href="https://wa.me/306947568023"
+   class="btn-whatsapp"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat on WhatsApp">
+
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.96 14.07c-.21.59-1.21 1.15-1.66 1.22-.45.07-.97.1-1.56-.1-.36-.12-.82-.28-1.41-.55-2.48-1.07-4.1-3.56-4.22-3.72-.12-.16-.98-1.3-.98-2.48s.62-1.76.84-2c.22-.24.48-.3.64-.3h.46c.15 0 .35-.06.55.42.2.48.68 1.66.74 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.11-.24.23-.1.45.14.22.62.97 1.33 1.57.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.56-.15 1.15z"/>
+</svg>
+
+  <span>WhatsApp</span>
+</a>
+
+<!-- Telegram -->
+<a href="https://t.me/vcoregr"
+   class="btn-telegram"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat on Telegram">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="#fff" d="M22 2L2.9 9.3c-.8.3-.8 1.4 0 1.7l4.9 1.5 1.8 5.7c.2.7 1 .9 1.5.4l2.8-2.7 4.6 3.4c.6.4 1.4.1 1.6-.6L23.9 3c.2-.8-.6-1.5-1.4-1z"/>
+  </svg>
+
+  <span>Telegram</span>
+</a>
+
+
+
+  </div>
+
+</div>
+
 				</div>
 			</section>
 
@@ -1296,645 +1508,530 @@
 
 
 
+<script src="/assets/js/splitting.min.js"></script>
 
-	<script>
-		const form = document.getElementById("contact-form");
-		const status = document.getElementById("form-status");
-		const submitBtn = form.querySelector('.btn-accent');
-
-		console.log("CONTACT FORM JS LOADED");
-
-		form.addEventListener("submit", async (e) => {
-			e.preventDefault();
-			console.log("FORM SUBMITTED");
-
-			// Show loading state
-			status.className = 'form-status loading show';
-			status.textContent = "Sending your message...";
-
-			if (submitBtn) {
-				submitBtn.classList.add('loading');
-				submitBtn.disabled = true;
-			}
-
-			const data = {
-				name: form.name.value,
-				email: form.email.value,
-				message: form.message.value
-			};
-
-			console.log("Data to send:", data);
-
-			try {
-				const res = await fetch("https://contact-form-worker.simsonakos23.workers.dev/", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(data)
-				});
-
-				console.log("Response status:", res.status);
-				const result = await res.json();
-				console.log("Result:", result);
-
-				if (result.success) {
-					status.className = 'form-status success show';
-					status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
-					form.reset();
-
-					setTimeout(() => {
-						status.classList.remove('show');
-						setTimeout(() => {
-							status.className = 'form-status';
-						}, 500);
-					}, 6000);
-				} else {
-					status.className = 'form-status error show';
-					status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
-
-					setTimeout(() => {
-						status.classList.remove('show');
-						setTimeout(() => {
-							status.className = 'form-status';
-						}, 500);
-					}, 8000);
-				}
-
-			} catch (err) {
-				console.error("Error:", err);
-				status.className = 'form-status error show';
-				status.textContent = "Network error. Please check your connection and try again.";
-
-				setTimeout(() => {
-					status.classList.remove('show');
-					setTimeout(() => {
-						status.className = 'form-status';
-					}, 500);
-				}, 8000);
-			} finally {
-				if (submitBtn) {
-					submitBtn.classList.remove('loading');
-					submitBtn.disabled = false;
-				}
-			}
-		});
-	</script>
-
-	<!-- MAIN SITE SCRIPT -->
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-
-			// Detect device type
-			const isMobile = window.innerWidth <= 768;
-
-			console.log(isMobile ? '📱 Mobile Mode' : '💻 Desktop Mode');
-
-			if (isMobile) {
-				// Κάνε όλα αμέσως ορατά
-				document.querySelectorAll('.section-animate, .intro-card, .service-card, .animate-ready').forEach(el => {
-					el.style.opacity = '1';
-					el.style.transform = 'none';
-				});
-				console.log('📱 Fast loading enabled');
-			}
-
-			/* =====================================================
-			   HEADER SCROLL - WORKS ON ALL DEVICES
-			===================================================== */
-			let lastScroll = 0;
-			const header = document.querySelector('#site-header');
-			const scrollThreshold = 100;
-
-			if (header) {
-				window.addEventListener('scroll', () => {
-					const currentScroll = window.pageYOffset;
-
-					if (currentScroll <= scrollThreshold) {
-						header.style.transform = 'translateY(0)';
-						return;
-					}
-
-					if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
-						header.style.transform = 'translateY(-100%)';
-					} else if (currentScroll < lastScroll) {
-						header.style.transform = 'translateY(0)';
-					}
-
-					lastScroll = currentScroll;
-				});
-			}
-
-			/* =====================================================
-			   2. PARALLAX HERO BACKGROUND - OPTIMIZED & MOBILE-SAFE
-			===================================================== */
-			const heroBg = document.querySelector('.hero-bg');
-
-			if (heroBg) {
-				// ✅ Parallax ΜΟΝΟ σε desktop
-				console.log('🖥️ Parallax enabled for desktop');
-
-				let latestScroll = 0;
-				let tickingHero = false;
-
-				heroBg.style.willChange = 'transform';
-
-				window.addEventListener('scroll', () => {
-					latestScroll = window.pageYOffset;
-
-					if (!tickingHero) {
-						window.requestAnimationFrame(() => {
-							const hero = document.querySelector('.hero');
-							if (hero) {
-								const heroHeight = hero.offsetHeight;
-
-								if (latestScroll <= heroHeight) {
-									heroBg.style.transform = `translate3d(0, ${latestScroll * 0.5}px, 0)`;
-								}
-							}
-
-							tickingHero = false;
-						});
-
-						tickingHero = true;
-					}
-				});
-			}
-
-			/* =====================================================
-			   3. INTERSECTION OBSERVER — ALL ANIMATIONS
-			===================================================== */
-			if (!isMobile) {
-				const animateObserver = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('animate-in');
-							animateObserver.unobserve(entry.target);
-						}
-					});
-				}, {
-					threshold: 0.15,
-					rootMargin: '0px 0px -80px 0px'
-				});
-
-				const animatedElements = document.querySelectorAll(`
-      .service-card,
-      .compare-column,
-      .compare-vs,
-      .challenge-card,
-      .timeline-item,
-      .speech-bubble
-    `);
-
-				animatedElements.forEach(el => {
-					el.classList.add('animate-ready');
-					animateObserver.observe(el);
-				});
-			} else {
-				// MOBILE: Instant visibility
-				document.querySelectorAll('.service-card, .compare-column, .compare-vs, .challenge-card, .timeline-item, .speech-bubble').forEach(el => {
-					el.classList.add('animate-in');
-					el.style.opacity = '1';
-					el.style.transform = 'none';
-				});
-			}
-			/* =====================================================
-			   4. SECTION FADE-IN
-			===================================================== */
-			const sections = document.querySelectorAll(
-				'.intro, .virtual-office, .business-support, .cta-section'
-			);
-
-			if (!isMobile) {
-				const sectionObserver = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('section-visible');
-						}
-					});
-				}, {
-					threshold: 0.15,
-					rootMargin: '0px 0px -80px 0px'
-				});
-
-				sections.forEach(section => {
-					section.classList.add('section-animate');
-					sectionObserver.observe(section);
-				});
-			} else {
-				// MOBILE: Instant visibility
-				sections.forEach(section => {
-					section.classList.add('section-visible');
-					section.style.opacity = '1';
-					section.style.transform = 'none';
-				});
-			}
-
-			/* =====================================================
-			   5. SERVICE CARDS MAGNETIC HOVER - DESKTOP ONLY
-			===================================================== */
-			if (!isMobile) {
-				const serviceCards = document.querySelectorAll('.service-card');
-
-				serviceCards.forEach(card => {
-					card.addEventListener('mousemove', (e) => {
-						const rect = card.getBoundingClientRect();
-						const x = e.clientX - rect.left;
-						const y = e.clientY - rect.top;
-
-						const centerX = rect.width / 2;
-						const centerY = rect.height / 2;
-
-						const moveX = ((x - centerX) / centerX) * 8;
-						const moveY = ((y - centerY) / centerY) * 8;
-
-						card.style.transform = `translate(${moveX}px, ${moveY}px)`;
-					});
-
-					card.addEventListener('mouseleave', () => {
-						card.style.transform = 'translate(0, 0)';
-					});
-				});
-			}
-
-			/* =====================================================
-			   6. PRICING TABLE HOVER - DESKTOP ONLY
-			===================================================== */
-			if (!isMobile) {
-				const pricingColumns = document.querySelectorAll(
-					'.pricing-column:not(.pricing-features)'
-				);
-
-				pricingColumns.forEach(column => {
-					column.addEventListener('mouseenter', () => {
-						column.classList.add('pricing-highlight');
-					});
-
-					column.addEventListener('mouseleave', () => {
-						column.classList.remove('pricing-highlight');
-					});
-				});
-			}
-
-			/* =====================================================
-			   7. FAQ ACCORDION - IMPROVED FOR MOBILE
-			===================================================== */
-			const faqButtons = document.querySelectorAll('.faq-button');
-			console.log(`📋 Found ${faqButtons.length} FAQ buttons`);
-
-			faqButtons.forEach((button, index) => {
-				button.addEventListener('click', function (e) {
-					e.preventDefault();
-					e.stopPropagation();
-
-					console.log(`FAQ ${index + 1} clicked`);
-
-					const faqCard = this.closest('.faq-card');
-					if (!faqCard) return;
-
-					const isOpen = faqCard.classList.contains('active');
-
-					// Close all FAQs
-					document.querySelectorAll('.faq-card').forEach(card => {
-						card.classList.remove('active');
-						const badge = card.querySelector('.faq-badge');
-						if (badge) badge.textContent = '+';
-					});
-
-					// Toggle current FAQ
-					if (!isOpen) {
-						faqCard.classList.add('active');
-						const badge = this.querySelector('.faq-badge');
-						if (badge) badge.textContent = '−';
-						console.log(`FAQ ${index + 1} opened`);
-					} else {
-						console.log(`FAQ ${index + 1} closed`);
-					}
-				});
-
-				// Better mobile support
-
-			});
-
-			/* =====================================================
-			   8. INTRO CARDS - STAGGER ON SCROLL
-			===================================================== */
-			const introCards = document.querySelectorAll('.intro-card');
-
-			const introObserver = new IntersectionObserver((entries) => {
-				entries.forEach((entry, index) => {
-					if (entry.isIntersecting) {
-						setTimeout(() => {
-							entry.target.style.opacity = '1';
-							entry.target.style.transform = 'translateY(0)';
-						}, index * 150);
-
-						introObserver.unobserve(entry.target);
-					}
-				});
-			}, { threshold: 0.2 });
-
-			introCards.forEach(card => {
-				card.style.opacity = '0';
-				card.style.transform = 'translateY(30px)';
-				card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-				introObserver.observe(card);
-			});
-
-			/* =====================================================
-			   9. SMOOTH SCROLL FOR NAVIGATION LINKS
-			===================================================== */
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function (e) {
-					const href = this.getAttribute('href');
-
-					if (!href || href === '#') return;
-
-					const target = document.querySelector(href);
-					if (!target) return;
-
-					e.preventDefault();
-
-					const headerHeight = header ? header.offsetHeight : 0;
-					const targetPosition = target.offsetTop - headerHeight;
-
-					window.scrollTo({
-						top: targetPosition,
-						behavior: 'smooth'
-					});
-
-					history.pushState(null, null, href);
-				});
-			});
-
-			/* =====================================================
-			   10. CHALLENGE CARDS - BUBBLE POP ON SCROLL
-			===================================================== */
-			const challengeCards = document.querySelectorAll('.challenge-card');
-			const bubbles = document.querySelectorAll('.speech-bubble');
-
-			bubbles.forEach(bubble => {
-				bubble.classList.add('bubble-hidden');
-			});
-
-			const bubbleObserver = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						const bubble = entry.target.querySelector('.speech-bubble');
-						if (bubble) {
-							setTimeout(() => {
-								bubble.classList.remove('bubble-hidden');
-								bubble.classList.add('bubble-pop');
-							}, 300);
-						}
-						bubbleObserver.unobserve(entry.target);
-					}
-				});
-			}, { threshold: 0.3 });
-
-			challengeCards.forEach(card => bubbleObserver.observe(card));
-
-			/* =====================================================
-			   11. FORM VALIDATION & FEEDBACK
-			===================================================== */
-			const ctaForm = document.querySelector('.cta-form');
-
-			if (ctaForm) {
-				ctaForm.addEventListener('submit', (e) => {
-					e.preventDefault();
-
-					const emailInput = ctaForm.querySelector('input[type="email"]');
-					const button = ctaForm.querySelector('.btn');
-
-					if (!emailInput.value || !emailInput.validity.valid) {
-						emailInput.style.borderColor = 'var(--color-accent)';
-						emailInput.focus();
-						return;
-					}
-
-					button.textContent = 'Sending...';
-					button.disabled = true;
-
-					setTimeout(() => {
-						button.textContent = '✓ Message Sent!';
-						button.style.background = '#00c853';
-						emailInput.value = '';
-
-						setTimeout(() => {
-							button.textContent = 'Contact!';
-							button.style.background = '';
-							button.disabled = false;
-						}, 3000);
-					}, 1500);
-				});
-			}
-
-			/* =====================================================
-			   12. LAZY LOAD IMAGES WITH BLUR EFFECT
-			===================================================== */
-			const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-
-			lazyImages.forEach(img => {
-				if (!img.complete) {
-					img.style.filter = 'blur(5px)';
-					img.style.transition = 'filter 0.3s ease';
-
-					const handleLoad = () => {
-						img.style.filter = 'none';
-						img.removeEventListener('load', handleLoad);
-					};
-
-					img.addEventListener('load', handleLoad);
-
-					setTimeout(() => {
-						if (img.complete) {
-							img.style.filter = 'none';
-						}
-					}, 1000);
-				} else {
-					img.style.filter = 'none';
-				}
-			});
-
-			/* =====================================================
-			   13. ADDRESS CARDS - FLIP ON CLICK (Mobile Only)
-			===================================================== */
-			if (isMobile) {
-				const addressCards = document.querySelectorAll('.address-card');
-
-				addressCards.forEach(card => {
-					card.addEventListener('click', () => {
-						card.style.transform = card.style.transform === 'rotateY(180deg)'
-							? 'rotateY(0deg)'
-							: 'rotateY(180deg)';
-					});
-				});
-			}
-
-			/* =====================================================
-			   PERFORMANCE OPTIMIZATION
-			===================================================== */
-			let ticking = false;
-
-			window.addEventListener('scroll', () => {
-				if (!ticking) {
-					window.requestAnimationFrame(() => {
-						ticking = false;
-					});
-					ticking = true;
-				}
-			}, { passive: true });
-
-			// Hamburger Menu Toggle
-			const hamburger = document.getElementById('hamburger-btn');
-			const mobileNav = document.getElementById('mobile-nav');
-
-			if (hamburger && mobileNav) {
-				hamburger.addEventListener('click', () => {
-					hamburger.classList.toggle('active');
-					mobileNav.classList.toggle('active');
-					document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-				});
-
-				// Close menu when clicking a link
-				mobileNav.querySelectorAll('a').forEach(link => {
-					link.addEventListener('click', () => {
-						hamburger.classList.remove('active');
-						mobileNav.classList.remove('active');
-						document.body.style.overflow = '';
-					});
-				});
-			}
-
-			/* =====================================================
-			   MOBILE-SPECIFIC OPTIMIZATIONS
-			===================================================== */
-			if (isMobile) {
-				// Disable hover effects that don't work well on touch
-				document.body.classList.add('mobile-device');
-
-				console.log('📱 Mobile optimizations applied');
-			}
-
-			console.log('✅ VCORE Enhanced JS loaded successfully');
-
-		}); // ← END DOMContentLoaded
-	</script>
-
-
-
-
-
-
-
-
-	<!-- ================= COOKIE CONSENT ================= -->
-	<div id="cookie-banner" class="cookie-banner">
-		<div class="cookie-container">
-			<div class="cookie-text" id="cookie-text"></div>
-
-			<div class="cookie-actions">
-				<button id="accept-cookies" class="cookie-btn cookie-accept"></button>
-				<button id="reject-cookies" class="cookie-btn cookie-reject"></button>
-			</div>
-		</div>
-	</div>
-
-	<script>
-		/* ================= TRANSLATIONS ================= */
-		const cookieTranslations = {
-			en: {
-				text: "We use cookies to enhance your browsing experience, analyze website traffic, and improve our services. Analytics cookies help us understand how visitors interact with the website. You can accept or reject these cookies at any time. You may withdraw your consent later through our Privacy Policy page.",
-				accept: "Accept",
-				reject: "Reject"
-			},
-			el: {
-				text: "Χρησιμοποιούμε cookies για τη βελτίωση της εμπειρίας περιήγησης, την ανάλυση της επισκεψιμότητας και τη βελτίωση των υπηρεσιών μας. Τα cookies ανάλυσης μας βοηθούν να κατανοούμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies οποιαδήποτε στιγμή. Μπορείτε επίσης να ανακαλέσετε τη συγκατάθεσή σας μέσω της σελίδας Πολιτικής Απορρήτου.",
-				accept: "Αποδοχή",
-				reject: "Απόρριψη"
-			},
-			tr: {
-				text: "Tarama deneyiminizi geliştirmek, site trafiğini analiz etmek ve hizmetlerimizi iyileştirmek için çerezler kullanıyoruz. Analitik çerezler, ziyaretçilerin web sitesini nasıl kullandığını anlamamıza yardımcı olur. Bu çerezleri istediğiniz zaman kabul edebilir veya reddedebilirsiniz. Onayınızı daha sonra Gizlilik Politikası sayfamızdan geri çekebilirsiniz.",
-				accept: "Kabul Et",
-				reject: "Reddet"
-			},
-			uk: {
-				text: "Ми використовуємо файли cookie для покращення роботи сайту, аналізу трафіку та вдосконалення наших послуг. Аналітичні файли cookie допомагають нам зрозуміти, як відвідувачі взаємодіють із сайтом. Ви можете прийняти або відхилити ці файли cookie в будь-який час. Ви також можете відкликати свою згоду через сторінку Політики конфіденційності.",
-				accept: "Прийняти",
-				reject: "Відхилити"
-			},
-			zh: {
-				text: "我们使用 Cookie 来提升您的浏览体验、分析网站流量并改进我们的服务。分析类 Cookie 帮助我们了解访客如何与网站互动。您可以随时接受或拒绝这些 Cookie。您也可以通过我们的隐私政策页面撤回您的同意。",
-				accept: "接受",
-				reject: "拒绝"
-			}
-		};
-
-		/* ================= LOAD GOOGLE ANALYTICS ================= */
-		function loadGA() {
-			const script = document.createElement('script');
-			script.async = true;
-			script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
-			document.head.appendChild(script);
-
-			script.onload = function () {
-				window.dataLayer = window.dataLayer || [];
-				function gtag() { dataLayer.push(arguments); }
-				window.gtag = gtag;
-
-				gtag('js', new Date());
-				gtag('config', 'G-BH19G8VX5B', {
-					anonymize_ip: true
-				});
-			};
-		}
-
-
-
-
-		/* ================= INIT ================= */
-		document.addEventListener("DOMContentLoaded", function () {
-
-			const banner = document.getElementById("cookie-banner");
-			const textEl = document.getElementById("cookie-text");
-			const acceptBtn = document.getElementById("accept-cookies");
-			const rejectBtn = document.getElementById("reject-cookies");
-
-			const savedConsent = localStorage.getItem("cookiesConsent");
-
-			const lang = document.documentElement.lang || "en";
-			const translation = cookieTranslations[lang] || cookieTranslations.en;
-
-			textEl.innerHTML = translation.text +
-				' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
-
-			acceptBtn.textContent = translation.accept;
-			rejectBtn.textContent = translation.reject;
-
-			if (savedConsent === "accepted") {
-				loadGA();
-				banner.style.display = "none";
-				return;
-			}
-
-			if (savedConsent === "rejected") {
-				banner.style.display = "none";
-				return;
-			}
-
-			banner.style.display = "block";
-
-			acceptBtn.addEventListener("click", function () {
-				localStorage.setItem("cookiesConsent", "accepted");
-				loadGA();
-				banner.style.display = "none";
-			});
-
-			rejectBtn.addEventListener("click", function () {
-				localStorage.setItem("cookiesConsent", "rejected");
-				banner.style.display = "none";
-			});
-
-		});
-	</script>
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const submitBtn = form.querySelector('.btn-accent');
+
+  console.log("CONTACT FORM JS LOADED");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    console.log("FORM SUBMITTED");
+
+    status.className = 'form-status loading show';
+    status.textContent = "Sending your message...";
+
+    if (submitBtn) {
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+    }
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    try {
+      const res = await fetch("https://contact-form-worker.simsonakos23.workers.dev/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        status.className = 'form-status success show';
+        status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
+        form.reset();
+        setTimeout(() => {
+          status.classList.remove('show');
+          setTimeout(() => { status.className = 'form-status'; }, 500);
+        }, 6000);
+      } else {
+        status.className = 'form-status error show';
+        status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
+        setTimeout(() => {
+          status.classList.remove('show');
+          setTimeout(() => { status.className = 'form-status'; }, 500);
+        }, 8000);
+      }
+
+    } catch (err) {
+      console.error("Error:", err);
+      status.className = 'form-status error show';
+      status.textContent = "Network error. Please check your connection and try again.";
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => { status.className = 'form-status'; }, 500);
+      }, 8000);
+    } finally {
+      if (submitBtn) {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    }
+  });
+</script>
+
+<!-- MAIN SITE SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const isMobile = window.innerWidth <= 768;
+    console.log(isMobile ? '📱 Mobile Mode' : '💻 Desktop Mode');
+
+    // =====================================================
+    // HERO VIDEO PLAYBACK RATE — ΕΔΩ, μέσα στο DOMContentLoaded
+    // =====================================================
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg && heroBg.tagName === 'VIDEO') {
+      heroBg.playbackRate = 0.8;
+    }
+
+    // =====================================================
+    // MOBILE: INSTANT VISIBILITY
+    // =====================================================
+    if (isMobile) {
+      document.querySelectorAll('.section-animate, .intro-card, .service-card, .animate-ready').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      console.log('📱 Fast loading enabled');
+    }
+
+  
+
+    // =====================================================
+    // HEADER SCROLL HIDE/SHOW
+    // =====================================================
+    let lastScroll = 0;
+    const header = document.querySelector('#site-header');
+    const scrollThreshold = 100;
+
+    if (header) {
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll <= scrollThreshold) { header.style.transform = 'translateY(0)'; return; }
+        if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+          header.style.transform = 'translateY(-100%)';
+        } else if (currentScroll < lastScroll) {
+          header.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
+      });
+    }
+
+    // =====================================================
+    // PARALLAX HERO - DESKTOP ONLY
+    // =====================================================
+    if (!isMobile && heroBg) {
+      let latestScroll = 0;
+      let tickingHero = false;
+      heroBg.style.willChange = 'transform';
+
+      window.addEventListener('scroll', () => {
+        latestScroll = window.pageYOffset;
+        if (!tickingHero) {
+          window.requestAnimationFrame(() => {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+              const heroHeight = hero.offsetHeight;
+              if (latestScroll <= heroHeight) {
+                heroBg.style.transform = `translate3d(0, ${latestScroll * 0.5}px, 0)`;
+              }
+            }
+            tickingHero = false;
+          });
+          tickingHero = true;
+        }
+      });
+    }
+
+    // =====================================================
+    // INTERSECTION OBSERVER - ANIMATIONS
+    // =====================================================
+    if (!isMobile) {
+      const animateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            animateObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+      document.querySelectorAll('.service-card, .compare-column, .compare-vs, .challenge-card, .timeline-item, .speech-bubble').forEach(el => {
+        el.classList.add('animate-ready');
+        animateObserver.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.service-card, .compare-column, .compare-vs, .challenge-card, .timeline-item, .speech-bubble').forEach(el => {
+        el.classList.add('animate-in');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+
+    // =====================================================
+    // SERVICE CARDS MAGNETIC HOVER - DESKTOP ONLY
+    // =====================================================
+    if (!isMobile) {
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const moveX = ((x - centerX) / centerX) * 8;
+          const moveY = ((y - centerY) / centerY) * 8;
+          card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translate(0, 0)';
+        });
+      });
+    }
+
+    // =====================================================
+    // FAQ ACCORDION
+    // =====================================================
+    const faqButtons = document.querySelectorAll('.faq-button');
+    console.log(`📋 Found ${faqButtons.length} FAQ buttons`);
+
+    faqButtons.forEach((button, index) => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(`FAQ ${index + 1} clicked`);
+
+        const faqCard = this.closest('.faq-card');
+        if (!faqCard) return;
+
+        const isOpen = faqCard.classList.contains('active');
+
+        document.querySelectorAll('.faq-card').forEach(card => {
+          card.classList.remove('active');
+          const badge = card.querySelector('.faq-badge');
+          if (badge) badge.textContent = '+';
+        });
+
+        if (!isOpen) {
+          faqCard.classList.add('active');
+          const badge = this.querySelector('.faq-badge');
+          if (badge) badge.textContent = '−';
+          console.log(`FAQ ${index + 1} opened`);
+        } else {
+          console.log(`FAQ ${index + 1} closed`);
+        }
+      });
+    });
+
+    // =====================================================
+    // SMOOTH SCROLL FOR NAVIGATION LINKS
+    // =====================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.offsetTop - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        history.pushState(null, null, href);
+      });
+    });
+
+    // =====================================================
+    // LAZY LOAD IMAGES
+    // =====================================================
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+      if (!img.complete) {
+        img.style.filter = 'blur(5px)';
+        img.style.transition = 'filter 0.3s ease';
+        const handleLoad = () => {
+          img.style.filter = 'none';
+          img.removeEventListener('load', handleLoad);
+        };
+        img.addEventListener('load', handleLoad);
+        setTimeout(() => {
+          if (img.complete) img.style.filter = 'none';
+        }, 1000);
+      } else {
+        img.style.filter = 'none';
+      }
+    });
+
+    // =====================================================
+    // HAMBURGER MENU
+    // =====================================================
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.classList.toggle('nav-open');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.classList.remove('nav-open');
+      });
+    });
+
+    // =====================================================
+    // TEXT-IMAGE SLIDE-IN - DESKTOP ONLY
+    // =====================================================
+    if (!isMobile) {
+      const textImages = document.querySelectorAll('.text-image');
+      textImages.forEach(el => {
+        const isReverse = el.classList.contains('reverse');
+        el.style.cssText = `
+          opacity: 0;
+          transform: translateX(${isReverse ? '60px' : '-60px'});
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        `;
+      });
+
+      const textImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+            textImageObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      textImages.forEach(el => textImageObserver.observe(el));
+    }
+
+    // =====================================================
+    // RED BOX + H2
+    // =====================================================
+Splitting({ target: '.section-header h2', by: 'chars' });
+
+document.querySelectorAll('.section-header h2').forEach(h2 => {
+
+  h2.classList.add('splitting');
+
+  // Το h2 πρέπει να είναι πάνω από το block
+  h2.style.position = 'relative';
+  h2.style.zIndex = '2';
+
+  const chars = h2.querySelectorAll('.char');
+
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'position:relative; overflow:hidden; display:inline-block;';
+
+  const block = document.createElement('span');
+  block.style.cssText = `
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:#d90429;
+    z-index:1;
+    transition:left 0.5s cubic-bezier(0.77,0,0.175,1);
+  `;
+
+  h2.parentNode.insertBefore(wrapper, h2);
+  wrapper.appendChild(block);
+  wrapper.appendChild(h2);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+
+        block.style.left = '100%';
+
+        chars.forEach((char, i) => {
+          setTimeout(() => {
+            char.classList.add('visible');
+          }, i * 25);
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5, rootMargin: '0px 0px -150px 0px' });
+
+  observer.observe(h2);
+});
+
+
+    // =====================================================
+    // MOBILE OPTIMIZATIONS
+    // =====================================================
+    if (isMobile) {
+      document.body.classList.add('mobile-device');
+      console.log('📱 Mobile optimizations applied');
+    }
+
+    console.log('✅ VCORE Enhanced JS loaded successfully');
+
+  }); // ← END DOMContentLoaded
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ================= COOKIE CONSENT ================= -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-container">
+      <div class="cookie-text" id="cookie-text"></div>
+
+      <div class="cookie-actions">
+        <button id="accept-cookies" class="cookie-btn cookie-accept"></button>
+        <button id="reject-cookies" class="cookie-btn cookie-reject"></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ================= TRANSLATIONS ================= */
+    const cookieTranslations = {
+      en: {
+        text: "We use cookies to enhance your browsing experience, analyze website traffic, and improve our services. Analytics cookies help us understand how visitors interact with the website. You can accept or reject these cookies at any time. You may withdraw your consent later through our Privacy Policy page.",
+        accept: "Accept",
+        reject: "Reject"
+      },
+      el: {
+        text: "Χρησιμοποιούμε cookies για τη βελτίωση της εμπειρίας περιήγησης, την ανάλυση της επισκεψιμότητας και τη βελτίωση των υπηρεσιών μας. Τα cookies ανάλυσης μας βοηθούν να κατανοούμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies οποιαδήποτε στιγμή. Μπορείτε επίσης να ανακαλέσετε τη συγκατάθεσή σας μέσω της σελίδας Πολιτικής Απορρήτου.",
+        accept: "Αποδοχή",
+        reject: "Απόρριψη"
+      },
+      tr: {
+        text: "Tarama deneyiminizi geliştirmek, site trafiğini analiz etmek ve hizmetlerimizi iyileştirmek için çerezler kullanıyoruz. Analitik çerezler, ziyaretçilerin web sitesini nasıl kullandığını anlamamıza yardımcı olur. Bu çerezleri istediğiniz zaman kabul edebilir veya reddedebilirsiniz. Onayınızı daha sonra Gizlilik Politikası sayfamızdan geri çekebilirsiniz.",
+        accept: "Kabul Et",
+        reject: "Reddet"
+      },
+      uk: {
+        text: "Ми використовуємо файли cookie для покращення роботи сайту, аналізу трафіку та вдосконалення наших послуг. Аналітичні файли cookie допомагають нам зрозуміти, як відвідувачі взаємодіють із сайтом. Ви можете прийняти або відхилити ці файли cookie в будь-який час. Ви також можете відкликати свою згоду через сторінку Політики конфіденційності.",
+        accept: "Прийняти",
+        reject: "Відхилити"
+      },
+      zh: {
+        text: "我们使用 Cookie 来提升您的浏览体验、分析网站流量并改进我们的服务。分析类 Cookie 帮助我们了解访客如何与网站互动。您可以随时接受或拒绝这些 Cookie。您也可以通过我们的隐私政策页面撤回您的同意。",
+        accept: "接受",
+        reject: "拒绝"
+      }
+    };
+
+    /* ================= LOAD GOOGLE ANALYTICS ================= */
+    function loadGA() {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
+      document.head.appendChild(script);
+
+      script.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BH19G8VX5B', {
+          anonymize_ip: true
+        });
+      };
+    }
+
+
+
+
+    /* ================= INIT ================= */
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const banner = document.getElementById("cookie-banner");
+      const textEl = document.getElementById("cookie-text");
+      const acceptBtn = document.getElementById("accept-cookies");
+      const rejectBtn = document.getElementById("reject-cookies");
+
+      const savedConsent = localStorage.getItem("cookiesConsent");
+
+      const lang = document.documentElement.lang || "en";
+      const translation = cookieTranslations[lang] || cookieTranslations.en;
+
+      textEl.innerHTML = translation.text +
+        ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+
+      acceptBtn.textContent = translation.accept;
+      rejectBtn.textContent = translation.reject;
+
+      if (savedConsent === "accepted") {
+        loadGA();
+        banner.style.display = "none";
+        return;
+      }
+
+      if (savedConsent === "rejected") {
+        banner.style.display = "none";
+        return;
+      }
+
+      banner.style.display = "block";
+
+      acceptBtn.addEventListener("click", function () {
+        localStorage.setItem("cookiesConsent", "accepted");
+        loadGA();
+        banner.style.display = "none";
+      });
+
+      rejectBtn.addEventListener("click", function () {
+        localStorage.setItem("cookiesConsent", "rejected");
+        banner.style.display = "none";
+      });
+
+    });
+  </script>
 
 </body>
 
