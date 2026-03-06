@@ -2778,7 +2778,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   border: 1px solid rgba(255,255,255,0.08);
  padding: 36px 48px;
 border-radius: 18px;
-  z-index: 9999;
+  z-index: 99999;
   box-shadow: 0 20px 60px rgba(0,0,0,0.45);
 }
 
@@ -4271,5 +4271,6 @@ img {
     width: 44px;
     height: 44px;
   }
+
 
 } /* ← ΤΕΛΟΣ @media (max-width: 480px) */
