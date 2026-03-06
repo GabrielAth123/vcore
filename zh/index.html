@@ -1250,17 +1250,26 @@
 					<p>观看我们对虚拟办公室服务的快速介绍</p>
 				</header>
 
-				<div class="video-wrapper">
-					<iframe
-					src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-					title="虚拟办公室介绍"
-					loading="lazy"
-					referrerpolicy="no-referrer"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen>
-					</iframe>
-				</div>
-				</div>
+			  <div class="video-wrapper">
+    <video
+  controls
+  preload="none"
+  playsinline
+  poster="/images/logo/logo.webp"
+  style="width:100%; display:block; border-radius: inherit; background:#000;"
+>
+  <source src="/images/vcore.webm" type="video/webm">
+ 
+
+  <track
+    kind="captions"
+    src="/captions.vtt"
+    srclang="en"
+    label="English"
+  >
+</video>
+  </div>
+</div>
 
 				<!-- ================= FAQ TITLE ================= -->
 				<header class="section-header faq-title">
@@ -1408,6 +1417,7 @@
 
 
 
+
 <!-- ================= CTA ================= -->
 
 <section id="contact" class="section contact">
@@ -1490,6 +1500,28 @@
 					</main>												
 
 <!-- ================= Footer ================= -->
+<div style="
+  position: relative;
+  border-radius: 0px;
+  padding: 0px;
+  backdrop-filter: blur(24px);
+  border: 0px solid rgba(255,255,255,0.15);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.22);
+  max-width: 100%;
+  margin: 0px auto;
+">
+ <iframe
+  title="VCORE Business Services location map"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.7296232890083!2d24.413608089148173!3d40.935727344758696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aebbcd48429477%3A0xcfc910ef9d582659!2sVCORE%20Business%20Services!5e0!3m2!1sen!2sgr!4v1772610965238!5m2!1sen!2sgr"
+  width="100%"
+  height="550"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  style="border:0; display:block; filter:brightness(.88) saturate(.88);">
+</iframe>
+
+
 <footer id="footer" class="section footer">
   <div class="section-inner">
 

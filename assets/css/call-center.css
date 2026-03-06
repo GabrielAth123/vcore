@@ -3291,6 +3291,7 @@ body {
   .cc-hologram-pillars {
     grid-template-columns: 1fr;
     gap: 2rem;
+    
   }
 
   .cc-pillar-beam,
@@ -3315,6 +3316,7 @@ body {
   }
 
   .cc-pillar-content {
+    box-sizing: border-box;
     width: 100%;
     padding: 1.5rem;
     text-align: center;
@@ -3337,6 +3339,9 @@ body {
     padding: 0.375rem 0.75rem;
     font-size: 0.75rem;
   }
+
+  
+  
 
   /* HORIZONTAL SECTION */
   .cc-horizontal-section {
@@ -3579,3 +3584,56 @@ body {
     display: none;
   }
 }
+
+
+
+/* ================= INTEGRATION SECTION - OVERFLOW FIX ================= */
+
+.cc-integration-section {
+  overflow-x: hidden; /* ← ΚΡΙΤΙΚΟ */
+}
+
+.cc-integration-visual {
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  /* Το rotateY είναι ο κύριος ένοχος — το κόβουμε νωρίς */
+  .cc-phone-mockup {
+    transform: none;
+    animation: floatSimple 6s ease-in-out infinite; /* Χωρίς rotateY */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @keyframes floatSimple {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+}
+
+@media (max-width: 768px) {
+  .cc-integration-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: hidden;
+  }
+
+  .cc-phone-mockup {
+    width: min(220px, 70vw); /* ← Ποτέ δεν ξεπερνά το viewport */
+    height: auto;
+    aspect-ratio: 9 / 18;
+    transform: none;
+    animation: none; /* Στα μικρά mobile, καταργούμε και το float */
+  }
+
+  .cc-integration-pillars {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+ }
