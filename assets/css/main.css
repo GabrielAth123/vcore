@@ -2838,6 +2838,184 @@ border-radius: 10px;
 
 
 
+/* ==========================================================================
+   VCORE LEGAL PAGES STYLING (Sidebar Tree + Multi-language)
+   ========================================================================== */
+.legal-page-container {
+    background-color: var(--color-bg); /* Χρησιμοποιεί το #edf2f4 σου */
+    padding-block: clamp(8rem, 10vw, 12rem); /* Σωστό spacing κάτω από το μεγάλο header */
+}
+
+.legal-layout {
+    display: flex;
+    gap: var(--space-6); /* 48px κενό */
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+/* ΑΡΙΣΤΕΡΟ SIDEBAR (TREE MENU) */
+.legal-sidebar {
+    flex: 0 0 260px;
+    position: sticky;
+    top: 130px; /* Κάτω από το sticky header σου */
+    height: fit-content;
+    background: var(--color-surface);
+    border: 2px solid rgba(43, 45, 66, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    color: var(--color-primary); /* Το σκούρο μπλε σου */
+    margin-bottom: var(--space-3);
+    border-bottom: 2px solid rgba(43, 45, 66, 0.1);
+    padding-bottom: var(--space-2);
+    letter-spacing: -0.01em;
+}
+
+.lang-tree {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.tree-link {
+    background: none;
+    border: none;
+    font-family: var(--font-base);
+    color: var(--color-muted); /* Το σκούρο κείμενο #0f172a */
+    font-size: var(--fs-base);
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    padding: var(--space-2) var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: all var(--duration-fast) var(--ease-standard);
+    padding: var(--space-2) var(--space-3); /* Δίνει αέρα μέσα στο κουμπί */
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+
+}
+
+.tree-link i {
+    font-size: var(--fs-xs);
+    color: var(--color-primary);
+    opacity: 0.5;
+    transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+/* Hover κατάσταση στο μενού */
+.tree-link:hover {
+    color: var(--color-accent);
+    background: rgba(217, 4, 41, 0.05);
+    padding-left: var(--space-2);
+}
+
+/* Active κατάσταση (Κόκκινο μενού) */
+.tree-link.active {
+    color: var(--color-accent);
+    font-weight: 700;
+    background: #ffffff; /* Δίνει ένα καθαρό λευκό "card" εφέ πίσω από την επιλεγμένη γλώσσα */
+    border: 1px solid rgba(217, 4, 41, 0.2);
+}
+
+.tree-link.active i {
+    color: var(--color-accent);
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* ΔΕΞΙ ΜΕΡΟΣ: ΤΑ ΚΕΙΜΕΝΑ */
+.legal-content {
+    flex: 1;
+}
+
+.legal-tab-content {
+    display: none;
+}
+
+.legal-tab-content.active {
+    display: block;
+    animation: fadeInLegal var(--duration-normal) var(--ease-standard) forwards;
+}
+
+.legal-main-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl); /* 2.4rem από το root σου */
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+    letter-spacing: -0.02em;
+}
+
+.legal-date {
+    font-family: var(--font-base);
+    font-size: var(--fs-sm);
+    color: var(--color-accent); /* Κόκκινο για την ημερομηνία */
+    font-weight: 600;
+    margin-bottom: var(--space-5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.legal-section-block {
+    margin-bottom: var(--space-5);
+    background: var(--color-surface);
+    padding: var(--space-4);
+    border-left: 4px solid var(--color-accent); /* Έντονη κόκκινη γραμμή αριστερά */
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-sm);
+    border-top: 1px solid rgba(43, 45, 66, 0.03);
+    border-right: 1px solid rgba(43, 45, 66, 0.03);
+    border-bottom: 1px solid rgba(43, 45, 66, 0.03);
+}
+
+.legal-section-block h3 {
+    font-family: var(--font-base); /* Αλλάζει από Playfair σε Inter για απόλυτη καθαρότητα */
+    font-size: var(--fs-lg); 
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.01em;
+}
+
+.legal-section-block p {
+    font-family: var(--font-base);
+    font-size: var(--fs-base);
+    color: var(--color-muted); /* Το ευανάγνωστο κείμενο */
+    line-height: var(--lh-loose); /* 1.7 για να είναι ξεκούραστο στο διάβασμα */
+    margin-bottom: 0;
+}
+
+/* RESPONSIVE ΓΙΑ ΚΙΝΗΤΑ */
+@media (max-width: 768px) {
+    .legal-layout {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .legal-sidebar {
+        flex: none;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    .legal-main-title {
+        font-size: var(--fs-xl);
+    }
+}
+
+@keyframes fadeInLegal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 
 
@@ -2846,9 +3024,187 @@ border-radius: 10px;
 
 
 
+/* ==========================================================================
+   VCORE POLICIES PAGES STYLING (Sidebar Tree + Multi-language)
+   ========================================================================== */
+.policies-page-container {
+    background-color: var(--color-bg);
+    padding-block: clamp(8rem, 10vw, 12rem);
+}
 
+.policies-layout {
+    display: flex;
+    gap: var(--space-6);
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
 
+/* ΑΡΙΣΤΕΡΟ SIDEBAR (TREE MENU) */
+.policies-sidebar {
+    flex: 0 0 260px;
+    position: sticky;
+    top: 130px;
+    height: fit-content;
+    background: var(--color-surface);
+    border: 2px solid rgba(43, 45, 66, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+}
 
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    border-bottom: 2px solid rgba(43, 45, 66, 0.1);
+    padding-bottom: var(--space-2);
+    letter-spacing: -0.01em;
+}
+
+.lang-tree {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.policies-link {
+    background: none;
+    border: none;
+    font-family: var(--font-base);
+    color: var(--color-muted);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all var(--duration-fast) var(--ease-standard);
+    width: 100%;
+}
+
+.policies-link i {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    transform: rotate(-45deg);
+    transition: transform var(--duration-normal) var(--ease-standard);
+    opacity: 0.5;
+}
+
+.policies-link:hover {
+    color: var(--color-accent);
+    background: rgba(217, 4, 41, 0.05);
+}
+
+.policies-link.active {
+    color: var(--color-accent);
+    font-weight: 700;
+    background: #ffffff;
+    border: 1px solid rgba(217, 4, 41, 0.2);
+}
+
+.policies-link.active i {
+    transform: rotate(45deg);
+    border-color: var(--color-accent);
+    opacity: 1;
+}
+
+/* ΔΕΞΙ ΜΕΡΟΣ: ΤΑ ΚΕΙΜΕΝΑ */
+.policies-content {
+    flex: 1;
+}
+
+.policies-tab-content {
+    display: none;
+}
+
+.policies-tab-content.active {
+    display: block;
+    animation: fadeInPolicies var(--duration-normal) var(--ease-standard) forwards;
+}
+
+.policies-main-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+    letter-spacing: -0.02em;
+}
+
+.policies-date {
+    font-family: var(--font-base);
+    font-size: var(--fs-sm);
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: var(--space-5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.policies-section-block {
+    margin-bottom: var(--space-5);
+    background: var(--color-surface);
+    padding: var(--space-4);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-sm);
+    border-top: 1px solid rgba(43, 45, 66, 0.03);
+    border-right: 1px solid rgba(43, 45, 66, 0.03);
+    border-bottom: 1px solid rgba(43, 45, 66, 0.03);
+}
+
+.policies-section-block h3 {
+    font-family: var(--font-base);
+    font-size: var(--fs-lg); 
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.01em;
+}
+
+.policies-section-block p {
+    font-family: var(--font-base);
+    font-size: var(--fs-base);
+    color: var(--color-primary);
+    line-height: var(--lh-loose);
+    margin-bottom: 0;
+}
+.policies-section-block ul,
+.policies-section-block li {
+    color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .policies-layout {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .policies-sidebar {
+        flex: none;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    .policies-main-title {
+        font-size: var(--fs-xl);
+    }
+}
+
+@keyframes fadeInPolicies {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 
 
@@ -4272,5 +4628,133 @@ img {
     height: 44px;
   }
 
+/* ==========================================================
+   CONTACT FORM DEEP FIX (Autofill, Focus & Mobile Checkbox)
+========================================================== */
+
+/* 1. Καθαρισμός του Autofill & Focus: Για να μη χάνονται τα γράμματα */
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover, 
+.contact-form input:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill,
+.contact-form textarea:-webkit-autofill:hover,
+.contact-form textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-secondary) !important; /* Αναγκάζει το κείμενο να παραμείνει λευκό/μπεζ */
+    box-shadow: 0 0 0px 1000px var(--color-primary) inset !important; /* Κρατάει το σκούρο μπλε background σου */
+}
+
+/* Εξασφάλιση καθαρού κειμένου κατά την πληκτρολόγηση */
+.form-group input:focus,
+.form-group textarea:focus {
+    color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.18);
+    outline: 2px solid var(--color-accent);
+}
+
+/* 2. Universal Mobile Fix για το Checkbox (Για να μην σπάει στα κινητά) */
+@media (max-width: 768px) {
+    
+    /* Αν η φόρμα χρησιμοποιεί grid, απομονώνουμε το checkbox wrapper 
+       ώστε να μην συμπεριφέρεται σαν full-width block input */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Σωστό layout για το checkbox: Το input και το label δίπλα-δίπλα */
+    .form-group-checkbox, 
+    .contact-form .form-group:has(input[type="checkbox"]),
+    div[class*="checkbox"] {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+        width: 100% !important;
+        grid-column: 1 / -1 !important; /* Αν παραμένει σε grid διάταξη */
+        padding-block: var(--space-2);
+    }
+
+    /* Ευθυγράμμιση του τετραγώνου επιλογής */
+    .contact-form input[type="checkbox"] {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        cursor: pointer;
+    }
+
+    /* Το κείμενο "I have read and accept..." */
+    .contact-form input[type="checkbox"] + label,
+    .contact-form .form-group-checkbox label {
+        font-size: var(--fs-sm) !important;
+        color: var(--color-secondary) !important;
+        line-height: var(--lh-normal) !important;
+        margin: 0 !important;
+        cursor: pointer;
+    }
+    
+    /* Διόρθωση του error box για να μην κολλάει στο κουμπί */
+    .error-message, 
+    .invalid-feedback {
+        margin-top: var(--space-2) !important;
+        font-size: var(--fs-xs) !important;
+        color: var(--color-accent) !important;
+    }
+}
+/* ==========================================================
+   FORCE SHOW & ALIGN CHECKBOX ON MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+    /* Βρίσκουμε το container που κρατάει το checkbox και το κείμενο */
+    .contact-form .form-group:has(input[type="checkbox"]),
+    .contact-form div:has(> input[type="checkbox"]),
+    .form-group-checkbox {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 0.5rem !important;
+        margin-block: var(--space-3) !important;
+        overflow: visible !important;
+    }
+
+    /* Αναγκάζουμε το ίδιο το τετραγωνάκι να εμφανιστεί και να έχει σωστό μέγεθος */
+    .contact-form input[type="checkbox"] {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 3px !important; /* Το κατεβάζει ελαφρώς για να είναι στην ίδια ευθεία με την πρώτη γραμμή */
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important; /* Απαγορεύει στο flex να το μικρύνει */
+        min-height: 18px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        -webkit-appearance: checkbox !important; /* Επαναφέρει το default στυλ του browser αν είχε σβηστεί */
+        appearance: checkbox !important;
+        cursor: pointer !important;
+    }
+
+    /* Διόρθωση για το κείμενο (label) δίπλα από το checkbox */
+    .contact-form input[type="checkbox"] + label,
+    .contact-form label:has(input[type="checkbox"]),
+    .contact-form .form-group-checkbox label {
+        display: block !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: var(--fs-sm) !important;
+        line-height: 1.4 !important;
+        color: #ffffff !important;
+        text-align: left !important;
+        white-space: normal !important; /* Επιτρέπει στο κείμενο να αλλάξει γραμμή σωστά */
+    }
+}
 
 } /* ← ΤΕΛΟΣ @media (max-width: 480px) */

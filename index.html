@@ -1490,31 +1490,48 @@ Professional firms representing foreign clients who need a reliable partner to h
           <p>Reach out today and let's explore how we can solve your challenges together.</p>
         </header>
 
-        <form id="contact-form" class="contact-form" novalidate>
+  <form id="contact-form" class="contact-form" novalidate>
 
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" required autocomplete="name">
-          </div>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required autocomplete="name">
+    </div>
 
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" required autocomplete="email">
-          </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+    </div>
 
-          <div class="form-group">
-            <label for="message">How can we help?</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
+    <!-- Το textarea πιάνει κανονικά το χώρο του -->
+    <div class="form-group" style="grid-column: span 2 !important;">
+      <label for="message">How can we help?</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
 
-          <button type="submit" class="btn btn-accent">
-            Send Message
-          </button>
+    <!-- ΔΙΟΡΘΩΜΕΝΟ: Αναγκάζουμε το checkbox να πιάσει και τις 2 κολώνες για να πάει από κάτω -->
+   <div class="form-group" style="grid-column: span 2 !important; width: 100%; margin: 25px 0 15px 0; display: block; text-align: center;">
+  <div style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%;">
+    
+    <input id="gdpr-acceptance" name="gdpr_acceptance" type="checkbox" required 
+           style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
+    
+    <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: nowrap; line-height: 20px;">
+      I have read and accept the <a href="https://vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Terms of Service</a> and <a href="https://vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Privacy Policy</a>. *
+    </label>
+    
+  </div>
+</div>
 
+    <!-- Το κουμπί πιάνει και αυτό 2 κολώνες για να κεντραριστεί σωστά αν χρειαστεί -->
+    <div style="grid-column: span 2 !important; text-align: center; width: 100%;">
+      <button type="submit" class="btn btn-accent">
+        Send Message
+      </button>
+    </div>
 
-          <p id="form-status" class="form-status" aria-live="polite"></p>
+    <p id="form-status" class="form-status" aria-live="polite" style="grid-column: span 2 !important;"></p>
 
-        </form>
+</form>
 
   <div class="instant-contact">
 
@@ -1646,10 +1663,15 @@ Professional firms representing foreign clients who need a reliable partner to h
 </nav>
 
 
-      <div class="footer-meta">
-        <p>&copy; 2026 VCORE. All rights reserved.</p>
-        <p>Virtual Office · Business Administration · Concierge Services</p>
-      </div>
+   <div class="footer-meta">
+  <p>&copy; 2026 VCORE. All rights reserved.</p>
+  <p style="margin-bottom: 8px;">Virtual Office · Business Administration · Concierge Services</p>
+  <p style="font-size: 0.9em; opacity: 0.8;">
+    <!-- Πρόσθεσε το .html εδώ -->
+    <a href="/privacy-policy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a> | 
+    <a href="/terms-of-service.html" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+  </p>
+</div>
 
     </div>
   </footer>
@@ -1747,6 +1769,25 @@ Professional firms representing foreign clients who need a reliable partner to h
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("FORM SUBMITTED");
+
+    // ─── ΕΔΩ ΜΠΑΙΝΕΙ Η ΑΛΛΑΓΗ ΓΙΑ ΤΟ GDPR CHECKBOX ──────────────────────
+    const gdprCheckbox = document.getElementById('gdpr-acceptance');
+    if (!gdprCheckbox || !gdprCheckbox.checked) {
+      status.className = 'form-status error show';
+      status.textContent = "Please accept the Terms of Service and Privacy Policy to proceed.";
+
+      // ΑΛΛΑΓΗ: Αναγκάζουμε το κείμενο να γίνει λευκό για να διαβάζεται
+      status.style.color = "#ffffff";
+      
+      // Σβήνει το μήνυμα λάθους μετά από 4 δευτερόλεπτα
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => { status.className = 'form-status'; }, 500);
+      }, 4000);
+      
+      return; // Σταματάει την αποστολή της φόρμας εδώ!
+    }
+    // ───────────────────────────────────────────────────────────────────
 
     status.className = 'form-status loading show';
     status.textContent = "Sending your message...";
