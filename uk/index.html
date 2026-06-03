@@ -1355,26 +1355,45 @@
 
     <form id="contact-form" class="contact-form" novalidate>
 
-      <div class="form-group">
-        <label for="name">Повне ім’я</label>
-        <input id="name" name="name" type="text" required autocomplete="name">
-      </div>
+    <div class="form-group">
+      <label for="name">Прізвище та ім'я</label>
+      <input id="name" name="name" type="text" required autocomplete="name">
+    </div>
 
-      <div class="form-group">
-        <label for="email">Email адреса</label>
-        <input id="email" name="email" type="email" required autocomplete="email">
-      </div>
+    <div class="form-group">
+      <label for="email">Адреса Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+    </div>
 
-      <div class="form-group">
-        <label for="message">Чим ми можемо допомогти?</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
+    <!-- Поле повідомлення (textarea) -->
+    <div class="form-group" style="grid-column: span 2 !important;">
+      <label for="message">Чим ми можемо допомогти?</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
 
+    <!-- GDPR CHECKBOX С ХОРОШИМИ ССЫЛКАМИ -->
+    <div class="form-group" style="grid-column: span 2 !important; width: 100%; margin: 25px 0 15px 0; display: block; text-align: center;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%;">
+        
+        <input id="gdpr-acceptance" name="gdpr_acceptance" type="checkbox" required 
+               style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
+        
+        <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: normal; line-height: 20px;">
+          Я ознайомився(-лася) та приймаю <a href="https://www.vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Умови використання</a> та <a href="https://www.vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Політику конфіденційності</a>. *
+        </label>
+        
+      </div>
+    </div>
+
+    <!-- Кнопка відправки -->
+    <div style="grid-column: span 2 !important; text-align: center; width: 100%;">
       <button type="submit" class="btn btn-accent">Надіслати повідомлення</button>
+    </div>
 
-      <p id="form-status" class="form-status" aria-live="polite"></p>
+    <p id="form-status" class="form-status" aria-live="polite" style="grid-column: span 2 !important;"></p>
 
-    </form>
+</form>
+
 
 		<div class="instant-contact">
 
@@ -1516,17 +1535,7 @@
 
 
 
-
 <script>
-
-
-
-
-
-
-
-
-
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const submitBtn = form.querySelector('.btn-accent');
@@ -1537,8 +1546,27 @@
     e.preventDefault();
     console.log("FORM SUBMITTED");
 
+    // ─── ΕΛΕΓΧΟΣ ΓΙΑ ΤΟ GDPR CHECKBOX ──────────────────────
+    const gdprCheckbox = document.getElementById('gdpr-acceptance');
+    if (!gdprCheckbox || !gdprCheckbox.checked) {
+      status.className = 'form-status error show';
+      status.textContent = "Будь ласка, ознайомтеся та помітьте, що ви приймаєте Умови використання та Політику конфіденційності, щоб продовжити.";
+
+      // Αναγκάζουμε το κείμενο να γίνει λευκό για να διαβάζεται
+      status.style.color = "#ffffff";
+      
+      // Σβήνει το μήνυμα λάθους μετά από 4 δευτερόλεπτα
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => { status.className = 'form-status'; }, 500);
+      }, 4000);
+      
+      return; // Σταмаτάει την αποστολή της φόρмаς εδώ!
+    }
+    // ───────────────────────────────────────────────────────────────────
+
     status.className = 'form-status loading show';
-    status.textContent = "Sending your message...";
+    status.textContent = "Надсилання вашого повідомлення...";
 
     if (submitBtn) {
       submitBtn.classList.add('loading');
@@ -1562,7 +1590,7 @@
 
       if (result.success) {
         status.className = 'form-status success show';
-        status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
+        status.textContent = "Повідомлення успішно надіслано! Ми зв'яжемося з вами протягом 24 годин.";
         form.reset();
         setTimeout(() => {
           status.classList.remove('show');
@@ -1570,7 +1598,7 @@
         }, 6000);
       } else {
         status.className = 'form-status error show';
-        status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
+        status.textContent = "Помилка сервера. Будь ласка, спробуйте ще раз або зв'яжіться з нами за адресою contact@vcore.gr";
         setTimeout(() => {
           status.classList.remove('show');
           setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1580,7 +1608,7 @@
     } catch (err) {
       console.error("Error:", err);
       status.className = 'form-status error show';
-      status.textContent = "Network error. Please check your connection and try again.";
+      status.textContent = "Помилка мережі. Будь ласка, перевірте ваше з'єднання та спробуйте ще раз.";
       setTimeout(() => {
         status.classList.remove('show');
         setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1593,6 +1621,8 @@
     }
   });
 </script>
+
+
 
 <!-- MAIN SITE SCRIPT -->
 <script>

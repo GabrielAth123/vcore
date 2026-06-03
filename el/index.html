@@ -1526,28 +1526,49 @@
             <p>Επικοινωνήστε μαζί μας και ας δούμε πώς μπορούμε να λύσουμε τις προκλήσεις σας μαζί.</p>
           </header>
 
-          <form id="contact-form" class="contact-form" novalidate>
+       <form id="contact-form" class="contact-form" novalidate>
 
-            <div class="form-group">
-              <label for="name">Ονοματεπώνυμο</label>
-              <input id="name" name="name" type="text" required autocomplete="name">
-            </div>
+    <div class="form-group">
+      <label for="name">Ονοματεπώνυμο</label>
+      <input id="name" name="name" type="text" required autocomplete="name">
+    </div>
 
-            <div class="form-group">
-              <label for="email">Διεύθυνση Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email">
-            </div>
+    <div class="form-group">
+      <label for="email">Διεύθυνση Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+    </div>
 
-            <div class="form-group">
-              <label for="message">Πώς μπορούμε να βοηθήσουμε;</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
+    <!-- Το textarea πιάνει κανονικά το χώρο του -->
+    <div class="form-group" style="grid-column: span 2 !important;">
+      <label for="message">Πώς μπορούμε να βοηθήσουμε;</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
 
-            <button type="submit" class="btn btn-accent">Αποστολή Μηνύματος</button>
+    <!-- ΤΟ CHECKBOX ΜΕ ΤΑ ΣΩΣΤΑ LINKS ΣΟΥ -->
+    <div class="form-group" style="grid-column: span 2 !important; width: 100%; margin: 25px 0 15px 0; display: block; text-align: center;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%;">
+        
+        <input id="gdpr-acceptance" name="gdpr_acceptance" type="checkbox" required 
+               style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
+        
+        <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: normal; line-height: 20px;">
+          Έχω διαβάσει και αποδέχομαι τους <a href="https://www.vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Όρους Χρήσης</a> και την <a href="https://www.vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Πολιτική Απορρήτου</a>. *
+        </label>
+        
+      </div>
+    </div>
 
-            <p id="form-status" class="form-status" aria-live="polite"></p>
+    <!-- Το κουμπί κεντραρισμένο σωστά από κάτω -->
+    <div style="grid-column: span 2 !important; text-align: center; width: 100%;">
+      <button type="submit" class="btn btn-accent">Αποστολή Μηνύματος</button>
+    </div>
 
-          </form>
+    <p id="form-status" class="form-status" aria-live="polite" style="grid-column: span 2 !important;"></p>
+
+</form>
+
+
+
 
 
 
@@ -1733,18 +1754,7 @@
 
 
 
-
-
 <script>
-
-
-
-
-
-
-
-
-
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const submitBtn = form.querySelector('.btn-accent');
@@ -1755,8 +1765,27 @@
     e.preventDefault();
     console.log("FORM SUBMITTED");
 
+    // ─── ΕΛΕΓΧΟΣ ΓΙΑ ΤΟ GDPR CHECKBOX ──────────────────────
+    const gdprCheckbox = document.getElementById('gdpr-acceptance');
+    if (!gdprCheckbox || !gdprCheckbox.checked) {
+      status.className = 'form-status error show';
+      status.textContent = "Παρακαλούμε αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου για να συνεχίσετε.";
+
+      // Αναγκάζουμε το κείμενο να γίνει λευκό για να διαβάζεται
+      status.style.color = "#ffffff";
+      
+      // Σβήνει το μήνυμα λάθους μετά από 4 δευτερόλεπτα
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => { status.className = 'form-status'; }, 500);
+      }, 4000);
+      
+      return; // Σταματάει την αποστολή της φόρμας εδώ!
+    }
+    // ───────────────────────────────────────────────────────────────────
+
     status.className = 'form-status loading show';
-    status.textContent = "Sending your message...";
+    status.textContent = "Αποστολή του μηνύματός σας...";
 
     if (submitBtn) {
       submitBtn.classList.add('loading');
@@ -1780,7 +1809,7 @@
 
       if (result.success) {
         status.className = 'form-status success show';
-        status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
+        status.textContent = "Το μήνυμα στάλθηκε επιτυχώς! Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.";
         form.reset();
         setTimeout(() => {
           status.classList.remove('show');
@@ -1788,7 +1817,7 @@
         }, 6000);
       } else {
         status.className = 'form-status error show';
-        status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
+        status.textContent = "Σφάλμα διακομιστή. Παρακαλούμε δοκιμάστε ξανά ή επικοινωνήστε μαζί μας στο contact@vcore.gr";
         setTimeout(() => {
           status.classList.remove('show');
           setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1798,7 +1827,7 @@
     } catch (err) {
       console.error("Error:", err);
       status.className = 'form-status error show';
-      status.textContent = "Network error. Please check your connection and try again.";
+      status.textContent = "Σφάλμα δικτύου. Παρακαλούμε ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.";
       setTimeout(() => {
         status.classList.remove('show');
         setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1811,6 +1840,8 @@
     }
   });
 </script>
+
+
 
 <!-- MAIN SITE SCRIPT -->
 <script>

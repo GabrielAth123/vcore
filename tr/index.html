@@ -1440,28 +1440,47 @@
 						<p>Bizimle iletişime geçin ve zorluklarınızı nasıl birlikte çözebileceğimizi keşfedelim.</p>
 					</header>
 
-					<form id="contact-form" class="contact-form" novalidate>
+				<form id="contact-form" class="contact-form" novalidate>
 
-						<div class="form-group">
-							<label for="name">Ad Soyad</label>
-							<input id="name" name="name" type="text" required autocomplete="name">
-						</div>
+    <div class="form-group">
+      <label for="name">Adı Soyadı</label>
+      <input id="name" name="name" type="text" required autocomplete="name">
+    </div>
 
-						<div class="form-group">
-							<label for="email">E-posta Adresi</label>
-							<input id="email" name="email" type="email" required autocomplete="email">
-						</div>
+    <div class="form-group">
+      <label for="email">E-posta Adresi</label>
+      <input id="email" name="email" type="email" required autocomplete="email">
+    </div>
 
-						<div class="form-group">
-							<label for="message">Size nasıl yardımcı olabiliriz?</label>
-							<textarea id="message" name="message" rows="5" required></textarea>
-						</div>
+    <!-- Metin alanı (textarea) -->
+    <div class="form-group" style="grid-column: span 2 !important;">
+      <label for="message">Size nasıl yardımcı olabiliriz?</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
 
-						<button type="submit" class="btn btn-accent">Mesaj Gönder</button>
+    <!-- DOĞRU LİNKLERLE GDPR ONAY KUTUSU -->
+    <div class="form-group" style="grid-column: span 2 !important; width: 100%; margin: 25px 0 15px 0; display: block; text-align: center;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%;">
+        
+        <input id="gdpr-acceptance" name="gdpr_acceptance" type="checkbox" required 
+               style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
+        
+        <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: normal; line-height: 20px;">
+          <a href="https://www.vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Kullanım Koşulları</a> ve <a href="https://www.vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum. *
+        </label>
+        
+      </div>
+    </div>
 
-						<p id="form-status" class="form-status" aria-live="polite"></p>
+    <!-- Gönder butonu -->
+    <div style="grid-column: span 2 !important; text-align: center; width: 100%;">
+      <button type="submit" class="btn btn-accent">Mesaj Gönder</button>
+    </div>
 
-					</form>
+    <p id="form-status" class="form-status" aria-live="polite" style="grid-column: span 2 !important;"></p>
+
+</form>
+
 
 					<div class="instant-contact">
 
@@ -1607,20 +1626,7 @@
 
 
 
-
-
-
-
 <script>
-
-
-
-
-
-
-
-
-
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const submitBtn = form.querySelector('.btn-accent');
@@ -1631,8 +1637,27 @@
     e.preventDefault();
     console.log("FORM SUBMITTED");
 
+    // ─── ΕΛΕΓΧΟΣ ΓΙΑ ΤΟ GDPR CHECKBOX ──────────────────────
+    const gdprCheckbox = document.getElementById('gdpr-acceptance');
+    if (!gdprCheckbox || !gdprCheckbox.checked) {
+      status.className = 'form-status error show';
+      status.textContent = "Devam etmek için lütfen Kullanım Koşulları ve Gizlilik Politikası'nı kabul edin.";
+
+      // Αναγκάζουμε το κείμενο να γίνει λευκό για να διαβάζεται
+      status.style.color = "#ffffff";
+      
+      // Σβήνει το μήνυμα λάθους μετά από 4 δευτερόλεπτα
+      setTimeout(() => {
+        status.classList.remove('show');
+        setTimeout(() => { status.className = 'form-status'; }, 500);
+      }, 4000);
+      
+      return; // Σταματάει την αποστολή της φόρμας εδώ!
+    }
+    // ───────────────────────────────────────────────────────────────────
+
     status.className = 'form-status loading show';
-    status.textContent = "Sending your message...";
+    status.textContent = "Mesajınız gönderiliyor...";
 
     if (submitBtn) {
       submitBtn.classList.add('loading');
@@ -1656,7 +1681,7 @@
 
       if (result.success) {
         status.className = 'form-status success show';
-        status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
+        status.textContent = "Mesajınız başarıyla gönderildi! 24 saat içinde sizinle iletişime geçeceğiz.";
         form.reset();
         setTimeout(() => {
           status.classList.remove('show');
@@ -1664,7 +1689,7 @@
         }, 6000);
       } else {
         status.className = 'form-status error show';
-        status.textContent = "Server error. Please try again or contact us at contact@vcore.gr";
+        status.textContent = "Sunucu hatası. Lütfen tekrar deneyin veya contact@vcore.gr adresinden bizimle iletişime geçin.";
         setTimeout(() => {
           status.classList.remove('show');
           setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1674,7 +1699,7 @@
     } catch (err) {
       console.error("Error:", err);
       status.className = 'form-status error show';
-      status.textContent = "Network error. Please check your connection and try again.";
+      status.textContent = "Ağ hatası. Lütfen bağlantınızı kontrol edin ve tekrar deneyin.";
       setTimeout(() => {
         status.classList.remove('show');
         setTimeout(() => { status.className = 'form-status'; }, 500);
@@ -1687,6 +1712,7 @@
     }
   });
 </script>
+
 
 <!-- MAIN SITE SCRIPT -->
 <script>
