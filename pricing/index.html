@@ -143,7 +143,7 @@
 </head>
 
 <div class="side-float">
-  <a href="https://wa.me/306947568023"
+  <a href="https://wa.me/306955434575"
      class="side-float-btn whatsapp"
      target="_blank"
      rel="noopener"
@@ -312,17 +312,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-  <!-- ================= Virual office  ================= -->
+<!-- ================= Virtual Office ================= -->
 <section id="virtual-office" class="pricing-section virtual-office pricing-tab-content active">
     <div class="container">
 
@@ -333,31 +323,45 @@
                 Establish your company presence with a legal business address,
                 secure mail handling and administrative support in Kavala.
             </p>
+
+            <!-- ================= BILLING TOGGLE ================= -->
+            <div class="vo-billing-toggle-wrapper">
+                <span class="vo-billing-label vo-label-annual">Annual</span>
+                <label class="vo-toggle-label" aria-label="Switch billing period">
+                    <input type="checkbox" id="vo-billing-toggle" class="vo-toggle-input">
+                    <span class="vo-toggle-track">
+                        <span class="vo-toggle-thumb"></span>
+                    </span>
+                </label>
+                <span class="vo-billing-label vo-label-monthly">Monthly</span>
+                <span class="vo-save-badge">Save 15%</span>
+            </div>
+
         </header>
 
         <div class="pricing-grid">
 
-               <!-- ================= BASIC ================= -->
+            <!-- ================= SOLE TRADER ================= -->
             <article class="pricing-card">
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Basic</h2>
+                    <h2 class="plan-name">Sole Trader</h2>
                     <div class="plan-price">
-                        <span class="price-amount">29</span>
+                        <span class="price-amount" id="vo-price-sole">29</span>
                         <span class="price-period">/ month</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-sole"><s>€408</s> €348/year · <strong>Save 15%</strong></p>
+                    <p class="vo-vat-note">All prices exclude 24% VAT</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Professional Business Address</div>
                             <div class="feature-sub">
-                                Legally registered business address in Kavala for official company use and registration with public authorities.
+                                Legally registered business address in Kavala for company registration with GEMI, tax authorities and EFKA.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Unlimited Mail Handling</div>
@@ -366,7 +370,6 @@
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Mail Storage & Management</div>
@@ -375,68 +378,53 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
                 <a href="../index.html#contact" class="btn pricing-btn">Get Started</a>
             </article>
 
-            <!-- ================= PREMIUM ================= -->
+            <!-- ================= BUSINESS ================= -->
             <article class="pricing-card featured">
                 <span class="featured-badge">Most Popular</span>
 
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Premium</h2>
-                    <div class="plan-price">
-                        <span class="price-amount">59</span>
+                  <h2 class="plan-name">Business</h2>
+<p class="plan-subtitle">For Companies & Legal Entities</p>
+<p class="plan-subtitle">IKE, EPE, AE, OE & EE</p>
+
+<div class="plan-price">
+                        <span class="price-amount" id="vo-price-business">34</span>
                         <span class="price-period">/ month</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-business"><s>€468</s> €408/year · <strong>Save 15%</strong></p>
+                    <p class="vo-vat-note">All prices exclude 24% VAT</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Includes all features of the Basic plan +</div>
-                        </div>
-                    </li>
-
-                    <li class="feature-item">
-                        <div class="feature-content">
-                            <div class="feature-title">Dedicated Greek Business Phone Number with Call Handling</div>
+                            <div class="feature-title">Professional Business Address</div>
                             <div class="feature-sub">
-                                Local business number registered under your company. We record messages and forward them to you promptly via email.
+                                Legally registered business address in Kavala for company registration with GEMI, tax authorities and EFKA.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Mail Scanning</div>
+                            <div class="feature-title">Unlimited Mail Handling</div>
                             <div class="feature-sub">
-                                We scan your received mail and send you a digital copy via email upon request.
+                                We receive all incoming company mail and parcels addressed to your business.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Representation before Authorities</div>
+                            <div class="feature-title">Mail Storage & Management</div>
                             <div class="feature-sub">
-                                Possibility to use our premises for official inspections or meetings requiring physical presence.
+                                Your correspondence is securely stored and organized until you request scanning, forwarding or physical collection.
                             </div>
                         </div>
                     </li>
-
-                    <li class="feature-item">
-                        <div class="feature-content">
-                            <div class="feature-title">Courier & Shipping Coordination</div>
-                            <div class="feature-sub">
-                                We manage outgoing document and parcel shipments via international courier companies.
-                            </div>
-                        </div>
-                    </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Registered Mail & Parcel Acceptance</div>
@@ -445,32 +433,43 @@
                             </div>
                         </div>
                     </li>
-
+                    <li class="feature-item">
+                        <div class="feature-content">
+                            <div class="feature-title">Parcel Storage</div>
+                            <div class="feature-sub">
+                                We securely store your parcels and notify you immediately upon receipt via SMS or email.
+                            </div>
+                        </div>
+                    </li>
                 </ul>
 
                 <section class="concierge-section">
-                    <h3 class="section-subtitle">Upon Agreement</h3>
-
+                    <h3 class="section-subtitle">Add-ons</h3>
                     <ul class="features-list">
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">Document & Signature Coordination</div>
+                                <div class="feature-title">Representation before Authorities</div>
                                 <div class="feature-sub">
-                                    Organization of meetings for document signing and document handling.
+                                    Possibility to use our premises for official inspections or meetings requiring physical presence.
                                 </div>
                             </div>
                         </li>
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">Document Delivery & Collection</div>
+                                <div class="feature-title">Document Scanning on Demand</div>
                                 <div class="feature-sub">
-                                    Secure transport of documents between authorities, banks and partners.
+                                    We scan your received mail and send you a digital copy via email upon request. Scanning costs covered by the client.
                                 </div>
                             </div>
                         </li>
-
+                        <li class="feature-item agreement">
+                            <div class="feature-content">
+                                <div class="feature-title">Courier & Shipping Coordination</div>
+                                <div class="feature-sub">
+                                    We manage outgoing document and parcel shipments via courier companies. Shipping costs covered by the client.
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </section>
 
@@ -481,11 +480,152 @@
     </div>
 </section>
 
+<style>
+/* ── BILLING TOGGLE ── */
+.vo-billing-toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    background: rgba(43,45,66,0.06);
+    border: 1px solid rgba(43,45,66,0.12);
+    border-radius: 50px;
+    padding: 8px 20px;
+}
 
+.vo-billing-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
 
+.vo-toggle-input {
+    display: none;
+}
 
+.vo-toggle-track {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background: var(--color-accent);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
 
+.vo-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
 
+.vo-toggle-input:checked ~ .vo-toggle-track {
+    background: rgba(43,45,66,0.4);
+}
+
+.vo-toggle-input:checked ~ .vo-toggle-track .vo-toggle-thumb {
+    transform: translateX(20px);
+}
+
+.vo-save-badge {
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* ── PLAN SUBTITLE ── */
+.plan-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: -8px 0 8px;
+    letter-spacing: 0.03em;
+}
+
+.pricing-card.featured .plan-subtitle {
+    color: rgba(255,255,255,0.55);
+}
+
+/* ── ANNUAL TOTAL ── */
+.vo-annual-total {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: 4px 0 0;
+    transition: opacity 0.3s ease;
+}
+
+.vo-annual-total s {
+    opacity: 0.45;
+    margin-right: 3px;
+}
+
+.vo-annual-total strong {
+    color: var(--color-accent);
+}
+
+.pricing-card.featured .vo-annual-total {
+    color: rgba(255,255,255,0.55);
+}
+
+.pricing-card.featured .vo-annual-total strong {
+    color: #ff6b6b;
+}
+
+/* ── VAT NOTE ── */
+.vo-vat-note {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+    opacity: 0.7;
+}
+
+.pricing-card.featured .vo-vat-note {
+    color: rgba(255,255,255,0.45);
+}
+</style>
+
+<script>
+(function () {
+    const toggle   = document.getElementById('vo-billing-toggle');
+    const priceSole     = document.getElementById('vo-price-sole');
+    const priceBusiness = document.getElementById('vo-price-business');
+    const saveBadge     = document.querySelector('.vo-save-badge');
+
+    const annualSole     = document.getElementById('vo-annual-sole');
+    const annualBusiness = document.getElementById('vo-annual-business');
+
+    const prices = {
+        annual:  { sole: 29, business: 34 },
+        monthly: { sole: 34, business: 39 }
+    };
+
+    toggle.addEventListener('change', function () {
+        const p = this.checked ? 'monthly' : 'annual';
+        priceSole.textContent         = prices[p].sole;
+        priceBusiness.textContent     = prices[p].business;
+        saveBadge.style.opacity       = this.checked ? '0' : '1';
+        annualSole.style.opacity      = this.checked ? '0' : '1';
+        annualBusiness.style.opacity  = this.checked ? '0' : '1';
+    });
+})();
+</script>
 
 
 
@@ -1047,7 +1187,7 @@
      <nav class="footer-social" aria-label="Social links">
   <ul class="footer-icons">
     <li>
-      <a href="https://www.facebook.com/profile.php?id=61578497829223" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+      <a href="https://facebook.com/YOUR_USERNAME" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
   <i class="fa-brands fa-facebook"></i>
 </a>
     </li>

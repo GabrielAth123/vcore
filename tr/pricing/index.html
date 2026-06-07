@@ -132,7 +132,7 @@
 </head>
 
 <div class="side-float">
-  <a href="https://wa.me/306947568023"
+  <a href="https://wa.me/306955434575"
      class="side-float-btn whatsapp"
      target="_blank"
      rel="noopener"
@@ -272,156 +272,163 @@
 
 
 
-
-<!-- ================= Virtual Office  ================= -->
+<!-- ================= Virtual Office ================= -->
 <section id="virtual-office" class="pricing-section virtual-office pricing-tab-content active">
     <div class="container">
 
         <header class="pricing-header">
             <div class="cc-ai-badge">Sanal Ofis</div>
-            <h2 id="vo-title">Yunanistan'da Profesyonel İş Adresi</h2>
+            <h2 id="vo-title">Yunanistan'da Profesyonel Şirket Adresi</h2>
             <p class="pricing-intro">
-                Şirketinizin varlığını yasal bir iş adresi, 
-                güvenli posta yönetimi ve Kavala’da idari destek ile güçlendirin.
+                Yasal iş adresi, güvenli posta yönetimi ve Kavala'da
+                idari destek hizmetleriyle şirketinizin profesyonel varlığını oluşturun.
             </p>
+
+            <!-- ================= BILLING TOGGLE ================= -->
+            <div class="vo-billing-toggle-wrapper">
+                <span class="vo-billing-label vo-label-annual">Yıllık</span>
+                <label class="vo-toggle-label" aria-label="Fatura dönemini değiştir">
+                    <input type="checkbox" id="vo-billing-toggle" class="vo-toggle-input">
+                    <span class="vo-toggle-track">
+                        <span class="vo-toggle-thumb"></span>
+                    </span>
+                </label>
+                <span class="vo-billing-label vo-label-monthly">Aylık</span>
+                <span class="vo-save-badge">%15 Tasarruf</span>
+            </div>
+
         </header>
 
         <div class="pricing-grid">
 
-            <!-- ================= BASIC ================= -->
+            <!-- ================= SOLE TRADER ================= -->
             <article class="pricing-card">
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Temel</h2>
+                    <h2 class="plan-name">Şahıs Şirketi</h2>
                     <div class="plan-price">
-                        <span class="price-amount">29</span>
+                        <span class="price-amount" id="vo-price-sole">29</span>
                         <span class="price-period">/ ay</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-sole"><s>€408</s> €348/yıl · <strong>%15 Tasarruf</strong></p>
+                    <p class="vo-vat-note">Fiyatlara %24 KDV dahil değildir</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Profesyonel İş Adresi</div>
                             <div class="feature-sub">
-                                Kavala’da resmi şirket kullanımı ve kamu kurumlarına kayıt için yasal vergi adresi.
+                                Kavala'da yasal olarak tescil edilmiş iş adresi; ticaret sicili, vergi dairesi ve sosyal güvenlik kurumu kayıtları için geçerlidir.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Sınırsız Posta Yönetimi</div>
                             <div class="feature-sub">
-                                Şirketinize gönderilen tüm gelen posta ve paketleri teslim alıyoruz.
+                                Şirketinize gelen tüm resmi yazışmaları ve postaları teslim alır, kayıt altına alırız.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Posta Saklama & Yönetimi</div>
+                            <div class="feature-title">Posta Saklama & Arşivleme</div>
                             <div class="feature-sub">
-                                Postalarınız güvenli şekilde saklanır ve talebiniz doğrultusunda tarama, yönlendirme veya fiziksel teslimata kadar organize edilir.
+                                Yazışmalarınız; tarama, yönlendirme veya fiziksel teslim talebinize kadar güvenli biçimde saklanır ve düzenlenir.
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
-               <a href="../index.html#contact" class="btn pricing-btn">Hemen Başlayın</a>
+                <a href="../index.html#contact" class="btn pricing-btn">Hemen Başlayın</a>
             </article>
 
-            <!-- ================= PREMIUM ================= -->
+            <!-- ================= BUSINESS ================= -->
             <article class="pricing-card featured">
-                <span class="featured-badge">En Popüler</span>
+                <span class="featured-badge">En Çok Tercih Edilen</span>
 
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Premium</h2>
+                    <h2 class="plan-name">Şirket</h2>
+                    <p class="plan-subtitle">Şirketler ve Tüzel Kişiler İçin</p>
+                    <p class="plan-subtitle">Ltd. Şti., A.Ş. ve diğer şirket türleri</p>
                     <div class="plan-price">
-                        <span class="price-amount">59</span>
+                        <span class="price-amount" id="vo-price-business">34</span>
                         <span class="price-period">/ ay</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-business"><s>€468</s> €408/yıl · <strong>%15 Tasarruf</strong></p>
+                    <p class="vo-vat-note">Fiyatlara %24 KDV dahil değildir</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Temel paketin tüm özelliklerini içerir +</div>
-                        </div>
-                    </li>
-
-                    <li class="feature-item">
-                        <div class="feature-content">
-                            <div class="feature-title">Özel Yunan İş Telefon Numarası & Çağrı Yönetimi</div>
+                            <div class="feature-title">Profesyonel İş Adresi</div>
                             <div class="feature-sub">
-                                Şirketiniz adına kayıtlı yerel iş numarası. Mesajları kaydeder ve size e-posta yoluyla hemen iletiriz.
+                                Kavala'da yasal olarak tescil edilmiş iş adresi; ticaret sicili, vergi dairesi ve sosyal güvenlik kurumu kayıtları için geçerlidir.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Posta Tarama</div>
+                            <div class="feature-title">Sınırsız Posta Yönetimi</div>
                             <div class="feature-sub">
-                               Teslim alınan postalarınızı talep üzerine tarar ve dijital kopyasını e-posta ile göndeririz.
+                                Şirketinize gelen tüm resmi yazışmaları ve postaları teslim alır, kayıt altına alırız.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Resmi Kurumlarda Temsil</div>
+                            <div class="feature-title">Posta Saklama & Arşivleme</div>
                             <div class="feature-sub">
-                                Fiziksel varlık gerektiren resmi denetim veya toplantılar için tesislerimizin kullanımı.
+                                Yazışmalarınız; tarama, yönlendirme veya fiziksel teslim talebinize kadar güvenli biçimde saklanır ve düzenlenir.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Kargo & Gönderi Koordinasyonu</div>
+                            <div class="feature-title">Taahhütlü Posta & Kargo Kabulü</div>
                             <div class="feature-sub">
-                               Uluslararası kargo şirketleri aracılığıyla giden evrak ve paket gönderimlerini yönetiyoruz.
+                                Taahhütlü mektuplar, kurye teslimatları ve imza gerektiren gönderiler adınıza teslim alınır.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Taahhütlü Posta & Paket Teslim Alma</div>
+                            <div class="feature-title">Kargo Saklama</div>
                             <div class="feature-sub">
-                                İmza gerektiren taahhütlü mektuplar, kargo teslimatları ve paketlerin kabulü.
+                                Kargolarınız güvenli şekilde muhafaza edilir; teslim alındığında SMS veya e-posta ile anında bildirim yapılır.
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
                 <section class="concierge-section">
-                    <h3 class="section-subtitle">Anlaşmaya Bağlı</h3>
-
+                    <h3 class="section-subtitle">Ek Hizmetler</h3>
                     <ul class="features-list">
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">İmza & Evrak Koordinasyonu</div>
+                                <div class="feature-title">Resmi Kurumlarda Temsil</div>
                                 <div class="feature-sub">
-                                    Evrak imzaları ve belge dolaşımı için toplantı organizasyonu.
+                                    Resmi denetimler veya fiziksel katılım gerektiren toplantılar için tesislerimizin kullanımına imkân tanınır.
                                 </div>
                             </div>
                         </li>
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">Evrak Teslim & Alım Hizmeti</div>
+                                <div class="feature-title">Talep Üzerine Belge Tarama</div>
                                 <div class="feature-sub">
-                                    Resmi kurumlar, bankalar ve iş ortakları arasında güvenli belge transferi.
+                                    Yazışmalarınız talep üzerine taranarak e-posta ile dijital olarak iletilir. Tarama maliyeti müşteriye aittir.
                                 </div>
                             </div>
                         </li>
-
+                        <li class="feature-item agreement">
+                            <div class="feature-content">
+                                <div class="feature-title">Kurye & Gönderi Koordinasyonu</div>
+                                <div class="feature-sub">
+                                    Belge ve kargo gönderileriniz kurye şirketleri aracılığıyla yönetilir. Kargo ücreti müşteriye aittir.
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </section>
 
@@ -432,6 +439,151 @@
     </div>
 </section>
 
+<style>
+/* ── BILLING TOGGLE ── */
+.vo-billing-toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    background: rgba(43,45,66,0.06);
+    border: 1px solid rgba(43,45,66,0.12);
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.vo-billing-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.vo-toggle-input {
+    display: none;
+}
+
+.vo-toggle-track {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background: var(--color-accent);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.vo-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.vo-toggle-input:checked ~ .vo-toggle-track {
+    background: rgba(43,45,66,0.4);
+}
+
+.vo-toggle-input:checked ~ .vo-toggle-track .vo-toggle-thumb {
+    transform: translateX(20px);
+}
+
+.vo-save-badge {
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* ── PLAN SUBTITLE ── */
+.plan-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: -8px 0 8px;
+    letter-spacing: 0.03em;
+}
+
+.pricing-card.featured .plan-subtitle {
+    color: rgba(255,255,255,0.55);
+}
+
+/* ── ANNUAL TOTAL ── */
+.vo-annual-total {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: 4px 0 0;
+    transition: opacity 0.3s ease;
+}
+
+.vo-annual-total s {
+    opacity: 0.45;
+    margin-right: 3px;
+}
+
+.vo-annual-total strong {
+    color: var(--color-accent);
+}
+
+.pricing-card.featured .vo-annual-total {
+    color: rgba(255,255,255,0.55);
+}
+
+.pricing-card.featured .vo-annual-total strong {
+    color: #ff6b6b;
+}
+
+/* ── VAT NOTE ── */
+.vo-vat-note {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+    opacity: 0.7;
+}
+
+.pricing-card.featured .vo-vat-note {
+    color: rgba(255,255,255,0.45);
+}
+</style>
+
+<script>
+(function () {
+    const toggle        = document.getElementById('vo-billing-toggle');
+    const priceSole     = document.getElementById('vo-price-sole');
+    const priceBusiness = document.getElementById('vo-price-business');
+    const saveBadge     = document.querySelector('.vo-save-badge');
+    const annualSole     = document.getElementById('vo-annual-sole');
+    const annualBusiness = document.getElementById('vo-annual-business');
+
+    const prices = {
+        annual:  { sole: 29, business: 34 },
+        monthly: { sole: 34, business: 39 }
+    };
+
+    toggle.addEventListener('change', function () {
+        const p = this.checked ? 'monthly' : 'annual';
+        priceSole.textContent         = prices[p].sole;
+        priceBusiness.textContent     = prices[p].business;
+        saveBadge.style.opacity       = this.checked ? '0' : '1';
+        annualSole.style.opacity      = this.checked ? '0' : '1';
+        annualBusiness.style.opacity  = this.checked ? '0' : '1';
+    });
+})();
+</script>
 
 
 
@@ -910,7 +1062,7 @@
     <div class="footer-meta">
       <p><strong>VCORE Business Services</strong></p>
       <p>Kountouriotou 5, 65302 Kavala, Yunanistan</p>
-      <p>Tel: +30 2510222653 · +30 6939518023</p>
+      <p>Tel: +30 2510222653 · +30306955434575</p>
       <p>Email: contact@vcore.gr</p>
     </div>
 

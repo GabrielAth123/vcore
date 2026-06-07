@@ -131,7 +131,7 @@
 </head>
 
 <div class="side-float">
-  <a href="https://wa.me/306947568023"
+  <a href="https://wa.me/306955434575"
      class="side-float-btn whatsapp"
      target="_blank"
      rel="noopener"
@@ -280,159 +280,163 @@
 
 
 
-
-
-<!-- ================= Virtual Office  ================= -->
+<!-- ================= Virtual Office ================= -->
 <section id="virtual-office" class="pricing-section virtual-office pricing-tab-content active">
     <div class="container">
 
         <header class="pricing-header">
-            <div class="cc-ai-badge">Φορολογική Έδρα</div>
-            <h2 id="vo-title">Φορολογική Έδρα στην Ελλάδα</h2>
+            <div class="cc-ai-badge">Εικονικό Γραφείο</div>
+            <h2 id="vo-title">Επαγγελματική Επιχειρηματική Διεύθυνση στην Ελλάδα</h2>
             <p class="pricing-intro">
-                Εδραιώστε την παρουσία της εταιρείας σας με μια νόμιμη επιχειρηματική διεύθυνση, 
+                Αποκτήστε επαγγελματική παρουσία με νόμιμη επιχειρηματική διεύθυνση,
                 ασφαλή διαχείριση αλληλογραφίας και διοικητική υποστήριξη στην Καβάλα.
             </p>
+
+            <!-- ================= BILLING TOGGLE ================= -->
+            <div class="vo-billing-toggle-wrapper">
+                <span class="vo-billing-label vo-label-annual">Ετήσια</span>
+                <label class="vo-toggle-label" aria-label="Αλλαγή περιόδου χρέωσης">
+                    <input type="checkbox" id="vo-billing-toggle" class="vo-toggle-input">
+                    <span class="vo-toggle-track">
+                        <span class="vo-toggle-thumb"></span>
+                    </span>
+                </label>
+                <span class="vo-billing-label vo-label-monthly">Μηνιαία</span>
+                <span class="vo-save-badge">Εξοικονόμηση 15%</span>
+            </div>
+
         </header>
 
         <div class="pricing-grid">
 
-            <!-- ================= BASIC ================= -->
+            <!-- ================= SOLE TRADER ================= -->
             <article class="pricing-card">
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Βασικό</h2>
+                    <h2 class="plan-name">Ατομική Επιχείρηση</h2>
                     <div class="plan-price">
-                        <span class="price-amount">29</span>
+                        <span class="price-amount" id="vo-price-sole">29</span>
                         <span class="price-period">/ μήνα</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-sole"><s>€408</s> €348/έτος · <strong>Εξοικονόμηση 15%</strong></p>
+                    <p class="vo-vat-note">Οι τιμές δεν συμπεριλαμβάνουν ΦΠΑ 24%</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Επαγγελματική Διεύθυνση</div>
+                            <div class="feature-title">Επαγγελματική Επιχειρηματική Διεύθυνση</div>
                             <div class="feature-sub">
-                                Νόμιμη φορολογική έδρα στην Καβάλα για επίσημη εταιρική χρήση και καταχώριση σε δημόσιους φορείς.
+                                Νόμιμη επαγγελματική έδρα στην Καβάλα για εγγραφή σε ΓΕΜΗ, εφορία και ΕΦΚΑ.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
                             <div class="feature-title">Απεριόριστη Διαχείριση Αλληλογραφίας</div>
                             <div class="feature-sub">
-                                Παραλαμβάνουμε όλη την εισερχόμενη εταιρική αλληλογραφία και τα δέματα που απευθύνονται στην επιχείρησή σας.
+                                Παραλαμβάνουμε όλη την εισερχόμενη αλληλογραφία και τα δέματα που απευθύνονται στην επιχείρησή σας.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Αποθήκευση & Διαχείριση Αλληλογραφίας</div>
+                            <div class="feature-title">Φύλαξη & Οργάνωση Αλληλογραφίας</div>
                             <div class="feature-sub">
-                                Η αλληλογραφία σας αποθηκεύεται με ασφάλεια και οργανώνεται έως ότου ζητήσετε σάρωση, προώθηση ή φυσική παραλαβή.
+                                Η αλληλογραφία σας φυλάσσεται με ασφάλεια και οργανώνεται έως ότου ζητήσετε σάρωση, αποστολή ή φυσική παραλαβή.
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
-               <a href="../index.html#contact" class="btn pricing-btn">Ξεκινήστε Τώρα</a>
+                <a href="../index.html#contact" class="btn pricing-btn">Ξεκινήστε Τώρα</a>
             </article>
 
-            <!-- ================= PREMIUM ================= -->
+            <!-- ================= BUSINESS ================= -->
             <article class="pricing-card featured">
                 <span class="featured-badge">Πιο Δημοφιλές</span>
 
                 <header class="pricing-card-header">
-                    <h2 class="plan-name">Premium</h2>
+                    <h2 class="plan-name">Εταιρεία</h2>
+                    <p class="plan-subtitle">Για Εταιρείες & Νομικά Πρόσωπα</p>
+                    <p class="plan-subtitle">ΙΚΕ, ΕΠΕ, ΑΕ, ΟΕ & ΕΕ</p>
                     <div class="plan-price">
-                        <span class="price-amount">59</span>
+                        <span class="price-amount" id="vo-price-business">34</span>
                         <span class="price-period">/ μήνα</span>
                     </div>
+                    <p class="vo-annual-total" id="vo-annual-business"><s>€468</s> €408/έτος · <strong>Εξοικονόμηση 15%</strong></p>
+                    <p class="vo-vat-note">Οι τιμές δεν συμπεριλαμβάνουν ΦΠΑ 24%</p>
                 </header>
 
                 <ul class="features-list">
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Περιλαμβάνει όλα τα χαρακτηριστικά του Βασικού πακέτου +</div>
-                        </div>
-                    </li>
-
-                    <li class="feature-item">
-                        <div class="feature-content">
-                            <div class="feature-title">Αποκλειστικός Ελληνικός Επιχειρηματικός Τηλεφωνικός Αριθμός με Διαχείριση Κλήσεων</div>
+                            <div class="feature-title">Επαγγελματική Επιχειρηματική Διεύθυνση</div>
                             <div class="feature-sub">
-                                Τοπικός επιχειρηματικός αριθμός καταχωρημένος στην εταιρεία σας. Καταγράφουμε μηνύματα και σας τα προωθούμε άμεσα μέσω email.
+                                Νόμιμη επαγγελματική έδρα στην Καβάλα για εγγραφή σε ΓΕΜΗ, εφορία και ΕΦΚΑ.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Σάρωση Αλληλογραφίας</div>
+                            <div class="feature-title">Απεριόριστη Διαχείριση Αλληλογραφίας</div>
                             <div class="feature-sub">
-                               Σαρώνουμε την αλληλογραφία που παραλαμβάνετε και σας στέλνουμε ψηφιακό αντίγραφο μέσω email κατόπιν αιτήματος.
-				</span>
+                                Παραλαμβάνουμε όλη την εισερχόμενη αλληλογραφία και τα δέματα που απευθύνονται στην επιχείρησή σας.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Εκπροσώπηση σε Αρχές & Φορείς</div>
+                            <div class="feature-title">Φύλαξη & Οργάνωση Αλληλογραφίας</div>
                             <div class="feature-sub">
-                                Δυνατότητα χρήσης των εγκαταστάσεών μας για επίσημες επιθεωρήσεις ή συναντήσεις που απαιτούν φυσική παρουσία.
-				</span>
+                                Η αλληλογραφία σας φυλάσσεται με ασφάλεια και οργανώνεται έως ότου ζητήσετε σάρωση, αποστολή ή φυσική παραλαβή.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Συντονισμός Courier & Αποστολών</div>
+                            <div class="feature-title">Παραλαβή Συστημένων & Δεμάτων</div>
                             <div class="feature-sub">
-                               Διαχειριζόμαστε εξερχόμενες αποστολές εγγράφων και δεμάτων μέσω διεθνών εταιρειών courier.
+                                Παραλαβή συστημένων επιστολών, αποστολών courier και αντικειμένων που απαιτούν υπογραφή κατά την παράδοση.
                             </div>
                         </div>
                     </li>
-
                     <li class="feature-item">
                         <div class="feature-content">
-                            <div class="feature-title">Παραλαβή Συστημένης Αλληλογραφίας & Δεμάτων</div>
+                            <div class="feature-title">Φύλαξη Δεμάτων</div>
                             <div class="feature-sub">
-                                Αποδοχή συστημένων επιστολών, παραδόσεων courier και αντικειμένων που απαιτούν υπογραφή κατά την παραλαβή.
+                                Φυλάσσουμε με ασφάλεια τα δέματά σας και σας ειδοποιούμε άμεσα κατά την παραλαβή μέσω SMS ή email.
                             </div>
                         </div>
                     </li>
-
                 </ul>
 
                 <section class="concierge-section">
-                    <h3 class="section-subtitle">Κατόπιν Συμφωνίας</h3>
-
+                    <h3 class="section-subtitle">Πρόσθετες Υπηρεσίες</h3>
                     <ul class="features-list">
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">Συντονισμός Υπογραφών & Εγγράφων</div>
+                                <div class="feature-title">Εκπροσώπηση ενώπιον Αρχών</div>
                                 <div class="feature-sub">
-                                    Οργάνωση συναντήσεων για υπογραφές και διακίνηση εγγράφων.
+                                    Δυνατότητα χρήσης των εγκαταστάσεών μας για επίσημες επιθεωρήσεις ή συναντήσεις που απαιτούν φυσική παρουσία.
                                 </div>
                             </div>
                         </li>
-
                         <li class="feature-item agreement">
                             <div class="feature-content">
-                                <div class="feature-title">Παράδοση & Παραλαβή Εγγράφων</div>
+                                <div class="feature-title">Ψηφιοποίηση Εγγράφων κατ' Απαίτηση</div>
                                 <div class="feature-sub">
-                                    Ασφαλής μεταφορά εγγράφων μεταξύ αρχών, τραπεζών και συνεργατών.
+                                    Σαρώνουμε την αλληλογραφία σας και σας την αποστέλλουμε ψηφιακά μέσω email κατόπιν αιτήματος. Το κόστος σάρωσης βαρύνει τον πελάτη.
                                 </div>
                             </div>
                         </li>
-
+                        <li class="feature-item agreement">
+                            <div class="feature-content">
+                                <div class="feature-title">Συντονισμός Αποστολών & Courier</div>
+                                <div class="feature-sub">
+                                    Διαχειριζόμαστε τις εξερχόμενες αποστολές εγγράφων και δεμάτων μέσω εταιρειών courier. Το κόστος αποστολής βαρύνει τον πελάτη.
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </section>
 
@@ -443,8 +447,151 @@
     </div>
 </section>
 
+<style>
+/* ── BILLING TOGGLE ── */
+.vo-billing-toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    background: rgba(43,45,66,0.06);
+    border: 1px solid rgba(43,45,66,0.12);
+    border-radius: 50px;
+    padding: 8px 20px;
+}
 
+.vo-billing-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
 
+.vo-toggle-input {
+    display: none;
+}
+
+.vo-toggle-track {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background: var(--color-accent);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.vo-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.vo-toggle-input:checked ~ .vo-toggle-track {
+    background: rgba(43,45,66,0.4);
+}
+
+.vo-toggle-input:checked ~ .vo-toggle-track .vo-toggle-thumb {
+    transform: translateX(20px);
+}
+
+.vo-save-badge {
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* ── PLAN SUBTITLE ── */
+.plan-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: -8px 0 8px;
+    letter-spacing: 0.03em;
+}
+
+.pricing-card.featured .plan-subtitle {
+    color: rgba(255,255,255,0.55);
+}
+
+/* ── ANNUAL TOTAL ── */
+.vo-annual-total {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: 4px 0 0;
+    transition: opacity 0.3s ease;
+}
+
+.vo-annual-total s {
+    opacity: 0.45;
+    margin-right: 3px;
+}
+
+.vo-annual-total strong {
+    color: var(--color-accent);
+}
+
+.pricing-card.featured .vo-annual-total {
+    color: rgba(255,255,255,0.55);
+}
+
+.pricing-card.featured .vo-annual-total strong {
+    color: #ff6b6b;
+}
+
+/* ── VAT NOTE ── */
+.vo-vat-note {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin: 6px 0 0;
+    opacity: 0.7;
+}
+
+.pricing-card.featured .vo-vat-note {
+    color: rgba(255,255,255,0.45);
+}
+</style>
+
+<script>
+(function () {
+    const toggle        = document.getElementById('vo-billing-toggle');
+    const priceSole     = document.getElementById('vo-price-sole');
+    const priceBusiness = document.getElementById('vo-price-business');
+    const saveBadge     = document.querySelector('.vo-save-badge');
+    const annualSole     = document.getElementById('vo-annual-sole');
+    const annualBusiness = document.getElementById('vo-annual-business');
+
+    const prices = {
+        annual:  { sole: 29, business: 34 },
+        monthly: { sole: 34, business: 39 }
+    };
+
+    toggle.addEventListener('change', function () {
+        const p = this.checked ? 'monthly' : 'annual';
+        priceSole.textContent         = prices[p].sole;
+        priceBusiness.textContent     = prices[p].business;
+        saveBadge.style.opacity       = this.checked ? '0' : '1';
+        annualSole.style.opacity      = this.checked ? '0' : '1';
+        annualBusiness.style.opacity  = this.checked ? '0' : '1';
+    });
+})();
+</script>
 
 
 
