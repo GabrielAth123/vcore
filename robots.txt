@@ -22,6 +22,9 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.vcore.gr/sitemap.xml
 
 # LLM Context
