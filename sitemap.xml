@@ -174,17 +174,7 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/faq/"/>
   </url>
 
-  <url>
-    <loc>https://www.vcore.gr/zh/faq/</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/faq/"/>
-    <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/faq/"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/faq/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/faq/"/>
-  </url>
+ 
 
   <!-- ==================== CALL CENTER (EN ONLY) ==================== -->
 
