@@ -144,7 +144,7 @@
 </head>
 
 <div class="side-float">
-  <a href="https://wa.me/306955434575"
+  <a href="https://wa.me/306939518023"
      class="side-float-btn whatsapp"
      target="_blank"
      rel="noopener"
@@ -282,7 +282,7 @@
                 </div>
 
             </div>
-            <span class="crypto-subtext">Pay with Bitcoin, USDT or USDC — no bank required</span>
+            <span class="crypto-subtext">Pay with Bitcoin, USDT or USDC</span>
         </div>
 
     </div>
@@ -321,22 +321,21 @@
             <div class="cc-ai-badge">Virtual Office</div>
             <h2 id="vo-title">Professional Business Address in Greece</h2>
             <p class="pricing-intro">
-                Establish your company presence with a legal business address,
-                secure mail handling and administrative support in Kavala.
+                Establish your company presence with a professional registered business address in Greece.
+Transparent pricing with no deposit required and no registration fee.
             </p>
 
             <!-- ================= BILLING TOGGLE ================= -->
             <div class="vo-billing-toggle-wrapper">
-                <span class="vo-billing-label vo-label-annual">Annual</span>
-                <label class="vo-toggle-label" aria-label="Switch billing period">
-                    <input type="checkbox" id="vo-billing-toggle" class="vo-toggle-input">
-                    <span class="vo-toggle-track">
-                        <span class="vo-toggle-thumb"></span>
-                    </span>
-                </label>
-                <span class="vo-billing-label vo-label-monthly">Monthly</span>
-                <span class="vo-save-badge">Save 15%</span>
-            </div>
+    <span class="vo-billing-label vo-label-annual">Annual</span>
+    <label class="vo-toggle-label" aria-label="Switch billing period">
+        <input type="checkbox" id="vo-billing-toggle" class="vo-toggle-input">
+        <span class="vo-toggle-track">
+            <span class="vo-toggle-thumb"></span>
+        </span>
+    </label>
+    <span class="vo-billing-label vo-label-quarterly">Quarterly</span>
+</div>
 
         </header>
 
@@ -386,7 +385,7 @@
 
             <!-- ================= BUSINESS ================= -->
             <article class="pricing-card featured">
-                <span class="featured-badge">Most Popular</span>
+                <span class="featured-badge">Best Value</span>
 
                 <header class="pricing-card-header">
                   <h2 class="plan-name">Business</h2>
@@ -604,26 +603,33 @@
 
 <script>
 (function () {
-    const toggle   = document.getElementById('vo-billing-toggle');
-    const priceSole     = document.getElementById('vo-price-sole');
-    const priceBusiness = document.getElementById('vo-price-business');
-    const saveBadge     = document.querySelector('.vo-save-badge');
+    const toggle          = document.getElementById('vo-billing-toggle');
+    const priceSole       = document.getElementById('vo-price-sole');
+    const priceBusiness   = document.getElementById('vo-price-business');
+    
+    const annualSole      = document.getElementById('vo-annual-sole');
+    const annualBusiness  = document.getElementById('vo-annual-business');
 
-    const annualSole     = document.getElementById('vo-annual-sole');
-    const annualBusiness = document.getElementById('vo-annual-business');
-
+    // Pricing: annual stays the same, quarterly = 3 × monthly rate
     const prices = {
-        annual:  { sole: 29, business: 34 },
-        monthly: { sole: 34, business: 39 }
+        annual: {
+            sole: { display: 29, total: 348, formatted: '<s>€408</s> €348/year · <strong>Save 15%</strong>' },
+            business: { display: 34, total: 408, formatted: '<s>€468</s> €408/year · <strong>Save 15%</strong>' }
+        },
+        quarterly: {
+            sole: { display: 34, total: 102, formatted: '€102 per quarter' },
+            business: { display: 39, total: 117, formatted: '€117 per quarter' }
+        }
     };
 
     toggle.addEventListener('change', function () {
-        const p = this.checked ? 'monthly' : 'annual';
-        priceSole.textContent         = prices[p].sole;
-        priceBusiness.textContent     = prices[p].business;
-        saveBadge.style.opacity       = this.checked ? '0' : '1';
-        annualSole.style.opacity      = this.checked ? '0' : '1';
-        annualBusiness.style.opacity  = this.checked ? '0' : '1';
+        const period = this.checked ? 'quarterly' : 'annual';
+        
+        priceSole.textContent = prices[period].sole.display;
+        priceBusiness.textContent = prices[period].business.display;
+        
+        annualSole.innerHTML = prices[period].sole.formatted;
+        annualBusiness.innerHTML = prices[period].business.formatted;
     });
 })();
 </script>
@@ -1179,7 +1185,7 @@
       <div class="footer-meta">
         <p><strong>VCORE Business Services</strong></p>
         <p>Parodos Kountouriotou 5, 65302 Kavala, Greece</p>
-        <p>Phone: +30 2510222653 · +30 6955434575</p>
+        <p>Phone: +30 2510222653 · +30 6939518023 · +30 6955434575</p>
         <p>Email: contact@vcore.gr</p>
         <p>G.E.M.I. No: 192726430000</p>
 
@@ -1209,7 +1215,7 @@
     </li>
 
     <li>
-      <a href="https://wa.me/306955434575" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <a href="https://wa.me/306939518023" target="_blank" rel="noopener" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
       </a>
     </li>
