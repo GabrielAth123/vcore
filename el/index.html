@@ -914,9 +914,6 @@
 
  
 
-
-<script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script>
-
 <style>
 .reviews-wrapper {
     display: flex;
@@ -964,44 +961,93 @@
 }
 </style>
 
-<div class="reviews-wrapper">
-    
-    <!-- Google Reviews Badge -->
-    <div>
-        <a href="https://www.google.com/maps/place/?q=place_id:ChIJd5RCSM27rhQRWSZYne8Qyc8" 
-           target="_blank" rel="noopener noreferrer"
-           style="display: flex; align-items: center; gap: 10px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 8px 16px; text-decoration: none; box-shadow: 0 1px 4px rgba(0,0,0,0.15);">
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                 style="height: 20px;" alt="Google">
-            <div style="display: flex; flex-direction: column; align-items: center; line-height: 1.2;">
-                <span style="font-size: 13px; color: #333; font-family: sans-serif;">5.0 <span style="color: #FBBC04;">★★★★★</span></span>
-                <span style="font-size: 10px; color: #666; font-family: sans-serif;">34 reviews</span>
-            </div>
-        </a>
-    </div>
+<style>
+.reviews-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+.review-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.review-badge-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+.review-badge-rating {
+    font-size: 13px;
+    color: #333;
+    font-family: sans-serif;
+}
+.review-badge-count {
+    font-size: 10px;
+    color: #666;
+    font-family: sans-serif;
+}
+.clutch-logo {
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #17313B;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+.clutch-logo span {
+    color: #EE3424;
+}
+@media (max-width: 768px) {
+    .reviews-wrapper {
+        gap: 12px;
+        flex-wrap: nowrap;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .review-badge {
+        transform: scale(0.9);
+        padding: 6px 10px;
+    }
+}
+</style>
 
-    <!-- Clutch Widget -->
-   <div class="clutch-container">
-    <a href="https://clutch.co/profile/vcore-business-services" 
-       target="_blank" rel="noopener noreferrer">
-        <div class="clutch-widget" 
-             data-url="https://widget.clutch.co" 
-             data-widget-type="2"
-             data-height="50" 
-             data-nofollow="false" 
-             data-expandifr="true" 
-             data-scale="100" 
-             data-clutchcompany-id="2666033">
+<div class="reviews-wrapper">
+
+    <!-- Google Reviews Badge -->
+    <a href="https://www.google.com/maps/place/?q=place_id:ChIJd5RCSM27rhQRWSZYne8Qyc8"
+       target="_blank" rel="noopener noreferrer" class="review-badge">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+             style="height: 20px;" alt="Google">
+        <div class="review-badge-text">
+            <span class="review-badge-rating">5.0 <span style="color:#FBBC04;">★★★★★</span></span>
+            <span class="review-badge-count">34 reviews</span>
         </div>
     </a>
-</div>
+
+    <!-- Clutch Reviews Badge (static) -->
+    <a href="https://clutch.co/profile/vcore-business-services"
+       target="_blank" rel="noopener noreferrer" class="review-badge">
+        <span class="clutch-logo">Clutch<span>.</span></span>
+        <div class="review-badge-text">
+            <span class="review-badge-rating">5.0 <span style="color:#EE3424;">★★★★★</span></span>
+            <span class="review-badge-count">5 reviews</span>
+        </div>
+    </a>
 
 </div>
 
-
-
-
- </section>
 
 
 
@@ -2721,27 +2767,32 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
    
 
 
-		        $('#customers-testimonials').owlCarousel({
-		            loop: true,
-		            center: true,
-		            items: 3,
-		            margin: 0,
-		            autoplay: true,
-		            dots:true,
-		            autoplayTimeout: 1800,
-		            smartSpeed: 550,
-		            responsive: {
-		              0: {
-		                items: 1
-		              },
-		              768: {
-		                items: 2
-		              },
-		              1170: {
-		                items: 3
-		              }
-		            }
-		        });
+		    const $testimonials = $('#customers-testimonials');
+
+function labelOwlDots($carousel) {
+  $carousel.find('.owl-dot').each(function(i) {
+    $(this).attr('aria-label', 'Go to review ' + (i + 1));
+  });
+}
+
+$testimonials.owlCarousel({
+    loop: true,
+    center: true,
+    items: 3,
+    margin: 0,
+    autoplay: true,
+    dots: true,
+    autoplayTimeout: 1800,
+    smartSpeed: 550,
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1170: { items: 3 }
+    },
+    onInitialized: function() { labelOwlDots($testimonials); },
+    onChanged: function() { labelOwlDots($testimonials); }
+});
+        	
         	
 
     

@@ -6,8 +6,8 @@
 > VCORE是希腊卡瓦拉的专业商务礼宾和虚拟办公室公司。
 > VCORE — компанія бізнес-консьєрж та віртуального офісу в Кавалі, Греція.
 
-Website: https://www.vcore.gr
-Email: contact@vcore.gr
+Website: [https://www.vcore.gr](https://www.vcore.gr)
+Email: [contact@vcore.gr](mailto:contact@vcore.gr)
 Phone: +30 2510222653, +30 6939518023
 WhatsApp / Telegram: +30 6939518023 / @vcoregr
 Address: Parodos Kountouriotou 5, 65302 Kavala, Greece
@@ -262,15 +262,15 @@ VCORE отримує посилки на своїй адресі в Кавалі
 ---
 
 ## Site Pages
-- EN: https://www.vcore.gr/
-- EL: https://www.vcore.gr/el/
-- TR: https://www.vcore.gr/tr/
-- ZH: https://www.vcore.gr/zh/
-- UK: https://www.vcore.gr/uk/
-- Pricing: https://www.vcore.gr/pricing/
-- AI Call Center: https://www.vcore.gr/call-center/
-- FAQ (EN): https://www.vcore.gr/faq/
-- FAQ (TR): https://www.vcore.gr/tr/faq/
-- FAQ (EL): https://www.vcore.gr/el/faq/
-- Privacy Policy: https://www.vcore.gr/privacy-policy/
-- Terms of Service: https://www.vcore.gr/terms-of-service/
+- [Home (EN)](https://www.vcore.gr/)
+- [Αρχική (EL)](https://www.vcore.gr/el/)
+- [Ana Sayfa (TR)](https://www.vcore.gr/tr/)
+- [主页 (ZH)](https://www.vcore.gr/zh/)
+- [Головна (UK)](https://www.vcore.gr/uk/)
+- [Pricing](https://www.vcore.gr/pricing/)
+- [AI Call Center](https://www.vcore.gr/call-center/)
+- [FAQ (EN)](https://www.vcore.gr/faq/)
+- [FAQ (TR)](https://www.vcore.gr/tr/faq/)
+- [FAQ (EL)](https://www.vcore.gr/el/faq/)
+- [Privacy Policy](https://www.vcore.gr/privacy-policy/)
+- [Terms of Service](https://www.vcore.gr/terms-of-service/)
