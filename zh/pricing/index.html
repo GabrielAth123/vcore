@@ -53,15 +53,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon2-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../../favicon2-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch2-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Local Font Awesome -->
-<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="../../assets/css/main.css?v=20260928">
 
 <!-- Pricing CSS -->
-<link rel="stylesheet" href="../../assets/css/pricing.css">
+<link rel="stylesheet" href="../../assets/css/pricing.css?v=20260928">
 
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
@@ -106,18 +107,7 @@
       {
         "@type": "Offer",
         "position": 2,
-        "price": "79",
-        "priceCurrency": "EUR",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "商务行政支持服务",
-          "description": "为企业提供行政支持与文件管理服务。"
-        }
-      },
-      {
-        "@type": "Offer",
-        "position": 3,
-        "price": "149",
+        "price": "99",
         "priceCurrency": "EUR",
         "itemOffered": {
           "@type": "Service",
@@ -164,30 +154,49 @@
 
 <!-- ================= Header ================= -->
 <header id="site-header" class="header">
+
+  <!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+  <div class="header-util">
+    <div class="header-util-inner">
+      <div class="header-contact">
+        <a href="tel:+306939518023">+30 6939 518023</a>
+        <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+        <span>Parodos Kountouriotou 5, 卡瓦拉</span>
+      </div>
+      <nav class="lang-inline" aria-label="语言">
+        <a href="/" hreflang="en">English</a><span class="sep">&middot;</span>
+        <a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+        <a href="/tr/" hreflang="tr">Türkçe</a><span class="sep">&middot;</span>
+        <a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+        <a href="/zh/" hreflang="zh" aria-current="true">中文</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="header-inner">
 
     <a href="/zh/" class="logo">
-      <img
-        src="../../images/logo/logo.webp"
-        alt="vcore – 虚拟办公室与商务服务"
-        width="180"
-        height="48"
-        loading="eager"
-      >
+      <img src="/images/logo/logo.webp" alt="vcore – 虚拟办公室与商务服务" width="180" height="48"
+        loading="eager">
     </a>
 
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+    <!-- Hamburger Button (Mobile Only) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="菜单" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="main-nav">
+    <!-- Desktop Navigation -->
+    <nav class="main-nav" aria-label="主导航">
       <ul>
         <li><a href="/zh/">首页</a></li>
-        <li><a href="/zh/#services">服务</a></li>
-        <li><a href="/call-center/">电话服务</a></li>
-        <li><a href="/zh/pricing/">价格</a></li>
+        <li>
+          <button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+            服务 <span class="nav-chevron" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li><a href="/zh/pricing/" aria-current="page">价格</a></li>
         <li><a href="/zh/#faq">常见问题</a></li>
         <li><a href="/zh/#contact" class="btn">联系我们</a></li>
       </ul>
@@ -195,17 +204,112 @@
 
   </div>
 
+  <!-- Services disclosure panel -->
+  <div class="services-panel" id="services-panel" hidden>
+    <div class="services-panel-inner">
+      <div>
+        <h3>地址与邮件</h3>
+        <ul>
+          <li><a href="/zh/#virtual-office">虚拟办公室地址</a></li>
+          <li><a href="/packet/">包裹接收与安全存储</a></li>
+          <li><a href="/zh/#virtual-office">邮件处理与转发</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>沟通</h3>
+        <ul>
+          <li><a href="/call-center/">电话呼叫管理服务</a></li>
+          <li><a href="/zh/#services">希腊电话号码</a></li>
+          <li><a href="/zh/#business-support">商务礼宾</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>行政与支持</h3>
+        <ul>
+          <li><a href="/zh/#services">行政支持</a></li>
+          <li><a href="/zh/#services">法律与财务支持</a></li>
+          <li><a href="/zh/#services">物业管理</a></li>
+          <li><a href="/zh/#services">招聘服务</a></li>
+        </ul>
+      </div>
+      <div class="services-panel-promo">
+        <strong>不确定您需要什么？</strong>
+        <p>告诉我们您想在希腊做什么，我们将为您量身定制合适的套餐。</p>
+        <a href="/zh/#contact" class="btn">联系我们</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
   <div class="mobile-nav-overlay" id="mobile-nav">
     <ul>
       <li><a href="/zh/">首页</a></li>
-      <li><a href="/zh/#services">服务</a></li>
-      <li><a href="/call-center/">电话服务</a></li>
+      <li>
+        <button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+          服务 <span class="nav-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-subnav" id="mobile-services" hidden>
+          <li><a href="/zh/#virtual-office">虚拟办公室地址</a></li>
+          <li><a href="/packet/">包裹接收与安全存储</a></li>
+          <li><a href="/call-center/">电话呼叫管理服务</a></li>
+          <li><a href="/zh/#business-support">商务礼宾</a></li>
+          <li><a href="/zh/#services">行政支持</a></li>
+          <li><a href="/zh/#services">法律与财务支持</a></li>
+          <li><a href="/zh/#services">物业管理</a></li>
+          <li><a href="/zh/#services">招聘服务</a></li>
+        </ul>
+      </li>
       <li><a href="/zh/pricing/">价格</a></li>
       <li><a href="/zh/#faq">常见问题</a></li>
-      <li><a href="/zh/#contact">联系我们</a></li>
     </ul>
+
+    <a href="/zh/#contact" class="mobile-nav-cta">联系我们</a>
+
+    <div class="mobile-lang">
+      <h3>语言</h3>
+      <div class="mobile-lang-chips">
+        <a href="/" hreflang="en">English</a>
+        <a href="/el/" hreflang="el">Ελληνικά</a>
+        <a href="/tr/" hreflang="tr">Türkçe</a>
+        <a href="/uk/" hreflang="uk">Українська</a>
+        <a href="/zh/" hreflang="zh" aria-current="true">中文</a>
+      </div>
+    </div>
+
+    <div class="mobile-contact">
+      <a href="tel:+306939518023">+30 6939 518023</a>
+      <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+      <span>Parodos Kountouriotou 5, 卡瓦拉</span>
+    </div>
   </div>
 </header>
+
+<script>
+  (function () {
+    const toggle = (btn, panel) => {
+      if (!btn || !panel) return null;
+      const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+      });
+      return { btn, panel, close };
+    };
+    const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+    toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+    document.addEventListener('click', (e) => {
+      if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && services && services.btn.getAttribute('aria-expanded') === 'true') {
+        services.close();
+        services.btn.focus();
+      }
+    });
+    if (services) services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+  })();
+</script>
 
 <!-- HERO -->
 <section class="pricing-hero">
@@ -448,8 +552,8 @@
     align-items: center;
     gap: 10px;
     margin-top: 24px;
-    background: rgba(43,45,66,0.06);
-    border: 1px solid rgba(43,45,66,0.12);
+    background: rgba(var(--gold-rgb),0.14);
+    border: 1px solid rgba(var(--gold-rgb),0.7);
     border-radius: 50px;
     padding: 8px 20px;
 }
@@ -471,7 +575,8 @@
     display: inline-block;
     width: 44px;
     height: 24px;
-    background: var(--color-accent);
+    background: var(--color-gold);
+    box-shadow: inset 0 0 0 1px rgba(var(--dark-rgb),0.15);
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -484,18 +589,19 @@
     left: 3px;
     width: 18px;
     height: 18px;
-    background: #fff;
+    background: var(--color-primary);
     border-radius: 50%;
     transition: transform 0.3s ease;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .vo-toggle-input:checked ~ .vo-toggle-track {
-    background: rgba(43,45,66,0.4);
+    background: var(--color-accent);
 }
 
 .vo-toggle-input:checked ~ .vo-toggle-track .vo-toggle-thumb {
     transform: translateX(20px);
+    background: #fff;
 }
 
 .vo-save-badge {
@@ -537,8 +643,12 @@
     margin-right: 3px;
 }
 
+/* Save 15%: gold chip, same on both cards */
 .vo-annual-total strong {
-    color: var(--color-accent);
+    background: var(--color-gold);
+    color: var(--color-primary);
+    padding: 1px 7px;
+    border-radius: 4px;
 }
 
 .pricing-card.featured .vo-annual-total {
@@ -546,7 +656,7 @@
 }
 
 .pricing-card.featured .vo-annual-total strong {
-    color: #ff6b6b;
+    color: var(--color-primary);
 }
 
 /* ── VAT NOTE ── */
@@ -1311,7 +1421,22 @@ const cookieTranslations = {
 };
 
 /* ================= LOAD GOOGLE ANALYTICS ================= */
-function loadGA() {
+    /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
+    function loadGA() {
   const script = document.createElement('script');
   script.async = true;
   script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
@@ -1343,10 +1468,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const savedConsent = localStorage.getItem("cookiesConsent");
 
   const lang = document.documentElement.lang || "en";
-  const translation = cookieTranslations[lang] || cookieTranslations.en;
+  const translation = cookieTranslations[lang] || cookieTranslations[lang.split('-')[0]] || cookieTranslations.en;
 
   textEl.innerHTML = translation.text + 
-    ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+    ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
   acceptBtn.textContent = translation.accept;
   rejectBtn.textContent = translation.reject;

@@ -5,13 +5,13 @@
 
   <meta charset="utf-8">
 
-  <title>vcore | Virtual Office & Business Concierge in Kavala, Eastern Macedonia & Thrace</title>
+  <title>Registered Business Address in Kavala, Greece | VCORE</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Professional business concierge and virtual office services based in Kavala, serving all of Eastern Macedonia and Thrace, Greece. Local representation, paperwork handling, Greek phone number, on-site support and virtual office solutions for remote businesses. From €29/month.">
+    content="Registered business address in Kavala for companies from Greece and abroad. On-site concierge across Northern Greece. From €29/month.">
 
   <meta name="keywords"
     content="business concierge Kavala, virtual office Eastern Macedonia and Thrace, business administration Greece, local business support Greece, on-site representation Kavala, paperwork handling Greece, virtual office Kavala, business address Eastern Macedonia and Thrace, remote business support Greece">
@@ -29,9 +29,9 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.vcore.gr/">
-  <meta property="og:title" content="vcore | Virtual Office & Business Concierge in Kavala, Eastern Macedonia & Thrace">
+  <meta property="og:title" content="Registered Business Address in Kavala, Greece | VCORE">
   <meta property="og:description"
-    content="Professional business concierge and virtual office services based in Kavala, serving all of Eastern Macedonia and Thrace. Local representation, paperwork handling and on-site support for remote businesses.">
+    content="Registered business address in Kavala for companies from Greece and abroad. On-site concierge across Northern Greece. From €29/month.">
   <meta property="og:image" content="https://www.vcore.gr/images/banner.webp">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
@@ -40,9 +40,9 @@
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.vcore.gr/">
-  <meta property="twitter:title" content="vcore | Virtual Office & Business Concierge in Kavala, Eastern Macedonia & Thrace">
+  <meta property="twitter:title" content="Registered Business Address in Kavala, Greece | VCORE">
   <meta property="twitter:description"
-    content="Professional business concierge and virtual office services based in Kavala, serving all of Eastern Macedonia and Thrace. Local representation and on-site support for remote businesses.">
+    content="Registered business address in Kavala for companies from Greece and abroad. On-site concierge across Northern Greece. From €29/month.">
   <meta property="twitter:image" content="https://www.vcore.gr/images/banner.webp">
 
   <!-- Hreflang for International SEO -->
@@ -59,14 +59,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon2-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon2-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch2-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- Local Font Awesome -->
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css?v=20260928">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260928">
 
-  <link rel="stylesheet" href="assets/css/splitting.css">
+  <link rel="stylesheet" href="assets/css/splitting.css?v=20260928">
 
 
 
@@ -89,7 +90,13 @@
         "VCORE Business Concierge"
       ],
       "url": "https://www.vcore.gr/",
-      "logo": "https://www.vcore.gr/images/logo/logo.webp"
+      "logo": "https://www.vcore.gr/images/logo/logo.webp",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "GEMI",
+        "name": "General Commercial Registry of Greece (Γ.Ε.ΜΗ.)",
+        "value": "192726430000"
+      }
     },
     {
       "@type": [
@@ -199,26 +206,16 @@
         "bestRating": "5",
         "worstRating": "1"
       },
-      "priceRange": "€29 - €149",
+      "priceRange": "€29 - €449",
       "makesOffer": [
         {
           "@type": "Offer",
-          "price": "149",
+          "price": "99",
           "priceCurrency": "EUR",
           "itemOffered": {
             "@type": "Service",
             "name": "Business Concierge Services",
             "description": "Local representation, supplier coordination and on-site assistance in Kavala, Greece."
-          }
-        },
-        {
-          "@type": "Offer",
-          "price": "79",
-          "priceCurrency": "EUR",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Business Administration Services",
-            "description": "Administrative support and paperwork handling for local and international businesses."
           }
         },
         {
@@ -264,124 +261,136 @@
 
   <!-- ================= Header ================= -->
   <header id="site-header" class="header">
+
+    <!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+    <div class="header-util">
+      <div class="header-util-inner">
+        <div class="header-contact">
+          <a href="tel:+306939518023">+30 6939 518023</a>
+          <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+          <span>Parodos Kountouriotou 5, Kavala</span>
+        </div>
+        <nav class="lang-inline" aria-label="Language">
+          <a href="/" hreflang="en" aria-current="true">English</a><span class="sep">&middot;</span>
+          <a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+          <a href="/tr/" hreflang="tr">Türkçe</a><span class="sep">&middot;</span>
+          <a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+          <a href="/zh/" hreflang="zh">中文</a>
+        </nav>
+      </div>
+    </div>
+
     <div class="header-inner">
 
       <a href="/" class="logo">
-        <img src="images/logo/logo.webp" alt="vcore – Virtual Office & Business Services" width="180" height="48"
+        <img src="images/logo/logo.webp" alt="vcore – Virtual Office &amp; Business Services" width="180" height="48"
           loading="eager">
       </a>
 
-
-
-
       <!-- Hamburger Button (Mobile Only) -->
-      <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
       <!-- Desktop Navigation -->
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Main">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/call-center/">Call Handling</a></li>
-        
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li>
+            <button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+              Services <span class="nav-chevron" aria-hidden="true"></span>
+            </button>
+          </li>
           <li><a href="/pricing/">Prices</a></li>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="/#contact" class="btn">Contact Us</a></li>
-
-          <li class="language-switcher">
-            <div class="lang-dropdown">
-              <button class="lang-toggle" aria-label="Language Selection">
-                EN <i class="fas fa-chevron-down"></i>
-              </button>
-              <div class="lang-menu">
-                <a href="/" class="lang-option active">
-                  <svg width="18" height="12" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="United Kingdom">
-                    <rect width="60" height="30" fill="#012169" />
-                    <polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff" />
-                    <polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff" />
-                    <polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E" />
-                    <polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E" />
-                    <rect x="24" width="12" height="30" fill="#ffffff" />
-                    <rect y="9" width="60" height="12" fill="#ffffff" />
-                    <rect x="26" width="8" height="30" fill="#C8102E" />
-                    <rect y="11" width="60" height="8" fill="#C8102E" />
-                  </svg>
-                  English
-                </a>
-                <a href="/el/" class="lang-option">
-                  <svg width="18" height="12" viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Greece">
-                    <rect width="27" height="18" fill="#0D5EAF" />
-                    <rect y="2" width="27" height="2" fill="#ffffff" />
-                    <rect y="6" width="27" height="2" fill="#ffffff" />
-                    <rect y="10" width="27" height="2" fill="#ffffff" />
-                    <rect y="14" width="27" height="2" fill="#ffffff" />
-                    <rect width="10" height="10" fill="#0D5EAF" />
-                    <rect x="4" width="2" height="10" fill="#ffffff" />
-                    <rect y="4" width="10" height="2" fill="#ffffff" />
-                  </svg>
-                  Ελληνικά
-                </a>
-                <a href="/tr/" class="lang-option">
-                  <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Turkey">
-                    <rect width="30" height="20" fill="#E30A17" />
-                    <circle cx="12" cy="10" r="6" fill="#ffffff" />
-                    <circle cx="14" cy="10" r="5" fill="#E30A17" />
-                    <polygon fill="#ffffff"
-                      points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6" />
-                  </svg>
-                  Türkçe
-                </a>
-                <a href="/zh/" class="lang-option">
-                  <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
-                    <rect width="30" height="20" fill="#DE2910" />
-                    <polygon fill="#FFDE00" points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6" />
-                    <polygon fill="#FFDE00"
-                      points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5" />
-                    <polygon fill="#FFDE00"
-                      points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5" />
-                    <polygon fill="#FFDE00"
-                      points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5" />
-                    <polygon fill="#FFDE00"
-                      points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5" />
-                  </svg>
-                  中文
-                </a>
-                <a href="/uk/" class="lang-option">
-                  <svg width="18" height="12" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Ukraine">
-                    <rect width="30" height="10" y="0" fill="#0057B7" />
-                    <rect width="30" height="10" y="10" fill="#FFD700" />
-                  </svg>
-                  Українська
-                </a>
-              </div>
-            </div>
-          </li>
         </ul>
       </nav>
 
+    </div>
+
+    <!-- Services disclosure panel -->
+    <div class="services-panel" id="services-panel" hidden>
+      <div class="services-panel-inner">
+        <div>
+          <h3>Address &amp; Mail</h3>
+          <ul>
+            <li><a href="/#virtual-office">Virtual Office Address</a></li>
+            <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+            <li><a href="/#virtual-office">Mail Handling &amp; Forwarding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Communication</h3>
+          <ul>
+            <li><a href="/call-center/">Call Handling</a></li>
+            <li><a href="/#services">Greek Phone Number</a></li>
+            <li><a href="/#business-support">Business Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Administration &amp; Support</h3>
+          <ul>
+            <li><a href="/#services">Administrative Support</a></li>
+            <li><a href="/#services">Legal &amp; Financial Support</a></li>
+            <li><a href="/#services">Property Management</a></li>
+            <li><a href="/#services">Recruitment Services</a></li>
+          </ul>
+        </div>
+        <div class="services-panel-promo">
+          <strong>Not sure what you need?</strong>
+          <p>Tell us what you want to do in Greece and we will put the package together.</p>
+          <a href="/#contact" class="btn">Talk to us</a>
+        </div>
+      </div>
     </div>
 
     <!-- Mobile Navigation Overlay -->
     <div class="mobile-nav-overlay" id="mobile-nav">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/call-center/">Call Handling</a></li>
-       
+        <li>
+          <button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+            Services <span class="nav-chevron" aria-hidden="true"></span>
+          </button>
+          <ul class="mobile-subnav" id="mobile-services" hidden>
+            <li><a href="/#virtual-office">Virtual Office Address</a></li>
+            <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+            <li><a href="/call-center/">Call Handling</a></li>
+            <li><a href="/#business-support">Business Concierge</a></li>
+            <li><a href="/#services">Administrative Support</a></li>
+            <li><a href="/#services">Legal &amp; Financial Support</a></li>
+            <li><a href="/#services">Property Management</a></li>
+            <li><a href="/#services">Recruitment Services</a></li>
+          </ul>
+        </li>
         <li><a href="/pricing/">Prices</a></li>
         <li><a href="/faq/">FAQ</a></li>
-        <li><a href="/#contact">Contact Us</a></li>
       </ul>
+
+      <a href="/#contact" class="mobile-nav-cta">Contact Us</a>
+
+      <div class="mobile-lang">
+        <h3>Language</h3>
+        <div class="mobile-lang-chips">
+          <a href="/" hreflang="en" aria-current="true">English</a>
+          <a href="/el/" hreflang="el">Ελληνικά</a>
+          <a href="/tr/" hreflang="tr">Türkçe</a>
+          <a href="/uk/" hreflang="uk">Українська</a>
+          <a href="/zh/" hreflang="zh">中文</a>
+        </div>
+      </div>
+
+      <div class="mobile-contact">
+        <a href="tel:+306939518023">+30 6939 518023</a>
+        <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+        <span>Parodos Kountouriotou 5, Kavala</span>
+      </div>
     </div>
   </header>
+
 
 
 
@@ -1064,7 +1073,7 @@
       <article class="intro-card">
         <span class="intro-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
-               viewBox="0 0 24 24" fill="none" stroke="#d90429"
+               viewBox="0 0 24 24" fill="none" stroke="#70798C"
                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
@@ -1088,7 +1097,7 @@
        height="36"
        viewBox="0 0 24 24"
        fill="none"
-       stroke="#d90429"
+       stroke="#70798C"
        stroke-width="1.5"
        stroke-linecap="round"
        stroke-linejoin="round">
@@ -1124,7 +1133,7 @@
        height="36"
        viewBox="0 0 24 24"
        fill="none"
-       stroke="#d90429"
+       stroke="#70798C"
        stroke-width="1.5"
        stroke-linecap="round"
        stroke-linejoin="round">
@@ -1528,40 +1537,38 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
       <div class="section-inner">
 
         <header class="section-header">
-          <h2>Virtual Office & Business Administration for Eastern Macedonia & Thrace</h2>
-          <p>A Physical Presence for Your Business,<mark
-              style="background-color: #ffff00; font-weight: bold; padding: 0 5px;">without the overhead of renting a
-              physical space.</p></mark>
+          <h2>Registered Business Address in Kavala</h2>
+          <p>For businesses from Greece and abroad,<mark
+              style="background-color: var(--color-gold); font-weight: bold; padding: 0 5px;">without the overhead of renting a
+              physical space.</mark>
+          </p>
         </header>
 
         <!-- Packets -->
         <div class="content-block">
           <div class="text-image">
             <div class="text">
-              <h3>Registered Business Address</h3>
-              <p>
-                Use a professional Greek business address for company registration, tax authorities, banks and official
-                correspondence, whether your business is based in Kavala or anywhere else across Eastern Macedonia and
-                Thrace.
-                Your business maintains full legal compliance in Greece while you operate remotely from anywhere in the
-                world.
-              </p>
+              <h3>A Legal Business Address with an Electronic Lease Agreement</h3>
+              <p>A genuine, professional business address for your company, without the need to maintain your own office.</p>
+              <p>With VCORE you get a defined space at our business premises, a lease agreement filed electronically with the Greek tax authority (AADE), and the option to display a sign with your company name. The address can be used for your business needs and is accepted for company registry (GEMI) procedures and corporate banking, subject to each authority's or bank's own requirements.</p>
+              <p>This solution suits freelancers, service companies, e-shops and businesses that operate remotely, whether based in Greece or abroad.</p>
+              <p>From Drama and Serres to Xanthi, Komotini, Evros, Thasos and Samothrace, or anywhere else in Greece, your business can maintain a stable professional presence in Kavala.</p>
+              <div class="vo-cta" style="text-align: center; margin-top: 2rem;">
+                <a href="pricing/#virtual-office" class="btn">
+                  See Virtual Office Pricing
+                </a>
+              </div>
             </div>
             <div class="image">
-              <img src="images/office1.webp" alt="Registered business address service in Kavala, Greece" width="800"
+              <img src="images/office1.webp" alt="Registered tax address and business premises of VCORE in Kavala, Greece" width="800"
                 height="600" loading="lazy" decoding="async">
             </div>
           </div>
 
           <div class="text-image reverse">
             <div class="text">
-              <h3>Mail Handling, Scanning, Forwarding & Greek Business Phone Number</h3>
-              <p>
-                All incoming letters and parcels are received, logged and handled according to your instructions.
-                Important documents can
-                be scanned and delivered digitally, while physical mail can be forwarded anywhere in Greece or
-                internationally.
-              </p>
+              <h3>Mail Handling & Local Business Phone Number</h3>
+              <p>We receive your mail, keep you informed and scan any documents you need. Original items are forwarded wherever you tell us, within Greece or abroad. You also get a Greek phone line, so your customers can always reach you.</p>
             </div>
             <div class="image">
               <img src="images/mail.webp" alt="Mail handling, scanning and forwarding phone service in Kavala"
@@ -1571,20 +1578,17 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
 
           <div class="text-image">
             <div class="text">
-              <h3>Administrative Support in Greece</h3>
-              <p>
-                We assist with paperwork, submissions, appointments and coordination with accountants, lawyers and
-                public authorities, acting as your local point of contact when physical presence is required.
-              </p>
+              <h3>Parcel Receiving & Forwarding</h3>
+              <p>Order from Greek and European online stores using our office as your delivery address. We receive and store your parcels for you, ready for pickup at our office or onward shipping by courier, in Greece or abroad.</p>
               <div class="vo-cta" style="text-align: center; margin-top: 2rem;">
-                <a href="pricing/#virtual-office" class="btn">
-                  See Virtual Office Pricing
+                <a href="/packet/" class="btn">
+                  Request a Parcel Shipment
                 </a>
               </div>
             </div>
             <div class="image">
-              <img src="images/support.webp" alt="Local administrative business support services in Kavala" width="800"
-                height="600" loading="lazy" decoding="async">
+              <img src="images/parcels.webp" alt="Parcel receiving and forwarding service by VCORE in Kavala" width="1200"
+                height="675" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1934,12 +1938,6 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
   <source src="/images/vcore.webm" type="video/webm">
  
 
-  <track
-    kind="captions"
-    src="/captions.vtt"
-    srclang="en"
-    label="English"
-  >
 </video>
   </div>
 </div>
@@ -2019,7 +2017,7 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
            style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
     
     <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: nowrap; line-height: 20px;">
-      I have read and accept the <a href="https://vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Terms of Service</a> and <a href="https://vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Privacy Policy</a>. *
+      I have read and accept the <a href="/terms-of-service.html" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Privacy Policy</a>. *
     </label>
     
   </div>
@@ -2231,9 +2229,9 @@ VCORE helps international companies, entrepreneurs, investors and remote busines
 
   <p>Virtual Office from €29/month: A registered Greek business address at Parodos Kountouriotou 5, Kavala, serving businesses anywhere in Eastern Macedonia and Thrace, accepted by Greek tax authorities (AADE), the Greek business registry (GEMI), and Greek banks. Includes mail receiving, scanning, and forwarding domestically or internationally, plus a local Greek phone number with call forwarding and voicemail.</p>
 
-  <p>Business Administration from €79/month: Full administrative support for remote operations in Greece. Document preparation and submission, coordination with Greek accountants and lawyers, liaison with public authorities, company setup and compliance, virtual administrator and virtual secretary services.</p>
+  <p>Business Administration: Full administrative support for remote operations in Greece. Document preparation and submission, coordination with Greek accountants and lawyers, liaison with public authorities, company setup and compliance, virtual administrator and virtual secretary services.</p>
 
-  <p>Business Concierge from €149/month: On-site physical representation in Kavala and Eastern Macedonia and Thrace. Authority visits, inspections, document delivery, supplier and contractor coordination, meeting attendance, and real-time problem resolution. This service covers any operational task that requires physical presence in Kavala — if a client needs something done locally, VCORE handles it.</p>
+  <p>Business Concierge from €99 per project or €449/month: On-site physical representation in Kavala and Eastern Macedonia and Thrace. Authority visits, inspections, document delivery, supplier and contractor coordination, meeting attendance, and real-time problem resolution. This service covers any operational task that requires physical presence in Kavala — if a client needs something done locally, VCORE handles it.</p>
 
   <p>Package Receiving and Forwarding: VCORE receives parcels and packages ordered from European retailers and online stores on behalf of clients — particularly Turkish buyers who use VCORE's Kavala address as their Greek receiving point. Packages are received, stored securely, and handed over when the client visits or forwarded as instructed. This service is especially used by Turkish nationals who travel to Kavala to collect orders from European e-commerce platforms.</p>
 
@@ -2337,16 +2335,16 @@ VCORE helps international companies, entrepreneurs, investors and remote busines
 
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+href="assets/css/vendor/owl.carousel.min.css?v=20260928">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+href="assets/css/vendor/owl.theme.default.min.css?v=20260928">
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/vendor/jquery-3.7.1.min.js?v=20260928"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="assets/js/vendor/owl.carousel.min.js?v=20260928"></script>
 
-<script src="/assets/js/splitting.min.js"></script>
+<script src="/assets/js/splitting.min.js?v=20260928"></script>
 
 
 <script>
@@ -2409,6 +2407,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme
       if (result.success) {
         status.className = 'form-status success show';
         status.textContent = "Message sent successfully! We'll get back to you within 24 hours.";
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact' });
         form.reset();
         setTimeout(() => {
           status.classList.remove('show');
@@ -2586,6 +2585,65 @@ href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme
     }
 
     // =====================================================
+    // CONTACT SECTION: BLINDS REVEAL (after roeh.com)
+    // Five columns whose top edge rises out of the page, each a beat behind
+    // the previous one. Driven by rAF because a single clip-path transition
+    // moves all points together and cannot stagger.
+    // =====================================================
+    (function () {
+      const contact = document.querySelector('.section.contact');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!contact || reduceMotion || !('IntersectionObserver' in window)) return;
+
+      const COLS = [0, 20, 40, 60, 80, 100];
+      const LAG = [0, 0.09, 0.18, 0.27, 0.36];
+      const SPAN = 1 - LAG[LAG.length - 1];
+      const DURATION = 1100;
+
+      const polygonAt = (t) => {
+        const points = ['0% 100%'];
+        for (let i = 0; i < 5; i++) {
+          const progress = Math.max(0, Math.min(1, (t - LAG[i]) / SPAN));
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const y = (100 - eased * 100).toFixed(2);
+          points.push(COLS[i] + '% ' + y + '%', COLS[i + 1] + '% ' + y + '%');
+        }
+        points.push('100% 100%');
+        return 'polygon(' + points.join(', ') + ')';
+      };
+
+      contact.classList.add('reveal-armed');
+
+      const run = () => {
+        const start = performance.now();
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / DURATION);
+          contact.style.clipPath = polygonAt(t);
+          if (t < 1) {
+            requestAnimationFrame(step);
+          } else {
+            contact.style.clipPath = '';
+            contact.classList.remove('reveal-armed');
+          }
+        };
+        requestAnimationFrame(step);
+      };
+
+      // threshold must stay 0: an element clipped by its own clip-path always
+      // reports intersectionRatio 0, so any higher threshold never fires.
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            observer.unobserve(entry.target);
+            run();
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });
+
+      observer.observe(contact);
+    })();
+
+    // =====================================================
     // SERVICE CARDS MAGNETIC HOVER - DESKTOP ONLY
     // =====================================================
     if (!isMobile) {
@@ -2672,19 +2730,59 @@ sections.forEach(s => observer.observe(s));
     const hamburger = document.getElementById('hamburger-btn');
     const mobileNav = document.getElementById('mobile-nav');
 
+    const closeMobileNav = () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    };
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-      document.body.classList.toggle('nav-open');
+      const open = hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active', open);
+      document.body.classList.toggle('nav-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
     });
 
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
-        document.body.classList.remove('nav-open');
-      });
+      link.addEventListener('click', closeMobileNav);
     });
+
+    // =====================================================
+    // HEADER: SERVICES DISCLOSURE PANEL + MOBILE SUBMENU
+    // Click driven, not hover: hover does not exist on touch, which is
+    // why the old language dropdown was unreachable on phones.
+    // Follows the W3C APG disclosure-navigation pattern (no role="menu").
+    // =====================================================
+    (function () {
+      const toggle = (btn, panel) => {
+        if (!btn || !panel) return null;
+        const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
+          if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+        });
+        return { btn, panel, close };
+      };
+
+      const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+      const mobileServices = toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+
+      document.addEventListener('click', (e) => {
+        if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if (services && services.btn.getAttribute('aria-expanded') === 'true') { services.close(); services.btn.focus(); }
+        if (mobileNav.classList.contains('active')) { closeMobileNav(); hamburger.focus(); }
+      });
+
+      if (services) {
+        services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+      }
+    })();
 
     // =====================================================
     // TEXT-IMAGE SLIDE-IN - DESKTOP ONLY
@@ -2738,7 +2836,7 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
     left:-100%;
     width:100%;
     height:100%;
-    background:#d90429;
+    background:#70798C;
     z-index:1;
     transition:left 0.5s cubic-bezier(0.77,0,0.175,1);
   `;
@@ -2902,6 +3000,21 @@ $testimonials.owlCarousel({
     };
 
     /* ================= LOAD GOOGLE ANALYTICS ================= */
+        /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
     function loadGA() {
       const script = document.createElement('script');
       script.async = true;
@@ -2937,7 +3050,7 @@ $testimonials.owlCarousel({
       const translation = cookieTranslations[lang] || cookieTranslations.en;
 
       textEl.innerHTML = translation.text +
-        ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+        ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
       acceptBtn.textContent = translation.accept;
       rejectBtn.textContent = translation.reject;

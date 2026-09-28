@@ -5,13 +5,13 @@
 
   <meta charset="utf-8">
 
-  <title>vcore | Kavala, Yunanistan’da Business Concierge & İdari Destek Hizmetleri</title>
+  <title>Kavala Yunanistan'da Kayıtlı İşletme Adresi | VCORE</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Kavala, Yunanistan’da profesyonel business concierge ve idari destek hizmetleri. Yerel temsil, evrak yönetimi, Yunan telefon numarası, yerinde destek ve uzaktan çalışan işletmeler için sanal ofis çözümleri. Aylık 29€’dan başlayan fiyatlarla.">
+    content="Yunanistan içinden veya dışından işletmeler için Kavala'da kayıtlı iş adresi. Kuzey Yunanistan'da yerinde destek. Aylık 29€'dan.">
 
   <meta name="keywords"
     content="business concierge Kavala, idari destek Yunanistan, yerel temsil Kavala, evrak yönetimi Yunanistan, sanal ofis Kavala, iş adresi Yunanistan">
@@ -30,9 +30,9 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.vcore.gr/tr/">
-  <meta property="og:title" content="vcore | Kavala, Yunanistan’da Business Concierge & İdari Destek Hizmetleri">
+  <meta property="og:title" content="Kavala Yunanistan'da Kayıtlı İşletme Adresi | VCORE">
   <meta property="og:description"
-    content="Kavala’da business concierge ve idari destek hizmetleri ile sanal ofis çözümleri. İşletmeler için yerel temsil ve yerinde destek.">
+    content="Yunanistan içinden veya dışından işletmeler için Kavala'da kayıtlı iş adresi. Kuzey Yunanistan'da yerinde destek. Aylık 29€'dan.">
   <meta property="og:image" content="https://www.vcore.gr/images/banner.webp">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
@@ -41,9 +41,9 @@
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.vcore.gr/tr/">
-  <meta property="twitter:title" content="vcore | Kavala, Yunanistan’da Business Concierge & İdari Destek Hizmetleri">
+  <meta property="twitter:title" content="Kavala Yunanistan'da Kayıtlı İşletme Adresi | VCORE">
   <meta property="twitter:description"
-    content="Kavala’da profesyonel business concierge ve sanal ofis hizmetleri.">
+    content="Yunanistan içinden veya dışından işletmeler için Kavala'da kayıtlı iş adresi. Kuzey Yunanistan'da yerinde destek. Aylık 29€'dan.">
   <meta property="twitter:image" content="https://www.vcore.gr/images/banner.webp">
 
   <!-- Hreflang -->
@@ -60,14 +60,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon2-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon2-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch2-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- Local Font Awesome -->
-  <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css?v=20260928">
 
  
    <!-- Main CSS -->
-  <link rel="stylesheet" href="/../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/splitting.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20260928">
+  <link rel="stylesheet" href="../assets/css/splitting.css?v=20260928">
 
 <script type="application/ld+json">
 {
@@ -84,7 +85,13 @@
         "VCORE İş Danışmanlığı"
       ],
       "url": "https://www.vcore.gr/",
-      "logo": "https://www.vcore.gr/images/logo/logo.webp"
+      "logo": "https://www.vcore.gr/images/logo/logo.webp",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "GEMI",
+        "name": "General Commercial Registry of Greece (Γ.Ε.ΜΗ.)",
+        "value": "192726430000"
+      }
     },
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
@@ -191,26 +198,16 @@
         "bestRating": "5",
         "worstRating": "1"
       },
-      "priceRange": "€29 - €149",
+      "priceRange": "€29 - €449",
       "makesOffer": [
         {
           "@type": "Offer",
-          "price": "149",
+          "price": "99",
           "priceCurrency": "EUR",
           "itemOffered": {
             "@type": "Service",
             "name": "Business Concierge Hizmetleri",
             "description": "Kavala, Yunanistan'da yerel temsil, tedarikçi koordinasyonu ve yerinde operasyonel destek."
-          }
-        },
-        {
-          "@type": "Offer",
-          "price": "79",
-          "priceCurrency": "EUR",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "İdari Destek Hizmetleri",
-            "description": "Yerel ve uluslararası işletmeler için evrak yönetimi ve idari süreç desteği."
           }
         },
         {
@@ -234,6 +231,7 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Business Concierge, Kavala'da fiziksel varlık gerektiren işler için sunulan yerel destek hizmetidir. Belge teslimi, resmi kurumlarda temsil, muhasebeci ve avukatlarla koordinasyon ve uzaktan yürütülemeyen operasyonel süreçlerin yönetimini kapsar."
+          }
         },
         {
           "@type": "Question",
@@ -364,133 +362,162 @@
 
 		<!-- ================= Header ================= -->
 		<header id="site-header" class="header">
+
+			<!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+			<div class="header-util">
+				<div class="header-util-inner">
+					<div class="header-contact">
+						<a href="tel:+306939518023">+30 6939 518023</a>
+						<a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+						<span>Parodos Kountouriotou 5, Kavala</span>
+					</div>
+					<nav class="lang-inline" aria-label="Dil">
+						<a href="/" hreflang="en">English</a><span class="sep">&middot;</span>
+						<a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+						<a href="/tr/" hreflang="tr" aria-current="true">Türkçe</a><span class="sep">&middot;</span>
+						<a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+						<a href="/zh/" hreflang="zh">中文</a>
+					</nav>
+				</div>
+			</div>
+
 			<div class="header-inner">
 
-				<a href="index.html" class="logo">
-					<img src="../images/logo/logo.webp" alt="vcore – Sanal Ofis ve İş Hizmetleri" width="180"
+				<a href="/tr/" class="logo">
+					<img src="/images/logo/logo.webp" alt="vcore – Sanal Ofis ve İş Hizmetleri" width="180"
 						height="48" loading="eager">
 				</a>
 
-
 				<!-- Hamburger Button (Mobile Only) -->
-				<button class="hamburger" id="hamburger-btn" aria-label="Menu">
+				<button class="hamburger" id="hamburger-btn" aria-label="Menü" aria-expanded="false" aria-controls="mobile-nav">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
 
-
-
-				<nav class="main-nav">
+				<!-- Desktop Navigation -->
+				<nav class="main-nav" aria-label="Ana">
 					<ul>
-						<li><a href="/tr">Ana Sayfa</a></li>
-						<li><a href="#services">Hizmetler</a></li>
-						<li><a href="../call-center">Çağrı Yönetimi</a></li>
-						<li><a href="/tr/pricing/index.html">Fiyatlar</a></li>
-						<li><a href="/tr/faq">SSS</a></li>
-						<li><a href="#contact" class="btn">Bize Ulaşın</a></li>
-
-
-
-						<li class="language-switcher">
-							<div class="lang-dropdown">
-								<button class="lang-toggle" aria-label="Dil Seçimi">
-									TR <i class="fas fa-chevron-down"></i>
-								</button>
-								<div class="lang-menu">
-									<a href="../index.html" class="lang-option"><svg width="18" height="12"
-											viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"
-											aria-label="United Kingdom">
-											<rect width="60" height="30" fill="#012169" />
-											<!-- white diagonals -->
-											<polygon points="0,0 7,0 60,23 60,30 53,30 0,7" fill="#ffffff" />
-											<polygon points="60,0 53,0 0,23 0,30 7,30 60,7" fill="#ffffff" />
-											<!-- red diagonals -->
-											<polygon points="0,0 4,0 60,26 60,30 56,30 0,4" fill="#C8102E" />
-											<polygon points="60,0 56,0 0,26 0,30 4,30 60,4" fill="#C8102E" />
-											<!-- white cross -->
-											<rect x="24" width="12" height="30" fill="#ffffff" />
-											<rect y="9" width="60" height="12" fill="#ffffff" />
-											<!-- red cross -->
-											<rect x="26" width="8" height="30" fill="#C8102E" />
-											<rect y="11" width="60" height="8" fill="#C8102E" />
-										</svg>
-										English</a>
-									<a href="../el/index.html" class="lang-option"><svg width="18" height="12"
-											viewBox="0 0 27 18" xmlns="http://www.w3.org/2000/svg" aria-label="Greece">
-											<rect width="27" height="18" fill="#0D5EAF" />
-											<!-- white stripes -->
-											<rect y="2" width="27" height="2" fill="#ffffff" />
-											<rect y="6" width="27" height="2" fill="#ffffff" />
-											<rect y="10" width="27" height="2" fill="#ffffff" />
-											<rect y="14" width="27" height="2" fill="#ffffff" />
-											<!-- canton -->
-											<rect width="10" height="10" fill="#0D5EAF" />
-											<rect x="4" width="2" height="10" fill="#ffffff" />
-											<rect y="4" width="10" height="2" fill="#ffffff" />
-										</svg>
-										Ελληνικά</a>
-									<a href="index.html" class="lang-option active"><svg width="18" height="12"
-											viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Turkey">
-											<rect width="30" height="20" fill="#E30A17" />
-											<!-- crescent -->
-											<circle cx="12" cy="10" r="6" fill="#ffffff" />
-											<circle cx="14" cy="10" r="5" fill="#E30A17" />
-											<!-- star -->
-											<polygon fill="#ffffff"
-												points="18.5,10 20.2,10.6 19.6,8.9 20.8,7.6 19,7.6 18.5,6 18,7.6 16.2,7.6 17.4,8.9 16.8,10.6" />
-										</svg>
-										Türkçe</a>
-									<a href="../zh/index.html" class="lang-option"><svg width="18" height="12"
-											viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="China">
-											<rect width="30" height="20" fill="#DE2910" />
-											<polygon fill="#FFDE00"
-												points="5,3 6,6 9,6 6.5,8 7.5,11 5,9.5 2.5,11 3.5,8 1,6 4,6" />
-											<polygon fill="#FFDE00"
-												points="11,2 11.5,3.5 13,3.5 11.8,4.5 12.2,6 11,5.1 9.8,6 10.2,4.5 9,3.5 10.5,3.5" />
-											<polygon fill="#FFDE00"
-												points="13,5 13.5,6.5 15,6.5 13.8,7.5 14.2,9 13,8.1 11.8,9 12.2,7.5 11,6.5 12.5,6.5" />
-											<polygon fill="#FFDE00"
-												points="13,9 13.5,10.5 15,10.5 13.8,11.5 14.2,13 13,12.1 11.8,13 12.2,11.5 11,10.5 12.5,10.5" />
-											<polygon fill="#FFDE00"
-												points="11,12 11.5,13.5 13,13.5 11.8,14.5 12.2,16 11,15.1 9.8,16 10.2,14.5 9,13.5 10.5,13.5" />
-										</svg>
-										中文</a>
-									<a href="../uk/index.html" class="lang-option"><svg width="18" height="12"
-											viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Ukraine">
-											<!-- top blue -->
-											<rect width="30" height="10" y="0" fill="#0057B7" />
-											<!-- bottom yellow -->
-											<rect width="30" height="10" y="10" fill="#FFD700" />
-										</svg>
-										Українська</a>
-								</div>
-							</div>
+						<li><a href="/tr/" aria-current="page">Ana Sayfa</a></li>
+						<li>
+							<button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+								Hizmetler <span class="nav-chevron" aria-hidden="true"></span>
+							</button>
 						</li>
-
+						<li><a href="/tr/pricing/">Fiyatlar</a></li>
+						<li><a href="/tr/faq/">SSS</a></li>
+						<li><a href="/tr/#contact" class="btn">Bize Ulaşın</a></li>
 					</ul>
 				</nav>
 
+			</div>
+
+			<!-- Services disclosure panel -->
+			<div class="services-panel" id="services-panel" hidden>
+				<div class="services-panel-inner">
+					<div>
+						<h3>Adres &amp; Posta</h3>
+						<ul>
+							<li><a href="/tr/#virtual-office">Sanal Ofis Adresi</a></li>
+							<li><a href="/packet/">Paket Teslim Alma ve Güvenli Depolama</a></li>
+							<li><a href="/tr/#virtual-office">Posta Yönetimi ve Yönlendirme</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>İletişim</h3>
+						<ul>
+							<li><a href="/call-center/">Çağrı Yönetimi</a></li>
+							<li><a href="/tr/#services">Yunan Telefon Numarası</a></li>
+							<li><a href="/tr/#business-support">Business Concierge</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Yönetim &amp; Destek</h3>
+						<ul>
+							<li><a href="/tr/#services">İdari Destek</a></li>
+							<li><a href="/tr/#services">Hukuki &amp; Mali Destek</a></li>
+							<li><a href="/tr/#services">Mülk Yönetimi</a></li>
+							<li><a href="/tr/#services">İşe Alım Hizmetleri</a></li>
+						</ul>
+					</div>
+					<div class="services-panel-promo">
+						<strong>Neye ihtiyacınız olduğundan emin değil misiniz?</strong>
+						<p>Yunanistan'da yapmak istediğinizi bize söyleyin, sizin için uygun paketi hazırlayalım.</p>
+						<a href="/tr/#contact" class="btn">Bize Ulaşın</a>
+					</div>
+				</div>
 			</div>
 
 			<!-- Mobile Navigation Overlay -->
 			<div class="mobile-nav-overlay" id="mobile-nav">
 				<ul>
 					<li><a href="/tr/">Ana Sayfa</a></li>
-					<li><a href="/tr/#services">Hizmetler</a></li>
-					<li><a href="../../call-center/">Çağrı Yönetimi</a></li>
+					<li>
+						<button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+							Hizmetler <span class="nav-chevron" aria-hidden="true"></span>
+						</button>
+						<ul class="mobile-subnav" id="mobile-services" hidden>
+							<li><a href="/tr/#virtual-office">Sanal Ofis Adresi</a></li>
+							<li><a href="/packet/">Paket Teslim Alma ve Güvenli Depolama</a></li>
+							<li><a href="/call-center/">Çağrı Yönetimi</a></li>
+							<li><a href="/tr/#business-support">Business Concierge</a></li>
+							<li><a href="/tr/#services">İdari Destek</a></li>
+							<li><a href="/tr/#services">Hukuki &amp; Mali Destek</a></li>
+							<li><a href="/tr/#services">Mülk Yönetimi</a></li>
+							<li><a href="/tr/#services">İşe Alım Hizmetleri</a></li>
+						</ul>
+					</li>
 					<li><a href="/tr/pricing/">Fiyatlar</a></li>
-					<li><a href="/tr/faq">SSS</a></li>
-					<li><a href="/tr/#contact" class="btn">Bize Ulaşın</a></li>
+					<li><a href="/tr/faq/">SSS</a></li>
 				</ul>
+
+				<a href="/tr/#contact" class="mobile-nav-cta">Bize Ulaşın</a>
+
+				<div class="mobile-lang">
+					<h3>Dil</h3>
+					<div class="mobile-lang-chips">
+						<a href="/" hreflang="en">English</a>
+						<a href="/el/" hreflang="el">Ελληνικά</a>
+						<a href="/tr/" hreflang="tr" aria-current="true">Türkçe</a>
+						<a href="/uk/" hreflang="uk">Українська</a>
+						<a href="/zh/" hreflang="zh">中文</a>
+					</div>
+				</div>
+
+				<div class="mobile-contact">
+					<a href="tel:+306939518023">+30 6939 518023</a>
+					<a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+					<span>Parodos Kountouriotou 5, Kavala</span>
+				</div>
 			</div>
-
-
-
-
-
-
 		</header>
+
+		<script>
+			(function () {
+				const toggle = (btn, panel) => {
+					if (!btn || !panel) return null;
+					const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+					btn.addEventListener('click', (e) => {
+						e.stopPropagation();
+						const isOpen = btn.getAttribute('aria-expanded') === 'true';
+						if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+					});
+					return { btn, panel, close };
+				};
+				const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+				toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+				document.addEventListener('click', (e) => {
+					if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+				});
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape' && services && services.btn.getAttribute('aria-expanded') === 'true') {
+						services.close();
+						services.btn.focus();
+					}
+				});
+				if (services) services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+			})();
+		</script>
 
 		<main>
 
@@ -1138,7 +1165,7 @@
 <article class="intro-card">
   <span class="intro-icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
-         viewBox="0 0 24 24" fill="none" stroke="#d90429"
+         viewBox="0 0 24 24" fill="none" stroke="#70798C"
          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
       <circle cx="12" cy="7" r="4"></circle>
@@ -1163,7 +1190,7 @@
          height="36"
          viewBox="0 0 24 24"
          fill="none"
-         stroke="#d90429"
+         stroke="#70798C"
          stroke-width="1.5"
          stroke-linecap="round"
          stroke-linejoin="round">
@@ -1199,7 +1226,7 @@
          height="36"
          viewBox="0 0 24 24"
          fill="none"
-         stroke="#d90429"
+         stroke="#70798C"
          stroke-width="1.5"
          stroke-linecap="round"
          stroke-linejoin="round">
@@ -1609,36 +1636,39 @@
 				<div class="section-inner">
 
 					<header class="section-header">
-						<h2>Yunanistan'da Sanal Ofis και İş Yönetimi</h2>
-						<p>İşletmeniz İçin Fiziksel Bir Varlık, <mark
-								style="background-color: #ffff00; font-weight: bold; padding: 0 5px;">fiziksel bir alan
-								kiralamanın getirdiği mali yükler olmadan.</p></mark>
+						<h2>Kavala'da Kayıtlı İşletme Adresi</h2>
+						<p>Yunanistan içinden veya dışından işletmeler için,<mark
+								style="background-color: var(--color-gold); font-weight: bold; padding: 0 5px;">fiziksel bir alan
+								kiralamanın maliyeti olmadan.</mark>
+						</p>
 					</header>
 
 					<!-- packets -->
 					<div class="content-block">
 						<div class="text-image">
-							<div class="text">
-								<h3>Kavala'da Yasal İşletme Adresi</h3>
-								<p>
-									VCORE ile, şirketinizi kurmak için Kavala'da profesyonel bir adres kullanarak vergi
-									dairelerine, bankalara ve resmi yazışmalara
-									tam olarak hitap edebilirsiniz. Fiziksel alan kiralama maliyeti yoktur.
-								</p>
-							</div>
-							<div class="image">
-								<img src="../images/office1.webp"
-									alt="Kavala, Yunanistan'da kayıtlı şirket adresi hizmeti" width="800" height="600"
-									loading="lazy" decoding="async">
+						<div class="text">
+							<h3>Elektronik Kira Sözleşmesiyle Yasal İşletme Adresi</h3>
+							<p>Kendi ofisinizi tutmanıza gerek kalmadan, şirketiniz için gerçek, profesyonel bir işletme adresi.</p>
+							<p>VCORE ile işyerimizde sınırları belirlenmiş bir alan, Yunan vergi dairesine (AADE) elektronik olarak bildirilen bir kira sözleşmesi ve şirket adınızın yazılı olduğu bir tabela edinirsiniz. Bu adres işletmenizin ihtiyaçları için kullanılabilir; ilgili kurumun veya bankanın kendi şartlarına bağlı olarak ticaret sicili (GEMİ) işlemlerinde ve şirket bankacılığında da kabul edilir.</p>
+							<p>Bu çözüm; serbest çalışanlar, hizmet şirketleri, e-ticaret siteleri ve Yunanistan içinden veya dışından uzaktan faaliyet gösteren işletmeler için uygundur.</p>
+							<p>Drama, Serez, İskeçe, Gümülcine, Meriç bölgesi, Taşoz ve Semadirek'ten veya Yunanistan'ın herhangi bir yerinden, işletmeniz Kavala'da istikrarlı bir profesyonel varlık sürdürebilir.</p>
+							<div class="vo-cta" style="text-align: center; margin-top: 2rem;">
+								<a href="/tr/pricing/#virtual-office" class="btn">
+									Sanal Ofis Paketleri ve Fiyatları
+								</a>
 							</div>
 						</div>
+						<div class="image">
+							<img src="../images/office1.webp"
+								alt="VCORE'un Kavala'daki kayıtlı vergi adresi ve iş yeri" width="800" height="600"
+								loading="lazy" decoding="async">
+						</div>
+					</div>
 
-						<div class="text-image reverse">
+					<div class="text-image reverse">
 							<div class="text">
-								<h3>Yönetim, Tarama Posta İletişimi ve Yunan Telefon Hizmeti Sağlama</h3>
-								<p>
-									Tüm mektuplarınızı ve paketlerinizi teslim alır, önemli belgeleri tarar ve
-									Yunanistan'ın herhangi bir yerine veya yurt dışına anında göndeririz.
+								<h3>Posta Yönetimi ve Yerel İşletme Telefon Hattı</h3>
+								<p>Postanızı teslim alır, sizi bilgilendirir ve ihtiyacınız olan belgeleri tararız. Orijinal belgeleri, bize söylediğiniz yere, Yunanistan içinde veya yurt dışına gönderiyoruz. Ayrıca müşterilerinizin sizi her zaman bulabilmesi için bir Yunan telefon hattı sağlıyoruz.</p>
 							</div>
 							<div class="image">
 								<img src="../images/mail.webp" alt="Kavala'da posta yönetimi, tarama ve dağıtım hizmeti"
@@ -1647,27 +1677,21 @@
 						</div>
 
 						<div class="text-image">
-							<div class="text">
-								<h3>Yerel İdari Destek</h3>
-								<p>
-									VCORE, belge ve randevu yönetimini üstlenir, profesyoneller ve kamu kurumlarıyla
-									koordinasyonu sağlar ve gerektiğinde şirketinizi
-									yerel olarak temsil eder.
-								</p>
-								<div class="vo-cta" style="text-align: center; margin-top: 2rem;">
-									<a href="/tr/pricing/#virtual-office" class="btn">
-										Sanal Ofis Paketleri και Fiyatları
-									</a>
-								</div>
-							</div>
-							<div class="image">
-								<img src="../images/support.webp" alt="Kavala'da yerel idari iş destek hizmetleri"
-									width="800" height="600" loading="lazy" decoding="async">
+						<div class="text">
+							<h3>Paket Teslim Alma ve Yönlendirme</h3>
+							<p>Ofisimizin adresini teslimat adresi olarak kullanarak Yunan ve Avrupa online mağazalarından sipariş verebilirsiniz. Paketlerinizi sizin için teslim alır ve saklarız; ofisimizden teslim alabilir ya da kurye ile Yunanistan içine veya yurt dışına gönderebiliriz.</p>
+							<div class="vo-cta" style="text-align: center; margin-top: 2rem;">
+								<a href="/packet/" class="btn">
+									Paket Gönderim Talebi
+								</a>
 							</div>
 						</div>
+						<div class="image">
+							<img src="../images/parcels.webp" alt="VCORE tarafından Kavala'da paket teslim alma ve yönlendirme hizmeti"
+								width="1200" height="675" loading="lazy" decoding="async">
+						</div>
 					</div>
-					<br>
-					<br>
+					</div>
 					<!-- benefits -->
 					<div class="content-block">
 
@@ -1729,6 +1753,7 @@
 					</div>
 
 
+			</div>
 			</section>
 
 
@@ -1976,12 +2001,6 @@
   <source src="/images/vcore.webm" type="video/webm">
  
 
-  <track
-    kind="captions"
-    src="/captions.vtt"
-    srclang="en"
-    label="English"
-  >
 </video>
   </div>
 </div>
@@ -2059,7 +2078,7 @@
                style="width: 20px !important; height: 20px !important; margin: 0; padding: 0; cursor: pointer; flex-shrink: 0; transform: translateY(1px);">
         
         <label for="gdpr-acceptance" style="font-size: 15px; color: #ffffff; font-weight: normal; margin: 0; cursor: pointer; white-space: normal; line-height: 20px;">
-          <a href="https://www.vcore.gr/terms-of-service" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Kullanım Koşulları</a> ve <a href="https://www.vcore.gr/privacy-policy" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum. *
+          <a href="/terms-of-service.html" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Kullanım Koşulları</a> ve <a href="/privacy-policy.html" target="_blank" style="color: #3498db; text-decoration: underline; font-weight: bold;">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum. *
         </label>
         
       </div>
@@ -2259,9 +2278,9 @@
 
   <p>Sanal Ofis — Aylık €29'dan başlayan fiyatlarla: Kavala, Parodos Kountouriotou 5 adresinde kayıtlı Yunan iş adresi. Yunan vergi idaresi (AADE), ticaret sicili (GEMI) ve Yunan bankaları tarafından kabul edilir. Posta ve kargo teslim alma, tarama ve yurt içi ya da uluslararası iletme hizmetini kapsar. Çağrı yönlendirme ve sesli mesaj özellikli yerel Yunan telefon numarası dahildir.</p>
 
-  <p>İdari Destek — Aylık €79'dan başlayan fiyatlarla: Yunanistan'daki uzaktan operasyonlar için kapsamlı idari destek. Belge hazırlama ve sunma, Yunan muhasebeci ve avukatlarıyla koordinasyon, resmi kurumlarla irtibat, şirket kuruluşu ve yasal uyum, sanal idari asistan ve sanal sekreterya hizmetleri.</p>
+  <p>İdari Destek: Yunanistan'daki uzaktan operasyonlar için kapsamlı idari destek. Belge hazırlama ve sunma, Yunan muhasebeci ve avukatlarıyla koordinasyon, resmi kurumlarla irtibat, şirket kuruluşu ve yasal uyum, sanal idari asistan ve sanal sekreterya hizmetleri.</p>
 
-  <p>Sahada İş Desteği — Aylık €149'dan başlayan fiyatlarla: Kavala'da ve Doğu Makedonya ile Trakya'da fiziksel yerinde temsil. Resmi kurum ziyaretleri, denetimler, belge teslimi, tedarikçi ve yüklenici koordinasyonu, toplantılara katılım ve anlık sorun çözümü. Bu hizmet, Kavala'da fiziksel varlık gerektiren her türlü operasyonel görevi kapsar — müşterinin yerel olarak yaptırması gereken her şeyi VCORE üstlenir.</p>
+  <p>Sahada İş Desteği: proje başına €99 veya aylık €449: Kavala'da ve Doğu Makedonya ile Trakya'da fiziksel yerinde temsil. Resmi kurum ziyaretleri, denetimler, belge teslimi, tedarikçi ve yüklenici koordinasyonu, toplantılara katılım ve anlık sorun çözümü. Bu hizmet, Kavala'da fiziksel varlık gerektiren her türlü operasyonel görevi kapsar — müşterinin yerel olarak yaptırması gereken her şeyi VCORE üstlenir.</p>
 
   <p>Kargo Teslim Alma ve Yönlendirme: VCORE, müşterileri adına Avrupalı perakendecilerden ve çevrimiçi mağazalardan sipariş edilen kargo ve paketleri teslim alır. Özellikle, VCORE'un Kavala adresini Yunanistan'daki teslim noktası olarak kullanan Türk alıcılar bu hizmetten yararlanır. Kargolar teslim alınır, güvenli biçimde saklanır ve müşteri Kavala'ya geldiğinde teslim edilir ya da talimata göre iletilir. Bu hizmet özellikle Avrupa e-ticaret platformlarından sipariş veren ve siparişlerini Kavala'ya gelerek teslim alan Türk vatandaşları tarafından yoğun biçimde kullanılmaktadır.</p>
 
@@ -2349,16 +2368,16 @@
 
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+href="../assets/css/vendor/owl.carousel.min.css?v=20260928">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+href="../assets/css/vendor/owl.theme.default.min.css?v=20260928">
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../assets/js/vendor/jquery-3.7.1.min.js?v=20260928"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="../assets/js/vendor/owl.carousel.min.js?v=20260928"></script>
 
-<script src="/assets/js/splitting.min.js"></script>
+<script src="/assets/js/splitting.min.js?v=20260928"></script>
 
 
 <script>
@@ -2418,6 +2437,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme
       if (result.success) {
         status.className = 'form-status success show';
         status.textContent = "Mesajınız başarıyla gönderildi! 24 saat içinde sizinle iletişime geçeceğiz.";
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact' });
         form.reset();
         setTimeout(() => {
           status.classList.remove('show');
@@ -2715,7 +2735,7 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
     left:-100%;
     width:100%;
     height:100%;
-    background:#d90429;
+    background:#70798C;
     z-index:1;
     transition:left 0.5s cubic-bezier(0.77,0,0.175,1);
   `;
@@ -2848,6 +2868,21 @@ $testimonials.owlCarousel({
     };
 
     /* ================= LOAD GOOGLE ANALYTICS ================= */
+        /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
     function loadGA() {
       const script = document.createElement('script');
       script.async = true;
@@ -2883,7 +2918,7 @@ $testimonials.owlCarousel({
       const translation = cookieTranslations[lang] || cookieTranslations.en;
 
       textEl.innerHTML = translation.text +
-        ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+        ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
       acceptBtn.textContent = translation.accept;
       rejectBtn.textContent = translation.reject;

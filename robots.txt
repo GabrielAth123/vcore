@@ -4,6 +4,9 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
 
@@ -13,7 +16,13 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Claude-Web
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot
@@ -26,7 +35,3 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.vcore.gr/sitemap.xml
-
-# LLM Context
-User-agent: *
-Allow: /llms.txt

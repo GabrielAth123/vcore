@@ -54,15 +54,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon2-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon2-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch2-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Local Font Awesome -->
-<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260928">
 
 <!-- Pricing CSS -->
-<link rel="stylesheet" href="../assets/css/pricing.css">
+<link rel="stylesheet" href="../assets/css/pricing.css?v=20260928">
 
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
@@ -107,18 +108,7 @@
       {
         "@type": "Offer",
         "position": 2,
-        "price": "79",
-        "priceCurrency": "EUR",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Business Administration Services",
-          "description": "Administrative support and paperwork handling for businesses."
-        }
-      },
-      {
-        "@type": "Offer",
-        "position": 3,
-        "price": "149",
+        "price": "99",
         "priceCurrency": "EUR",
         "itemOffered": {
           "@type": "Service",
@@ -173,55 +163,162 @@
 
 		<!-- ================= Header ================= -->
 <header id="site-header" class="header">
+
+  <!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+  <div class="header-util">
+    <div class="header-util-inner">
+      <div class="header-contact">
+        <a href="tel:+306939518023">+30 6939 518023</a>
+        <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+        <span>Parodos Kountouriotou 5, Kavala</span>
+      </div>
+      <nav class="lang-inline" aria-label="Language">
+        <a href="/" hreflang="en" aria-current="true">English</a><span class="sep">&middot;</span>
+        <a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+        <a href="/tr/" hreflang="tr">Türkçe</a><span class="sep">&middot;</span>
+        <a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="header-inner">
 
     <a href="/" class="logo">
-      <img
-        src="../images/logo/logo.webp"
-        alt="vcore – Virtual Office & Business Services"
-        width="180"
-        height="48"
-        loading="eager"
-      >
+      <img src="/images/logo/logo.webp" alt="vcore – Virtual Office &amp; Business Services" width="180" height="48"
+        loading="eager">
     </a>
 
     <!-- Hamburger Button (Mobile Only) -->
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <!-- Desktop Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/call-center/">Call Handling</a></li>  
-        <li><a href="/packet/">Parcels</a></li>
-        <li><a href="/pricing/">Prices</a></li>
+        <li>
+          <button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+            Services <span class="nav-chevron" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li><a href="/pricing/" aria-current="page">Prices</a></li>
         <li><a href="/faq/">FAQ</a></li>
         <li><a href="/#contact" class="btn">Contact Us</a></li>
-        
-       
       </ul>
     </nav>
 
   </div>
-  
+
+  <!-- Services disclosure panel -->
+  <div class="services-panel" id="services-panel" hidden>
+    <div class="services-panel-inner">
+      <div>
+        <h3>Address &amp; Mail</h3>
+        <ul>
+          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+          <li><a href="/#virtual-office">Mail Handling &amp; Forwarding</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Communication</h3>
+        <ul>
+          <li><a href="/call-center/">Call Handling</a></li>
+          <li><a href="/#services">Greek Phone Number</a></li>
+          <li><a href="/#business-support">Business Concierge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Administration &amp; Support</h3>
+        <ul>
+          <li><a href="/#services">Administrative Support</a></li>
+          <li><a href="/#services">Legal &amp; Financial Support</a></li>
+          <li><a href="/#services">Property Management</a></li>
+          <li><a href="/#services">Recruitment Services</a></li>
+        </ul>
+      </div>
+      <div class="services-panel-promo">
+        <strong>Not sure what you need?</strong>
+        <p>Tell us what you want to do in Greece and we will put the package together.</p>
+        <a href="/#contact" class="btn">Talk to us</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Navigation Overlay -->
   <div class="mobile-nav-overlay" id="mobile-nav">
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/call-center/">Call Handling</a></li>
-      <li><a href="/packet/">Parcels</a></li>
+      <li>
+        <button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+          Services <span class="nav-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-subnav" id="mobile-services" hidden>
+          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+          <li><a href="/call-center/">Call Handling</a></li>
+          <li><a href="/#business-support">Business Concierge</a></li>
+          <li><a href="/#services">Administrative Support</a></li>
+          <li><a href="/#services">Legal &amp; Financial Support</a></li>
+          <li><a href="/#services">Property Management</a></li>
+          <li><a href="/#services">Recruitment Services</a></li>
+        </ul>
+      </li>
       <li><a href="/pricing/">Prices</a></li>
       <li><a href="/faq/">FAQ</a></li>
-      <li><a href="/#contact">Contact Us</a></li>
     </ul>
+
+    <a href="/#contact" class="mobile-nav-cta">Contact Us</a>
+
+    <div class="mobile-lang">
+      <h3>Language</h3>
+      <div class="mobile-lang-chips">
+        <a href="/" hreflang="en" aria-current="true">English</a>
+        <a href="/el/" hreflang="el">Ελληνικά</a>
+        <a href="/tr/" hreflang="tr">Türkçe</a>
+        <a href="/uk/" hreflang="uk">Українська</a>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </div>
+    </div>
+
+    <div class="mobile-contact">
+      <a href="tel:+306939518023">+30 6939 518023</a>
+      <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+      <span>Parodos Kountouriotou 5, Kavala</span>
+    </div>
   </div>
 </header>
+
+<script>
+  (function () {
+    const toggle = (btn, panel) => {
+      if (!btn || !panel) return null;
+      const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+      });
+      return { btn, panel, close };
+    };
+    const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+    toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+    document.addEventListener('click', (e) => {
+      if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && services && services.btn.getAttribute('aria-expanded') === 'true') {
+        services.close();
+        services.btn.focus();
+      }
+    });
+    if (services) services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+  })();
+</script>
 
 <main>
 
@@ -489,8 +586,8 @@ Transparent pricing with no deposit required and no registration fee.
     align-items: center;
     gap: 10px;
     margin-top: 24px;
-    background: rgba(43,45,66,0.06);
-    border: 1px solid rgba(43,45,66,0.12);
+    background: rgba(var(--gold-rgb),0.14);
+    border: 1px solid rgba(var(--gold-rgb),0.7);
     border-radius: 50px;
     padding: 8px 20px;
 }
@@ -512,7 +609,8 @@ Transparent pricing with no deposit required and no registration fee.
     display: inline-block;
     width: 44px;
     height: 24px;
-    background: var(--color-accent);
+    background: var(--color-gold);
+    box-shadow: inset 0 0 0 1px rgba(var(--dark-rgb),0.15);
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -525,18 +623,19 @@ Transparent pricing with no deposit required and no registration fee.
     left: 3px;
     width: 18px;
     height: 18px;
-    background: #fff;
+    background: var(--color-primary);
     border-radius: 50%;
     transition: transform 0.3s ease;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .vo-toggle-input:checked ~ .vo-toggle-track {
-    background: rgba(43,45,66,0.4);
+    background: var(--color-accent);
 }
 
 .vo-toggle-input:checked ~ .vo-toggle-track .vo-toggle-thumb {
     transform: translateX(20px);
+    background: #fff;
 }
 
 .vo-save-badge {
@@ -578,8 +677,12 @@ Transparent pricing with no deposit required and no registration fee.
     margin-right: 3px;
 }
 
+/* Save 15%: gold chip, same on both cards */
 .vo-annual-total strong {
-    color: var(--color-accent);
+    background: var(--color-gold);
+    color: var(--color-primary);
+    padding: 1px 7px;
+    border-radius: 4px;
 }
 
 .pricing-card.featured .vo-annual-total {
@@ -587,7 +690,7 @@ Transparent pricing with no deposit required and no registration fee.
 }
 
 .pricing-card.featured .vo-annual-total strong {
-    color: #ff6b6b;
+    color: var(--color-primary);
 }
 
 /* ── VAT NOTE ── */
@@ -1196,7 +1299,7 @@ Transparent pricing with no deposit required and no registration fee.
      <nav class="footer-social" aria-label="Social links">
   <ul class="footer-icons">
     <li>
-      <a href="https://facebook.com/YOUR_USERNAME" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/profile.php?id=61578497829223&sk=directory_contact_info" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
   <i class="fa-brands fa-facebook"></i>
 </a>
     </li>
@@ -1420,7 +1523,22 @@ const cookieTranslations = {
 };
 
 /* ================= LOAD GOOGLE ANALYTICS ================= */
-function loadGA() {
+    /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
+    function loadGA() {
   const script = document.createElement('script');
   script.async = true;
   script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
@@ -1455,7 +1573,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const translation = cookieTranslations[lang] || cookieTranslations.en;
 
   textEl.innerHTML = translation.text + 
-    ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+    ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
   acceptBtn.textContent = translation.accept;
   rejectBtn.textContent = translation.reject;

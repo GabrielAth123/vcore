@@ -45,7 +45,6 @@
 <link rel="alternate" hreflang="en" href="https://www.vcore.gr/faq/">
 <link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/faq/">
 <link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/faq/">
-<link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/faq/">
 <link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/">
 <link rel="llms" type="text/markdown" href="/llms.txt">
 
@@ -54,12 +53,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon2-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../../favicon2-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch2-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Local Font Awesome -->
-<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="../../assets/css/main.css?v=20260928">
 
 
 
@@ -103,6 +103,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Faaliyet alanlarının uygun olması koşuluyla IKE, EPE, AE ve şahıs işletmeleri dahil olmak üzere birçok işletme türü bu hizmetten yararlanabilir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Her faaliyet türü kayıtlı adresi kullanabilir mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hepsi değil. Kira sözleşmesinden önce, hem VCORE hem de muhasebeciniz işletmenizin faaliyet kodunu (ΚΑΔ) kontrol eder. Bu adres hizmetler, e-ticaret siteleri ve depo gerektirmeyen ticaret için uygundur. Fiziksel mağaza, yiyecek-içecek hizmeti veya mal deposu için uygun değildir."
       }
     },
     {
@@ -831,51 +839,162 @@
 
 		<!-- ================= Header ================= -->
 <header id="site-header" class="header">
+
+  <!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+  <div class="header-util">
+    <div class="header-util-inner">
+      <div class="header-contact">
+        <a href="tel:+306939518023">+30 6939 518023</a>
+        <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+        <span>Parodos Kountouriotou 5, Kavala</span>
+      </div>
+      <nav class="lang-inline" aria-label="Dil">
+        <a href="/" hreflang="en">English</a><span class="sep">&middot;</span>
+        <a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+        <a href="/tr/" hreflang="tr" aria-current="true">Türkçe</a><span class="sep">&middot;</span>
+        <a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="header-inner">
 
-    <a href="/tr" class="logo">
-      <img
-        src="../../images/logo/logo.webp"
-        alt="vcore – Virtual Office & Business Services"
-        width="180"
-        height="48"
-        loading="eager"
-      >
+    <a href="/tr/" class="logo">
+      <img src="/images/logo/logo.webp" alt="vcore – Sanal Ofis ve İş Hizmetleri" width="180" height="48"
+        loading="eager">
     </a>
 
     <!-- Hamburger Button (Mobile Only) -->
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Menü" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-   <!-- Desktop Navigation -->
-<nav class="main-nav">
-  <ul>
-    <li><a href="/tr/">Ana Sayfa</a></li>
-    <li><a href="/tr/#services">Hizmetler</a></li>
-    <li><a href="/call-center/">Çağrı Karşılama</a></li>
-    <li><a href="/tr/pricing/">Fiyatlar</a></li>
-    <li><a href="/tr/faq/">SSS</a></li>
-    <li><a href="/tr/#contact" class="btn">İletişim</a></li>
-  </ul>
-</nav>
+    <!-- Desktop Navigation -->
+    <nav class="main-nav" aria-label="Ana">
+      <ul>
+        <li><a href="/tr/">Ana Sayfa</a></li>
+        <li>
+          <button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+            Hizmetler <span class="nav-chevron" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li><a href="/tr/pricing/">Fiyatlar</a></li>
+        <li><a href="/tr/faq/" aria-current="page">SSS</a></li>
+        <li><a href="/tr/#contact" class="btn">Bize Ulaşın</a></li>
+      </ul>
+    </nav>
 
-</div>
+  </div>
 
-<!-- Mobile Navigation Overlay -->
-<div class="mobile-nav-overlay" id="mobile-nav">
-  <ul>
-    <li><a href="/tr/">Ana Sayfa</a></li>
-    <li><a href="/tr/#services">Hizmetler</a></li>
-    <li><a href="/call-center/">Çağrı Karşılama</a></li>
-    <li><a href="/tr/pricing/">Fiyatlar</a></li>
-    <li><a href="/tr/faq/">SSS</a></li>
-    <li><a href="/tr/#contact">İletişim</a></li>
-  </ul>
-</div>
+  <!-- Services disclosure panel -->
+  <div class="services-panel" id="services-panel" hidden>
+    <div class="services-panel-inner">
+      <div>
+        <h3>Adres &amp; Posta</h3>
+        <ul>
+          <li><a href="/tr/#virtual-office">Sanal Ofis Adresi</a></li>
+          <li><a href="/packet/">Paket Teslim Alma ve Güvenli Depolama</a></li>
+          <li><a href="/tr/#virtual-office">Posta Yönetimi ve Yönlendirme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>İletişim</h3>
+        <ul>
+          <li><a href="/call-center/">Çağrı Yönetimi</a></li>
+          <li><a href="/tr/#services">Yunan Telefon Numarası</a></li>
+          <li><a href="/tr/#business-support">Business Concierge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Yönetim &amp; Destek</h3>
+        <ul>
+          <li><a href="/tr/#services">İdari Destek</a></li>
+          <li><a href="/tr/#services">Hukuki &amp; Mali Destek</a></li>
+          <li><a href="/tr/#services">Mülk Yönetimi</a></li>
+          <li><a href="/tr/#services">İşe Alım Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div class="services-panel-promo">
+        <strong>Neye ihtiyacınız olduğundan emin değil misiniz?</strong>
+        <p>Yunanistan'da yapmak istediğinizi bize söyleyin, sizin için uygun paketi hazırlayalım.</p>
+        <a href="/tr/#contact" class="btn">Bize Ulaşın</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul>
+      <li><a href="/tr/">Ana Sayfa</a></li>
+      <li>
+        <button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+          Hizmetler <span class="nav-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-subnav" id="mobile-services" hidden>
+          <li><a href="/tr/#virtual-office">Sanal Ofis Adresi</a></li>
+          <li><a href="/packet/">Paket Teslim Alma ve Güvenli Depolama</a></li>
+          <li><a href="/call-center/">Çağrı Yönetimi</a></li>
+          <li><a href="/tr/#business-support">Business Concierge</a></li>
+          <li><a href="/tr/#services">İdari Destek</a></li>
+          <li><a href="/tr/#services">Hukuki &amp; Mali Destek</a></li>
+          <li><a href="/tr/#services">Mülk Yönetimi</a></li>
+          <li><a href="/tr/#services">İşe Alım Hizmetleri</a></li>
+        </ul>
+      </li>
+      <li><a href="/tr/pricing/">Fiyatlar</a></li>
+      <li><a href="/tr/faq/">SSS</a></li>
+    </ul>
+
+    <a href="/tr/#contact" class="mobile-nav-cta">Bize Ulaşın</a>
+
+    <div class="mobile-lang">
+      <h3>Dil</h3>
+      <div class="mobile-lang-chips">
+        <a href="/" hreflang="en">English</a>
+        <a href="/el/" hreflang="el">Ελληνικά</a>
+        <a href="/tr/" hreflang="tr" aria-current="true">Türkçe</a>
+        <a href="/uk/" hreflang="uk">Українська</a>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </div>
+    </div>
+
+    <div class="mobile-contact">
+      <a href="tel:+306939518023">+30 6939 518023</a>
+      <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+      <span>Parodos Kountouriotou 5, Kavala</span>
+    </div>
+  </div>
 </header>
+
+<script>
+  (function () {
+    const toggle = (btn, panel) => {
+      if (!btn || !panel) return null;
+      const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+      });
+      return { btn, panel, close };
+    };
+    const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+    toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+    document.addEventListener('click', (e) => {
+      if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && services && services.btn.getAttribute('aria-expanded') === 'true') {
+        services.close();
+        services.btn.focus();
+      }
+    });
+    if (services) services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+  })();
+</script>
 
 <header class="faq-hero">
   <h1>Sıkça Sorulan Sorular</h1>
@@ -941,6 +1060,11 @@
   <article class="faq-item">
     <h3>Hangi şirket türleri Sanal Ofis hizmetinden yararlanabilir?</h3>
     <p>Faaliyet alanlarının uygun olması koşuluyla IKE, EPE, AE ve şahıs işletmeleri dahil olmak üzere birçok işletme türü bu hizmetten yararlanabilir.</p>
+  </article>
+
+  <article class="faq-item">
+    <h3>Her faaliyet türü kayıtlı adresi kullanabilir mi?</h3>
+    <p>Hepsi değil. Kira sözleşmesinden önce, hem VCORE hem de muhasebeciniz işletmenizin faaliyet kodunu (ΚΑΔ) kontrol eder. Bu adres hizmetler, e-ticaret siteleri ve depo gerektirmeyen ticaret için uygundur. Fiziksel mağaza, yiyecek-içecek hizmeti veya mal deposu için uygun değildir.</p>
   </article>
 
   <article class="faq-item">
@@ -2225,7 +2349,22 @@ const cookieTranslations = {
 };
 
 /* ================= LOAD GOOGLE ANALYTICS ================= */
-function loadGA() {
+    /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
+    function loadGA() {
   const script = document.createElement('script');
   script.async = true;
   script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
@@ -2260,7 +2399,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const translation = cookieTranslations[lang] || cookieTranslations.en;
 
   textEl.innerHTML = translation.text + 
-    ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+    ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
   acceptBtn.textContent = translation.accept;
   rejectBtn.textContent = translation.reject;

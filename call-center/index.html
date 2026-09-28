@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="24/7 AI-powered call center with multilingual support, automatic transcription, and CRM integration. Smart call handling for businesses in Greece from €49/month.">
+<meta name="description" content="24/7 AI-powered call center with multilingual support, automatic transcription, and CRM integration. Smart call handling for businesses in Greece from €99/month.">
 
 <meta name="keywords" content="AI call center Greece, automated call handling, multilingual call center, call transcription, virtual receptionist Greece, 24/7 phone answering service">
 
@@ -50,13 +50,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon2-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon2-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch2-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Local Font Awesome -->
-<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/call-center.css">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260928">
+<link rel="stylesheet" href="../assets/css/call-center.css?v=20260928">
 
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
@@ -68,7 +69,13 @@
       "@id": "https://www.vcore.gr/#organization",
       "name": "vcore",
       "url": "https://www.vcore.gr/",
-      "logo": "https://www.vcore.gr/images/logo/logo.webp"
+      "logo": "https://www.vcore.gr/images/logo/logo.webp",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "GEMI",
+        "name": "General Commercial Registry of Greece (Γ.Ε.ΜΗ.)",
+        "value": "192726430000"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -100,11 +107,11 @@
       },
       "offers": {
         "@type": "Offer",
-        "price": "49",
+        "price": "99",
         "priceCurrency": "EUR",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "price": "49",
+          "price": "99",
           "priceCurrency": "EUR",
           "unitText": "per month"
         }
@@ -145,55 +152,162 @@
 
 <!-- ================= Header ================= -->
 <header id="site-header" class="header">
+
+  <!-- Utility strip: contact + languages. Hidden on tablet and phone. -->
+  <div class="header-util">
+    <div class="header-util-inner">
+      <div class="header-contact">
+        <a href="tel:+306939518023">+30 6939 518023</a>
+        <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+        <span>Parodos Kountouriotou 5, Kavala</span>
+      </div>
+      <nav class="lang-inline" aria-label="Language">
+        <a href="/" hreflang="en" aria-current="true">English</a><span class="sep">&middot;</span>
+        <a href="/el/" hreflang="el">Ελληνικά</a><span class="sep">&middot;</span>
+        <a href="/tr/" hreflang="tr">Türkçe</a><span class="sep">&middot;</span>
+        <a href="/uk/" hreflang="uk">Українська</a><span class="sep">&middot;</span>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </nav>
+    </div>
+  </div>
+
   <div class="header-inner">
 
     <a href="/" class="logo">
-      <img
-        src="../images/logo/logo.webp"
-        alt="vcore – Virtual Office & Business Services"
-        width="180"
-        height="48"
-        loading="eager"
-      >
+      <img src="/images/logo/logo.webp" alt="vcore – Virtual Office &amp; Business Services" width="180" height="48"
+        loading="eager">
     </a>
 
     <!-- Hamburger Button (Mobile Only) -->
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <!-- Desktop Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/call-center/">Call Handling</a></li>  
-        <li><a href="/packet/">Parcels</a></li>
-        <li><a href="/pricing/#call-handling">Prices</a></li>
+        <li>
+          <button id="services-btn" aria-expanded="false" aria-controls="services-panel">
+            Services <span class="nav-chevron" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li><a href="/pricing/">Prices</a></li>
         <li><a href="/faq/">FAQ</a></li>
         <li><a href="/#contact" class="btn">Contact Us</a></li>
-        
-       
       </ul>
     </nav>
 
   </div>
-  
+
+  <!-- Services disclosure panel -->
+  <div class="services-panel" id="services-panel" hidden>
+    <div class="services-panel-inner">
+      <div>
+        <h3>Address &amp; Mail</h3>
+        <ul>
+          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+          <li><a href="/#virtual-office">Mail Handling &amp; Forwarding</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Communication</h3>
+        <ul>
+          <li><a href="/call-center/" aria-current="page">Call Handling</a></li>
+          <li><a href="/#services">Greek Phone Number</a></li>
+          <li><a href="/#business-support">Business Concierge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Administration &amp; Support</h3>
+        <ul>
+          <li><a href="/#services">Administrative Support</a></li>
+          <li><a href="/#services">Legal &amp; Financial Support</a></li>
+          <li><a href="/#services">Property Management</a></li>
+          <li><a href="/#services">Recruitment Services</a></li>
+        </ul>
+      </div>
+      <div class="services-panel-promo">
+        <strong>Not sure what you need?</strong>
+        <p>Tell us what you want to do in Greece and we will put the package together.</p>
+        <a href="/#contact" class="btn">Talk to us</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Navigation Overlay -->
   <div class="mobile-nav-overlay" id="mobile-nav">
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/call-center/">Call Handling</a></li>
-      <li><a href="/packet/">Parcels</a></li>
+      <li>
+        <button id="mobile-services-btn" aria-expanded="false" aria-controls="mobile-services">
+          Services <span class="nav-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="mobile-subnav" id="mobile-services" hidden>
+          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
+          <li><a href="/call-center/">Call Handling</a></li>
+          <li><a href="/#business-support">Business Concierge</a></li>
+          <li><a href="/#services">Administrative Support</a></li>
+          <li><a href="/#services">Legal &amp; Financial Support</a></li>
+          <li><a href="/#services">Property Management</a></li>
+          <li><a href="/#services">Recruitment Services</a></li>
+        </ul>
+      </li>
       <li><a href="/pricing/">Prices</a></li>
       <li><a href="/faq/">FAQ</a></li>
-      <li><a href="/#contact">Contact Us</a></li>
     </ul>
+
+    <a href="/#contact" class="mobile-nav-cta">Contact Us</a>
+
+    <div class="mobile-lang">
+      <h3>Language</h3>
+      <div class="mobile-lang-chips">
+        <a href="/" hreflang="en" aria-current="true">English</a>
+        <a href="/el/" hreflang="el">Ελληνικά</a>
+        <a href="/tr/" hreflang="tr">Türkçe</a>
+        <a href="/uk/" hreflang="uk">Українська</a>
+        <a href="/zh/" hreflang="zh">中文</a>
+      </div>
+    </div>
+
+    <div class="mobile-contact">
+      <a href="tel:+306939518023">+30 6939 518023</a>
+      <a href="mailto:contact@vcore.gr">contact@vcore.gr</a>
+      <span>Parodos Kountouriotou 5, Kavala</span>
+    </div>
   </div>
 </header>
+
+<script>
+  (function () {
+    const toggle = (btn, panel) => {
+      if (!btn || !panel) return null;
+      const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { close(); } else { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+      });
+      return { btn, panel, close };
+    };
+    const services = toggle(document.getElementById('services-btn'), document.getElementById('services-panel'));
+    toggle(document.getElementById('mobile-services-btn'), document.getElementById('mobile-services'));
+    document.addEventListener('click', (e) => {
+      if (services && !services.panel.contains(e.target) && e.target !== services.btn) services.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && services && services.btn.getAttribute('aria-expanded') === 'true') {
+        services.close();
+        services.btn.focus();
+      }
+    });
+    if (services) services.panel.querySelectorAll('a').forEach(a => a.addEventListener('click', services.close));
+  })();
+</script>
 
 
 
@@ -729,7 +843,7 @@
         <div class="ai-response-container">
             <!-- Robot Avatar -->
             <div class="ai-robot">
-                <img src="../images/call-center/Answer.webp" alt="AI Assistant Victor" class="robot-avatar">
+                <img src="../images/call-center/answer.webp" alt="AI Assistant Victor" class="robot-avatar">
                 <div class="robot-status" id="robotStatus1">Listening...</div>
             </div>
             
@@ -788,7 +902,7 @@
                 <div class="chat-wrapper">
                     <div class="chat-header">
                         <div class="chat-avatar">
-    <img src="../images/call-center/Answer.webp" alt="Victor AI" class="avatar-img">
+    <img src="../images/call-center/answer.webp" alt="Victor AI" class="avatar-img">
 </div>
                         <div class="chat-info">
                             <div class="chat-name">Victor (AI Agent)</div>
@@ -1889,7 +2003,7 @@ const initParticles = (containerId, options = {}) => {
   const ctx = canvas.getContext('2d');
 
   const C_MAIN   = options.colorMain   || '#0d1b2a';
-  const C_ACCENT = options.colorAccent || '#d90429';
+  const C_ACCENT = options.colorAccent || '#70798C';
   const density  = options.density     || 20000; // ΠΙΟ ΑΡΑΙΟ
 
   let nodes = [];
@@ -1985,8 +2099,8 @@ const initParticles = (containerId, options = {}) => {
 };
 
 initParticles('shared-particles');
-initParticles('solution-particles',   { colorMain: '#2b2d42', colorAccent: '#d90429' });
-initParticles('integration-particles', { colorMain: '#2b2d42', colorAccent: '#d90429' });
+initParticles('solution-particles',   { colorMain: '#2b2d42', colorAccent: '#70798C' });
+initParticles('integration-particles', { colorMain: '#2b2d42', colorAccent: '#70798C' });
 
 
 })();
@@ -2048,7 +2162,22 @@ const cookieTranslations = {
 };
 
 /* ================= LOAD GOOGLE ANALYTICS ================= */
-function loadGA() {
+    /* ================= EVENT TRACKING (WhatsApp, phone, email clicks) ================= */
+    document.addEventListener('click', function (e) {
+      if (typeof gtag !== 'function') return;
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('api.whatsapp.com') !== -1) {
+        gtag('event', 'contact_click', { method: 'whatsapp' });
+      } else if (href.indexOf('tel:') === 0) {
+        gtag('event', 'contact_click', { method: 'phone' });
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'contact_click', { method: 'email' });
+      }
+    });
+
+    function loadGA() {
   const script = document.createElement('script');
   script.async = true;
   script.src = "https://www.googletagmanager.com/gtag/js?id=G-BH19G8VX5B";
@@ -2080,7 +2209,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const translation = cookieTranslations[lang] || cookieTranslations.en;
 
   textEl.innerHTML = translation.text + 
-    ' <a href="/privacy-policy/" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
+    ' <a href="/privacy-policy.html" style="color:var(--color-accent);text-decoration:underline;">Privacy Policy</a>';
 
   acceptBtn.textContent = translation.accept;
   rejectBtn.textContent = translation.reject;
