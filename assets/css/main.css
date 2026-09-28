@@ -2693,7 +2693,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky;
-    top: 110px; /* ακριβώς κάτω από navbar */
+    top: var(--header-offset, 66px); /* κάτω από το header, 0 όταν το header κρύβεται */
     z-index: 90;
     background: var(--color-primary);
     padding: 10px var(--container-padding);
@@ -5571,11 +5571,19 @@ html { scroll-padding-top: calc(var(--header-util-h) + var(--header-main-h) + 8p
     background: var(--color-primary);
     padding: 0.875rem 1.25rem 2.5rem;
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform var(--duration-normal) var(--ease-standard);
+    /* Closed state stays inside the viewport and is clipped away, instead of
+       being parked off-screen with translateX(100%): an off-screen fixed box
+       widens the layout viewport on phones (page 780px wide, scrolls sideways). */
+    clip-path: inset(0 0 0 100%);
+    visibility: hidden;
+    transition: clip-path var(--duration-normal) var(--ease-standard), visibility 0s linear var(--duration-normal);
     display: block;
   }
-  .mobile-nav-overlay.active { transform: none; }
+  .mobile-nav-overlay.active {
+    clip-path: inset(0 0 0 0);
+    visibility: visible;
+    transition: clip-path var(--duration-normal) var(--ease-standard), visibility 0s;
+  }
   body.nav-open { overflow: hidden; }
 
   .mobile-nav-overlay ul { list-style: none; margin: 0; padding: 0; }

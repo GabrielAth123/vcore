@@ -58,7 +58,7 @@
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../../assets/css/main.css?v=20260928">
+<link rel="stylesheet" href="../../assets/css/main.css?v=2026092803">
 
 
 
@@ -2005,7 +2005,9 @@
         });
         const activeTab = document.querySelector(`.faq-tab[href="#${id}"]`);
         if (activeTab) {
-          activeTab.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+          /* scroll only the tab bar sideways; scrollIntoView would also move the page and fight the user's scroll */
+          const bar = activeTab.parentElement;
+          bar.scrollTo({ left: activeTab.offsetLeft - (bar.clientWidth - activeTab.offsetWidth) / 2, behavior: 'smooth' });
         }
       };
 
@@ -2063,14 +2065,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentScroll = window.pageYOffset;
 
       if (currentScroll <= scrollThreshold) {
-        header.style.transform = 'translateY(0)';
+        header.style.transform = 'translateY(0)'; document.documentElement.style.setProperty('--header-offset', header.offsetHeight + 'px');
         return;
       }
 
       if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
-        header.style.transform = 'translateY(-100%)';
+        header.style.transform = 'translateY(-100%)'; document.documentElement.style.setProperty('--header-offset', '0px');
       } else if (currentScroll < lastScroll) {
-        header.style.transform = 'translateY(0)';
+        header.style.transform = 'translateY(0)'; document.documentElement.style.setProperty('--header-offset', header.offsetHeight + 'px');
       }
 
       lastScroll = currentScroll;
