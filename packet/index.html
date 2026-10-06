@@ -56,10 +56,10 @@
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS (design tokens, base elements, header/footer/components — source of truth) -->
-<link rel="stylesheet" href="../assets/css/main.css?v=2026092803">
+<link rel="stylesheet" href="../assets/css/main.css?v=20261006">
 
 <!-- Page-specific CSS, scoped to this page only -->
-<link rel="stylesheet" href="packet.css?v=20260928">
+<link rel="stylesheet" href="packet.css?v=20261006">
 
 <!-- Marks JS as active before first paint, so scroll-reveal only ever
      hides content when it can guarantee it will also un-hide it. -->
@@ -540,7 +540,7 @@
         <nav class="form-rail" aria-hidden="true">
           <ol>
             <li class="rail-step" data-rail-index="0"><span class="rail-dot"></span><span class="rail-label">Receiver</span></li>
-            <li class="rail-step" data-rail-index="1"><span class="rail-dot"></span><span class="rail-label">Address</span></li>
+            <li class="rail-step" data-rail-index="1"><span class="rail-dot"></span><span class="rail-label">Delivery</span></li>
             <li class="rail-step" data-rail-index="2"><span class="rail-dot"></span><span class="rail-label">Package</span></li>
             <li class="rail-step" data-rail-index="3"><span class="rail-dot"></span><span class="rail-label">Notes</span></li>
             <li class="rail-step" data-rail-index="4"><span class="rail-dot"></span><span class="rail-label">Terms</span></li>
@@ -571,7 +571,8 @@
               </div>
               <div class="field-group">
                 <label for="phone"><i class="fas fa-phone-alt"></i> Phone Number <span class="required">*</span></label>
-                <input type="tel" id="phone" name="phone" placeholder="+30 123 456 7890" required>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +39 333 123 4567" required>
+                <span class="field-hint">Please include your country code</span>
               </div>
             </div>
           </div>
@@ -580,9 +581,17 @@
           <div class="form-section">
             <div class="section-title">
               <i class="fas fa-map-pin"></i>
-              <span>Forwarding Address</span>
+              <span>Delivery</span>
              
             </div>
+            <div class="field-group full-width" style="margin-bottom: 1.5rem;">
+              <label><i class="fas fa-truck"></i> What should we do with your parcel? <span class="required">*</span></label>
+              <div class="radio-group" role="radiogroup" aria-label="What should we do with your parcel?">
+                <label class="radio-item"><input type="radio" name="service" value="forward" checked> Forward it to my address</label>
+                <label class="radio-item"><input type="radio" name="service" value="pickup"> Hold it, I will pick it up in Kavala</label>
+              </div>
+            </div>
+            <div id="forwardAddress">
             <p style="color: var(--color-muted); opacity: 0.7; margin-bottom: 1.5rem; font-size: 0.95rem;">
               <i class="fas fa-info-circle" style="color: var(--color-accent); margin-right: 8px;"></i>
               Where should we forward your parcel?
@@ -591,11 +600,11 @@
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
     <div class="field-group">
       <label for="streetName"><i class="fas fa-road"></i> Street Name <span class="required">*</span></label>
-      <input type="text" id="streetName" name="streetName" placeholder="e.g. Eleftheriou Venizelou" required>
+      <input type="text" id="streetName" name="streetName" placeholder="e.g. Via Roma" required>
     </div>
     <div class="field-group">
       <label for="streetNumber"><i class="fas fa-hashtag"></i> Street Number <span class="required">*</span></label>
-      <input type="text" id="streetNumber" name="streetNumber" placeholder="e.g. 123" required>
+      <input type="text" id="streetNumber" name="streetNumber" placeholder="e.g. 12" required>
     </div>
   </div>
 </div>
@@ -604,29 +613,53 @@
                 <label for="country"><i class="fas fa-globe"></i> Country <span class="required">*</span></label>
                 <select id="country" name="country" required>
                   <option value="" selected>Select country</option>
-                  <option value="GR">Greece</option>
-                  <option value="AL">Albania</option>
-                  <option value="BG">Bulgaria</option>
-                  <option value="CY">Cyprus</option>
-                  <option value="EG">Egypt</option>
-                  <option value="IL">Israel</option>
-                  <option value="IT">Italy</option>
-                  <option value="LB">Lebanon</option>
-                  <option value="MK">North Macedonia</option>
-                  <option value="RO">Romania</option>
-                  <option value="RS">Serbia</option>
-                  <option value="TR">Turkey</option>
-                  <option value="other">Other</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czechia">Czechia</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="North Macedonia">North Macedonia</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="Other">Other</option>
                 </select>
+                <input type="text" id="otherCountry" name="otherCountry" placeholder="Type your country" hidden style="margin-top: 0.5rem;">
               </div>
               <div class="field-group">
                 <label for="city"><i class="fas fa-city"></i> City <span class="required">*</span></label>
-                <input type="text" id="city" name="city" placeholder="e.g. Kavala" required>
+                <input type="text" id="city" name="city" placeholder="e.g. Milan" required>
               </div>
               <div class="field-group">
                 <label for="postalCode"><i class="fas fa-mail-bulk"></i> Postal Code <span class="required">*</span></label>
-                <input type="text" id="postalCode" name="postalCode" placeholder="e.g. 65403" required>
+                <input type="text" id="postalCode" name="postalCode" placeholder="e.g. 20121" required>
               </div>
+            </div>
             </div>
           </div>
 
@@ -635,43 +668,38 @@
             <div class="section-title">
               <i class="fas fa-cube"></i>
               <span>Package Information</span>
-             
             </div>
             <div class="grid-2col">
-              <div class="field-group">
-                <label for="weight"><i class="fas fa-weight-hanging"></i> Estimated Weight <span class="required">*</span></label>
-                <input type="text" id="weight" name="weight" placeholder="e.g. 2.5 kg" required>
-              </div>
-              <div class="field-group full-width">
-  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
-    <div class="field-group">
-      <label for="length"><i class="fas fa-arrows-alt-h"></i> Length <span class="required">*</span></label>
-      <input type="text" id="length" name="length" placeholder="e.g. 30 cm" required>
-    </div>
-    <div class="field-group">
-      <label for="width"><i class="fas fa-arrows-alt-v"></i> Width <span class="required">*</span></label>
-      <input type="text" id="width" name="width" placeholder="e.g. 20 cm" required>
-    </div>
-    <div class="field-group">
-      <label for="height"><i class="fas fa-arrows-alt-v"></i> Height <span class="required">*</span></label>
-      <input type="text" id="height" name="height" placeholder="e.g. 15 cm" required>
-    </div>
-  </div>
-</div>
               <div class="field-group full-width">
                 <label for="contents"><i class="fas fa-tag"></i> What does the package contain? <span class="required">*</span></label>
-                <input type="text" id="contents" name="contents" placeholder="e.g. Electronics, Clothing, Documents, Books" required>
+                <input type="text" id="contents" name="contents" placeholder="e.g. Clothing, Electronics, Documents, Books" required>
                 <span class="field-hint">Be as specific as possible for customs purposes</span>
               </div>
-              <div class="field-group full-width">
-                <label for="description"><i class="fas fa-align-left"></i> Detailed Description</label>
-                <textarea id="description" name="description" placeholder="Provide more details about the items, brand, model, quantity, etc." style="min-height: 70px;"></textarea>
-                <span class="field-hint">This helps with customs clearance and accurate forwarding</span>
+              <div class="field-group">
+                <label for="size"><i class="fas fa-box"></i> Approximate size</label>
+                <select id="size" name="size">
+                  <option value="" selected>Select size (optional)</option>
+                  <option value="Envelope">Envelope</option>
+                  <option value="Small box (shoebox)">Small box (shoebox)</option>
+                  <option value="Medium box">Medium box</option>
+                  <option value="Large box">Large box</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="weight"><i class="fas fa-weight-hanging"></i> Approximate weight</label>
+                <select id="weight" name="weight">
+                  <option value="" selected>Select weight (optional)</option>
+                  <option value="Under 1 kg">Under 1 kg</option>
+                  <option value="1 to 5 kg">1 to 5 kg</option>
+                  <option value="5 to 10 kg">5 to 10 kg</option>
+                  <option value="Over 10 kg">Over 10 kg</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
               </div>
             </div>
+            <span class="field-hint" style="display:block; margin-top:0.75rem;">Size and weight help us estimate the courier cost. A rough idea is enough.</span>
           </div>
-
-        
 
           <!-- ===== SECTION 5: Additional Notes ===== -->
           <div class="form-section">
@@ -680,13 +708,21 @@
               <span>Additional Notes</span>
             
             </div>
+            <div class="field-group" style="margin-bottom: 1rem;">
+              <label for="heardFrom"><i class="fas fa-bullhorn"></i> How did you hear about us? <span class="required">*</span></label>
+              <select id="heardFrom" name="heardFrom" required>
+                <option value="" selected>Select one</option>
+                <option value="Google search">Google search</option>
+                <option value="ChatGPT">ChatGPT</option>
+                <option value="Other AI assistant (Gemini, Claude, Perplexity, Copilot)">Other AI assistant (Gemini, Claude, Perplexity, Copilot)</option>
+                <option value="Instagram or Facebook">Instagram or Facebook</option>
+                <option value="Recommendation from someone">Recommendation from someone</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
             <div class="field-group">
               <label for="specialInstructions"><i class="fas fa-sticky-note"></i> Special Instructions</label>
               <textarea id="specialInstructions" name="specialInstructions" placeholder="Any special handling instructions, delivery preferences, or other details" style="min-height: 70px;"></textarea>
-            </div>
-            <div class="field-group" style="margin-top: 1rem;">
-              <label for="preferredDate"><i class="fas fa-calendar-alt"></i> Preferred Delivery Date (optional)</label>
-              <input type="text" id="preferredDate" name="preferredDate" placeholder="e.g. 2026-09-15 or ASAP">
             </div>
           </div>
 
@@ -751,6 +787,28 @@
           </div>
 
         </form>
+        <div class="form-success" id="formSuccess" hidden tabindex="-1" style="padding: 2rem; border: 1px solid rgba(var(--gold-rgb), 0.6); border-radius: 14px; background: rgba(var(--gold-rgb), 0.08); color: var(--color-primary);">
+          <h3 style="margin: 0 0 0.75rem; color: var(--color-primary);"><i class="fas fa-check-circle" style="color: var(--color-gold);"></i> Thank you, we received your request</h3>
+          <p style="margin: 0 0 0.75rem;">What happens next:</p>
+          <ol style="margin: 0 0 0 1.25rem; line-height: 1.7;">
+            <li>Within 24 hours we email you the delivery details to use in your order, and the courier cost.</li>
+            <li>You place your order and send us the order confirmation or tracking number.</li>
+            <li>We receive your parcel and forward it to you, or keep it for you to pick up in Kavala.</li>
+          </ol>
+        </div>
+        <div class="wa-box">
+          <div class="wa-box-text">
+            <i class="fab fa-whatsapp wa-box-icon" aria-hidden="true"></i>
+            <div>
+              <strong>Prefer WhatsApp?</strong>
+              <span>Send us a message and we'll reply quickly.</span>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary wa-spacer" aria-hidden="true" tabindex="-1"><i class="fas fa-undo-alt"></i> Reset</button>
+            <a class="btn btn-primary wa-btn" href="https://wa.me/306939518023?text=Hi%2C%20I%27d%20like%20to%20send%20a%20parcel%20to%20Kavala." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span>Message us on WhatsApp</span></a>
+          </div>
+        </div>
       </div>
       </div>
     </div>
@@ -869,7 +927,7 @@
 
 <!-- GSAP (free since April 2025), core only — used for the one-time hero entrance -->
 <script src="../assets/js/vendor/gsap-3.13.0.min.js?v=20260928"></script>
-<script src="packet.js?v=20260928"></script>
+<script src="packet.js?v=20261006"></script>
 
 <!-- ================= COOKIE CONSENT ================= -->
 <div id="cookie-banner" class="cookie-banner">
@@ -977,7 +1035,14 @@
       return;
     }
 
-    banner.style.display = "block";
+    /* Show the banner only once its font (Manrope, in the subset this text needs) has
+       loaded, so the text does not rewrap when the font arrives and shift the page.
+       Shown after 3 seconds anyway if the font is slow or fails. */
+    var showBanner = function () { banner.style.display = "block"; };
+    Promise.race([
+      document.fonts ? document.fonts.load("400 15px Manrope", textEl.textContent + acceptBtn.textContent + rejectBtn.textContent) : Promise.resolve(),
+      new Promise(function (resolve) { setTimeout(resolve, 3000); })
+    ]).then(showBanner, showBanner);
 
     acceptBtn.addEventListener("click", function () {
       localStorage.setItem("cookiesConsent", "accepted");

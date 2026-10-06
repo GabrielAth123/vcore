@@ -59,10 +59,10 @@
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="../../assets/css/main.css?v=2026092803">
+<link rel="stylesheet" href="../../assets/css/main.css?v=20261006">
 
 <!-- Pricing CSS -->
-<link rel="stylesheet" href="../../assets/css/pricing.css?v=20260928">
+<link rel="stylesheet" href="../../assets/css/pricing.css?v=20261006">
 
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
@@ -1487,7 +1487,14 @@ document.addEventListener("DOMContentLoaded", function() {
     return;
   }
 
-  banner.style.display = "block";
+  /* Show the banner only once its font (Manrope, in the subset this text needs) has
+     loaded, so the text does not rewrap when the font arrives and shift the page.
+     Shown after 3 seconds anyway if the font is slow or fails. */
+  var showBanner = function () { banner.style.display = "block"; };
+  Promise.race([
+    document.fonts ? document.fonts.load("400 15px Manrope", textEl.textContent + acceptBtn.textContent + rejectBtn.textContent) : Promise.resolve(),
+    new Promise(function (resolve) { setTimeout(resolve, 3000); })
+  ]).then(showBanner, showBanner);
 
   acceptBtn.addEventListener("click", function() {
     localStorage.setItem("cookiesConsent", "accepted");
@@ -1503,5 +1510,5 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-</body>
+</div></body>
 </html>

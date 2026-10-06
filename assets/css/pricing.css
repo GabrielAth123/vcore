@@ -201,6 +201,12 @@
 
 /* ========================================
    ANIMATED BORDER LINES - HERO BUTTONS
+   Moved with transform (2026-10-06) instead of left/top/right/bottom:
+   same path and timing, but the browser no longer counts every frame
+   as a layout shift (CLS) and the motion runs on the compositor.
+   translate % is relative to the line itself, which is as long as the
+   button side, so -100%/100% matches the old -100%/100% offsets.
+   Before their delay ends, each line rests where it rested before.
 ======================================== */
 
 .hero-service-btn span {
@@ -215,6 +221,7 @@
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--color-secondary));
+    transform: translateX(-100%);
     animation: heroAnimate1 1s linear infinite;
 }
 
@@ -224,7 +231,8 @@
 
 /* Right line - top to bottom */
 .hero-service-btn span:nth-child(2) {
-    top: -100%;
+    top: 0;
+    transform: translateY(-100%);
     right: 0;
     width: 2px;
     height: 100%;
@@ -254,7 +262,6 @@
 
 /* Left line - bottom to top */
 .hero-service-btn span:nth-child(4) {
-    
     left: 0;
     width: 2px;
     height: 100%;
@@ -272,23 +279,25 @@
 ======================================== */
 
 @keyframes heroAnimate1 {
-    0% { left: -100%; }
-    50%, 100% { left: 100%; }
+    0% { transform: translateX(-100%); }
+    50%, 100% { transform: translateX(100%); }
 }
 
 @keyframes heroAnimate2 {
-    0% { top: -100%; }
-    50%, 100% { top: 100%; }
+    0% { transform: translateY(-100%); }
+    50%, 100% { transform: translateY(100%); }
 }
 
 @keyframes heroAnimate3 {
-    0% { right: -100%; }
-    50%, 100% { right: 100%; }
+    0% { transform: translateX(100%); }
+    50%, 100% { transform: translateX(-100%); }
 }
 
 @keyframes heroAnimate4 {
-    0% { bottom: -100%; }
-    50%, 100% { bottom: 100%; }
+    /* bottom: 0 is constant (no layout shift); it is set here, not on the
+       line, so before the delay ends the line keeps its old resting place */
+    0% { bottom: 0; transform: translateY(100%); }
+    50%, 100% { bottom: 0; transform: translateY(-100%); }
 }
 
 /* ========================================

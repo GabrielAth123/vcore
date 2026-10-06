@@ -294,7 +294,7 @@ a:focus-visible {
 /* Hover effect */
 
 .btn:hover {
-     color: var(--color-text);
+     color: var(--color-primary); /* dark text on hover on every button (user, 2026-10-06) */
 
     transform: translateY(-4px) scale(1.04);
 
@@ -3336,6 +3336,7 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 /* ================= COOKIE BANNER ================= */
 
 .cookie-banner {
+  display: none; /* shown by the consent script once its text is filled in, so it never paints empty and grows (layout shift) */
   position: fixed;
   bottom: 40px;
   left: 50%;

@@ -53,7 +53,7 @@
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css?v=20260928">
 
  <!-- Main CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css?v=2026092803">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20261006">
   <link rel="stylesheet" href="../assets/css/splitting.css?v=20260928">
   
   <!-- Structured Data - JSON-LD -->
@@ -1207,7 +1207,7 @@
 				</section>
 
          </div>
-</section>
+
 
   
 
@@ -1443,7 +1443,7 @@
                  style="height: 20px;" alt="Google">
             <div style="display: flex; flex-direction: column; align-items: center; line-height: 1.2;">
                 <span style="font-size: 13px; color: #333; font-family: sans-serif;">5.0 <span style="color: #FBBC04;">★★★★★</span></span>
-                <span style="font-size: 10px; color: #666; font-family: sans-serif;">36 reviews</span>
+                <span style="font-size: 10px; color: #666; font-family: sans-serif;">39 reviews</span>
             </div>
         </a>
     </div>
@@ -1567,8 +1567,8 @@
   </div>
 </section>
 
-																	</div> <!-- #page-wrapper -->
-</main>
+																	</main></div> <!-- #page-wrapper -->
+
 <!-- ================= Footer ================= -->
 <div style="
   position: relative;
@@ -2153,8 +2153,8 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
 
 
 
-</div> 
-  </section> 
+ 
+   
 
 
 
@@ -2268,7 +2268,14 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
         return;
       }
 
-      banner.style.display = "block";
+      /* Show the banner only once its font (Manrope, in the subset this text needs) has
+         loaded, so the text does not rewrap when the font arrives and shift the page.
+         Shown after 3 seconds anyway if the font is slow or fails. */
+      var showBanner = function () { banner.style.display = "block"; };
+      Promise.race([
+        document.fonts ? document.fonts.load("400 15px Manrope", textEl.textContent + acceptBtn.textContent + rejectBtn.textContent) : Promise.resolve(),
+        new Promise(function (resolve) { setTimeout(resolve, 3000); })
+      ]).then(showBanner, showBanner);
 
       acceptBtn.addEventListener("click", function () {
         localStorage.setItem("cookiesConsent", "accepted");

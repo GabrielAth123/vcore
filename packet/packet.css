@@ -125,7 +125,7 @@
   position: relative;
   isolation: isolate;
   background-color: var(--color-primary);
-  background-image: url("hero photo parcel.jpg");
+  background-image: url("hero-photo-parcel.webp");
   background-size: cover;
   background-position: center;
   min-height: 100svh;
@@ -1208,7 +1208,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--color-gold); box
 }
 .questionnaire-card .btn-primary i { color: inherit; }
 .questionnaire-card .btn-primary:hover {
-  color: var(--color-text);
+  color: var(--color-primary); /* text stays dark on hover, same as the WhatsApp button */
   transform: translateY(-4px) scale(1.04);
   box-shadow: 0 20px 40px rgba(var(--accent-rgb), 0.35), 0 0 40px rgba(var(--accent-rgb), 0.25);
   filter: brightness(1.15) saturate(1.2);
@@ -1243,4 +1243,48 @@ input:focus, select:focus, textarea:focus { border-color: var(--color-gold); box
   .address-group,
   .grid-2col,
   .field-group.full-width > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+}
+
+/* ==========================================================
+   WHATSAPP ALTERNATIVE under the questionnaire (2026-10-06)
+   Green box; the button is the same button as Submit
+   (.questionnaire-card .btn-primary), only in the site's WhatsApp
+   green, with dark text also on hover. The box bleeds out by its
+   own padding, so its text lines up with "All fields marked" and
+   its button with Submit.
+========================================================== */
+.wa-box {
+  --wa-pad: 1.5rem;
+  margin: 1.75rem calc(-1 * var(--wa-pad) - 1px) 0; /* 1px = border */
+  padding: 1.25rem var(--wa-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  border-radius: 14px;
+  background: rgba(37, 211, 102, 0.08);
+  color: var(--color-primary);
+}
+.wa-box-text { display: flex; align-items: center; gap: 1rem; }
+.wa-box-icon { font-size: 2rem; color: #25D366; }
+.wa-box-text strong { display: block; font-size: 1.1rem; }
+.wa-box-text span { display: block; font-size: 0.95rem; opacity: 0.8; }
+.questionnaire-card .wa-btn,
+.questionnaire-card .wa-btn:hover,
+.questionnaire-card .wa-btn:focus-visible {
+  background: #25D366;
+  color: var(--color-primary);
+}
+.questionnaire-card .wa-btn { line-height: normal; }
+.wa-spacer { display: none; }
+@media (max-width: 768px) {
+  .wa-box { flex-direction: column; align-items: stretch; }
+  /* same width and place as Submit, which shares its row with Reset:
+     an invisible copy of Reset on the left takes the same space */
+  .wa-box .wa-spacer { display: inline-flex; visibility: hidden; }
+  .wa-box .btn-group .wa-btn { flex: 1; min-width: 0; text-align: center; }
+}
+@media (max-width: 480px) {
+  .wa-box { --wa-pad: 1rem; }
 }

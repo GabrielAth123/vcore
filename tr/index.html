@@ -67,7 +67,7 @@
 
  
    <!-- Main CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css?v=2026092803">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20261006">
   <link rel="stylesheet" href="../assets/css/splitting.css?v=20260928">
 
 <script type="application/ld+json">
@@ -203,7 +203,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "36",
+        "reviewCount": "39",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -1118,7 +1118,7 @@
              style="height: 20px;" alt="Google">
         <div class="review-badge-text">
             <span class="review-badge-rating">5.0 <span style="color:#FBBC04;">★★★★★</span></span>
-            <span class="review-badge-count">36 reviews</span>
+            <span class="review-badge-count">39 reviews</span>
         </div>
     </a>
 
@@ -1982,7 +1982,7 @@
 
 
 			</div>
-			</section>
+			
 
 
 
@@ -2147,14 +2147,14 @@
 				</div>
 			</section>
 
-	</div>
-	</section>
+	</main></div>
+	
 
 
-	</div> <!-- #page-wrapper -->
+	 <!-- #page-wrapper -->
 
 
-	</main>
+	
 
 	<!-- ================= Footer ================= -->
 <div style="
@@ -2827,8 +2827,8 @@ $testimonials.owlCarousel({
 
 
 
- </div> 
-  </section> 
+  
+   
 
 
 
@@ -2943,7 +2943,14 @@ $testimonials.owlCarousel({
         return;
       }
 
-      banner.style.display = "block";
+      /* Show the banner only once its font (Manrope, in the subset this text needs) has
+         loaded, so the text does not rewrap when the font arrives and shift the page.
+         Shown after 3 seconds anyway if the font is slow or fails. */
+      var showBanner = function () { banner.style.display = "block"; };
+      Promise.race([
+        document.fonts ? document.fonts.load("400 15px Manrope", textEl.textContent + acceptBtn.textContent + rejectBtn.textContent) : Promise.resolve(),
+        new Promise(function (resolve) { setTimeout(resolve, 3000); })
+      ]).then(showBanner, showBanner);
 
       acceptBtn.addEventListener("click", function () {
         localStorage.setItem("cookiesConsent", "accepted");

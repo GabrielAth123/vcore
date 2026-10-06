@@ -92,9 +92,11 @@
 
   /* Questionnaire submit.
      Sends the request to the same Cloudflare Worker as the homepage contact
-     form. The Worker takes name, email and message, so every parcel field is
-     packed into the message as labelled lines. The form is only reset after
-     the Worker confirms, so a failed send never looks like a success. */
+     form. The Worker takes name, email, message and an optional subject, so
+     every parcel field is packed into the message as labelled lines (name and
+     email are not repeated there, the Worker already shows them). The form is
+     only reset after the Worker confirms, so a failed send never looks like a
+     success. */
   var form = document.getElementById("questionnaireForm");
   var toast = document.getElementById("questionnaireToast");
   var toastText = document.getElementById("questionnaireToastText");
@@ -125,29 +127,76 @@
     return el && el.value ? el.value.trim() : "";
   }
 
+  /* Forward or pickup: the address is only asked (and required) when the
+     parcel is forwarded. "Other" country shows a free text field. */
+  var forwardBox = document.getElementById("forwardAddress");
+  var countrySel = document.getElementById("country");
+  var otherCountry = document.getElementById("otherCountry");
+  var ADDRESS_FIELDS = ["streetName", "streetNumber", "country", "city", "postalCode"];
+
+  function isPickup() {
+    var r = form.querySelector('input[name="service"]:checked');
+    return !!r && r.value === "pickup";
+  }
+
+  function syncDelivery() {
+    var pickup = isPickup();
+    if (forwardBox) forwardBox.hidden = pickup;
+    ADDRESS_FIELDS.forEach(function (n) {
+      var el = form.querySelector('[name="' + n + '"]');
+      if (el) el.required = !pickup;
+    });
+    var other = !pickup && countrySel && countrySel.value === "Other";
+    if (otherCountry) {
+      otherCountry.hidden = !other;
+      otherCountry.required = other;
+    }
+  }
+
+  function countryName() {
+    /* option values are English names, so a browser translation of the
+       page never changes what reaches the email */
+    var c = field("country");
+    return c === "Other" ? (field("otherCountry") || "Other") : c;
+  }
+
+  function buildSubject() {
+    var who = field("firstName") + " " + field("lastName");
+    return isPickup()
+      ? "Parcel request: " + who + " (pickup in Kavala)"
+      : "Parcel request: " + who + ", " + countryName() + " (forward)";
+  }
+
   function buildMessage() {
-    var countryEl = form.elements.country;
-    var country = countryEl && countryEl.selectedIndex > -1
-      ? countryEl.options[countryEl.selectedIndex].text.trim()
-      : "";
     var lines = [
-      "Parcel forwarding request (vcore.gr/packet)",
+      "Parcel request (vcore.gr/packet)",
       "",
-      "Name: " + field("firstName") + " " + field("lastName"),
-      "Email: " + field("email"),
-      "Phone: " + field("phone"),
-      "",
-      "Delivery address: " + field("streetName") + " " + field("streetNumber") +
-        ", " + field("postalCode") + " " + field("city") + ", " + country,
-      "",
-      "Weight: " + field("weight"),
-      "Dimensions (L x W x H): " + field("length") + " x " + field("width") + " x " + field("height"),
-      "Contents: " + field("contents"),
-      "Description: " + (field("description") || "-"),
-      "Special instructions: " + (field("specialInstructions") || "-"),
-      "Preferred date: " + (field("preferredDate") || "-")
+      "Service: " + (isPickup() ? "Hold for pickup in Kavala" : "Forward to my address"),
+      "Phone: " + field("phone")
     ];
+    if (!isPickup()) {
+      lines.push("Address: " + field("streetName") + " " + field("streetNumber") +
+        ", " + field("postalCode") + " " + field("city") + ", " + countryName());
+    }
+    lines.push(
+      "",
+      "Contents: " + field("contents"),
+      "Size: " + (field("size") || "-"),
+      "Weight: " + (field("weight") || "-"),
+      "",
+      "Found us: " + field("heardFrom"),
+      "Notes: " + (field("specialInstructions") || "-")
+    );
     return lines.join("\n");
+  }
+
+  if (form) {
+    form.querySelectorAll('input[name="service"]').forEach(function (r) {
+      r.addEventListener("change", syncDelivery);
+    });
+    if (countrySel) countrySel.addEventListener("change", syncDelivery);
+    form.addEventListener("reset", function () { setTimeout(syncDelivery, 0); });
+    syncDelivery();
   }
 
   if (form && toast) {
@@ -168,14 +217,27 @@
           body: JSON.stringify({
             name: field("firstName") + " " + field("lastName"),
             email: field("email"),
+            subject: buildSubject(),
             message: buildMessage()
           })
         });
         var result = await res.json();
         if (result && result.success) {
-          showToast(TEXT.sent, false);
-          if (typeof gtag === "function") gtag("event", "generate_lead", { form: "parcel_request" });
+          /* the next steps panel below replaces the toast on success */
+          clearTimeout(toastTimer);
+          toast.classList.add("hidden");
+          if (typeof gtag === "function") gtag("event", "generate_lead", {
+            form: "parcel_request",
+            service: isPickup() ? "pickup" : "forward",
+            heard_from: field("heardFrom")
+          });
           form.reset();
+          /* next steps panel, so the customer knows what to expect */
+          var done = document.getElementById("formSuccess");
+          if (done) {
+            done.hidden = false;
+            done.focus();
+          }
         } else {
           showToast(TEXT.failed, true);
         }

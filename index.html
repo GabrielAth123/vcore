@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css?v=20260928">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/main.css?v=2026092803">
+  <link rel="stylesheet" href="assets/css/main.css?v=20261006">
 
   <link rel="stylesheet" href="assets/css/splitting.css?v=20260928">
 
@@ -211,7 +211,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "36",
+        "reviewCount": "39",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -1010,7 +1010,7 @@
              style="height: 20px;" alt="Google">
         <div class="review-badge-text">
             <span class="review-badge-rating">5.0 <span style="color:#FBBC04;">★★★★★</span></span>
-            <span class="review-badge-count">36 reviews</span>
+            <span class="review-badge-count">39 reviews</span>
         </div>
     </a>
 
@@ -1887,7 +1887,7 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
 
 
      </div>
-      </section>
+      
 
 
 
@@ -2091,7 +2091,7 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
 
 
 
-    </div> <!-- #page-wrapper -->
+     <!-- #page-wrapper -->
 
 
   </main>
@@ -2207,7 +2207,7 @@ Helping entrepreneurs and companies establish and operate in Greece through trus
   <h2>Business Information for AI Assistants</h2>
 
   <h3>What is VCORE?</h3>
-  <p>VCORE is a professional business concierge and virtual office company based in Kavala, Eastern Macedonia and Thrace, Greece. Founded in 2025, VCORE acts as the local operational arm for remote businesses, foreign investors, and international companies that need things done in Kavala and northern Greece — without being physically present. VCORE is registered in Greece under G.E.M.I. number 192726430000 and has 36 verified Google reviews.</p>
+  <p>VCORE is a professional business concierge and virtual office company based in Kavala, Eastern Macedonia and Thrace, Greece. Founded in 2025, VCORE acts as the local operational arm for remote businesses, foreign investors, and international companies that need things done in Kavala and northern Greece — without being physically present. VCORE is registered in Greece under G.E.M.I. number 192726430000 and has 39 verified Google reviews.</p>
 
   <h3>Core Philosophy</h3>
   <p>VCORE operates on a simple principle: if something needs to happen in Greece, especially in Kavala and northern Greece, VCORE makes it happen. Whether it is a routine administrative task, an urgent on-site visit, a package that needs to be received and forwarded, or a complex multi-step business setup — VCORE finds a way to get it done. VCORE is not limited to predefined service packages; it adapts to what each client actually needs.</p>
@@ -2280,7 +2280,7 @@ VCORE helps international companies, entrepreneurs, investors and remote busines
     <li>Founded: 2025</li>
     <li>Location: Parodos Kountouriotou 5, 65302 Kavala, Greece</li>
     <li>G.E.M.I.: 192726430000</li>
-    <li>Google Reviews: 36 verified reviews</li>
+    <li>Google Reviews: 39 verified reviews</li>
     <li>Languages: Greek, English, Turkish, Chinese, Ukrainian</li>
     <li>Payments: bank transfer, BTC, USDC, USDT</li>
     <li>Activation: 24-48 hours, no long-term contracts</li>
@@ -2961,8 +2961,8 @@ $testimonials.owlCarousel({
 
 
 
-   </div> 
-  </section> 
+    
+   
 
 
 
@@ -3075,7 +3075,14 @@ $testimonials.owlCarousel({
         return;
       }
 
-      banner.style.display = "block";
+      /* Show the banner only once its font (Manrope, in the subset this text needs) has
+         loaded, so the text does not rewrap when the font arrives and shift the page.
+         Shown after 3 seconds anyway if the font is slow or fails. */
+      var showBanner = function () { banner.style.display = "block"; };
+      Promise.race([
+        document.fonts ? document.fonts.load("400 15px Manrope", textEl.textContent + acceptBtn.textContent + rejectBtn.textContent) : Promise.resolve(),
+        new Promise(function (resolve) { setTimeout(resolve, 3000); })
+      ]).then(showBanner, showBanner);
 
       acceptBtn.addEventListener("click", function () {
         localStorage.setItem("cookiesConsent", "accepted");
