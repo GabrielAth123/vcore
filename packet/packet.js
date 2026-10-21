@@ -275,6 +275,9 @@
       stagger: 0.12,
       delay: 0.1
     });
+  } else if (heroTitle && heroSub) {
+    /* reduced motion: the same entrance as a fade, nothing moves */
+    gsap.fromTo([heroTitle, heroSub], { opacity: 0 }, { opacity: 1, duration: 0.9, ease: "power1.out", stagger: 0.12, delay: 0.1 });
   }
 
 })();
@@ -282,12 +285,13 @@
 /* Destinations section: the routes from Kavala draw themselves when the map
    scrolls into view and each region card lights up when its route arrives;
    the giant title rises on scroll.
-   Needs GSAP with ScrollTrigger and DrawSVGPlugin; without them, or with
-   reduced motion, the section is simply shown complete. */
+   Needs GSAP with ScrollTrigger and DrawSVGPlugin; without them the section
+   is simply shown complete. With reduced motion the routes and the cards
+   light up one by one with a fade: nothing is drawn, grows or moves. */
 (function () {
   "use strict";
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof DrawSVGPlugin === "undefined") return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
   var cards = document.querySelectorAll(".pk-regions .pk-region");
@@ -299,8 +303,8 @@
     var tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 75%", once: true } });
 
     tl.from(land, { opacity: 0, duration: 0.9, ease: "power2.out" }, 0)
-      .from(center, { scale: 0, transformOrigin: "50% 50%", duration: 0.6, ease: "back.out(2)" }, 0.25)
-      .from(centerLabel, { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" }, 0.4);
+      .from(center, calm ? { opacity: 0, duration: 0.6, ease: "power1.out" } : { scale: 0, transformOrigin: "50% 50%", duration: 0.6, ease: "back.out(2)" }, 0.25)
+      .from(centerLabel, calm ? { opacity: 0, duration: 0.5, ease: "power1.out" } : { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" }, 0.4);
 
     svg.querySelectorAll(".pk-hub-route").forEach(function (route, i) {
       var id = route.getAttribute("data-route");
@@ -309,9 +313,9 @@
       var label = svg.querySelector('.pk-hub-label[data-route="' + id + '"]');
       var start = 0.7 + i * 0.42;
       var arrive = start + 1.15;
-      tl.fromTo(route, { drawSVG: "0%" }, { drawSVG: "100%", duration: 1.2, ease: "power2.inOut" }, start)
-        .from(node, { scale: 0, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(3)" }, arrive)
-        .from(label, { opacity: 0, y: 8, duration: 0.5, ease: "power2.out" }, arrive)
+      tl.fromTo(route, calm ? { opacity: 0 } : { drawSVG: "0%" }, calm ? { opacity: 1, duration: 1.2, ease: "power1.inOut" } : { drawSVG: "100%", duration: 1.2, ease: "power2.inOut" }, start)
+        .from(node, calm ? { opacity: 0, duration: 0.45, ease: "power1.out" } : { scale: 0, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(3)" }, arrive)
+        .from(label, calm ? { opacity: 0, duration: 0.5, ease: "power1.out" } : { opacity: 0, y: 8, duration: 0.5, ease: "power2.out" }, arrive)
         .call(function () {
           // only the map that is actually on screen lights the cards
           if (svg.getBoundingClientRect().width > 0 && card) card.classList.add("is-lit");
@@ -319,6 +323,7 @@
     });
   });
 
+  if (calm) return; /* the giant title stays in place */
   document.querySelectorAll(".pk-xl-split").forEach(function (row) {
     var word = row.querySelector(".pk-xl-word");
     gsap.from(word, { yPercent: 105, opacity: 0, duration: 1.3, ease: "expo.out", scrollTrigger: { trigger: row, start: "top 88%" } });
