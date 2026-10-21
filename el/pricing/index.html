@@ -212,7 +212,7 @@
       <div>
         <h3>Διεύθυνση &amp; Αλληλογραφία</h3>
         <ul>
-          <li><a href="/el/#virtual-office">Φορολογική Έδρα</a></li>
+          <li><a href="/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/el/#virtual-office">Διαχείριση &amp; Προώθηση Αλληλογραφίας</a></li>
         </ul>
@@ -251,7 +251,7 @@
           Υπηρεσίες <span class="nav-chevron" aria-hidden="true"></span>
         </button>
         <ul class="mobile-subnav" id="mobile-services" hidden>
-          <li><a href="/el/#virtual-office">Φορολογική Έδρα</a></li>
+          <li><a href="/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/call-center/">Τηλεφωνική Εξυπηρέτηση</a></li>
           <li><a href="/el/#business-support">Business Concierge</a></li>
@@ -1435,6 +1435,7 @@ const mobileNav = document.getElementById('mobile-nav');
 if (hamburger && mobileNav) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
     mobileNav.classList.toggle('active');
     document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
   });
@@ -1443,6 +1444,7 @@ if (hamburger && mobileNav) {
   mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       mobileNav.classList.remove('active');
       document.body.style.overflow = '';
     });

@@ -305,7 +305,7 @@
       "name": "Πόσο μειώνονται τα λειτουργικά έξοδα με τη Φορολογική Έδρα;",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Η χρήση Φορολογικής Έδρας μειώνει τα λειτουργικά σας έξοδα έως και 90% σε σύγκριση με το κόστος διατήρησης ενός παραδοσιακού φυσικού γραφείου."
+        "text": "Η χρήση Φορολογικής Έδρας μειώνει τα λειτουργικά σας έξοδα κατά περισσότερο από 90% σε σύγκριση με το κόστος διατήρησης ενός παραδοσιακού φυσικού γραφείου."
       }
     },
     {
@@ -900,7 +900,7 @@
       <div>
         <h3>Διεύθυνση &amp; Αλληλογραφία</h3>
         <ul>
-          <li><a href="/el/#virtual-office">Φορολογική Έδρα</a></li>
+          <li><a href="/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/el/#virtual-office">Διαχείριση &amp; Προώθηση Αλληλογραφίας</a></li>
         </ul>
@@ -939,7 +939,7 @@
           Υπηρεσίες <span class="nav-chevron" aria-hidden="true"></span>
         </button>
         <ul class="mobile-subnav" id="mobile-services" hidden>
-          <li><a href="/el/#virtual-office">Φορολογική Έδρα</a></li>
+          <li><a href="/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/call-center/">Τηλεφωνική Εξυπηρέτηση</a></li>
           <li><a href="/el/#business-support">Business Concierge</a></li>
@@ -1196,7 +1196,7 @@
 
   <article class="faq-item">
     <h3>Πόσο μειώνονται τα λειτουργικά έξοδα με τη Φορολογική Έδρα;</h3>
-    <p>Η χρήση Φορολογικής Έδρας μειώνει τα λειτουργικά σας έξοδα έως και 90% σε σύγκριση με το κόστος διατήρησης ενός παραδοσιακού φυσικού γραφείου.</p>
+    <p>Η χρήση Φορολογικής Έδρας μειώνει τα λειτουργικά σας έξοδα κατά περισσότερο από 90% σε σύγκριση με το κόστος διατήρησης ενός παραδοσιακού φυσικού γραφείου.</p>
   </article>
 
   <article class="faq-item">
@@ -1792,7 +1792,7 @@
     <dd>Yes. VCORE is specifically structured for businesses that operate entirely remotely.</dd>
 
     <dt>How much can operational costs be reduced with a Virtual Office?</dt>
-    <dd>Using a Virtual Office can reduce your operational costs by up to 90% compared to maintaining a traditional physical office.</dd>
+    <dd>Using a Virtual Office can reduce your operational costs by more than 90% compared to maintaining a traditional physical office.</dd>
 
     <dt>How do you facilitate Turkish companies entering the EU market?</dt>
     <dd>VCORE provides the legal and administrative framework for smooth connection of Turkish companies with the European market.</dd>
@@ -2089,6 +2089,7 @@ const mobileNav = document.getElementById('mobile-nav');
 if (hamburger && mobileNav) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
     mobileNav.classList.toggle('active');
     document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
   });
@@ -2097,6 +2098,7 @@ if (hamburger && mobileNav) {
   mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       mobileNav.classList.remove('active');
       document.body.style.overflow = '';
     });

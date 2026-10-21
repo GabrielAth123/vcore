@@ -2579,6 +2579,65 @@ href="../assets/css/vendor/owl.theme.default.min.css?v=20260928">
     }
 
     // =====================================================
+    // CONTACT SECTION: BLINDS REVEAL (after roeh.com)
+    // Five columns whose top edge rises out of the page, each a beat behind
+    // the previous one. Driven by rAF because a single clip-path transition
+    // moves all points together and cannot stagger.
+    // =====================================================
+    (function () {
+      const contact = document.querySelector('.section.contact');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!contact || reduceMotion || !('IntersectionObserver' in window)) return;
+
+      const COLS = [0, 20, 40, 60, 80, 100];
+      const LAG = [0, 0.09, 0.18, 0.27, 0.36];
+      const SPAN = 1 - LAG[LAG.length - 1];
+      const DURATION = 1100;
+
+      const polygonAt = (t) => {
+        const points = ['0% 100%'];
+        for (let i = 0; i < 5; i++) {
+          const progress = Math.max(0, Math.min(1, (t - LAG[i]) / SPAN));
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const y = (100 - eased * 100).toFixed(2);
+          points.push(COLS[i] + '% ' + y + '%', COLS[i + 1] + '% ' + y + '%');
+        }
+        points.push('100% 100%');
+        return 'polygon(' + points.join(', ') + ')';
+      };
+
+      contact.classList.add('reveal-armed');
+
+      const run = () => {
+        const start = performance.now();
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / DURATION);
+          contact.style.clipPath = polygonAt(t);
+          if (t < 1) {
+            requestAnimationFrame(step);
+          } else {
+            contact.style.clipPath = '';
+            contact.classList.remove('reveal-armed');
+          }
+        };
+        requestAnimationFrame(step);
+      };
+
+      // threshold must stay 0: an element clipped by its own clip-path always
+      // reports intersectionRatio 0, so any higher threshold never fires.
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            observer.unobserve(entry.target);
+            run();
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });
+
+      observer.observe(contact);
+    })();
+
+    // =====================================================
     // SERVICE CARDS MAGNETIC HOVER - DESKTOP ONLY
     // =====================================================
     if (!isMobile) {
@@ -2680,6 +2739,7 @@ href="../assets/css/vendor/owl.theme.default.min.css?v=20260928">
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
       mobileNav.classList.toggle('active');
       document.body.classList.toggle('nav-open');
     });
@@ -2687,6 +2747,7 @@ href="../assets/css/vendor/owl.theme.default.min.css?v=20260928">
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
         mobileNav.classList.remove('active');
         document.body.classList.remove('nav-open');
       });
@@ -2741,12 +2802,13 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
   block.style.cssText = `
     position:absolute;
     top:0;
-    left:-100%;
+    left:0;
     width:100%;
+    transform:translateX(-100%);
     height:100%;
     background:#70798C;
     z-index:1;
-    transition:left 0.5s cubic-bezier(0.77,0,0.175,1);
+    transition:transform 0.5s cubic-bezier(0.77,0,0.175,1); /* transform, not left: moving left counts as a layout shift (CLS) */
   `;
 
   h2.parentNode.insertBefore(wrapper, h2);
@@ -2757,7 +2819,7 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
 
-        block.style.left = '100%';
+        block.style.transform = 'translateX(100%)';
 
         chars.forEach((char, i) => {
           setTimeout(() => {

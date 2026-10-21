@@ -179,6 +179,14 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/packet/"/>
 </url>
 
+<url>
+  <loc>https://www.vcore.gr/vo/</loc>
+  <lastmod>2026-10-20</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/vo/"/>
+</url>
+
   <!-- ==================== LEGAL ==================== -->
  <url>
   <loc>https://www.vcore.gr/privacy-policy</loc>

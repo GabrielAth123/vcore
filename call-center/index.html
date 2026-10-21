@@ -1641,12 +1641,14 @@ const mobileNav = document.getElementById('mobile-nav');
 if (hamburger && mobileNav) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
     mobileNav.classList.toggle('active');
   });
   
   mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       mobileNav.classList.remove('active');
     });
   });

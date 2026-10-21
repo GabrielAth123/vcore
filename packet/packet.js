@@ -278,3 +278,49 @@
   }
 
 })();
+
+/* Destinations section: the routes from Kavala draw themselves when the map
+   scrolls into view and each region card lights up when its route arrives;
+   the giant title rises on scroll.
+   Needs GSAP with ScrollTrigger and DrawSVGPlugin; without them, or with
+   reduced motion, the section is simply shown complete. */
+(function () {
+  "use strict";
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof DrawSVGPlugin === "undefined") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+
+  var cards = document.querySelectorAll(".pk-regions .pk-region");
+
+  document.querySelectorAll(".pk-hub-map").forEach(function (svg) {
+    var land = svg.querySelector(".pk-map-land");
+    var center = svg.querySelectorAll(".pk-hub-center, .pk-hub-center-ring");
+    var centerLabel = svg.querySelector(".pk-hub-center-label");
+    var tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 75%", once: true } });
+
+    tl.from(land, { opacity: 0, duration: 0.9, ease: "power2.out" }, 0)
+      .from(center, { scale: 0, transformOrigin: "50% 50%", duration: 0.6, ease: "back.out(2)" }, 0.25)
+      .from(centerLabel, { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" }, 0.4);
+
+    svg.querySelectorAll(".pk-hub-route").forEach(function (route, i) {
+      var id = route.getAttribute("data-route");
+      var card = cards[parseInt(route.getAttribute("data-card"), 10)];
+      var node = svg.querySelector('.pk-hub-node[data-route="' + id + '"]');
+      var label = svg.querySelector('.pk-hub-label[data-route="' + id + '"]');
+      var start = 0.7 + i * 0.42;
+      var arrive = start + 1.15;
+      tl.fromTo(route, { drawSVG: "0%" }, { drawSVG: "100%", duration: 1.2, ease: "power2.inOut" }, start)
+        .from(node, { scale: 0, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(3)" }, arrive)
+        .from(label, { opacity: 0, y: 8, duration: 0.5, ease: "power2.out" }, arrive)
+        .call(function () {
+          // only the map that is actually on screen lights the cards
+          if (svg.getBoundingClientRect().width > 0 && card) card.classList.add("is-lit");
+        }, null, arrive);
+    });
+  });
+
+  document.querySelectorAll(".pk-xl-split").forEach(function (row) {
+    var word = row.querySelector(".pk-xl-word");
+    gsap.from(word, { yPercent: 105, opacity: 0, duration: 1.3, ease: "expo.out", scrollTrigger: { trigger: row, start: "top 88%" } });
+  });
+})();

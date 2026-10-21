@@ -965,6 +965,7 @@
       if(hamburger && mobileNav) {
         hamburger.addEventListener('click', () => {
           hamburger.classList.toggle('active');
+          hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
           mobileNav.classList.toggle('active');
           document.body.classList.toggle('nav-open');
         });

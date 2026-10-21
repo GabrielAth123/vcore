@@ -2842,12 +2842,13 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
   block.style.cssText = `
     position:absolute;
     top:0;
-    left:-100%;
+    left:0;
     width:100%;
+    transform:translateX(-100%);
     height:100%;
     background:#70798C;
     z-index:1;
-    transition:left 0.5s cubic-bezier(0.77,0,0.175,1);
+    transition:transform 0.5s cubic-bezier(0.77,0,0.175,1); /* transform, not left: moving left counts as a layout shift (CLS) */
   `;
 
   h2.parentNode.insertBefore(wrapper, h2);
@@ -2858,7 +2859,7 @@ document.querySelectorAll('.section-header h2').forEach(h2 => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
 
-        block.style.left = '100%';
+        block.style.transform = 'translateX(100%)';
 
         chars.forEach((char, i) => {
           setTimeout(() => {

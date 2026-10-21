@@ -1,0 +1,387 @@
+:root{
+  /* VCORE palette: warm near black, slate, off white, sand, taupe */
+  color-scheme:dark;
+  --bg:#252323; --bg-rgb:37,35,35;
+  --card:#2f2c2b; --card-hover:#3a3634; --card-border:rgba(169,153,133,.35);
+  --text:#F5F1ED; --fg-rgb:245,241,237;
+  --muted:rgba(245,241,237,.6); --line:rgba(245,241,237,.12);
+  /* accent: the site's gold (main.css --color-gold), dark text on it */
+  --mark:#F5CB5C; --mark-fg:#252323;
+  --paper:#F5F1ED; --ink:#252323; --ink-muted:rgba(37,35,35,.62);
+  --shade-rgb:37,35,35; --on-photo:#F5F1ED;
+  --sans:var(--font-base); --mono:var(--font-base); --display:var(--font-heading);
+  /* side margins as on the homepage: content up to 1400px wide, 20px to 48px inside (main.css .hero-content).
+     --vw is 1vw up to a 1400px screen and stops growing after it, so wide screens keep the 1400px layout */
+  --gut:max(clamp(20px, 4vw, 48px), calc((100% - 1400px) / 2 + 48px)); --vw:min(1vw, 14px); --radius:2px;
+  --e-out:cubic-bezier(.25,1,.5,1);
+  /* one type scale for the whole page: every section takes its sizes from these 7 steps.
+     the four title steps grow with the screen up to 1400px (--vw), the three text steps are fixed */
+  --fs-display:clamp(46px,calc(var(--vw) * 6.7),94px);
+  --fs-h2:clamp(min(34px,9.5vw),calc(var(--vw) * 4),58px); /* 34px from a 358px screen up, a little less on the smallest phones so the card titles fit */
+  --fs-h3:clamp(26px,calc(var(--vw) * 2.6),38px);
+  --fs-h4:clamp(20px,calc(var(--vw) * 1.8),26px);
+  --fs-body:15px; --fs-small:14px; --fs-label:12.5px;
+}
+html,body{transition:background-color .4s var(--e-out),color .4s var(--e-out)}
+*,*::before,*::after{box-sizing:border-box}
+:where(.vo-page) *{margin:0;padding:0}
+html{background:var(--bg)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+body{background:var(--bg);overflow-x:hidden}
+.vo-page{display:block;color:var(--text);font-family:var(--sans);font-size:var(--fs-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+:where(.vo-page) a{color:inherit;text-decoration:none}
+:where(.vo-page) a:hover{color:inherit}
+:where(.vo-page) :is(h1,h2,h3,h4,h5,h6){font-family:var(--display);color:inherit;margin:0}
+:where(.vo-page) p{margin:0;color:inherit;font-size:inherit;line-height:inherit}
+:where(.vo-page) strong{font-weight:700;color:var(--text)}
+html.intro-anim-playing{cursor:wait}
+html.js .vo-intro__logo,html.js .vo-intro__title,html.js .vo-intro__image,html.js .vo-intro__text,html.js .vo-intro__ctas{visibility:hidden}
+html.js.ready .vo-intro__logo,html.js.ready .vo-intro__title,html.js.ready .vo-intro__image,html.js.ready .vo-intro__text,html.js.ready .vo-intro__ctas{visibility:visible}
+
+/* ---------- icon button (arrow slides out, new one slides in) ---------- */
+.ibtn{position:relative;width:31px;height:31px;flex:none;display:grid;place-items:center;overflow:hidden;border-radius:var(--radius);background:rgba(var(--fg-rgb),.12);backdrop-filter:blur(6px);transition:background-color .3s var(--e-out)}
+.ibtn.--red{background:var(--mark)}
+.ibtn.--lg{width:39px;height:39px}
+.ibtn svg{position:absolute;width:13px;height:13px;stroke:var(--mark);fill:none;stroke-width:1.7;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s var(--e-out)}
+.ibtn.--red svg{stroke:var(--mark-fg)}
+.ibtn svg.in{transform:translate(-200%,-200%);opacity:0}
+a:hover>.ibtn,.ecard:hover .ibtn{background:var(--card-hover)}
+a:hover>.ibtn.--red,.ecard:hover .ibtn.--red{background:var(--text)}
+.ecard:hover .ibtn.--red svg,a:hover>.ibtn.--red svg{stroke:var(--bg)}
+a:hover>.ibtn svg.out,.ecard:hover .ibtn svg.out{transform:translate(200%,200%);opacity:0}
+a:hover>.ibtn svg.in,.ecard:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-delay:.1s}
+
+/* ---------- CTA: the site's gold button (.btn .btn-primary from main.css), only layout here ---------- */
+.cta.--full{width:100%}
+
+/* ---------- shared ---------- */
+.surtitle{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:.01em;margin-bottom:14px}
+.surtitle::before{content:"";width:24px;height:10px;background:var(--mark);border-radius:1px;flex:none}
+.h-xl{font-size:var(--fs-display) !important;font-weight:700;line-height:1.02;letter-spacing:-.035em}
+.c-image{overflow:hidden;position:relative;border-radius:var(--radius)}
+.c-image img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- 1. intro ---------- */
+.vo-intro{position:relative;min-height:calc(100vh - var(--site-h,142px));min-height:calc(100svh - var(--site-h,142px));padding:24px var(--gut) 24px;display:flex;flex-direction:column;overflow:hidden}
+.vo-intro__circles{position:absolute;top:150px;left:calc(var(--gut) + var(--vw) * 31);width:100%;pointer-events:none;z-index:0}
+.vo-intro__circles svg{width:100%;overflow:visible}
+.vo-intro__circles circle{fill:none;stroke:rgba(var(--fg-rgb),.16);stroke-width:1}
+.vo-intro__logo{position:relative;z-index:2;width:100.5%;font-weight:800;font-size:calc(var(--vw) * 12.6);line-height:.86;letter-spacing:-.055em;white-space:nowrap;transform-origin:50% 50%}
+.vo-intro__logo .word{display:inline-block;white-space:nowrap}
+.vo-intro__logo .letter{display:inline-block}
+.vo-intro__logo .point{display:inline-block;width:.17em;height:.17em;border-radius:50%;background:var(--mark);margin-left:.03em}
+.vo-intro__title{position:relative;z-index:1;margin-top:3vh;max-width:640px;font-size:var(--fs-h3) !important;font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--muted)}
+.vo-intro__title strong{color:var(--text);white-space:nowrap}
+.vo-intro__title .mut{color:var(--muted)}
+.vo-intro__bottom{position:relative;z-index:1;margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-top:40px}
+.vo-intro__left{max-width:480px}
+.vo-intro__text p{font-size:var(--fs-body);color:rgba(var(--fg-rgb),.86)}
+.vo-intro__text p.lead{font-weight:700;color:var(--text);margin-bottom:2px}
+.vo-intro__ctas{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.vo-intro__ctas .cta{flex:0 1 auto}
+.vo-intro__image{width:min(calc(var(--vw) * 31),448px);aspect-ratio:448/296}
+
+/* ---------- 2. about ---------- */
+.about{position:relative;padding:190px 0 120px}
+.about__head{padding:0 var(--gut)}
+.about h2{margin-bottom:28px}
+.about h2 .indent{display:block;padding-left:calc(calc(var(--vw) * 31) + 24px)}
+.about__grid{display:grid;grid-template-columns:calc(var(--vw) * 31) 1fr 1fr;gap:24px;padding:0 var(--gut);align-items:start}
+.about__img1{aspect-ratio:448/586;margin-top:-104px}
+.about__col p{color:rgba(var(--fg-rgb),.9);margin-bottom:16px;font-size:var(--fs-body)}
+
+/* ---------- 3. target ---------- */
+.target{padding:110px var(--gut) 140px}
+.target__sep{height:1px;background:var(--line);transform-origin:left;margin:22px 0 26px}
+.target__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.tcard{position:relative;display:grid;aspect-ratio:446/294;overflow:hidden;border-radius:var(--radius);border:1px solid transparent;transition:border-color .6s var(--e-out);cursor:pointer}
+.tcard>*{grid-area:1/1}
+.tcard .c-image{border-radius:0}
+.tcard .c-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--shade-rgb),0) 40%,rgba(var(--shade-rgb),.75))}
+.tcard__title{align-self:end;position:relative;z-index:1;color:var(--on-photo);padding:18px;font-size:var(--fs-h4) !important;font-weight:600;line-height:1.15;letter-spacing:.01em;max-width:85%}
+.tcard__info{position:relative;z-index:2;padding:18px;background:var(--bg);display:flex;flex-direction:column;justify-content:flex-end;transform:translateY(100%);transition:transform .6s cubic-bezier(.19,1,.22,1)}
+.tcard__info-title{font-family:var(--mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:.01em;color:rgba(var(--fg-rgb),.56);max-width:60%;flex-grow:1}
+.tcard__info-title,.tcard__info p{opacity:0;transition:opacity .6s cubic-bezier(.25,.46,.45,.94)}
+/* the button fades in with the card and keeps the .btn hover transitions of main.css */
+.tcard__info .cta{opacity:0;transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease,background-color .3s ease}
+.tcard__info p{font-size:var(--fs-small);color:rgba(var(--fg-rgb),.9)}
+.tcard__info .cta{margin-top:12px}
+.tcard .ibtn{background:rgba(var(--shade-rgb),.35);position:absolute;top:18px;right:18px;z-index:5;pointer-events:none;width:39px;height:39px}
+.tcard .ibtn::before,.tcard .ibtn::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;margin:-.75px 0 0 -7px;background:var(--on-photo);transition:transform .3s var(--e-out),opacity .15s cubic-bezier(.5,0,.75,0)}
+.tcard .ibtn::before{transform:rotate(180deg)}
+.tcard .ibtn::after{transform:rotate(90deg)}
+.tcard:hover,.tcard.is-open{border-color:rgba(var(--fg-rgb),.24)}
+.tcard:hover .tcard__info,.tcard.is-open .tcard__info{transform:translateY(0)}
+.tcard:hover .tcard__info-title,.tcard:hover .tcard__info p,.tcard.is-open .tcard__info-title,.tcard.is-open .tcard__info p{opacity:1}
+.tcard:hover .tcard__info .cta,.tcard.is-open .tcard__info .cta{opacity:1;transition-delay:.2s,0s,0s,0s}
+.tcard:hover .ibtn,.tcard.is-open .ibtn{background:var(--card-hover)}
+.tcard:hover .ibtn::before,.tcard:hover .ibtn::after,.tcard.is-open .ibtn::before,.tcard.is-open .ibtn::after{background:var(--text)}
+.tcard:hover .ibtn::before,.tcard.is-open .ibtn::before{transform:rotate(360deg)}
+.tcard:hover .ibtn::after,.tcard.is-open .ibtn::after{transform:rotate(180deg);opacity:0}
+/* keyboard: open the card when Tab reaches it or its button (kept apart so browsers without :has() still read the rules above) */
+.tcard:focus-visible,.tcard:has(:focus-visible){border-color:rgba(var(--fg-rgb),.24)}
+.tcard:focus-visible .tcard__info,.tcard:has(:focus-visible) .tcard__info{transform:translateY(0)}
+.tcard:focus-visible .tcard__info-title,.tcard:has(:focus-visible) .tcard__info-title,.tcard:focus-visible .tcard__info p,.tcard:has(:focus-visible) .tcard__info p{opacity:1}
+.tcard:focus-visible .tcard__info .cta,.tcard:has(:focus-visible) .tcard__info .cta{opacity:1;transition-delay:.2s,0s,0s,0s}
+.tcard:focus-visible .ibtn,.tcard:has(:focus-visible) .ibtn{background:var(--card-hover)}
+.tcard:focus-visible .ibtn::before,.tcard:has(:focus-visible) .ibtn::before,.tcard:focus-visible .ibtn::after,.tcard:has(:focus-visible) .ibtn::after{background:var(--text)}
+.tcard:focus-visible .ibtn::before,.tcard:has(:focus-visible) .ibtn::before{transform:rotate(360deg)}
+.tcard:focus-visible .ibtn::after,.tcard:has(:focus-visible) .ibtn::after{transform:rotate(180deg);opacity:0}
+
+/* ---------- 4. services (expertises) ---------- */
+.exp{padding:60px var(--gut) 160px}
+.exp__intro{margin-left:calc(calc(var(--vw) * 31) + 24px);max-width:690px;margin-bottom:46px}
+.exp__intro h2{font-size:var(--fs-h3) !important;font-weight:700;line-height:1.1;letter-spacing:-.015em}
+.ecard-wrap{width:min(calc(var(--vw) * 56),802px);margin-bottom:64px}
+/* gold line from each card's arrow to the next card's number (drawn by vo.js) */
+.exp__list{position:relative}
+.exp__line{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:3}
+.exp__line-path,.exp__line-head{fill:none;stroke:var(--mark);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ecard-wrap:nth-child(1){margin-left:calc(calc(var(--vw) * 10) - 24px)}
+.ecard-wrap:nth-child(2){margin-left:auto;margin-right:calc(calc(var(--vw) * 10) - 24px)}
+.ecard-wrap:nth-child(3){margin-left:calc(calc(var(--vw) * 10) - 24px)}
+.ecard-wrap:nth-child(4){margin-left:calc(calc(var(--vw) * 22) - 24px)}
+/* 5th card: on the right edge, like the 2nd */
+.ecard-wrap:nth-child(5){margin-left:auto;margin-right:calc(calc(var(--vw) * 10) - 24px)}
+.ecard__num{font-family:var(--mono);font-size:var(--fs-label);margin-bottom:8px}
+.ecard__num span{color:var(--muted)}
+/* numbers alternate left and right (5th on the left), so the lines alternate too */
+.ecard-wrap:nth-child(even) .ecard__num{text-align:right}
+.ecard{position:relative;min-height:322px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer;transition:background-color .3s var(--e-out),border-color .3s var(--e-out)}
+.ecard:hover{background:var(--card-hover);border-color:rgba(var(--fg-rgb),.24)}
+.ecard svg.deco{position:absolute;right:-60px;bottom:-130px;width:420px;pointer-events:none}
+.ecard svg.deco *{fill:none;stroke:rgba(var(--fg-rgb),.14);stroke-width:1}
+.ecard h3{position:relative;font-size:var(--fs-h2) !important;font-weight:700;line-height:1.02;letter-spacing:-.03em;max-width:90%}
+.ecard__foot{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:60px}
+.ecard__foot p{max-width:410px;font-size:var(--fs-small);color:rgba(var(--fg-rgb),.9)}
+
+/* ---------- 4b. "Μέσα στη VCORE" (montarville c-home-projects) ---------- */
+.proj{position:relative;padding-top:40px}
+.proj__head{padding:0 var(--gut);margin-bottom:56px}
+.proj__title{display:flex;flex-direction:column;align-items:flex-start;gap:0;font-size:var(--fs-display) !important;font-weight:700;line-height:1.02;letter-spacing:-.04em}
+/* two lines: first part on the left, second part on the right, each on one line where it fits */
+.proj__title > span{white-space:nowrap}
+.proj__title .--right{align-self:flex-end;text-align:right}
+@media (max-width:749px){.proj__title > span{white-space:normal}}
+.proj__stage{position:relative}
+.proj__sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;z-index:0}
+.proj__img{position:absolute;inset:0;opacity:0;transition:opacity 1s cubic-bezier(.39,.575,.565,1)}
+.proj__img.is-active{opacity:1}
+.proj__img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.proj__img:nth-child(3) img{object-position:72% 50%}
+.proj__img:nth-child(4) img{object-position:32% 50%}
+.proj__cards{position:relative;z-index:1;margin-top:-100vh;margin-top:-100svh}
+.proj__slot{height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 var(--gut)}
+.proj__overlay{position:absolute;inset:0;z-index:2;pointer-events:none}
+.proj__overlay-in{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.proj__circle{position:absolute;width:56vw;height:56vw;border:1px solid rgba(245,241,237,.24);border-radius:50%}
+.proj__circle.--left{top:9rem;left:-28vw}
+.proj__circle.--right{top:36rem;right:-28vw}
+.proj__nav{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;pointer-events:all}
+.proj__nav button{position:relative;padding:12px;font-family:var(--mono);font-size:var(--fs-label);line-height:1.15;color:var(--on-photo);background:rgba(245,241,237,.12);border:1px solid rgba(245,241,237,.12);border-radius:var(--radius);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);cursor:pointer;transition:background-color .3s var(--e-out),color .3s var(--e-out)}
+.proj__nav button:hover{background:rgba(245,241,237,.24)}
+.proj__nav button.is-active{background:var(--paper);color:var(--ink)}
+.proj__nav button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+.pcard{display:block;position:relative;width:min(448px,100%);border-radius:var(--radius);color:var(--ink)}
+.pcard__cat,.pcard__info,.pcard__side{position:relative;z-index:1;background:var(--paper);color:var(--ink)}
+.pcard__cat{display:flex;justify-content:space-between;align-items:center;padding:12px;font-family:var(--mono);font-size:var(--fs-label);text-transform:uppercase;border-radius:var(--radius) var(--radius) 0 0}
+.pcard__dot{width:8px;height:8px;border-radius:50%;background:var(--mark)}
+.pcard__win{display:flex;aspect-ratio:1/.50476}
+.pcard__side{width:12px;flex:none}
+.pcard__hole{flex:1;position:relative;z-index:0;box-shadow:0 0 0 200vmax rgba(var(--shade-rgb),.32)}
+.pcard__info{padding:12px;border-radius:0 0 var(--radius) var(--radius);display:flex;flex-direction:column}
+.pcard h3{font-size:var(--fs-h3) !important;font-weight:700;line-height:1.1;letter-spacing:-.02em}
+.pcard p{color:var(--ink-muted);font-size:var(--fs-body);margin-top:4px}
+.pcard .ibtn{align-self:flex-end;margin-top:14px;background:transparent;border:1px solid rgba(37,35,35,.16);backdrop-filter:none}
+.pcard .ibtn svg{stroke:var(--ink)}
+a.pcard__link:hover .ibtn{background:var(--ink)}
+a.pcard__link:hover .ibtn svg{stroke:var(--paper)}
+a.pcard__link:hover .ibtn svg.out{transform:translate(200%,200%);opacity:0}
+a.pcard__link:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-delay:.1s}
+.proj__redirect{padding:56px var(--gut) 0;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+.proj__redirect h2{font-size:var(--fs-h2) !important;font-weight:700;line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+
+/* ---------- 5. closing ---------- */
+.closing{position:relative;padding:150px var(--gut) 150px;overflow:hidden;border-top:1px solid var(--line)}
+.closing__circles{position:absolute;left:-12vw;top:-10vw;width:70vw;pointer-events:none}
+.closing__circles circle{fill:none;stroke:rgba(var(--fg-rgb),.12);stroke-width:1}
+.closing__inner{position:relative;display:grid;grid-template-columns:calc(var(--vw) * 31) 1fr;gap:24px;align-items:end}
+.closing__img{aspect-ratio:4/5}
+/* the entrance photo: keep its left side (the plaque) when the box crops the sides */
+.closing__img img{object-position:15% 50%}
+.closing h2{margin-bottom:26px}
+.closing h3{font-size:var(--fs-h4) !important;font-weight:600;line-height:1.25;letter-spacing:-.01em;color:var(--muted);max-width:760px}
+.closing h3 strong{color:var(--text)}
+.closing__addr{margin-top:30px;font-family:var(--mono);font-size:var(--fs-label);text-transform:uppercase}
+.closing__addr span{color:var(--muted);display:block;margin-bottom:4px}
+.closing__ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+
+/* ---------- team and values (montarville's careers and sustainable development sections) ---------- */
+.vo-team{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:160px var(--gut) 120px;align-items:start}
+.vo-team__img{grid-column:1/6}
+.vo-team__img img,.vo-values__small img,.vo-values__big img{width:100%;height:100%;object-fit:cover;display:block}
+/* the ratio sits on the box, so the parallax image (125% tall) has a box to move in, like section 2 */
+.vo-team__img{aspect-ratio:3/2}
+.vo-team__text{grid-column:7/12}
+.vo-team__title{font-size:var(--fs-h2) !important;line-height:1.08;margin:18px 0 22px !important}
+.vo-team__text p{color:var(--muted);margin-bottom:14px;max-width:56ch}
+.vo-team .cta-ctn,.vo-values .cta-ctn{margin-top:26px}
+.vo-values{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:28px;padding:40px var(--gut) 160px}
+.vo-values__small{grid-column:3/5;align-self:center}
+.vo-values__small{aspect-ratio:3/2}
+.vo-values__big{grid-column:5/13}
+.vo-values__big{aspect-ratio:16/8.4}
+.vo-values__label{grid-column:2/5;text-align:right;font-family:var(--display);font-size:var(--fs-h3);line-height:1.1;color:var(--muted)}
+.vo-values__body{grid-column:5/13}
+.vo-values__lead{font-family:var(--display);font-size:var(--fs-h3);line-height:1.18;letter-spacing:-.01em}
+@media (max-width:749px){
+  .vo-team,.vo-values{grid-template-columns:1fr;padding-top:80px;padding-bottom:80px}
+  .vo-team__img,.vo-team__text,.vo-values__small,.vo-values__big,.vo-values__label,.vo-values__body{grid-column:1/-1}
+  .vo-values__small{display:none}
+  .vo-values__label{text-align:left}
+}
+
+
+/* ---------- typography as on the rest of the site ---------- */
+/* headings: the site's heading face (EB Garamond, Source Serif 4 for Greek) at the site's weight and spacing */
+.vo-page :is(h1,h2,h3,h4,.vo-intro__logo){font-family:var(--display);font-weight:500;letter-spacing:-.02em}
+/* small uppercase labels: Manrope 600 with wide spacing, like the site's menu and panel labels */
+.vo-page :is(.surtitle,.ecard__num,.proj__nav button,.pcard__cat,.tcard__info-title,.closing__addr){font-family:var(--font-base);font-weight:600;letter-spacing:.14em;font-variant-numeric:tabular-nums}
+
+/* ---------- responsive ---------- */
+/* tablet: 24px side margins, as on the homepage (main.css .section-inner, 768px to 1024px) */
+@media (min-width:768px) and (max-width:1024px){:root{--gut:24px}}
+@media (max-width:980px){
+  .vo-intro__bottom{flex-direction:column;align-items:stretch}
+  .vo-intro__image{width:100%}
+  .vo-intro__circles{left:20vw;top:30vh;width:160vw}
+  .about{padding-top:120px}
+  .about h2 .indent{padding-left:0}
+  .about__grid{grid-template-columns:1fr}
+  .about__img1{margin-top:0;aspect-ratio:4/3}
+  .target__cards{grid-template-columns:1fr}
+  .tcard{aspect-ratio:4/3}
+  .exp__intro{margin-left:0}
+  .ecard-wrap,.ecard-wrap:nth-child(n){width:100%;margin-left:0;margin-right:0;margin-bottom:56px}
+  .ecard-wrap:nth-child(even) .ecard__num{text-align:left}
+  .ecard{min-height:0}
+  .ecard__foot{margin-top:36px}
+  .closing__inner{grid-template-columns:1fr}
+  .closing__img{aspect-ratio:4/3}
+}
+@media (max-width:749px){
+  .vo-intro{padding-top:20px}
+  .vo-intro__logo{font-size:19.5vw;white-space:normal}
+  .cta{width:100%}
+  .ecard__foot{flex-direction:column;align-items:stretch;gap:18px}
+  .ecard .ibtn{width:100%}
+  .proj__circle{display:none}
+  .proj__nav{left:50%;top:auto;bottom:64px;transform:translateX(-50%);flex-direction:row}
+  .pcard__cat,.pcard__info{padding:10px}
+}
+
+/* ---------- intro: map that zooms from Greece to the VCORE office in Kavala ---------- */
+.vo-intro__image .vomap{display:block;width:100%;height:100%}
+.vomap .vm-sea{fill:#2a2726}
+.vomap .vm-others path{fill:rgba(245,241,237,.045);stroke:rgba(245,241,237,.2);stroke-width:.7;vector-effect:non-scaling-stroke}
+.vomap .vm-greece{fill:rgba(245,203,92,.07);stroke:#F5CB5C;stroke-width:1.1;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.vomap .vm-region{fill:rgba(245,203,92,.13);stroke:#F5CB5C;stroke-width:1.6;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:0}
+.vomap .vm-city circle{fill:#F5F1ED}
+.vomap .vm-city text{font-family:var(--font-base);font-weight:600;font-size:7px;fill:#F5F1ED;paint-order:stroke;stroke:#2a2726;stroke-width:2px;stroke-linejoin:round}
+.vomap .vm-pin path{fill:#F5CB5C}
+.vomap .vm-pin circle{fill:#252323}
+.vomap .vm-pulse{fill:none;stroke:#F5CB5C;stroke-width:1.4;vector-effect:non-scaling-stroke}
+.vomap .vm-card rect{fill:#F5F1ED}
+.vomap .vm-card-k{font-family:var(--font-base);font-weight:700;font-size:1.45px;letter-spacing:.2em;fill:#8a8277}
+.vomap .vm-card-a{font-family:var(--font-base);font-weight:600;font-size:1.9px;fill:#252323}
+
+/* the map sits in a round frame with a gold ring, like the intro circles */
+.vo-intro__image{width:min(calc(var(--vw) * 27),380px);aspect-ratio:1;border-radius:50%;margin-right:16px;margin-bottom:16px;
+  box-shadow:0 0 0 1px rgba(245,203,92,.6),0 0 0 14px var(--bg),0 0 0 15px rgba(245,241,237,.16)}
+@media (max-width:980px){.vo-intro__image{width:min(calc(100% - 32px),360px);align-self:center;margin:16px auto}}
+
+/* ---------- cost: 100 squares = a month of office costs, the gold ones are VCORE ----------
+   the rules below are the end state (no JavaScript, reduced motion); vo.js sets the start state and animates */
+.vo-cost{padding:110px var(--gut) 120px;position:relative;overflow:hidden}
+/* desktop with JavaScript: a tall section with a sticky screen, the story follows the scroll (phones: see the 980px block).
+   sticky and not a GSAP pin, because the pin switches to position:fixed and that counted as a layout shift (CLS 0.7 to 2.0) */
+@media (min-width:981px) and (prefers-reduced-motion:no-preference){
+  html.js .vo-cost{height:340vh;padding:0;overflow:visible}
+  html.js .vo-cost__sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:0 var(--gut);overflow:hidden}
+  html.js .vo-cost__inner{width:100%}
+}
+.vo-cost__inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto auto 1fr;grid-template-areas:". visual" "head visual" "rows visual" "counter visual" "foot visual" ". visual";column-gap:calc(var(--vw) * 6);min-height:min(760px,calc(100vh - 160px))}
+.vo-cost__head{grid-area:head}
+.vo-cost__rows{grid-area:rows}
+.vo-cost__counter{grid-area:counter}
+.vo-cost__foot{grid-area:foot}
+/* on desktop the stage wrappers do not exist for the layout: the grid and the counter sit in their own areas */
+.vo-cost__track,.vo-cost__stage{display:contents}
+.vo-cost__now{display:none}
+.vo-cost__title{font-size:var(--fs-h2) !important;line-height:1.06;letter-spacing:-.01em;max-width:14ch;text-wrap:balance}
+.vo-cost__lead{color:var(--muted);max-width:46ch;margin-top:18px;font-size:var(--fs-body)}
+.vo-cost__rows{list-style:none;margin-top:30px;display:grid;gap:9px;max-width:460px}
+.vo-cost__row{display:flex;align-items:baseline;gap:10px;font-size:var(--fs-body);position:relative;opacity:.6}
+.vo-cost__row i{width:10px;height:10px;border-radius:1px;flex:none;align-self:center}
+.vo-cost__row .lbl{white-space:nowrap}
+.vo-cost__row .dots{flex:1;min-width:16px;border-bottom:1px dotted rgba(var(--fg-rgb),.3);transform:translateY(-4px)}
+.vo-cost__row .amt{font-variant-numeric:tabular-nums;white-space:nowrap}
+.vo-cost__row.--total{border-top:1px solid var(--line);padding-top:11px;margin-top:3px;font-weight:600}
+.vo-cost__row .strike{position:absolute;left:20px;right:0;top:58%;height:1px;background:var(--mark);transform-origin:left}
+.vo-cost__row.--total .strike{top:68%}
+.vo-cost__row.--vcore{color:var(--mark);font-weight:600;opacity:1}
+.vo-cost__row.--vcore .dots{border-color:rgba(245,203,92,.45)}
+.vo-cost__counter{font-family:var(--display);font-size:var(--fs-display);line-height:1;margin-top:30px;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--mark)}
+.vo-cost__counter small{font-family:var(--sans);font-size:var(--fs-body);color:var(--muted);margin-left:10px;letter-spacing:0}
+.vo-cost__year{margin-top:14px;color:var(--text);font-size:var(--fs-body)}
+.vo-cost__note{font-size:var(--fs-label);color:var(--muted);margin-top:8px}
+.vo-cost__visual{grid-area:visual;align-self:center;position:relative;justify-self:end;width:min(100%,470px)}
+.vo-cost__grid{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;aspect-ratio:1}
+.vo-cost__grid span{border-radius:2px;background:var(--c);opacity:.14}
+.vo-cost__grid span.--keep{background:var(--mark);opacity:1;box-shadow:0 0 22px rgba(245,203,92,.6)}
+.vo-cost__pct{position:absolute;inset:0 0 34% 0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mark);pointer-events:none}
+.vo-cost__pct-num{font-family:var(--display);font-size:calc(var(--fs-display) * 1.45);line-height:1;letter-spacing:-.02em;text-shadow:0 0 40px rgba(245,203,92,.25);font-variant-numeric:tabular-nums}
+.vo-cost__pct-cap{font-family:var(--font-base);font-weight:600;font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;margin-top:14px;opacity:.85}
+@media (max-width:980px){
+  .vo-cost{padding:80px var(--gut) 90px}
+  .vo-cost__inner{display:block;min-height:0}
+  .vo-cost__stage{display:flex;flex-direction:column;align-items:center;gap:18px;margin:36px 0}
+  .vo-cost__visual{width:min(100%,420px)}
+  .vo-cost__counter{margin-top:0;text-align:center}
+}
+/* phones with JavaScript: the squares and the counter stay on screen inside a tall track and the story follows the scroll,
+   so it cannot be scrolled past; one line under the counter names the cost that is filling (the full list follows below) */
+@media (max-width:980px) and (prefers-reduced-motion:no-preference){
+  html.js .vo-cost{overflow:visible} /* overflow:hidden on the section would stop the sticky stage; the stage clips instead */
+  html.js .vo-cost__track{display:block;height:280vh;height:280svh;margin:20px 0}
+  html.js .vo-cost__stage{position:sticky;top:0;height:100vh;height:100svh;margin:0;justify-content:center;overflow:hidden}
+  html.js .vo-cost__now{display:block;min-height:1.5em;font-size:var(--fs-body);color:var(--text);text-align:center}
+  html.js .vo-cost__now .amt{font-variant-numeric:tabular-nums;margin-left:6px;color:var(--muted)}
+  html.js .vo-cost__now .--gold,html.js .vo-cost__now .--gold .amt{color:var(--mark);font-weight:600}
+}
+@media (max-width:749px){
+  .vo-cost__row .lbl{white-space:normal}
+  .vo-cost__grid{gap:5px}
+}
+
+/* ---------- loader: a gold dot with a pulse (like the map pin) while the page loads; vo.js adds .ready and it goes.
+   css only, so it shows from the first paint. If the JavaScript never arrives, after 8s the loader goes and the intro shows. */
+html.js:not(.ready) body::after{content:"";position:fixed;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--mark);z-index:9999;pointer-events:none;
+  animation:vo-load-pulse 1.3s cubic-bezier(.25,1,.5,1) infinite,vo-load-off 0s 8s forwards}
+html.js:not(.ready) body::before{content:"";position:fixed;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:1px solid var(--mark);z-index:9999;pointer-events:none;
+  animation:vo-load-ring 1.3s cubic-bezier(.25,1,.5,1) infinite,vo-load-off 0s 8s forwards}
+@keyframes vo-load-pulse{0%,100%{transform:scale(.85)}50%{transform:scale(1)}}
+@keyframes vo-load-ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(4.2);opacity:0}}
+@keyframes vo-load-off{to{visibility:hidden}}
+html.js:not(.ready) :is(.vo-intro__logo,.vo-intro__title,.vo-intro__image,.vo-intro__text,.vo-intro__ctas){animation:vo-load-show 0s 8s forwards}
+@keyframes vo-load-show{to{visibility:visible}}
+html.js.intro-anim-playing:not(.ready){animation:vo-load-cursor 0s 8s forwards}
+@keyframes vo-load-cursor{to{cursor:auto}}
+@media (prefers-reduced-motion:reduce){html.js:not(.ready) body::after,html.js:not(.ready) body::before{animation:vo-load-off 0s 8s forwards}}
+/* main.css puts overflow-x:hidden on html and body between 768 and 1024px, which turns body into a scroll box and stops every
+   position:sticky on this page (the cost section). On vo only, html goes back to visible: body's overflow-x:hidden then applies
+   to the window as on the other widths, so there is still no sideways scroll. */
+@media (min-width:768px) and (max-width:1024px){html:root{overflow-x:visible}}
