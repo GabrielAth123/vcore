@@ -10,7 +10,7 @@
 
 /* VCORE Virtual Office: intro map, Greece draws itself, zooms to Eastern Macedonia and Thrace,
    then to the office in Kavala with a gold pin and the address. Starts after the intro,
-   when on screen. With reduced motion the final view is shown still. */
+   when on screen. With reduced motion the three views follow each other once with a fade, no zoom. */
 (function () {
   var svg = document.querySelector('.vo-intro__image .vomap');
   if (!svg || !window.gsap || !window.ScrollTrigger || !window.DrawSVGPlugin) return;
@@ -19,10 +19,34 @@
   var V1 = svg.getAttribute('data-v1'), V2 = svg.getAttribute('data-v2'), V3 = svg.getAttribute('data-v3');
   var others = svg.querySelector('.vm-others'), greece = svg.querySelector('.vm-greece'), region = svg.querySelector('.vm-region');
   var cities = q('.vm-city'), pin = svg.querySelector('.vm-pin'), pulses = q('.vm-pulse'), card = svg.querySelector('.vm-card');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    svg.setAttribute('viewBox', V3); gsap.set(region, { opacity: 1 }); gsap.set(pin, { scale: .65, transformOrigin: '50% 100%' }); return;
-  }
   var html = document.documentElement;
+  // starts fn once the intro is over and the map is on screen
+  function whenShown(fn) {
+    var readyAt = 0;
+    (function wait() {
+      var ready = html.classList.contains('ready'), playing = html.classList.contains('intro-anim-playing');
+      if (ready && !readyAt) readyAt = performance.now();
+      if (ready && !playing && performance.now() - readyAt > 600) ScrollTrigger.create({ trigger: svg, start: 'top 92%', once: true, onEnter: fn });
+      else setTimeout(wait, 120);
+    })();
+  }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Greece, then the region with its cities, then Kavala with the pin and the address: each view fades out
+    // and the next fades in, once, and the map stays on Kavala
+    gsap.set([region, cities, pin, card, pulses], { opacity: 0 }); gsap.set(pin, { scale: .65, transformOrigin: '50% 100%' });
+    whenShown(function () {
+      gsap.timeline({ defaults: { ease: 'power1.inOut' } })
+        .to({}, { duration: 1.2 })
+        .to(svg, { opacity: 0, duration: .5 })
+        .set(svg, { attr: { viewBox: V2 } }).set([region, cities], { opacity: 1 })
+        .to(svg, { opacity: 1, duration: .6 })
+        .to({}, { duration: 2.2 })
+        .to(svg, { opacity: 0, duration: .5 })
+        .set(svg, { attr: { viewBox: V3 } }).set(cities, { opacity: 0 }).set([pin, card], { opacity: 1 }).set(pulses, { clearProps: 'opacity' })
+        .to(svg, { opacity: 1, duration: .6 });
+    });
+    return;
+  }
   gsap.set(others, { opacity: 0 });
   gsap.set(greece, { drawSVG: '0%', fillOpacity: 0 });
   gsap.set(cities, { opacity: 0 });
@@ -53,11 +77,5 @@
       .to(greece, { fillOpacity: 1, duration: .8 }, '-=.6')
       .add(loop, '+=.3');
   }
-  var readyAt = 0;
-  (function wait() {
-    var ready = html.classList.contains('ready'), playing = html.classList.contains('intro-anim-playing');
-    if (ready && !readyAt) readyAt = performance.now();
-    if (ready && !playing && performance.now() - readyAt > 600) ScrollTrigger.create({ trigger: svg, start: 'top 92%', once: true, onEnter: start });
-    else setTimeout(wait, 120);
-  })();
+  whenShown(start);
 })();

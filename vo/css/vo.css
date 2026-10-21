@@ -48,11 +48,11 @@ html.js.ready .vo-intro__logo,html.js.ready .vo-intro__title,html.js.ready .vo-i
 .ibtn svg{position:absolute;width:13px;height:13px;stroke:var(--mark);fill:none;stroke-width:1.7;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s var(--e-out)}
 .ibtn.--red svg{stroke:var(--mark-fg)}
 .ibtn svg.in{transform:translate(-200%,-200%);opacity:0}
-a:hover>.ibtn,.ecard:hover .ibtn{background:var(--card-hover)}
-a:hover>.ibtn.--red,.ecard:hover .ibtn.--red{background:var(--text)}
-.ecard:hover .ibtn.--red svg,a:hover>.ibtn.--red svg{stroke:var(--bg)}
-a:hover>.ibtn svg.out,.ecard:hover .ibtn svg.out{transform:translate(200%,200%);opacity:0}
-a:hover>.ibtn svg.in,.ecard:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-delay:.1s}
+a:hover>.ibtn{background:var(--card-hover)}
+a:hover>.ibtn.--red{background:var(--text)}
+a:hover>.ibtn.--red svg{stroke:var(--bg)}
+a:hover>.ibtn svg.out{transform:translate(200%,200%);opacity:0}
+a:hover>.ibtn svg.in{transform:translate(0,0);opacity:1;transition-delay:.1s}
 
 /* ---------- CTA: the site's gold button (.btn .btn-primary from main.css), only layout here ---------- */
 .cta.--full{width:100%}
@@ -150,8 +150,8 @@ a:hover>.ibtn svg.in,.ecard:hover .ibtn svg.in{transform:translate(0,0);opacity:
 .ecard__num span{color:var(--muted)}
 /* numbers alternate left and right (5th on the left), so the lines alternate too */
 .ecard-wrap:nth-child(even) .ecard__num{text-align:right}
-.ecard{position:relative;min-height:322px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer;transition:background-color .3s var(--e-out),border-color .3s var(--e-out)}
-.ecard:hover{background:var(--card-hover);border-color:rgba(var(--fg-rgb),.24)}
+.ecard{position:relative;min-height:322px;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:background-color .3s var(--e-out),border-color .3s var(--e-out)}
+/* the numbered cards are not links: no hover change and no hand cursor */
 .ecard svg.deco{position:absolute;right:-60px;bottom:-130px;width:420px;pointer-events:none}
 .ecard svg.deco *{fill:none;stroke:rgba(var(--fg-rgb),.14);stroke-width:1}
 .ecard h3{position:relative;font-size:var(--fs-h2) !important;font-weight:700;line-height:1.02;letter-spacing:-.03em;max-width:90%}
@@ -304,11 +304,11 @@ a.pcard__link:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-d
 @media (max-width:980px){.vo-intro__image{width:min(calc(100% - 32px),360px);align-self:center;margin:16px auto}}
 
 /* ---------- cost: 100 squares = a month of office costs, the gold ones are VCORE ----------
-   the rules below are the end state (no JavaScript, reduced motion); vo.js sets the start state and animates */
+   the rules below are the end state (no JavaScript); vo.js sets the start state and animates (with reduced motion: fades only) */
 .vo-cost{padding:110px var(--gut) 120px;position:relative;overflow:hidden}
 /* desktop with JavaScript: a tall section with a sticky screen, the story follows the scroll (phones: see the 980px block).
    sticky and not a GSAP pin, because the pin switches to position:fixed and that counted as a layout shift (CLS 0.7 to 2.0) */
-@media (min-width:981px) and (prefers-reduced-motion:no-preference){
+@media (min-width:981px){
   html.js .vo-cost{height:340vh;padding:0;overflow:visible}
   html.js .vo-cost__sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:0 var(--gut);overflow:hidden}
   html.js .vo-cost__inner{width:100%}
@@ -354,7 +354,7 @@ a.pcard__link:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-d
 }
 /* phones with JavaScript: the squares and the counter stay on screen inside a tall track and the story follows the scroll,
    so it cannot be scrolled past; one line under the counter names the cost that is filling (the full list follows below) */
-@media (max-width:980px) and (prefers-reduced-motion:no-preference){
+@media (max-width:980px){
   html.js .vo-cost{overflow:visible} /* overflow:hidden on the section would stop the sticky stage; the stage clips instead */
   html.js .vo-cost__track{display:block;height:280vh;height:280svh;margin:20px 0}
   html.js .vo-cost__stage{position:sticky;top:0;height:100vh;height:100svh;margin:0;justify-content:center;overflow:hidden}
@@ -381,6 +381,8 @@ html.js:not(.ready) :is(.vo-intro__logo,.vo-intro__title,.vo-intro__image,.vo-in
 html.js.intro-anim-playing:not(.ready){animation:vo-load-cursor 0s 8s forwards}
 @keyframes vo-load-cursor{to{cursor:auto}}
 @media (prefers-reduced-motion:reduce){html.js:not(.ready) body::after,html.js:not(.ready) body::before{animation:vo-load-off 0s 8s forwards}}
+/* reduced motion: anchor links jump instead of gliding (main.css sets smooth scrolling for the whole site) */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* main.css puts overflow-x:hidden on html and body between 768 and 1024px, which turns body into a scroll box and stops every
    position:sticky on this page (the cost section). On vo only, html goes back to visible: body's overflow-x:hidden then applies
    to the window as on the other widths, so there is still no sideways scroll. */

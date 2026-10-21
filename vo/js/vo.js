@@ -13,24 +13,32 @@
   });
 
   function showAll() { html.classList.add('ready'); html.classList.remove('intro-anim-playing'); }
-  if (!window.gsap || reduce) { showAll(); return; }
+  if (!window.gsap) { showAll(); return; }
+
+  // reduced motion ("calm"): the same story told with fades in place. No movement, zoom, parallax, snap or smooth scroll,
+  // but what carries meaning stays, as GSAP's accessibility guide advises: decorative motion goes, the rest becomes a crossfade
+  var calm = reduce;
+  var WYS = '.surtitle, h1, h2, h3, h4, p, .cta-ctn, ul, ol';
 
   gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, CustomEase);
   // montarville's own custom eases
   CustomEase.create('ff_expo_out', 'M0,0,C0.084,0.61,0.214,0.802,0.28,0.856,0.356,0.918,0.374,1,1,1');
   CustomEase.create('ff_expo_in_out', 'M0,0,C0.25,0,0.294,0.023,0.335,0.05,0.428,0.11,0.466,0.292,0.498,0.502,0.532,0.73,0.586,0.88,0.64,0.928,0.679,0.962,0.698,1,1,1');
 
-  // smooth scroll: Lenis with montarville's settings
-  var lenis = new Lenis({ duration: 1.3, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, wheelMultiplier: 1.1 });
-  gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-  gsap.ticker.lagSmoothing(0);
-  lenis.on('scroll', ScrollTrigger.update);
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href'); if (id.length < 2) return; e.preventDefault();
-      lenis.scrollTo(id === '#top' ? 0 : id, { offset: -70, duration: 1.2, easing: function (x) { return x < .5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2; } });
+  // smooth scroll: Lenis with montarville's settings (calm: the page scrolls natively)
+  var lenis = null;
+  if (!calm) {
+    lenis = new Lenis({ duration: 1.3, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, wheelMultiplier: 1.1 });
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href'); if (id.length < 2) return; e.preventDefault();
+        lenis.scrollTo(id === '#top' ? 0 : id, { offset: -70, duration: 1.2, easing: function (x) { return x < .5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2; } });
+      });
     });
-  });
+  }
 
   document.fonts.ready.then(function () {
     html.classList.add('ready');
@@ -40,7 +48,6 @@
     var letters = logo.querySelectorAll('.letter, .point');
     var image = document.querySelector('.vo-intro__image');
     var circles = document.querySelectorAll('.vo-intro__circles circle');
-    var titleSplit = SplitText.create('.vo-intro__title', { type: 'lines, words' });
     var vh = window.innerHeight;
     // make the giant word span the full width, like montarville's logo
     function fitLogo() {
@@ -54,6 +61,13 @@
       logo.style.fontSize = (100 * target / w * .995) + 'px';
     }
     fitLogo();
+    if (calm) {
+      // the giant word keeps its full width (sizing is not motion), and the intro fades in, part after part
+      html.classList.remove('intro-anim-playing');
+      window.addEventListener('resize', function () { fitLogo(); ScrollTrigger.refresh(); });
+      gsap.from('.vo-intro__circles, .vo-intro__logo, .vo-intro__title, .vo-intro__image, .vo-intro__text, .vo-intro__ctas', { opacity: 0, duration: 1, ease: 'power1.out', stagger: .15 });
+    } else {
+    var titleSplit = SplitText.create('.vo-intro__title', { type: 'lines, words' });
     window.addEventListener('resize', function () { if (!html.classList.contains('intro-anim-playing')) { gsap.set(logo, { clearProps: 'transform' }); fitLogo(); ScrollTrigger.refresh(); } });
     gsap.set(logo, { scale: isPhone ? .5 : .25 });
     var r = logo.getBoundingClientRect();
@@ -76,11 +90,12 @@
     // circles drift down while the intro scrolls away
     if (!isTouch) gsap.timeline({ scrollTrigger: { trigger: '.vo-intro', endTrigger: '.vo-intro__circles', start: 'top top', end: 'bottom top', scrub: true } })
       .to('.vo-intro__circles', { yPercent: 16, ease: 'none' }); /* the box moves, not the svg: transform on the big svg counted as layout shift */
+    }
 
     // ---------- montarville's "wysiwyg" block animation ----------
     function wysiwyg(el) {
       var t = gsap.timeline({ defaults: { ease: 'ff_expo_out', duration: 1.2 } });
-      var kids = el.querySelectorAll('.surtitle, h1, h2, h3, h4, p, .cta-ctn, ul, ol');
+      var kids = el.querySelectorAll(WYS);
       if (!kids.length) kids = [el];
       kids.forEach(function (o) {
         if (o.classList.contains('proj__title')) {
@@ -98,11 +113,12 @@
       return t;
     }
     document.querySelectorAll('[data-anim-wysiwyg]').forEach(function (el) {
+      if (calm) { var k = el.querySelectorAll(WYS); gsap.from(k.length ? k : el, { opacity: 0, duration: .8, ease: 'power1.out', stagger: .12, scrollTrigger: { trigger: el, start: 'top 90%' } }); return; }
       gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 90%' } }).add(wysiwyg(el));
     });
 
     // ---------- image parallax (data-image-parallax) ----------
-    if (!isTouch) document.querySelectorAll('[data-image-parallax]').forEach(function (box) {
+    if (!isTouch && !calm) document.querySelectorAll('[data-image-parallax]').forEach(function (box) {
       var img = box.querySelector('img');
       gsap.set(box, { overflow: 'hidden' }); gsap.set(img, { height: '125%' });
       gsap.timeline({ scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom 0', scrub: .3 } })
@@ -111,6 +127,7 @@
 
     // ---------- 3. target cards (c-home-target__slider) ----------
     (function () {
+      if (calm) { gsap.from('.target__sep, .tcard', { opacity: 0, duration: .8, ease: 'power1.out', stagger: .15, scrollTrigger: { trigger: '.target__cards', start: 'top 95%' } }); return; }
       var cards = document.querySelectorAll('.tcard');
       var s = SplitText.create('.tcard__title', { type: 'lines' });
       var t = gsap.timeline({ defaults: { stagger: .15 }, scrollTrigger: { trigger: '.target__cards', start: 'top 95%' }, onComplete: function () { s.revert(); } });
@@ -141,13 +158,14 @@
           return axis === 'x' ? (W - bw) / 2 + (i % bCols) * (cs + g) - el.offsetLeft : H * .78 - bh / 2 + Math.floor(i / bCols) * (cs + g) - el.offsetTop;
         };
       }
-      // start state (the html and css show the end state)
-      gsap.set(cells, { scale: 0, opacity: 0 });
+      // start state (the html and css show the end state); calm: only opacity and colour change, nothing moves or grows
+      var strikes = sec.querySelectorAll('.vo-cost__row .strike');
+      gsap.set(cells, calm ? { opacity: 0 } : { scale: 0, opacity: 0 });
       gsap.set(kept, { backgroundColor: function (i, el) { return el.style.getPropertyValue('--c'); }, boxShadow: '0 0 0px rgba(245,203,92,0)' });
-      gsap.set(sec.querySelectorAll('.vo-cost__row .strike'), { scaleX: 0 });
-      gsap.set([].concat(costRows, totalRow), { opacity: 0, y: 8 }); gsap.set(vRow, { opacity: 0, y: 10 });
+      gsap.set(strikes, calm ? { opacity: 0 } : { scaleX: 0 });
+      gsap.set([].concat(costRows, totalRow), calm ? { opacity: 0 } : { opacity: 0, y: 8 }); gsap.set(vRow, calm ? { opacity: 0 } : { opacity: 0, y: 10 });
       gsap.set(counter, { color: '#F5F1ED' }); num.textContent = '0'; unit.textContent = 'τον μήνα';
-      gsap.set(pct, { opacity: 0, y: 30, scale: .92 }); gsap.set(pctCap, { opacity: 0, y: 8 }); pctNum.textContent = '0%';
+      gsap.set(pct, calm ? { opacity: 0 } : { opacity: 0, y: 30, scale: .92 }); gsap.set(pctCap, calm ? { opacity: 0 } : { opacity: 0, y: 8 }); pctNum.textContent = '0%';
       gsap.set(year, { opacity: 0 });
       var st = { v: 0 }, ps = { v: 0 }, sum = 0;
       var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
@@ -156,24 +174,27 @@
         tl.addLabel('c' + i)
           .to(row, { opacity: 1, y: 0, duration: .3 }, 'c' + i)
           .fromTo(row.querySelector('.amt'), { color: '#F5CB5C' }, { color: '#F5F1ED', duration: .8, ease: 'none', immediateRender: false }, 'c' + i + '+=.1')
-          .to(mine, { scale: 1, opacity: 1, duration: .45, ease: 'back.out(2.2)', stagger: { each: Math.min(.012, .55 / mine.length) } }, 'c' + i)
+          .to(mine, calm ? { opacity: 1, duration: .45, ease: 'power1.out', stagger: { each: Math.min(.012, .55 / mine.length) } }
+            : { scale: 1, opacity: 1, duration: .45, ease: 'back.out(2.2)', stagger: { each: Math.min(.012, .55 / mine.length) } }, 'c' + i)
           .to(st, { v: to, duration: .5, ease: 'none', onUpdate: function () { num.textContent = fmt(st.v); } }, 'c' + i);
       });
       tl.addLabel('tot').to(totalRow, { opacity: 1, y: 0, duration: .3 })
         .to({}, { duration: .2, onUpdate: function () { num.textContent = fmt(total) + (this.progress() > .5 ? '+' : ''); } }) // the plus: office costs start at this amount
         .to({}, { duration: .4 })
         .addLabel('cut')
-        .to(sec.querySelectorAll('.vo-cost__row .strike'), { scaleX: 1, duration: .45, stagger: .06, ease: 'power2.inOut' }, 'cut')
+        .to(strikes, calm ? { opacity: 1, duration: .45, stagger: .06, ease: 'power1.inOut' } : { scaleX: 1, duration: .45, stagger: .06, ease: 'power2.inOut' }, 'cut')
         .to([].concat(costRows, totalRow), { opacity: .6, duration: .4 }, 'cut+=.35')
-        // the office squares collapse, top rows first, like a wall coming down
-        .to(gone, { y: function () { return gsap.utils.random(160, 320); }, x: function () { return gsap.utils.random(-24, 24); }, rotation: function () { return gsap.utils.random(-70, 70); }, opacity: 0, duration: .9, ease: 'power2.in',
+        // the office squares collapse, top rows first, like a wall coming down (calm: they go dark in place, top rows first)
+        .to(gone, calm ? { opacity: 0, duration: .9, ease: 'power1.inOut', stagger: function (i, el) { return Math.floor(cells.indexOf(el) / 10) * .05; } }
+          : { y: function () { return gsap.utils.random(160, 320); }, x: function () { return gsap.utils.random(-24, 24); }, rotation: function () { return gsap.utils.random(-70, 70); }, opacity: 0, duration: .9, ease: 'power2.in',
           stagger: function (i, el) { return Math.floor(cells.indexOf(el) / 10) * .05 + Math.random() * .05; } }, 'cut')
-        .to(kept, { backgroundColor: '#F5CB5C', boxShadow: '0 0 22px rgba(245,203,92,.6)', duration: .45, stagger: .04 }, 'cut+=.6')
-        .to(kept, { x: gather('x'), y: gather('y'), duration: .9, ease: 'expo.inOut', stagger: .03 }, 'cut+=1.1')
-        .to(st, { v: vcore, duration: 1.2, ease: 'power3.inOut', onUpdate: function () { num.textContent = fmt(st.v); unit.textContent = this.progress() > .62 ? '+ ΦΠΑ τον μήνα' : 'τον μήνα'; } }, 'cut+=.35')
+        .to(kept, { backgroundColor: '#F5CB5C', boxShadow: '0 0 22px rgba(245,203,92,.6)', duration: .45, stagger: .04 }, 'cut+=.6');
+      // calm: the gold squares light up where they are and do not gather
+      if (!calm) tl.to(kept, { x: gather('x'), y: gather('y'), duration: .9, ease: 'expo.inOut', stagger: .03 }, 'cut+=1.1');
+      tl.to(st, { v: vcore, duration: 1.2, ease: 'power3.inOut', onUpdate: function () { num.textContent = fmt(st.v); unit.textContent = this.progress() > .62 ? '+ ΦΠΑ τον μήνα' : 'τον μήνα'; } }, 'cut+=.35')
         .to(counter, { color: '#F5CB5C', duration: .4 }, 'cut+=1.1')
         .to(vRow, { opacity: 1, y: 0, duration: .5 }, 'cut+=1.1')
-        .to(pct, { opacity: 1, y: 0, scale: 1, duration: .9, ease: 'expo.out' }, 'cut+=1.6')
+        .to(pct, calm ? { opacity: 1, duration: .9, ease: 'power1.out' } : { opacity: 1, y: 0, scale: 1, duration: .9, ease: 'expo.out' }, 'cut+=1.6')
         .to(ps, { v: shown, duration: .9, ease: 'power3.out', onUpdate: function () { pctNum.textContent = Math.round(ps.v) + '%' + (ps.v > shown - .5 ? '+' : ''); } }, 'cut+=1.6')
         .to(pctCap, { opacity: .85, y: 0, duration: .5 }, 'cut+=2.2')
         .to(year, { opacity: 1, duration: .5 }, 'cut+=2.2')
@@ -240,6 +261,13 @@
       gsap.set(lines.map(function (l) { return l.h; }), { opacity: 0 });
       wraps.forEach(function (w, i) {
         var o = w.querySelector('.ecard'), num = w.querySelector('.ecard__num');
+        if (calm) {
+          // calm: number and card fade in where they are, then the gold line to the next number (drawn, not running)
+          gsap.timeline({ scrollTrigger: { trigger: w, start: 'top 82%', once: true } })
+            .fromTo([num, o], { opacity: 0 }, { opacity: 1, duration: .8, ease: 'power1.out', stagger: .15 });
+          if (i < lines.length) gsap.fromTo([lines[i].p, lines[i].h], { opacity: 0 }, { opacity: 1, duration: .6, ease: 'power1.out', scrollTrigger: { trigger: wraps[i + 1], start: 'top 90%', once: true } });
+          return;
+        }
         var right = getComputedStyle(num).textAlign === 'right', narrow = innerWidth < 750;
         var title = SplitText.create(o.querySelector('.ecard__title'), { type: 'lines, words' });
         var desc = SplitText.create(o.querySelector('.ecard__desc'), { type: 'lines', mask: 'lines', aria: 'none' });
@@ -271,23 +299,29 @@
         navs.forEach(function (el, k) { el.classList.toggle('is-active', k === i); });
       }
       setActive(0);
+      // the photos change with the css crossfade in every mode; calm leaves out the zoom and the snap
       slots.forEach(function (slot, i) {
         ScrollTrigger.create({ trigger: slot, start: 'top 75%', end: 'bottom 25%', onEnter: function () { setActive(i); }, onEnterBack: function () { setActive(i); } });
+        if (calm) return;
         gsap.timeline({ scrollTrigger: { trigger: slot, start: 'top bottom', end: 'bottom top', scrub: .5 } })
           .from(imgs[i].querySelector('img'), { scale: 1.2 });
       });
       var n = slots.length;
-      ScrollTrigger.create({
+      if (!calm) ScrollTrigger.create({
         trigger: '.proj__cards', start: 'top top', end: 'bottom bottom',
         snap: { snapTo: slots.map(function (s, i) { return i / (n - 1); }), delay: .2, duration: { min: .2, max: 2 }, ease: 'power3.inOut' }
       });
       navs.forEach(function (b, i) {
-        b.addEventListener('click', function () { lenis.scrollTo(slots[i], { duration: 1.2 }); });
+        b.addEventListener('click', function () {
+          if (lenis) lenis.scrollTo(slots[i], { duration: 1.2 });
+          else window.scrollTo(0, slots[i].getBoundingClientRect().top + window.pageYOffset);
+        });
       });
     })();
 
-    // closing circles
-    gsap.fromTo('.closing__circles circle', { drawSVG: '0%' }, { duration: 1.2, drawSVG: '100%', stagger: .02, ease: 'power2.out', scrollTrigger: { trigger: '.closing', start: 'top 80%' } });
+    // closing circles (calm: they fade in already drawn)
+    if (calm) gsap.from('.closing__circles', { opacity: 0, duration: 1.2, ease: 'power1.out', scrollTrigger: { trigger: '.closing', start: 'top 80%' } });
+    else gsap.fromTo('.closing__circles circle', { drawSVG: '0%' }, { duration: 1.2, drawSVG: '100%', stagger: .02, ease: 'power2.out', scrollTrigger: { trigger: '.closing', start: 'top 80%' } });
 
     ScrollTrigger.refresh();
   });
