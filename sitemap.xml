@@ -19,7 +19,7 @@
 
   <url>
     <loc>https://www.vcore.gr/el/</loc>
-   <lastmod>2026-09-28</lastmod>
+   <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
@@ -124,7 +124,7 @@
 
   <url>
     <loc>https://www.vcore.gr/faq/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
@@ -135,7 +135,7 @@
 
   <url>
     <loc>https://www.vcore.gr/el/faq/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
@@ -181,7 +181,7 @@
 
 <url>
   <loc>https://www.vcore.gr/vo/</loc>
-  <lastmod>2026-10-20</lastmod>
+  <lastmod>2026-10-21</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/vo/"/>
