@@ -62,10 +62,12 @@
 <!-- Main CSS -->
 <!-- Greek headings font, loaded early so headings do not rewrap (and shift the page) when it arrives -->
 <link rel="preload" href="../../assets/fonts/source-serif-4/source-serif-4-greek.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/main.css?v=20261006">
+<!-- the hero photo is a CSS background: start fetching it with the HTML, not after the CSS -->
+<link rel="preload" as="image" href="/images/pic04.webp" fetchpriority="high">
+<link rel="stylesheet" href="../../assets/css/main.css?v=20261102">
 
 <!-- Pricing CSS -->
-<link rel="stylesheet" href="../../assets/css/pricing.css?v=20261006">
+<link rel="stylesheet" href="../../assets/css/pricing.css?v=20261102">
 
 <!-- Structured Data - JSON-LD -->
 <script type="application/ld+json">
@@ -212,7 +214,7 @@
       <div>
         <h3>Διεύθυνση &amp; Αλληλογραφία</h3>
         <ul>
-          <li><a href="/vo/">Φορολογική Έδρα</a></li>
+          <li><a href="/el/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/el/#virtual-office">Διαχείριση &amp; Προώθηση Αλληλογραφίας</a></li>
         </ul>
@@ -251,7 +253,7 @@
           Υπηρεσίες <span class="nav-chevron" aria-hidden="true"></span>
         </button>
         <ul class="mobile-subnav" id="mobile-services" hidden>
-          <li><a href="/vo/">Φορολογική Έδρα</a></li>
+          <li><a href="/el/vo/">Φορολογική Έδρα</a></li>
           <li><a href="/packet/">Παραλαβή Δεμάτων &amp; Ασφαλής Αποθήκευση</a></li>
           <li><a href="/call-center/">Τηλεφωνική Εξυπηρέτηση</a></li>
           <li><a href="/el/#business-support">Business Concierge</a></li>
@@ -1268,7 +1270,7 @@ const prices = {
 
       <div class="footer-meta">
         <p><strong>VCORE Business Services</strong></p>
-        <p>Πάροδος Κουντουριώτου 5, 65302 Καβάλα, Ελλάδα</p>
+        <p>Πάροδος Κουντουριώτου 5, 65201 Καβάλα, Ελλάδα</p>
         <p>Τηλ: +30 2510222653 · +30 6939518023 · +30 6955434575</p>
         <p>Email: contact@vcore.gr</p>
         <p>Αρ. ΓΕΜΗ: 192726430000</p>
@@ -1293,7 +1295,7 @@ const prices = {
 </li>
 
     <li>
-      <a href="https://instagram.com/vcore_buisness_services?igsh=MXQxYmE4dHN5OHViYg%3D%3D" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/vcore_business_services?utm_source=qr&amp;psln=MXQxYmE4dHN5OHViYg%3D%3D" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
   <i class="fa-brands fa-instagram"></i>
 </a>
     </li>
