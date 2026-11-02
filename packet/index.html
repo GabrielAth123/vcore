@@ -56,7 +56,9 @@
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css?v=20260928">
 
 <!-- Main CSS (design tokens, base elements, header/footer/components — source of truth) -->
-<link rel="stylesheet" href="../assets/css/main.css?v=20261006">
+<!-- the hero photo is a CSS background: start fetching it with the HTML, not after the CSS -->
+<link rel="preload" as="image" href="/packet/hero-photo-parcel.webp" fetchpriority="high">
+<link rel="stylesheet" href="../assets/css/main.css?v=20261102">
 
 <!-- Page-specific CSS, scoped to this page only -->
 <link rel="stylesheet" href="packet.css?v=20261019b">
@@ -193,7 +195,7 @@
       <div>
         <h3>Address &amp; Mail</h3>
         <ul>
-          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/vo/">Virtual Office Address</a></li>
           <li><a href="/packet/" aria-current="page">Parcel Receiving &amp; Storage</a></li>
           <li><a href="/#virtual-office">Mail Handling &amp; Forwarding</a></li>
         </ul>
@@ -232,7 +234,7 @@
           Services <span class="nav-chevron" aria-hidden="true"></span>
         </button>
         <ul class="mobile-subnav" id="mobile-services" hidden>
-          <li><a href="/#virtual-office">Virtual Office Address</a></li>
+          <li><a href="/vo/">Virtual Office Address</a></li>
           <li><a href="/packet/">Parcel Receiving &amp; Storage</a></li>
           <li><a href="/call-center/">Call Handling</a></li>
           <li><a href="/#business-support">Business Concierge</a></li>
@@ -841,7 +843,7 @@
 
     <div class="footer-meta">
       <p><strong>VCORE Business Services</strong></p>
-      <p>Parodos Kountouriotou 5, 65302 Kavala, Greece</p>
+      <p>Parodos Kountouriotou 5, 65201 Kavala, Greece</p>
       <p>Phone: +30 2510222653 &middot; +30 6939518023 &middot; +30 6955434575</p>
       <p>Email: contact@vcore.gr</p>
       <p>G.E.M.I. No: 192726430000</p>
@@ -863,7 +865,7 @@
           </a>
         </li>
         <li>
-          <a href="https://instagram.com/vcore_buisness_services?igsh=MXQxYmE4dHN5OHViYg%3D%3D" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/vcore_business_services?utm_source=qr&amp;psln=MXQxYmE4dHN5OHViYg%3D%3D" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-instagram"></i>
           </a>
         </li>

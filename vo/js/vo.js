@@ -112,10 +112,7 @@
       });
       return t;
     }
-    document.querySelectorAll('[data-anim-wysiwyg]').forEach(function (el) {
-      if (calm) { var k = el.querySelectorAll(WYS); gsap.from(k.length ? k : el, { opacity: 0, duration: .8, ease: 'power1.out', stagger: .12, scrollTrigger: { trigger: el, start: 'top 90%' } }); return; }
-      gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 90%' } }).add(wysiwyg(el));
-    });
+    // the text blocks below the intro ([data-anim-wysiwyg]) show from the start, without a reveal (the user's order, 2026-10-26)
 
     // ---------- image parallax (data-image-parallax) ----------
     if (!isTouch && !calm) document.querySelectorAll('[data-image-parallax]').forEach(function (box) {
@@ -125,19 +122,7 @@
         .fromTo(img, { yPercent: -25 }, { yPercent: 0, ease: 'none' });
     });
 
-    // ---------- 3. target cards (c-home-target__slider) ----------
-    (function () {
-      if (calm) { gsap.from('.target__sep, .tcard', { opacity: 0, duration: .8, ease: 'power1.out', stagger: .15, scrollTrigger: { trigger: '.target__cards', start: 'top 95%' } }); return; }
-      var cards = document.querySelectorAll('.tcard');
-      var s = SplitText.create('.tcard__title', { type: 'lines' });
-      var t = gsap.timeline({ defaults: { stagger: .15 }, scrollTrigger: { trigger: '.target__cards', start: 'top 95%' }, onComplete: function () { s.revert(); } });
-      t.set(cards, { pointerEvents: 'none' })
-        .from('.target__sep', { scaleX: 0, duration: 2, ease: 'ff_expo_out' })
-        .from('.tcard .c-image', { clipPath: 'inset(100% 0 0 0)', duration: 1.2, ease: 'ff_expo_out', clearProps: 'clipPath' }, '<')
-        .from(s.lines, { opacity: 0, yPercent: 100, duration: 1, ease: 'ff_expo_out', stagger: .05 }, '<+0.2')
-        .from('.tcard .ibtn', { opacity: 0, duration: 1, ease: 'ff_expo_out' }, '<+=0.4')
-        .set(cards, { pointerEvents: 'all' }, '<');
-    })();
+    // ---------- 3. target cards: shown from the start, no reveal (the user's order, 2026-10-26) ----------
 
     // ---------- 3b. cost: 100 squares fill up with a month of office costs, then the rest fall away and the gold ones (VCORE) gather ----------
     (function () {
@@ -148,7 +133,9 @@
       var cells = [].slice.call(grid.children), kept = cells.filter(function (c) { return c.classList.contains('--keep'); }), gone = cells.filter(function (c) { return !c.classList.contains('--keep'); });
       var counter = sec.querySelector('.vo-cost__counter'), num = counter.querySelector('.num'), unit = counter.querySelector('small');
       var pct = sec.querySelector('.vo-cost__pct'), pctNum = pct.querySelector('.vo-cost__pct-num'), pctCap = pct.querySelector('.vo-cost__pct-cap'), year = sec.querySelector('.vo-cost__year');
-      var fmt = function (v) { return Math.round(v).toLocaleString('el-GR'); };
+      // the same file runs the Greek (/el/vo/) and the English (/vo/) page
+      var en = document.documentElement.lang === 'en', perMonth = en ? 'per month' : 'τον μήνα', perMonthVat = en ? '+ VAT per month' : '+ ΦΠΑ τον μήνα';
+      var fmt = function (v) { return Math.round(v).toLocaleString(en ? 'en-GB' : 'el-GR'); };
       // the gold squares gather in a centred block (4 per row) in the lower part of the grid
       var bCols = Math.min(4, kept.length), bRows = Math.ceil(kept.length / bCols);
       function gather(axis) {
@@ -164,7 +151,7 @@
       gsap.set(kept, { backgroundColor: function (i, el) { return el.style.getPropertyValue('--c'); }, boxShadow: '0 0 0px rgba(245,203,92,0)' });
       gsap.set(strikes, calm ? { opacity: 0 } : { scaleX: 0 });
       gsap.set([].concat(costRows, totalRow), calm ? { opacity: 0 } : { opacity: 0, y: 8 }); gsap.set(vRow, calm ? { opacity: 0 } : { opacity: 0, y: 10 });
-      gsap.set(counter, { color: '#F5F1ED' }); num.textContent = '0'; unit.textContent = 'τον μήνα';
+      gsap.set(counter, { color: '#F5F1ED' }); num.textContent = '0'; unit.textContent = perMonth;
       gsap.set(pct, calm ? { opacity: 0 } : { opacity: 0, y: 30, scale: .92 }); gsap.set(pctCap, calm ? { opacity: 0 } : { opacity: 0, y: 8 }); pctNum.textContent = '0%';
       gsap.set(year, { opacity: 0 });
       var st = { v: 0 }, ps = { v: 0 }, sum = 0;
@@ -191,7 +178,7 @@
         .to(kept, { backgroundColor: '#F5CB5C', boxShadow: '0 0 22px rgba(245,203,92,.6)', duration: .45, stagger: .04 }, 'cut+=.6');
       // calm: the gold squares light up where they are and do not gather
       if (!calm) tl.to(kept, { x: gather('x'), y: gather('y'), duration: .9, ease: 'expo.inOut', stagger: .03 }, 'cut+=1.1');
-      tl.to(st, { v: vcore, duration: 1.2, ease: 'power3.inOut', onUpdate: function () { num.textContent = fmt(st.v); unit.textContent = this.progress() > .62 ? '+ ΦΠΑ τον μήνα' : 'τον μήνα'; } }, 'cut+=.35')
+      tl.to(st, { v: vcore, duration: 1.2, ease: 'power3.inOut', onUpdate: function () { num.textContent = fmt(st.v); unit.textContent = this.progress() > .62 ? perMonthVat : perMonth; } }, 'cut+=.35')
         .to(counter, { color: '#F5CB5C', duration: .4 }, 'cut+=1.1')
         .to(vRow, { opacity: 1, y: 0, duration: .5 }, 'cut+=1.1')
         .to(pct, calm ? { opacity: 1, duration: .9, ease: 'power1.out' } : { opacity: 1, y: 0, scale: 1, duration: .9, ease: 'expo.out' }, 'cut+=1.6')
@@ -259,25 +246,13 @@
       }
       layout();
       gsap.set(lines.map(function (l) { return l.h; }), { opacity: 0 });
+      // the cards themselves show from the start (the user's order, 2026-10-26); only the gold line between them moves
       wraps.forEach(function (w, i) {
-        var o = w.querySelector('.ecard'), num = w.querySelector('.ecard__num');
         if (calm) {
-          // calm: number and card fade in where they are, then the gold line to the next number (drawn, not running)
-          gsap.timeline({ scrollTrigger: { trigger: w, start: 'top 82%', once: true } })
-            .fromTo([num, o], { opacity: 0 }, { opacity: 1, duration: .8, ease: 'power1.out', stagger: .15 });
+          // calm: the gold line to the next number fades in (drawn, not running)
           if (i < lines.length) gsap.fromTo([lines[i].p, lines[i].h], { opacity: 0 }, { opacity: 1, duration: .6, ease: 'power1.out', scrollTrigger: { trigger: wraps[i + 1], start: 'top 90%', once: true } });
           return;
         }
-        var right = getComputedStyle(num).textAlign === 'right', narrow = innerWidth < 750;
-        var title = SplitText.create(o.querySelector('.ecard__title'), { type: 'lines, words' });
-        var desc = SplitText.create(o.querySelector('.ecard__desc'), { type: 'lines', mask: 'lines', aria: 'none' });
-        var a = gsap.timeline({ defaults: { ease: 'ff_expo_out' }, scrollTrigger: { trigger: w, start: 'top 82%', once: true } });
-        a.fromTo(num, { opacity: 0 }, { opacity: 1, duration: .8 })
-          .fromTo(o, { opacity: 0, x: narrow ? 0 : (right ? 90 : -90), y: narrow ? 40 : 0 }, { opacity: 1, x: 0, y: 0, duration: 1.3, clearProps: 'transform' }, '<')
-          .from(title.words, { yPercent: 100, opacity: 0, duration: 1, stagger: .03 }, '<+0.15')
-          .from(desc.lines, { yPercent: 110, stagger: .05, duration: 1.2 }, '<+0.2')
-          .fromTo(o.querySelectorAll('svg.deco path, svg.deco line, svg.deco circle, svg.deco ellipse'), { drawSVG: '0%' }, { duration: 1.4, drawSVG: '100%', stagger: .15, ease: 'power3.out' }, '<+0.2')
-          .fromTo(o.querySelector('.ibtn'), { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .8, ease: 'back.out(2)' }, '<+0.3');
         if (i < lines.length) {
           var ln = lines[i];
           gsap.timeline({ scrollTrigger: { trigger: wraps[i + 1], start: 'top 104%', end: 'top 84%', scrub: .6 } })
@@ -319,9 +294,7 @@
       });
     })();
 
-    // closing circles (calm: they fade in already drawn)
-    if (calm) gsap.from('.closing__circles', { opacity: 0, duration: 1.2, ease: 'power1.out', scrollTrigger: { trigger: '.closing', start: 'top 80%' } });
-    else gsap.fromTo('.closing__circles circle', { drawSVG: '0%' }, { duration: 1.2, drawSVG: '100%', stagger: .02, ease: 'power2.out', scrollTrigger: { trigger: '.closing', start: 'top 80%' } });
+    // closing circles: shown already drawn, no reveal (the user's order, 2026-10-26)
 
     ScrollTrigger.refresh();
   });

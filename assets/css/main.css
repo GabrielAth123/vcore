@@ -3148,6 +3148,15 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   padding-block: 2 2.5rem; 
 }
 
+/* Phones and tablets: the photo sits under a 95% dark layer, so the 1280 px copy looks the same (pixel check 2026-11-02) and is about 200 KB lighter. Pages with .intro keep the large file, which that section already loads. */
+@media (max-width: 980px) {
+  body:not(:has(.intro)) .footer {
+    background-image:
+    linear-gradient(rgba(var(--dark-rgb), 0.95), rgba(var(--dark-rgb), 0.95)),
+    url("../../images/intro-bg-1280.webp");
+  }
+}
+
 .footer .section-inner {
   display: flex;
   flex-direction: column;

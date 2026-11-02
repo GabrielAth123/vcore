@@ -6,66 +6,66 @@
 
   <url>
     <loc>https://www.vcore.gr/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
   <url>
     <loc>https://www.vcore.gr/el/</loc>
-   <lastmod>2026-10-21</lastmod>
+   <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
   <url>
     <loc>https://www.vcore.gr/tr/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
   <url>
     <loc>https://www.vcore.gr/zh/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
   <url>
     <loc>https://www.vcore.gr/uk/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.vcore.gr/tr/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.vcore.gr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://www.vcore.gr/zh/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.vcore.gr/uk/"/>
   </url>
 
@@ -73,7 +73,7 @@
 
   <url>
     <loc>https://www.vcore.gr/pricing/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
@@ -85,7 +85,7 @@
 
   <url>
     <loc>https://www.vcore.gr/el/pricing/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
@@ -97,7 +97,7 @@
 
   <url>
     <loc>https://www.vcore.gr/tr/pricing/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
@@ -109,7 +109,7 @@
 
   <url>
     <loc>https://www.vcore.gr/zh/pricing/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/pricing/"/>
@@ -124,7 +124,7 @@
 
   <url>
     <loc>https://www.vcore.gr/faq/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
@@ -135,7 +135,7 @@
 
   <url>
     <loc>https://www.vcore.gr/el/faq/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
@@ -146,7 +146,7 @@
 
   <url>
     <loc>https://www.vcore.gr/tr/faq/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/faq/"/>
@@ -161,7 +161,7 @@
 
  <url>
   <loc>https://www.vcore.gr/call-center/</loc>
-  <lastmod>2026-09-28</lastmod>
+  <lastmod>2026-11-02</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/call-center/"/>
@@ -172,31 +172,45 @@
 
  <url>
   <loc>https://www.vcore.gr/packet/</loc>
-  <lastmod>2026-09-28</lastmod>
+  <lastmod>2026-11-02</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/packet/"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/packet/"/>
 </url>
 
+<!-- ==================== VIRTUAL OFFICE (EN + EL) ==================== -->
+
 <url>
   <loc>https://www.vcore.gr/vo/</loc>
-  <lastmod>2026-10-21</lastmod>
+  <lastmod>2026-11-02</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
-  <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/vo/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/vo/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/vo/"/>
+  <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/vo/"/>
+</url>
+
+<url>
+  <loc>https://www.vcore.gr/el/vo/</loc>
+  <lastmod>2026-11-02</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vcore.gr/vo/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.vcore.gr/vo/"/>
+  <xhtml:link rel="alternate" hreflang="el" href="https://www.vcore.gr/el/vo/"/>
 </url>
 
   <!-- ==================== LEGAL ==================== -->
  <url>
   <loc>https://www.vcore.gr/privacy-policy</loc>
-  <lastmod>2026-09-28</lastmod>
+  <lastmod>2026-11-02</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.3</priority>
 </url>
  <url>
   <loc>https://www.vcore.gr/terms-of-service</loc>
-  <lastmod>2026-09-28</lastmod>
+  <lastmod>2026-11-02</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.3</priority>
 </url>

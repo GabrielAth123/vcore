@@ -1064,6 +1064,15 @@
   margin-bottom: 0;
 }
 
+/* Phones and tablets: same 1280 px copy as the footer, so the page loads one file instead of two (pixel check 2026-11-02). */
+@media (max-width: 980px) {
+  .combine-section {
+    background-image:
+    linear-gradient(rgba(var(--dark-rgb), 0.95), rgba(var(--dark-rgb), 0.95)),
+    url("../../images/intro-bg-1280.webp");
+  }
+}
+
 /* ========================================
    GRID (reuse pricing system)
 ======================================== */
