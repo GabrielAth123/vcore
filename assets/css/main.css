@@ -818,6 +818,25 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   opacity: 0.8;
 }
 
+/* Greek hero: slogan stays on two lines, text clears the WhatsApp and Telegram buttons */
+html[lang="el"] .hero h1 {
+  font-size: min(calc((100vw - 60px) / 12.6), 65.6px) !important;
+}
+
+html[lang="el"] .hero-content {
+  padding-left: 36px;
+}
+
+@media (min-width: 769px) {
+  html[lang="el"] .hero h1 {
+    font-size: min(calc((100vw - 110px) / 12.6), 65.6px) !important;
+  }
+
+  html[lang="el"] .hero-content {
+    padding-left: 64px;
+  }
+}
+
 
 
 
