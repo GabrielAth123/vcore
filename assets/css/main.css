@@ -756,6 +756,68 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
   color: var(--color-accent);
 }
 
+/* Slogan: gold second line, pen underline under the last word */
+.hero-slogan-accent {
+  color: var(--color-gold);
+}
+
+.hero-slogan-mark {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-slogan-mark svg {
+  position: absolute;
+  left: -1%;
+  bottom: -0.14em;
+  width: 102%;
+  height: 0.2em;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hero-slogan-mark path {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Google rating under the hero button */
+.hero-rating {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-base);
+}
+
+.hero-rating-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.hero-rating-stars {
+  color: var(--color-gold);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.hero-rating-score {
+  font-weight: 700;
+}
+
+.hero-rating-place {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
 
 
 

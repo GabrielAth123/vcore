@@ -273,7 +273,7 @@ a.pcard__link:hover .ibtn svg.in{transform:translate(0,0);opacity:1;transition-d
   .about h2 .indent{padding-left:0}
   .about__grid{grid-template-columns:1fr}
   .about__img1{margin-top:0;aspect-ratio:4/3}
-  .target__cards{grid-template-columns:1fr}
+  .target__cards{grid-template-columns:minmax(0,1fr)}
   .tcard{aspect-ratio:4/3}
   .exp__intro{margin-left:0}
   .ecard-wrap,.ecard-wrap:nth-child(n){width:100%;margin-left:0;margin-right:0;margin-bottom:56px}
