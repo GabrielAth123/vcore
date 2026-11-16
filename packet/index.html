@@ -4,12 +4,12 @@
 
 <meta charset="utf-8">
 
-<title>Parcel Forwarding Kavala, Greece | Receiving Address &amp; Forwarding | vcore</title>
+<title>Parcel Forwarding from Greece: Greek Shopping Address | VCORE</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="Receive parcels at a professional address in Kavala, Greece and have them forwarded on to you. Built for businesses in Turkey, the Balkans and the EU without a physical presence in Greece.">
+<meta name="description" content="Shop from Greek online stores that don&#39;t ship to your country. Use our address in Kavala, Greece and we forward your parcel abroad. Handling fee from €15.">
 
 <meta name="keywords" content="parcel forwarding Kavala, parcel receiving Kavala, parcel forwarding Greece, package forwarding Greece, receive packages in Greece, business parcel receiving Greece, package receiving service Kavala, parcel forwarding to Turkey, receiving address Kavala">
 
@@ -24,21 +24,22 @@
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.vcore.gr/packet/">
+<link rel="llms" type="text/markdown" href="/llms.txt">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.vcore.gr/packet/">
-<meta property="og:title" content="Parcel Forwarding Kavala, Greece | Receiving Address &amp; Forwarding | vcore">
-<meta property="og:description" content="A professional parcel receiving address in Kavala, Greece, with coordinated forwarding to Turkey, the Balkans and the EU.">
+<meta property="og:title" content="Parcel Forwarding from Greece: Greek Shopping Address | VCORE">
+<meta property="og:description" content="Shop from Greek online stores that don&#39;t ship to your country. Use our address in Kavala, Greece and we forward your parcel abroad. Handling fee from €15.">
 <meta property="og:image" content="https://www.vcore.gr/images/banner.webp">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="vcore">
+<meta property="og:site_name" content="VCORE">
 
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://www.vcore.gr/packet/">
-<meta property="twitter:title" content="Parcel Forwarding Kavala, Greece | vcore">
-<meta property="twitter:description" content="A professional parcel receiving address in Kavala, Greece, with coordinated forwarding to Turkey, the Balkans and the EU.">
+<meta property="twitter:title" content="Parcel Forwarding from Greece: Greek Shopping Address | VCORE">
+<meta property="twitter:description" content="Shop from Greek online stores that don&#39;t ship to your country. Use our address in Kavala, Greece and we forward your parcel abroad. Handling fee from €15.">
 <meta property="twitter:image" content="https://www.vcore.gr/images/banner.webp">
 
 <!-- Hreflang for International SEO -->
@@ -61,7 +62,7 @@
 <link rel="stylesheet" href="../assets/css/main.css?v=20261102">
 
 <!-- Page-specific CSS, scoped to this page only -->
-<link rel="stylesheet" href="packet.css?v=20261019b">
+<link rel="stylesheet" href="packet.css?v=20261113">
 
 <!-- Marks JS as active before first paint, so scroll-reveal only ever
      hides content when it can guarantee it will also un-hide it. -->
@@ -95,14 +96,55 @@
       "description": "A local receiving address in Kavala, Greece for businesses and individuals without a physical presence in the country, with temporary holding and coordinated forwarding on to the client's final destination.",
       "serviceType": "Parcel receiving and forwarding coordination",
       "provider": {
-        "@id": "https://www.vcore.gr/#organization"
+        "@type": "LocalBusiness",
+        "@id": "https://www.vcore.gr/#business",
+        "name": "VCORE",
+        "url": "https://www.vcore.gr/",
+        "telephone": [
+          "+306939518023",
+          "+306955434575",
+          "+302510222653"
+        ],
+        "email": "contact@vcore.gr",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Parodos Kountouriotou 5",
+          "addressLocality": "Kavala",
+          "addressRegion": "Eastern Macedonia and Thrace",
+          "postalCode": "65201",
+          "addressCountry": "GR"
+        }
       },
       "areaServed": [
-        { "@type": "City", "name": "Kavala" },
-        { "@type": "Country", "name": "Greece" },
-        { "@type": "Country", "name": "Turkey" },
-        { "@type": "Country", "name": "Bulgaria" }
-      ]
+        {
+          "@type": "City",
+          "name": "Kavala"
+        },
+        {
+          "@type": "Country",
+          "name": "Greece"
+        },
+        {
+          "@type": "Country",
+          "name": "Turkey"
+        },
+        {
+          "@type": "Country",
+          "name": "Bulgaria"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "Parcel handling fee",
+        "description": "Handling fee per parcel, starting from €15. Courier costs are charged separately and depend on the destination, parcel dimensions and weight. Payment only after the parcel has arrived.",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "15",
+          "priceCurrency": "EUR"
+        },
+        "url": "https://www.vcore.gr/packet/"
+      }
     }
   ]
 }
@@ -623,7 +665,7 @@
                   <option value="United States">United States</option>
                   <option value="Other">Other</option>
                 </select>
-                <input type="text" id="otherCountry" name="otherCountry" placeholder="Type your country" hidden style="margin-top: 0.5rem;">
+                <input type="text" id="otherCountry" name="otherCountry" placeholder="Type your country" aria-label="Your country" hidden style="margin-top: 0.5rem;">
               </div>
               <div class="field-group">
                 <label for="city"><i class="fas fa-city"></i> City <span class="required">*</span></label>
@@ -673,6 +715,22 @@
               </div>
             </div>
             <span class="field-hint" style="display:block; margin-top:0.75rem;">Size and weight help us estimate the courier cost. A rough idea is enough.</span>
+            <div class="fee-note">
+              <p class="fee-note-title">Parcel Handling Fee</p>
+              <p>Starting from €15. Ordering multiple parcels? We'll provide a combined handling quote. Courier costs are charged separately and depend on the destination, parcel dimensions and weight. You only pay once your parcel has arrived at our facility.</p>
+              <p class="fee-note-sub">What's included in the handling fee:</p>
+              <ul class="fee-note-list">
+                <li>Arrival notification with photos of your parcel.</li>
+                <li>Free storage until you decide how you'd like us to proceed.</li>
+                <li>Additional protective packaging for the journey, without opening your sealed parcel.</li>
+                <li>Selection of the most cost effective courier option for your destination.</li>
+                <li>Shipment confirmation and tracking number once dispatched.</li>
+              </ul>
+              <p class="fee-note-sub">Waiting for multiple orders?</p>
+              <p>We'll safely hold your parcels and consolidate them into one outer shipping box, without opening any of the original sealed parcels.</p>
+              <p class="fee-note-sub">Can't place the order yourself?</p>
+              <p>If an online store doesn't accept your payment method or doesn't ship to your country, we can purchase the item on your behalf by prior arrangement.</p>
+            </div>
           </div>
 
           <!-- ===== SECTION 5: Additional Notes ===== -->
@@ -710,6 +768,7 @@
   </div>
 
   <ul class="terms-bullets">
+    <li>Minimum handling fee €15. Courier costs are not included and are charged separately.</li>
     <li>Prohibited items (drugs, anything illegal to send or possess) are never accepted, under any circumstances.</li>
     <li>VCORE is not a courier. Loss, damage or delay caused by a carrier is the carrier's responsibility, not ours.</li>
     <li>Parcels are held securely in Kavala (CCTV, monitored storage) until collected or forwarded.</li>
@@ -725,6 +784,8 @@
   <div class="terms-full-wrap" id="termsFullWrap">
     <div class="terms-full-inner">
       <div class="terms-box" id="termsFull">
+        <p><strong>Fees.</strong> A minimum handling fee of €15 applies. For several parcels we quote one combined handling fee. Courier and shipping costs are not included in the handling fee and are charged separately, based on the destination, size and weight of the parcel. Payment is made after the parcel arrives at our office and before it is handed over to the courier.</p>
+
         <p><strong>Prohibited items.</strong> Narcotics, illegal drugs, and any other item that is illegal to send, receive, or possess under Greek, EU, or destination-country law may not be sent to our address under any circumstances. Sending or attempting to send prohibited items is entirely at the sender's and receiver's own risk and responsibility, and VCORE accepts no liability arising from it.</p>
 
         <p><strong>Courier and seller responsibility.</strong> VCORE is not a courier, shipping, or logistics company. We are not liable for damage, loss, or delay caused by the courier, postal service, or shipping partner handling a parcel before it reaches our facility or after it leaves it, nor for issues caused by the store, marketplace, or seller a parcel was purchased from. Any claim relating to damage, loss, or delay caused by a shipping carrier should be directed to that carrier.</p>

@@ -1039,6 +1039,63 @@
     }
 
 
+    /* ---------- Handling fee note (Package step) ---------- */
+
+.fee-note {
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(var(--gold-rgb), 0.6);
+  border-radius: 12px;
+  background: rgba(var(--gold-rgb), 0.08);
+}
+
+.fee-note p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: var(--lh-loose);
+  color: var(--color-muted);
+}
+
+.fee-note .fee-note-title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.fee-note .fee-note-sub {
+  margin-top: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.fee-note-list {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fee-note-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: var(--lh-loose);
+  color: var(--color-muted);
+}
+
+.fee-note-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
     /* ---------- Terms & Liability ---------- */
 
 .terms-bullets {

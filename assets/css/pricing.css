@@ -706,15 +706,13 @@
   gap: var(--space-1);
 }
 
-.plan-price::before {
-  content: "€";
-  
+.price-currency {
   font-weight: 700;
   color: var(--color-primary);
 }
 
 
-.pricing-card.featured .plan-price::before {
+.pricing-card.featured .price-currency {
   color: var(--color-secondary);
 }
 
