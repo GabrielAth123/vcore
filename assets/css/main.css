@@ -4137,6 +4137,19 @@ img {
     flex-direction: row-reverse;
   }
 
+  /* Κάρτα ΙΚΕ/ΑΦΜ (μόνο el, 17/11): κρατά τις κάρτες από κάτω στην ίδια πλευρά με πριν */
+  .business-support .concierge-ike-card ~ .concierge-audience-card {
+    flex-direction: row-reverse;
+  }
+
+  .business-support .concierge-ike-card ~ .concierge-audience-card ~ .text-image {
+    flex-direction: row;
+  }
+
+  .business-support .text-image.concierge-ike-card .text {
+    padding: 2.5rem 1rem;
+  }
+
   .business-support .text-image .text {
     flex: 1;
     padding: 0 1rem;
@@ -4830,6 +4843,11 @@ img {
     min-height: 200px;
     overflow: hidden;
     border-radius: 8px;
+  }
+
+  /* Κάρτα ΙΚΕ/ΑΦΜ (μόνο el, 17/11): κενό από το πλαίσιο, χωρίς φωτογραφία */
+  .business-support .text-image.concierge-ike-card .text {
+    padding: 1.75rem 1.25rem;
   }
 
   .text-image .image img {
