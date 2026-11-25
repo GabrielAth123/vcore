@@ -408,15 +408,15 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 }
 
 .side-float-btn.whatsapp {
-  background: #25D366 !important;
-  color: #ffffff !important;
+  background: #25D366;
+  color: #ffffff;
   border-radius: 0 10px 0 0;
   box-shadow: 3px 0 16px rgba(37, 211, 102, 0.5);
 }
 
 .side-float-btn.telegram {
-  background: #229ED9 !important;
-  color: #ffffff !important;
+  background: #229ED9;
+  color: #ffffff;
   border-radius: 0 0 10px 0;
   box-shadow: 3px 0 16px rgba(34, 158, 217, 0.5);
 }
@@ -736,14 +736,33 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 }
 
 /* Typography */
-.hero h1 {
+.hero h1:not(.hero-title),
+.hero .hero-slogan {
   color: var(--color-text);
   max-width: 950px;
 }
 
-.hero h2 {
+.hero h2,
+.hero h1.hero-title {
   color: var(--color-text);
   max-width: 800px;
+}
+
+/* Homepage hero: the slogan is a <p> styled like the old h1,
+   the h1 (hero-title) is styled like the old h2 */
+.hero .hero-slogan {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 4.1rem;
+  line-height: 1;
+  margin: 0 0 var(--space-3);
+  opacity: 1;
+}
+
+.hero h1.hero-title {
+  font-size: 2.6rem;
+  line-height: 1;
 }
 
 .hero p {
@@ -819,8 +838,9 @@ h6 { font-size: 0.875rem; line-height: 1.4; }
 }
 
 /* Greek hero: slogan stays on two lines, text clears the WhatsApp and Telegram buttons */
-html[lang="el"] .hero h1 {
-  font-size: min(calc((100vw - 60px) / 12.6), 65.6px) !important;
+html[lang="el"] .hero h1:not(.hero-title),
+html[lang="el"] .hero .hero-slogan {
+  font-size: min(calc((100vw - 60px) / 12.6), 65.6px);
 }
 
 html[lang="el"] .hero-content {
@@ -828,8 +848,9 @@ html[lang="el"] .hero-content {
 }
 
 @media (min-width: 769px) {
-  html[lang="el"] .hero h1 {
-    font-size: min(calc((100vw - 110px) / 12.6), 65.6px) !important;
+  html[lang="el"] .hero h1:not(.hero-title),
+  html[lang="el"] .hero .hero-slogan {
+    font-size: min(calc((100vw - 110px) / 12.6), 65.6px);
   }
 
   html[lang="el"] .hero-content {
@@ -2882,7 +2903,7 @@ html[lang="el"] .hero-content {
   margin-bottom: var(--space-7);
 }
 
-.section.contact .section-header h2 {
+.section.contact .section-header h2, .section.contact .section-header h1.contact-title {
   font-family: var(--font-heading);
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   line-height: var(--lh-tight);
@@ -3184,24 +3205,24 @@ html[lang="el"] .hero-content {
 
 
 
-.section-header h2 .char {
+.section-header h2 .char, .section-header h1.contact-title .char {
   display: inline-block;
   opacity: 0;
   transform: translateX(-20px);
   transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.section-header h2 .char.visible {
+.section-header h2 .char.visible, .section-header h1.contact-title .char.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* Κρύψε το h2 αρχικά μέχρι να τρέξει το JS */
-.section-header h2 {
+.section-header h2, .section-header h1.contact-title {
   visibility: hidden;
 }
 
-.section-header h2.splitting {
+.section-header h2.splitting, .section-header h1.contact-title.splitting {
   visibility: visible;
 }
 
@@ -3229,12 +3250,18 @@ html[lang="el"] .hero-content {
   padding-block: 2 2.5rem; 
 }
 
-/* Phones and tablets: the photo sits under a 95% dark layer, so the 1280 px copy looks the same (pixel check 2026-11-02) and is about 200 KB lighter. Pages with .intro keep the large file, which that section already loads. */
+/* Phones and tablets: the photos sit under dark layers (footer and .intro 95%, .services-bg 75%), so the 1280 px and 1080 px copies look the same (pixel checks 2026-11-02 and 2026-11-25: mean difference under 0.7 of 255) and save about 200 KB on most pages and about 290 KB on the homepages. */
 @media (max-width: 980px) {
-  body:not(:has(.intro)) .footer {
+  .footer {
     background-image:
     linear-gradient(rgba(var(--dark-rgb), 0.95), rgba(var(--dark-rgb), 0.95)),
     url("../../images/intro-bg-1280.webp");
+  }
+  .intro {
+    background-image: url("../../images/intro-bg-1280.webp");
+  }
+  .services-bg {
+    background-image: url("../../images/pic02-1080.webp");
   }
 }
 
@@ -3673,12 +3700,13 @@ border-radius: 10px;
 }
 
 /* Terms tab titles are h1 (one per language tab, like the privacy page) but keep the
-   size they had as h2: the global mobile rules size h1 and h2 differently with !important */
+   size they had as h2: the global mobile rules size h1 and h2 differently */
 @media (max-width: 640px) {
-    h1.legal-main-title { font-size: 1.6rem !important; line-height: 1.2; }
+    h1.legal-main-title { line-height: 1.2; }
+    :root h1.legal-main-title { font-size: 1.6rem; }
 }
 @media (max-width: 480px) {
-    h1.legal-main-title { font-size: 1.4rem !important; }
+    :root h1.legal-main-title { font-size: 1.4rem; }
 }
 
 @keyframes fadeInLegal {
@@ -4224,9 +4252,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 1.25rem !important;
-    max-width: 100% !important;
-    overflow: visible !important;
+    overflow: visible;
     gap: 0.5rem;
   }
 
@@ -4235,50 +4261,49 @@ img {
     min-width: 50px;
   }
 
-  .logo img {
-    height: 48px !important;
-    width: auto !important;
-    max-width: 180px !important;
-  }
-
   .main-nav {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    margin: 0 !important;
+    margin: 0;
   }
 
   .main-nav ul {
     display: flex;
     align-items: center;
-    gap: 0.5rem !important;
     flex-wrap: nowrap;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root body .main-nav ul li a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
   }
 
   .main-nav ul li a {
-    font-size: 0.8rem !important;
-    padding: 0.4rem 0.6rem !important;
     white-space: nowrap;
   }
 
+  :root .lang-toggle {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    min-width: auto;
+    margin: 0;
+  }
+
   .lang-toggle {
-    font-size: 0.75rem !important;
-    padding: 0.35rem 0.6rem !important;
-    min-width: auto !important;
-    margin: 0 !important;
     white-space: nowrap;
   }
 
   .language-switcher {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
 
-  .btn-primary {
-    font-size: 0.8rem !important;
-    padding: 0.5rem 0.8rem !important;
+  :root body .btn-primary {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
   }
 
   /* ========== COMPARISON WRAPPER ========== */
@@ -4383,11 +4408,11 @@ img {
 @media (max-width: 768px) {
   
   .hero-bg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
@@ -4507,7 +4532,7 @@ img {
     margin-bottom: 2.5rem;
   }
   
-  .section-header h2 {
+  .section-header h2, .section-header h1.contact-title {
     font-size: 2rem;
   }
   
@@ -4582,14 +4607,19 @@ img {
   }
 
   /* Override desktop h2: 2.6rem → 1.6rem */
-  h1 { font-size: 2rem !important;    font-weight: 500; line-height: 1.15; }
-  h2 { font-size: 1.6rem !important;  font-weight: 500; line-height: 1.2;  }
-  h3 { font-size: 1.25rem !important; font-weight: 500; line-height: 1.3;  }
+  h1 { font-weight: 500; line-height: 1.15; }
+  :root body h1 { font-size: 2rem; }
+  h2 { font-weight: 500; line-height: 1.2;  }
+  :root body h2 { font-size: 1.6rem; }
+  h3 { font-weight: 500; line-height: 1.3;  }
+  :root body h3,
+  :root .cc-integration-pillars .cc-pillar-content h3,
+  :root .nx-faq__group h3.nx-faq__title { font-size: 1.25rem; }
   h4 { font-size: 1.1rem;  font-weight: 500; }
   p  { font-size: 0.95rem; line-height: 1.6; }
 
-  .section-header h2 {
-    font-size: 1.6rem !important;
+  :root body .section-header h2, :root body .section-header h1.contact-title { font-size: 1.6rem; }
+  .section-header h2, .section-header h1.contact-title {
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 0.75rem;
@@ -4767,14 +4797,16 @@ img {
     z-index: 2;
   }
 
-  .hero h1 {
-    font-size: 2.2rem !important;
+  .hero h1:not(.hero-title),
+  .hero .hero-slogan {
+    font-size: 2.2rem;
     line-height: 1.15;
     margin-bottom: 0.75rem;
   }
 
-  .hero h2 {
-    font-size: 1.15rem !important;
+  :root .hero h2, :root .hero h1.hero-title { font-size: 1.15rem; }
+  .hero h2,
+  .hero h1.hero-title {
     font-weight: 400;
     line-height: 1.3;
   }
@@ -4785,7 +4817,8 @@ img {
     opacity: 0.85;
   }
 
-  .hero p:first-of-type {
+  .hero p:first-of-type:not(.hero-slogan),
+  .hero .hero-title + p {
     display: none;
   }
 
@@ -4810,8 +4843,8 @@ img {
     margin-bottom: 0.75rem;
   }
 
+  :root .intro-card h3 { font-size: 1.15rem; }
   .intro-card h3 {
-    font-size: 1.15rem !important;
     margin-bottom: 0.5rem;
   }
 
@@ -4823,6 +4856,7 @@ img {
 
   /* ── TEXT + IMAGE LAYOUTS ── */
 
+  .virtual-office .text-image.reverse { flex-direction: column; }
   .text-image,
   .text-image.reverse,
   .text-image:nth-child(even),
@@ -4830,7 +4864,7 @@ img {
   .virtual-office .text-image:nth-child(even),
   .business-support .text-image,
   .business-support .text-image:nth-child(even) {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 1.5rem;
   }
 
@@ -4865,7 +4899,7 @@ img {
   }
 
   .text-image .text h3 {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
     margin-bottom: 0.75rem;
   }
 
@@ -4886,8 +4920,8 @@ img {
     padding: 1.5rem 0;
   }
 
+  :root .text-side h3 { font-size: 1.25rem; }
   .text-side h3 {
-    font-size: 1.25rem !important;
     max-width: 100%;
   }
 
@@ -4922,7 +4956,7 @@ img {
   }
 
   .audience-box h4 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 
   .audience-box p {
@@ -4957,8 +4991,8 @@ img {
     display: none;
   }
 
+  .card-inner, .service-card:hover .card-inner { transform: none; }
   .card-inner {
-    transform: none !important;
     box-shadow: none;
     transition: none;
     position: static;
@@ -5003,8 +5037,8 @@ img {
     color: var(--color-secondary);
   }
 
+  :root .card-front h3 { font-size: 1.1rem; }
   .card-front h3 {
-    font-size: 1.1rem !important;
     padding: 0;
     background: none;
     text-align: left;
@@ -5054,8 +5088,8 @@ img {
     padding: 1.25rem;
   }
 
+  :root .timeline-content h3 { font-size: 1.1rem; }
   .timeline-content h3 {
-    font-size: 1.1rem !important;
     margin-bottom: 0.75rem;
   }
 
@@ -5069,8 +5103,8 @@ img {
     padding-block: 4rem;
   }
 
+  :root body .faq-title h2 { font-size: 1.5rem; }
   .faq-title h2 {
-    font-size: 1.5rem !important;
     font-weight: 500;
   }
 
@@ -5123,8 +5157,8 @@ img {
     padding-inline: 1.25rem;
   }
 
-  .section.contact .section-header h2 {
-    font-size: 1.6rem !important;
+  .section.contact .section-header h2, .section.contact .section-header h1.contact-title {
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
@@ -5195,7 +5229,7 @@ img {
 @media (max-width: 640px) {
     .whatsapp-float-class, 
     [class*="float"] {
-        top: 180px !important; 
+        top: 180px;
     }
 }
 
@@ -5211,11 +5245,14 @@ img {
     --fs-xl:  1.15rem;
   }
 
-  h2 { font-size: 1.4rem !important; font-weight: 500; }
-  h3 { font-size: 1.15rem !important; }
+  h2 { font-weight: 500; }
+  :root body h2 { font-size: 1.4rem; }
+  :root body h3,
+  :root .cc-integration-pillars .cc-pillar-content h3,
+  :root .nx-faq__group h3.nx-faq__title { font-size: 1.15rem; }
 
-  .section-header h2 {
-    font-size: 1.4rem !important;
+  :root body .section-header h2, :root body .section-header h1.contact-title {
+    font-size: 1.4rem;
   }
 
   .header-inner {
@@ -5231,8 +5268,9 @@ img {
     padding: 0.5rem 0.75rem;
   }
 
-  .hero h1 {
-    font-size: 1.75rem !important;
+  .hero h1:not(.hero-title),
+  .hero .hero-slogan {
+    font-size: 1.75rem;
   }
 
   .service-card .card-inner {
@@ -5248,8 +5286,8 @@ img {
     font-size: 20px;
   }
 
-  .card-front h3 {
-    font-size: 1rem !important;
+  :root .card-front h3 {
+    font-size: 1rem;
   }
 
   .pricing-card {
@@ -5268,8 +5306,8 @@ img {
     padding-inline: 1rem;
   }
 
-  .section.contact .section-header h2 {
-    font-size: 1.4rem !important;
+  .section.contact .section-header h2, .section.contact .section-header h1.contact-title {
+    font-size: 1.4rem;
   }
 
   .form-group input,
@@ -5326,8 +5364,8 @@ img {
 .contact-form textarea:-webkit-autofill,
 .contact-form textarea:-webkit-autofill:hover,
 .contact-form textarea:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--color-secondary) !important; /* Αναγκάζει το κείμενο να παραμείνει λευκό/μπεζ */
-    box-shadow: 0 0 0px 1000px var(--color-primary) inset !important; /* Κρατάει το σκούρο μπλε background σου */
+    -webkit-text-fill-color: var(--color-secondary); /* Αναγκάζει το κείμενο να παραμείνει λευκό/μπεζ */
+    box-shadow: 0 0 0px 1000px var(--color-primary) inset; /* Κρατάει το σκούρο μπλε background σου */
 }
 
 /* Εξασφάλιση καθαρού κειμένου κατά την πληκτρολόγηση */
@@ -5352,40 +5390,40 @@ img {
     .form-group-checkbox, 
     .contact-form .form-group:has(input[type="checkbox"]),
     div[class*="checkbox"] {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-start !important;
-        gap: var(--space-2) !important;
-        width: 100% !important;
-        grid-column: 1 / -1 !important; /* Αν παραμένει σε grid διάταξη */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--space-2);
+        width: 100%;
+        grid-column: 1 / -1; /* Αν παραμένει σε grid διάταξη */
         padding-block: var(--space-2);
     }
 
     /* Ευθυγράμμιση του τετραγώνου επιλογής */
     .contact-form input[type="checkbox"] {
-        width: 20px !important;
-        height: 20px !important;
-        flex-shrink: 0 !important;
-        margin: 0 !important;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        margin: 0;
         cursor: pointer;
     }
 
     /* Το κείμενο "I have read and accept..." */
     .contact-form input[type="checkbox"] + label,
     .contact-form .form-group-checkbox label {
-        font-size: var(--fs-sm) !important;
-        color: var(--color-secondary) !important;
-        line-height: var(--lh-normal) !important;
-        margin: 0 !important;
+        font-size: var(--fs-sm);
+        color: var(--color-secondary);
+        line-height: var(--lh-normal);
+        margin: 0;
         cursor: pointer;
     }
     
     /* Διόρθωση του error box για να μην κολλάει στο κουμπί */
     .error-message, 
     .invalid-feedback {
-        margin-top: var(--space-2) !important;
-        font-size: var(--fs-xs) !important;
-        color: var(--color-accent) !important;
+        margin-top: var(--space-2);
+        font-size: var(--fs-xs);
+        color: var(--color-accent);
     }
 }
 /* ==========================================================
@@ -5398,48 +5436,48 @@ img {
     .contact-form div:has(> input[type="checkbox"]),
     .form-group-checkbox {
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: row;
         align-items: flex-start !important;
         justify-content: flex-start !important;
-        gap: 12px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-inline: 0.5rem !important;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 0.5rem;
         margin-block: var(--space-3) !important;
-        overflow: visible !important;
+        overflow: visible;
     }
 
     /* Αναγκάζουμε το ίδιο το τετραγωνάκι να εμφανιστεί και να έχει σωστό μέγεθος */
     .contact-form input[type="checkbox"] {
-        display: inline-block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        left: 0 !important;
-        top: 3px !important; /* Το κατεβάζει ελαφρώς για να είναι στην ίδια ευθεία με την πρώτη γραμμή */
-        width: 18px !important;
-        height: 18px !important;
-        min-width: 18px !important; /* Απαγορεύει στο flex να το μικρύνει */
-        min-height: 18px !important;
-        flex-shrink: 0 !important;
-        margin: 0 !important;
-        -webkit-appearance: checkbox !important; /* Επαναφέρει το default στυλ του browser αν είχε σβηστεί */
-        appearance: checkbox !important;
-        cursor: pointer !important;
+        display: inline-block;
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+        left: 0;
+        top: 3px; /* Το κατεβάζει ελαφρώς για να είναι στην ίδια ευθεία με την πρώτη γραμμή */
+        width: 18px;
+        height: 18px;
+        min-width: 18px; /* Απαγορεύει στο flex να το μικρύνει */
+        min-height: 18px;
+        flex-shrink: 0;
+        margin: 0;
+        -webkit-appearance: checkbox; /* Επαναφέρει το default στυλ του browser αν είχε σβηστεί */
+        appearance: checkbox;
+        cursor: pointer;
     }
 
     /* Διόρθωση για το κείμενο (label) δίπλα από το checkbox */
     .contact-form input[type="checkbox"] + label,
     .contact-form label:has(input[type="checkbox"]),
     .contact-form .form-group-checkbox label {
-        display: block !important;
-        width: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        display: block;
+        width: auto;
+        margin: 0;
+        padding: 0;
         font-size: var(--fs-sm) !important;
         line-height: 1.4 !important;
-        color: #ffffff !important;
-        text-align: left !important;
+        color: #ffffff;
+        text-align: left;
         white-space: normal !important; /* Επιτρέπει στο κείμενο να αλλάξει γραμμή σωστά */
     }
    
@@ -5651,8 +5689,10 @@ html { scroll-padding-top: calc(var(--header-util-h) + var(--header-main-h) + 8p
 @media (max-width: 1024px) {
   .header-util { display: none; }
   .main-nav { display: none; }
-  .header-inner { min-height: 66px; padding-inline: 1.25rem; }
-  .logo img { height: 34px !important; max-width: none !important; }
+  .header-inner { min-height: 66px; }
+  :root .header-inner { max-width: 100%; padding-inline: 1.25rem; }
+  .main-nav ul { gap: 0.5rem; }
+  :root .logo img { height: 34px; width: auto; max-width: none; }
   .hamburger {
     display: grid;
     place-content: center;
@@ -5714,8 +5754,8 @@ html { scroll-padding-top: calc(var(--header-util-h) + var(--header-main-h) + 8p
     cursor: pointer;
     text-align: left;
   }
+  .mobile-subnav, ul.mobile-subnav { padding: 0 0 0.75rem 0.875rem; }
   .mobile-subnav {
-    padding: 0 0 0.75rem 0.875rem !important;
     margin-bottom: 0.75rem;
     border-left: 2px solid rgba(var(--gold-rgb), 0.35);
   }
@@ -5798,3 +5838,13 @@ html { scroll-padding-top: calc(var(--header-util-h) + var(--header-main-h) + 8p
     margin-top: 2rem;
   }
 }
+
+/* ---------- Breadcrumb (AFM and contact pages) ---------- */
+.vc-breadcrumb{font-size:14px;line-height:1.4;margin:0 0 18px}
+.vc-breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.section.contact .vc-breadcrumb ol{justify-content:center}
+.vc-breadcrumb li{margin:0;padding:0;opacity:.75}
+.vc-breadcrumb li+li::before{content:"\203A";margin-right:6px}
+.vc-breadcrumb a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+.vc-breadcrumb a:hover,.vc-breadcrumb a:focus-visible{opacity:1}
+.vc-breadcrumb li[aria-current="page"]{opacity:.95}

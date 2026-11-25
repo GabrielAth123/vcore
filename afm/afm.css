@@ -1,0 +1,148 @@
+/* AFM page: built on vo.css (palette, type scale, .surtitle, .ecard, .closing), only what is new is here */
+
+.afm{overflow-x:clip}
+/* Lenis does the smooth scrolling here; the browser's smooth scroll-behavior from main.css made ScrollTrigger measure
+   the page while it was still moving on every refresh (resize, fonts), so the story drifted off its place */
+html.lenis{scroll-behavior:auto !important}
+.afm .lead{font-weight:700;color:var(--text)}
+.afm section{position:relative}
+.afm h2{font-size:var(--fs-h2) !important;line-height:1.06;letter-spacing:-.02em;text-wrap:balance}
+.afm-split__head p,.afm-docs__head p,.afm-time__col p,.afm-q__body p,.afm-steps__lead,.afm-closing__body p{color:rgba(var(--fg-rgb),.82);font-size:16px;line-height:1.65}
+
+/* reveal: start state only when the script runs */
+html.afm-js [data-reveal]{opacity:0;transform:translateY(28px)}
+
+/* ---------- 1. hero ---------- */
+.afm-hero{min-height:calc(100svh - var(--site-h,142px));padding:48px var(--gut) 64px;display:flex;align-items:center;overflow:hidden}
+.afm-hero__circles{position:absolute;top:40px;left:38%;width:90vw;pointer-events:none}
+.afm-hero__circles svg{width:100%;overflow:visible}
+.afm-hero__circles circle{fill:none;stroke:rgba(var(--fg-rgb),.12);stroke-width:1}
+.afm-hero__grid{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:calc(var(--vw) * 4);align-items:center}
+.afm-hero__title{font-size:clamp(42px,calc(var(--vw) * 5),70px) !important;line-height:1.02;letter-spacing:-.03em;max-width:15ch;margin-bottom:30px !important}
+.afm-hero__title .line{display:block;overflow:hidden;padding-bottom:.06em}
+.afm-hero__body{max-width:540px;display:grid;gap:14px}
+.afm-hero__body p{font-size:16px;line-height:1.65;color:rgba(var(--fg-rgb),.82)}
+.afm-hero__body p.lead{color:var(--text);font-weight:600}
+.afm-hero__ctas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.afm-hero__stage{position:relative;aspect-ratio:1/1;width:100%;max-width:660px;justify-self:end}
+.afm-hero__canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.afm-hero__fallback{position:absolute;inset:8%;width:84%;height:84%;display:none}
+.afm-hero.--no3d .afm-hero__fallback{display:block}
+.afm-hero.--no3d .afm-hero__canvas{display:none}
+
+/* ---------- 2. steps (vo .exp/.ecard, four cards, own drawings instead of the circles) ---------- */
+.afm-steps{padding-top:120px}
+.afm-steps .exp__intro h2{font-size:var(--fs-h2) !important}
+.afm-steps__lead{margin-top:18px;max-width:58ch}
+.afm-steps .ecard{min-height:260px}
+.afm-steps .ecard h3{font-size:var(--fs-h3) !important;max-width:70%}
+.afm-icon{position:absolute;right:26px;top:26px;width:clamp(84px,calc(var(--vw) * 9),128px);height:auto;fill:none;stroke:var(--mark);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:.95}
+.afm-steps__rail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
+.afm-steps__rail-path{fill:none;stroke:var(--mark);stroke-width:1.4;stroke-dasharray:4 7;opacity:.55}
+.afm-steps .ecard-wrap{position:relative;z-index:1}
+.afm-steps__note{margin:0 auto;max-width:640px;text-align:center;color:var(--muted);font-size:var(--fs-small);margin-top:-20px}
+
+/* ---------- 3, 4. personal and company: sticky head left, questions right ---------- */
+.afm-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:calc(var(--vw) * 6);padding:120px var(--gut);border-top:1px solid var(--line)}
+.afm-split.--mirror{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.afm-split.--mirror .afm-split__head{order:2}
+.afm-split__head{align-self:start;display:grid;gap:16px}  /* not sticky: it stuck for a moment and then jumped (user, 2026-11-23) */
+.afm-split__title{margin-bottom:6px}
+.afm-split__art{width:min(100%,300px);margin-top:22px;fill:none;stroke:rgba(var(--fg-rgb),.38);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.afm-split__art :is(circle,rect):first-of-type{stroke:var(--mark)}
+
+/* question rows: open and close, gold plus that turns into a minus */
+.afm-q{border-top:1px solid var(--line)}
+.afm-q:last-child{border-bottom:1px solid var(--line)}
+.afm-q summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;cursor:pointer}
+.afm-q summary::-webkit-details-marker{display:none}
+.afm-q summary h3{font-size:var(--fs-h4) !important;line-height:1.2;letter-spacing:-.01em;transition:color .3s var(--e-out)}
+.afm-q summary:hover h3{color:var(--mark)}
+.afm-q summary:focus-visible{outline:2px solid var(--mark);outline-offset:4px}
+.afm-q__icon{position:relative;width:39px;height:39px;flex:none;border-radius:var(--radius);border:1px solid var(--card-border);transition:background-color .3s var(--e-out),border-color .3s var(--e-out)}
+.afm-q__icon::before,.afm-q__icon::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;margin:-.75px 0 0 -7px;background:var(--mark);transition:transform .35s var(--e-out)}
+.afm-q__icon::after{transform:rotate(90deg)}
+.afm-q[open] .afm-q__icon{background:var(--mark);border-color:var(--mark)}
+.afm-q[open] .afm-q__icon::before,.afm-q[open] .afm-q__icon::after{background:var(--mark-fg)}
+.afm-q[open] .afm-q__icon::after{transform:rotate(0)}
+.afm-q__body{overflow:hidden}
+.afm-q__inner{display:grid;gap:14px;padding:0 64px 30px 0;max-width:72ch}
+.afm-link{color:var(--mark) !important;border-bottom:1px solid rgba(245,203,92,.45);padding-bottom:2px;transition:border-color .3s var(--e-out)}
+.afm-link:hover{border-color:var(--mark)}
+
+/* ---------- 5. documents ---------- */
+.afm-docs{padding:120px var(--gut);border-top:1px solid var(--line)}
+.afm-docs__head{max-width:760px;display:grid;gap:16px;margin-bottom:48px}
+.afm-docs__cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.afm-doc{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:16px}
+.afm-doc__top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.afm-doc h3{font-size:var(--fs-h3) !important;line-height:1.1}
+.afm-doc__ico{width:44px;height:44px;fill:none;stroke:var(--mark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.afm-doc>p{color:var(--muted)}
+.afm-checks{list-style:none;display:grid;gap:12px}
+.afm-checks li{position:relative;padding-left:34px;font-size:16px;line-height:1.5}
+.afm-checks li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--mark)}
+.afm-checks li::after{content:"";position:absolute;left:7px;top:6px;width:5px;height:9px;border:solid var(--mark);border-width:0 2px 2px 0;transform:rotate(45deg)}
+html.afm-js .afm-checks li{opacity:0;transform:translateX(-10px)}
+.afm-important{margin-top:26px;display:grid;gap:10px;padding:26px 30px;border:1px solid var(--mark);border-left-width:6px;border-radius:var(--radius);background:rgba(245,203,92,.06)}
+.afm-important p{font-size:16px;line-height:1.6;color:rgba(var(--fg-rgb),.9)}
+.afm-important strong{color:var(--mark)}
+
+/* ---------- 6. time and cost ---------- */
+.afm-time{padding:120px var(--gut);border-top:1px solid var(--line)}
+.afm-time__head{max-width:820px;margin-bottom:56px}
+.afm-time__grid{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--vw) * 6)}
+.afm-time__col{display:grid;gap:14px;align-content:start}
+.afm-time__col h3{font-size:var(--fs-h3) !important;margin-top:6px !important}
+.afm-time__big{display:flex;align-items:flex-end;gap:14px;height:calc(var(--fs-display) * 1.6);border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:6px}
+.afm-time__num{font-family:var(--display);font-size:calc(var(--fs-display) * 1.5);line-height:.9;color:var(--mark);font-variant-numeric:tabular-nums}
+.afm-time__unit{font-family:var(--font-base);font-weight:600;font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.afm-time__ico{width:calc(var(--fs-display) * 1.2);height:auto;fill:none;stroke:var(--mark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;align-self:flex-end}
+
+/* ---------- 7. common questions ---------- */
+.afm-faq{padding:120px var(--gut);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:calc(var(--vw) * 6)}
+.afm-faq__head{align-self:start}  /* not sticky: with only a few closed questions it stuck for a moment and then jumped (user, 2026-11-23) */
+
+/* ---------- 8. closing ---------- */
+.afm-closing__inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(var(--vw) * 6);align-items:end}
+.afm-closing .h-xl{font-size:var(--fs-display) !important;max-width:10ch}
+.afm-closing__body{display:grid;gap:14px}
+.afm-closing__note{display:flex;gap:12px;align-items:flex-start;font-size:var(--fs-small) !important;color:var(--muted) !important;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius)}
+.afm-closing__note svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--mark);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .afm-hero{min-height:0;padding-top:28px}
+  .afm-hero__grid{grid-template-columns:1fr;gap:12px}
+  .afm-hero__stage{max-width:520px;justify-self:center;width:100%;aspect-ratio:1/0.72;margin-top:24px}
+  .afm-hero__title{max-width:none}
+  .afm-split,.afm-split.--mirror,.afm-faq{grid-template-columns:1fr;gap:28px;padding:80px var(--gut)}
+  .afm-split.--mirror .afm-split__head{order:0}
+  .afm-split__head,.afm-faq__head{position:static}
+  .afm-split__art{display:none}
+  .afm-docs,.afm-time{padding:80px var(--gut)}
+  .afm-docs__cards,.afm-time__grid,.afm-closing__inner{grid-template-columns:1fr}
+  .afm-steps__rail{display:none}
+  .afm-steps .ecard h3{max-width:62%}
+}
+@media (max-width:749px){
+  .afm-hero__title{font-size:clamp(38px,11vw,54px) !important}
+  .afm-q__inner{padding-right:0}
+  .afm-doc{padding:22px}
+  .afm-icon{width:70px;right:18px;top:18px}
+  .afm-steps .ecard{min-height:0}
+  .afm-important{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html.afm-js [data-reveal],html.afm-js .afm-checks li{opacity:1;transform:none}
+}
+
+/* ---------- texts added 2026-11-23: what you receive, after the AFM, who we are, contact line ---------- */
+.afm-receive .afm-doc{max-width:760px}
+.afm-doc__note{font-size:var(--fs-small) !important;color:var(--muted) !important;margin-top:4px}
+.afm-after__body{display:grid;gap:14px;max-width:72ch}
+.afm-after__body p,.afm-who p{color:rgba(var(--fg-rgb),.82);font-size:16px;line-height:1.65}
+.afm-who .afm-link{margin-left:4px}
+.afm-closing__reply strong{color:var(--mark)}
+.afm-closing__channels a{color:var(--text);border-bottom:1px solid rgba(245,203,92,.45)}
+.afm-closing__channels a:hover{border-color:var(--mark)}

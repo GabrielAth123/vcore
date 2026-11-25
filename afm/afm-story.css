@@ -1,0 +1,55 @@
+.afm-story{border-top:1px solid var(--line);background:var(--bg);padding:100px var(--gut)}
+.afm-story__screen{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(var(--vw) * 6);align-items:center}
+.afm-story__sentences{list-style:none;margin:0;padding:0;display:grid;gap:24px}
+.afm-story__sentences li{font-family:var(--display);font-size:var(--fs-h3);line-height:1.2;color:var(--text)}
+.afm-story__sentences strong{color:var(--mark)}
+.afm-story__progress{display:none;margin-top:36px;font:600 var(--fs-label) var(--font-base);color:var(--muted);letter-spacing:.1em}
+.afm-story__dots{display:inline-flex;gap:8px;margin-left:20px;vertical-align:middle}
+.afm-story__dots i{width:7px;height:7px;border-radius:50%;background:rgba(var(--fg-rgb),.25)}
+.afm-story__visual{width:min(100%,490px);justify-self:center;position:relative;min-width:0}
+.afm-story__paper{position:relative;background:#F5F1ED;color:#252323;box-shadow:0 16px 45px rgba(0,0,0,.22);font-family:var(--font-base);font-size:11px;line-height:1.3}
+.afm-story__header{background:#252323;color:#F5CB5C;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.afm-story__header b{font-family:var(--display);font-size:24px;font-weight:500;display:block}
+.afm-story__header span{display:block;color:#F5F1ED;font-size:10px}
+.afm-story__header small{border:1px solid #F5CB5C;padding:4px 8px;font-size:9px;text-transform:uppercase;letter-spacing:.1em}
+.afm-story__body{position:relative;padding:17px 22px 20px}
+.afm-story__section-title{font:700 11px/1.3 var(--font-base);letter-spacing:.08em;word-spacing:.15em;text-transform:uppercase;margin:0 0 8px;color:#252323}
+.afm-story__fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:16px}
+.afm-story__fields div{min-width:0;border-bottom:1px solid #c9c1b8;min-height:34px}
+.afm-story__fields span{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#70798C}
+.afm-story__value{display:inline-block;white-space:nowrap;font:italic 17px/1.2 var(--display);color:#252323;min-height:1.2em;vertical-align:bottom}  /* same height empty or written, so the card never grows while the pen writes */
+.afm-story__documents{list-style:none;margin:0 0 15px;padding:0;display:grid;gap:5px}
+.afm-story__documents li{display:flex;align-items:center;gap:8px;font-size:14px}
+.afm-story__documents svg{width:14px;height:14px;flex:none;border:1px solid #a99d8e;fill:none;stroke:#9d7a1d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.afm-story__sign{width:58%;position:relative;padding-top:25px;border-bottom:1px solid #a99d8e}
+.afm-story__sign svg{position:absolute;left:0;bottom:2px;width:135px;height:32px;fill:none;stroke:#252323;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.afm-story__sign span{position:absolute;top:100%;left:0;padding-top:3px;font-size:9px;color:#68615c;white-space:nowrap}
+.afm-story__stamp{position:absolute;right:24px;bottom:78px;border:2px solid #b08c2d;color:#9d7a1d;padding:5px 8px;text-align:center;font-weight:800;font-size:12px;letter-spacing:.08em;transform:rotate(-9deg)}
+.afm-story__stamp span{display:block;font-size:8px}
+.afm-story__status{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:38px}
+.afm-story__status div{position:relative;z-index:1;font-size:12px;color:#68615c}
+.afm-story__status i{display:block;width:10px;height:10px;border-radius:50%;background:#c49c31;margin-bottom:6px}
+.afm-story__status b{position:absolute;top:4px;height:2px;background:#c49c31;width:calc((100% - 16px)/3);transform-origin:left}
+.afm-story__status b:nth-of-type(1){left:5px}.afm-story__status b:nth-of-type(2){left:calc((100% + 8px)/3 + 5px)}
+.afm-story__email{position:relative;z-index:5;background:#2f2c2b;border:1px solid var(--card-border);color:var(--text);padding:18px 22px;margin-top:16px;font:12px/1.5 var(--font-base);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.afm-story__email p{margin:0 0 4px}.afm-story__email p span{display:inline-block;color:var(--muted);min-width:55px}
+.afm-story__email ul{list-style:none;padding:10px 0;margin:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.afm-story__email li{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:15px}.afm-story__email li::after{content:'✓';display:grid;place-items:center;width:16px;height:16px;flex:none;margin-left:auto;border-radius:50%;background:var(--mark);color:#252323;font:700 10px/1 var(--font-base)}
+.afm-story__email .afm-story__email-afm span{font-size:12px}.afm-story__email .afm-story__email-afm strong{font:400 26px/1.2 var(--display);color:var(--mark)}
+.afm-story__email>div{display:inline-block;border:1px solid var(--card-border);padding:5px 9px;color:var(--text)}
+/* a small gold pen; its tip (bottom left corner of the icon) sits at the end of the text being written */
+.afm-story__pen{display:none;position:absolute;left:0;top:0;width:22px;height:22px;pointer-events:none;z-index:3;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.afm-story__pen svg{display:block;width:100%;height:100%;fill:#F5CB5C;stroke:#252323;stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round}
+@media (min-width:750px){
+ .afm-story.is-anim{height:300svh;padding:0}
+ .is-anim .afm-story__screen{position:sticky;top:0;height:100svh;padding:calc(var(--site-h, 0px) + 12px) var(--gut) 12px;box-sizing:border-box}
+ /* all four sentences share one grid cell, so the box keeps the height of the longest one and nothing jumps between steps */
+ .is-anim .afm-story__sentences{display:grid;position:relative}
+ .is-anim .afm-story__sentences li{grid-area:1/1;align-self:center;visibility:hidden;opacity:0;transition:opacity .35s ease}
+ .is-anim .afm-story__sentences li.is-active{visibility:visible;opacity:1}
+ .is-anim .afm-story__progress{display:block}
+ .is-anim .afm-story__visual{zoom:var(--story-zoom,1)}
+ .is-anim .afm-story__email{position:absolute;bottom:0;left:5%;width:90%;margin:0;box-sizing:border-box}
+ .is-anim .afm-story__pen{display:block}
+}
+@media (max-width:749px){.afm-story{padding:80px var(--gut)}.afm-story__screen{display:block}.afm-story__visual,.afm-story__progress{display:none}}

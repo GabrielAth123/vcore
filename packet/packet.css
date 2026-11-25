@@ -1136,7 +1136,7 @@
   margin-bottom: 1rem;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: #646C7E;
   cursor: pointer;
 }
 
@@ -1440,3 +1440,52 @@ input:focus, select:focus, textarea:focus { border-color: var(--color-gold); box
 @media (prefers-reduced-motion: reduce) {
   .pk-hub-center-pulse { animation: none; opacity: 0; }
 }
+
+/* ==========================================================
+   Shop Anywhere in Greece (photo cards) and the parcel FAQ, 2026-11-24
+   ========================================================== */
+.nx-hero-cta{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:12px}
+.nx-hero-cta .btn{background:var(--color-gold);color:var(--color-primary);box-shadow:0 8px 20px rgba(var(--gold-rgb),.3);text-decoration:none}
+.nx-hero-cta .btn:hover{color:var(--color-primary);transform:translateY(-3px)}
+
+/* ---------- B: photo cards, always visible; only the photos move (parallax, like vo.js data-image-parallax) ---------- */
+.nx-b{background:var(--color-primary);color:var(--color-text)}
+.nx-b .pk-eyebrow{color:var(--color-gold)}
+.nx-b .pk-eyebrow::before{background:var(--color-gold)}
+.nx-b .pk-kicker{color:var(--color-text);max-width:22ch}
+.nx-b .pk-kicker em{font-style:italic;color:var(--color-gold)}
+.nx-lead{max-width:60ch;color:rgba(245,241,237,.72);margin-top:1rem}
+.nx-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:2.6rem}
+.nx-card{position:relative;grid-column:span 4;height:440px;border-radius:var(--radius-xl);overflow:hidden;background:#1b1a19;isolation:isolate}
+.nx-card.s5{grid-column:span 5}.nx-card.s7{grid-column:span 7}.nx-card.s8{grid-column:span 8}
+.nx-card.tall{height:540px}
+.nx-card figure{position:absolute;inset:0;margin:0;overflow:hidden;z-index:-1}
+.nx-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.nx-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,26,25,0) 38%,rgba(27,26,25,.55) 62%,rgba(27,26,25,.94) 100%)}
+.nx-card__txt{position:absolute;left:0;right:0;bottom:0;padding:26px 26px 24px;display:grid;gap:8px}
+.nx-card__tag{font:700 .72rem var(--font-base);letter-spacing:.14em;text-transform:uppercase;color:var(--color-gold)}
+.nx-card h3{font-family:var(--font-heading);font-weight:500;font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.1;margin:0;color:#fff}
+.nx-card p{margin:0;color:rgba(245,241,237,.86);font-size:.95rem;max-width:46ch}
+/* the big words sit in a span: main.css sizes every h3 on phones, a span inside keeps its own size */
+.nx-big{display:block;font-family:"Bebas Neue",var(--font-base);font-weight:400;font-size:clamp(3rem,6vw,5rem);letter-spacing:.03em;line-height:.92}
+@media (hover:hover){.nx-card:hover img{transform:scale(1.04)}}
+.nx-note{font-size:.75rem;color:rgba(245,241,237,.5);margin-top:1.4rem}
+
+/* ---------- FAQ: same pattern as the site FAQ page (.faq-item from main.css), grouped ---------- */
+.nx-faq{background:#fffdf9;color:var(--color-primary)}
+.nx-faq .pk-kicker{color:var(--color-primary)}
+.nx-faq__groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 64px;margin-top:2.2rem}
+.nx-faq__group h3.nx-faq__title{font-family:var(--font-heading);font-size:1.45rem;font-weight:500;margin:0 0 4px;padding-bottom:10px;border-bottom:2px solid var(--color-gold);color:var(--color-primary)}
+.nx-faq .faq-item h3::before{content:"→"}
+
+@media (max-width:980px){
+  .nx-card,.nx-card.s5,.nx-card.s7,.nx-card.s8{grid-column:span 6}
+  .nx-card.tall{height:480px}
+}
+@media (max-width:749px){
+  .nx-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .nx-card,.nx-card.s5,.nx-card.s7,.nx-card.s8{grid-column:auto;height:400px}
+  .nx-card.tall{height:440px}
+  .nx-faq__groups{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.nx-card img{transition:none}}

@@ -1,6 +1,6 @@
 # VCORE Business Services
 
-> VCORE Business Services is a virtual office, business administration and business concierge company in Kavala, Greece. It gives Greek and international businesses a registered business address (tax seat) with a real office, mail and parcel receiving and forwarding, administrative support and on-site representation across Eastern Macedonia and Thrace, so they can operate in Greece remotely. Last updated: 2026-11-17.
+> VCORE Business Services is a virtual office, business administration and business concierge company in Kavala, Greece. It gives Greek and international businesses a registered business address (tax seat) with a real office, mail and parcel receiving and forwarding, administrative support and on-site representation across Eastern Macedonia and Thrace, so they can operate in Greece remotely. Last updated: 2026-11-25.
 
 VCORE acts as a local operational partner for businesses, entrepreneurs, investors and international companies that need things handled in Greece while they are somewhere else. Its office is in Kavala. The registered address serves businesses from anywhere in Greece and abroad, and VCORE's team covers on-site work in all of Eastern Macedonia and Thrace: Kavala, Drama, Serres, Xanthi, Komotini, Alexandroupoli, Evros, Thasos and Samothrace, with Thessaloniki for concierge work when needed.
 
@@ -19,7 +19,7 @@ Prices exclude 24% VAT unless stated otherwise. Every fact below comes from the 
 - Founded: 2025
 - Languages: Greek, English, Turkish, Chinese, Ukrainian
 - Payments: bank transfer, Bitcoin (BTC), USDT, USDC
-- Reviews: 42 reviews on Google Maps, 8 reviews on Clutch
+- Reviews: 43 reviews on Google Maps, 8 reviews on Clutch
 
 ## Virtual Office / registered business address (φορολογική έδρα)
 
@@ -54,32 +54,42 @@ How it works:
 
 ## Parcel receiving and forwarding
 
-A professional parcel receiving address in Kavala, Greece. VCORE receives parcels, holds them and either hands them over in Kavala or coordinates forwarding to the client's destination. Page: https://www.vcore.gr/packet/
+A Greek receiving address for shoppers and businesses anywhere in the world. VCORE receives parcels in Greece, stores them free of charge and forwards them to any country in the world, or keeps them for pickup at the office. So far VCORE has forwarded parcels to more than 30 countries. Page: https://www.vcore.gr/packet/
 
 How it works:
 
-1. The client gives the VCORE Kavala address at checkout, to a supplier, or to any marketplace that needs a Greek delivery point.
-2. The parcel arrives, VCORE checks it in and tells the client the same day.
-3. VCORE holds it in CCTV-monitored storage with humidity control, for as long as the client needs. Longer storage for personal parcels can be arranged monthly.
-4. The client collects it in person in Kavala, or tells VCORE where to send it. VCORE coordinates the forwarding and picks the cheapest suitable courier for each shipment.
+1. The client gives the VCORE Greek address at checkout, to a supplier, or to any marketplace that needs a Greek delivery point.
+2. The parcel arrives, VCORE checks it in and tells the client the same day, with a photo of the parcel.
+3. VCORE holds it in CCTV-monitored storage with temperature and humidity monitoring, for as long as the client needs. Longer storage for personal parcels can be arranged monthly.
+4. The client collects it in person at the office in Kavala, or tells VCORE where to send it. VCORE finds the best and most reliable courier for each shipment and sends the tracking number.
 
-Fees: handling from €15, with one combined handling fee for several parcels. Courier charges are separate. Payment is made after the parcel has arrived.
+Fees: handling from €15, with one combined handling fee for several parcels. Courier charges are separate. Payment is made after the parcel has arrived. Payment by bank transfer, Revolut or a secure payment link.
+
+What people use it for:
+
+- Greek online stores that do not ship abroad, including retailers listed on Skroutz and BestPrice.
+- Secondhand marketplaces such as Vinted, Vendora and Facebook Marketplace (VCORE is not affiliated with them).
+- Combining several orders into one shipment to save on shipping costs.
+- Greek products such as olive oil, honey, herbs, sweets and cosmetics, where the courier accepts them.
+- Car, motorcycle and boat parts, bicycles, tools and bulky items.
+- Belongings forgotten at a hotel, Airbnb or rental car in Greece.
 
 Who uses it:
 
 - Turkey, the most common route: people and businesses in Turkey shop in Greek and European stores, combine several orders into one shipment, collect supplier samples before a bulk order, or pick up their parcels in person when they visit Kavala.
 - Bulgaria, the Balkans and the EU: shoppers in Bulgaria and across Europe buying from Greek stores that do not ship abroad, businesses sourcing from European suppliers, and sellers who need a local Greek returns address for their EU customers.
-- The Middle East and Egypt: customers use Kavala as their gateway to Greek and European online stores that would otherwise not deliver to them.
-- Boat owners cruising the Greek islands: spare parts and equipment wait for them at the port before they arrive.
+- The Middle East and Egypt: customers use VCORE's Greek address as their gateway to Greek and European online stores that would otherwise not deliver to them.
+- Boat owners cruising the Greek islands: spare parts and equipment are received and forwarded or kept until they arrive.
 
-How to request it: through the Parcel Forwarding Questionnaire on https://www.vcore.gr/packet/ or on WhatsApp (+30 6939518023). Within 24 hours VCORE emails the delivery details to use in the order and the courier cost. The client places the order and sends the order confirmation or tracking number, and VCORE receives the parcel and forwards it or keeps it for pickup.
+How to request it: through the Parcel Forwarding Questionnaire on https://www.vcore.gr/packet/ or on WhatsApp (+30 6939518023). Within 24 hours VCORE emails the delivery details to use in the order and the estimated courier cost. The client places the order and sends the order confirmation or tracking number, and VCORE receives the parcel and forwards it or keeps it for pickup.
 
 Terms:
 
-- Carriers: DHL, UPS, FedEx and local carriers are accepted. The courier cost depends on the destination, the size and weight of the parcel and the carrier.
+- Parcels can arrive with any courier or postal service, but only from within the EU. The outgoing courier cost depends on the destination, size and weight.
+- Outside the EU, customs duties and import taxes are paid by the recipient.
 - Sealed handling: parcels are received, stored, forwarded and handed over sealed and closed. VCORE does not open, inspect or tamper with the contents. Customs or police may inspect a parcel at any time when the law requires it, and VCORE cooperates.
 - VCORE is not a courier: loss, damage or delay caused by a carrier is the carrier's responsibility.
-- Not accepted: narcotics, illegal drugs and anything else that is illegal to send, receive or possess.
+- Not accepted: narcotics, illegal drugs and anything else that is illegal to send, receive or possess, perfumes, dangerous materials and anything couriers or the destination country prohibit.
 
 ## Mail receiving, scanning and forwarding
 
@@ -107,7 +117,10 @@ Not offered: nominee director or nominee shareholder services, and ready-made (s
 
 ## Greek tax number (AFM) for foreigners
 
-VCORE gets a Greek tax number (AFM) for any foreigner, whether or not they form a company: for example to buy property, open a Greek bank account, buy a car or handle an inheritance. It is done remotely through a power of attorney, with the same documents as for company founders (see step 3 above), without travelling to Greece. The AFM is usually issued in about 3 working days after all documents are received.
+VCORE helps people living abroad and existing foreign companies apply for a Greek tax number (AFM). Individuals may need an AFM to buy property or a car in Greece, open a Greek bank account, handle an inheritance or participate in a Greek company. VCORE prepares the Greek power of attorney and explains how to sign it and which documents to send, so there is no need to travel to Greece. For a personal AFM, the usual estimate is about three working days after VCORE receives the complete file.
+
+An existing foreign company may also need a Greek AFM for a transaction in its own name, such as buying property in Greece. VCORE reviews the intended transaction, the company documents and who can sign on the company's behalf before confirming the requirements and timeframe. The Greek tax authority (AADE) issues the AFM.
+Full page with the process, documents, timing and cost: https://www.vcore.gr/afm/ (Turkish: https://www.vcore.gr/tr/afm/)
 
 ## Business concierge
 
@@ -215,19 +228,19 @@ Kavala is a port city in Eastern Macedonia and Thrace, close to Turkey, Bulgaria
 
 ## Ελληνικά
 
-Η VCORE στην Καβάλα δίνει φορολογική έδρα (Virtual Office) σε επιχειρήσεις από όλη την Ελλάδα και το εξωτερικό, με πραγματικό χώρο, επιγραφή με την επωνυμία και μισθωτήριο που δηλώνεται ηλεκτρονικά στην ΑΑΔΕ (ΔΟΥ Καβάλας). Τιμές με ετήσια χρέωση: 29 € + ΦΠΑ τον μήνα για ατομική επιχείρηση (348 € + ΦΠΑ τον χρόνο) και 33 € + ΦΠΑ τον μήνα για εταιρεία (ΙΚΕ, ΕΠΕ, ΑΕ, ΟΕ, ΕΕ) (396 € + ΦΠΑ τον χρόνο), δηλαδή 15% φθηνότερα. Με τριμηνιαία χρέωση: 34 € + ΦΠΑ και 39 € + ΦΠΑ τον μήνα (102 € και 117 € + ΦΠΑ το τρίμηνο). Μηνιαία χρέωση δεν υπάρχει. Χωρίς εγγύηση, χωρίς κόστος εγγραφής και χωρίς μακροχρόνια δέσμευση. Ενεργοποίηση συνήθως μέσα σε 24 έως 48 ώρες από την παραλαβή των δικαιολογητικών. Η έδρα ταιριάζει σε υπηρεσίες, ηλεκτρονικά καταστήματα και εμπόριο χωρίς αποθήκη, όχι σε φυσικό κατάστημα, εστίαση ή αποθήκη εμπορευμάτων. Για επιχειρηματίες που ζουν στο εξωτερικό, η VCORE κάνει με τον συνεργαζόμενο λογιστή σύσταση ελληνικής εταιρείας (π.χ. ΙΚΕ) και ΑΦΜ με πληρεξούσιο, χωρίς ταξίδι στην Ελλάδα. Βγάζει επίσης ελληνικό ΑΦΜ σε κάθε αλλοδαπό που δεν ανοίγει εταιρεία, για παράδειγμα για ακίνητο, τράπεζα, αυτοκίνητο ή κληρονομιά. Περιλαμβάνει διαχείριση εισερχόμενης αλληλογραφίας και δεμάτων, με φύλαξη μέχρι να ζητηθεί σάρωση, προώθηση ή παραλαβή· το εταιρικό πακέτο περιλαμβάνει και παραλαβή συστημένων και αποστολών που απαιτούν υπογραφή, και ο χώρος μπορεί να χρησιμοποιηθεί κατόπιν συνεννόησης για συναντήσεις. Σε σύγκριση με ένα μικρό γραφείο με ενοίκιο (από 400 € τον μήνα για ενοίκιο, ρεύμα, νερό, internet και τηλέφωνο), τα έξοδα είναι πάνω από 90% χαμηλότερα. Η VCORE εξυπηρετεί την Καβάλα, τη Δράμα, τις Σέρρες, την Ξάνθη, την Κομοτηνή, την Αλεξανδρούπολη, τον Έβρο (Ορεστιάδα, Διδυμότειχο), τη Θάσο και τη Σαμοθράκη, και τη Θεσσαλονίκη για concierge όταν χρειάζεται. Παραλαμβάνει επίσης δέματα στην Καβάλα για λογαριασμό πελατών, τα φυλάσσει και τα παραδίδει στο γραφείο ή τα προωθεί με courier στην Τουρκία, στα Βαλκάνια, στην ΕΕ, στη Μέση Ανατολή και στην Αίγυπτο. Σελίδες: https://www.vcore.gr/el/vo/ και https://www.vcore.gr/el/
+Η VCORE στην Καβάλα δίνει φορολογική έδρα (Virtual Office) σε επιχειρήσεις από όλη την Ελλάδα και το εξωτερικό, με πραγματικό χώρο, επιγραφή με την επωνυμία και μισθωτήριο που δηλώνεται ηλεκτρονικά στην ΑΑΔΕ (ΔΟΥ Καβάλας). Τιμές με ετήσια χρέωση: 29 € + ΦΠΑ τον μήνα για ατομική επιχείρηση (348 € + ΦΠΑ τον χρόνο) και 33 € + ΦΠΑ τον μήνα για εταιρεία (ΙΚΕ, ΕΠΕ, ΑΕ, ΟΕ, ΕΕ) (396 € + ΦΠΑ τον χρόνο), δηλαδή 15% φθηνότερα. Με τριμηνιαία χρέωση: 34 € + ΦΠΑ και 39 € + ΦΠΑ τον μήνα (102 € και 117 € + ΦΠΑ το τρίμηνο). Μηνιαία χρέωση δεν υπάρχει. Χωρίς εγγύηση, χωρίς κόστος εγγραφής και χωρίς μακροχρόνια δέσμευση. Ενεργοποίηση συνήθως μέσα σε 24 έως 48 ώρες από την παραλαβή των δικαιολογητικών. Η έδρα ταιριάζει σε υπηρεσίες, ηλεκτρονικά καταστήματα και εμπόριο χωρίς αποθήκη, όχι σε φυσικό κατάστημα, εστίαση ή αποθήκη εμπορευμάτων. Για επιχειρηματίες που ζουν στο εξωτερικό, η VCORE κάνει με τον συνεργαζόμενο λογιστή σύσταση ελληνικής εταιρείας (π.χ. ΙΚΕ) και ΑΦΜ με πληρεξούσιο, χωρίς ταξίδι στην Ελλάδα. Βγάζει επίσης ελληνικό ΑΦΜ σε κάθε αλλοδαπό που δεν ανοίγει εταιρεία, για παράδειγμα για ακίνητο, τράπεζα, αυτοκίνητο ή κληρονομιά. Περιλαμβάνει διαχείριση εισερχόμενης αλληλογραφίας και δεμάτων, με φύλαξη μέχρι να ζητηθεί σάρωση, προώθηση ή παραλαβή· το εταιρικό πακέτο περιλαμβάνει και παραλαβή συστημένων και αποστολών που απαιτούν υπογραφή, και ο χώρος μπορεί να χρησιμοποιηθεί κατόπιν συνεννόησης για συναντήσεις. Σε σύγκριση με ένα μικρό γραφείο με ενοίκιο (από 400 € τον μήνα για ενοίκιο, ρεύμα, νερό, internet και τηλέφωνο), τα έξοδα είναι πάνω από 90% χαμηλότερα. Η VCORE εξυπηρετεί την Καβάλα, τη Δράμα, τις Σέρρες, την Ξάνθη, την Κομοτηνή, την Αλεξανδρούπολη, τον Έβρο (Ορεστιάδα, Διδυμότειχο), τη Θάσο και τη Σαμοθράκη, και τη Θεσσαλονίκη για concierge όταν χρειάζεται. Παραλαμβάνει επίσης δέματα στην Ελλάδα για λογαριασμό πελατών, τα φυλάσσει δωρεάν και τα παραδίδει στο γραφείο ή τα προωθεί με courier σε οποιαδήποτε χώρα του κόσμου (μέχρι σήμερα σε πάνω από 30 χώρες). Σελίδες: https://www.vcore.gr/el/vo/ και https://www.vcore.gr/el/
 
 ## Türkçe
 
-VCORE, Kavala'da sanal ofis ve kayıtlı iş adresi (yıllık ödemede aylık €29 + KDV şahıs işletmesi, €33 + KDV şirket; üç aylık ödemede aylık €34 + KDV ve €39 + KDV), iş yönetimi ve yerinde business concierge hizmeti verir. Kira sözleşmesi Yunan vergi dairesine (AADE) elektronik olarak bildirilir; GEMİ ve banka işlemlerinde kullanımı ilgili kurumun şartlarına bağlıdır. VCORE, şirket kursun ya da kurmasın her yabancıya vekâletname ile, Yunanistan'a gelmeye gerek olmadan Yunan vergi numarası (AFM) çıkarır. Paket saklama ücretsizdir; işlem ücreti 15 €'dan başlar, birden fazla paket için tek bir ücret uygulanır, kargo ücreti ayrıdır ve ödeme paket geldikten sonra yapılır. VCORE her gönderi için uygun kargo seçenekleri arasından en ekonomik olanı seçer. Türk şirketleri için Yunanistan'da şube veya şirket kuruluşu, ortak muhasebeci aracılığıyla koordine edilir. VCORE, Kavala'daki adresinde müşterileri adına paket teslim alır, aynı gün bilgi verir, kameralı ve nem kontrollü depoda saklar; müşteri paketini Kavala'da bizzat teslim alabilir ya da paket Türkiye'ye, Balkanlar'a, AB'ye, Orta Doğu'ya veya Mısır'a gönderilir. En yaygın rota Türkiye'dir: Yunan ve Avrupa mağazalarından alışveriş, birden fazla siparişi tek gönderide birleştirme, tedarikçi numuneleri. Paketler kapalı ve mühürlü olarak teslim alınır ve gönderilir. VCORE kargo şirketi değildir; kargo kaynaklı kayıp, hasar veya gecikmeden kargo şirketi sorumludur. Hizmet bölgesi: Kavala, Drama, Serez, İskeçe, Gümülcine, Dedeağaç, Meriç, Taşoz ve Semadirek. Paket sayfası: https://www.vcore.gr/packet/ , Türkçe sayfa: https://www.vcore.gr/tr/
+VCORE, Kavala'da sanal ofis ve kayıtlı iş adresi (yıllık ödemede aylık €29 + KDV şahıs işletmesi, €33 + KDV şirket; üç aylık ödemede aylık €34 + KDV ve €39 + KDV), iş yönetimi ve yerinde business concierge hizmeti verir. Kira sözleşmesi Yunan vergi dairesine (AADE) elektronik olarak bildirilir; GEMİ ve banka işlemlerinde kullanımı ilgili kurumun şartlarına bağlıdır. VCORE, şirket kursun ya da kurmasın her yabancıya vekâletname ile, Yunanistan'a gelmeye gerek olmadan Yunan vergi numarası (AFM) çıkarır. Paket saklama ücretsizdir; işlem ücreti 15 €'dan başlar, birden fazla paket için tek bir ücret uygulanır, kargo ücreti ayrıdır ve ödeme paket geldikten sonra yapılır. VCORE her gönderi için en iyi ve en güvenilir kargo firmasını bulur. Türk şirketleri için Yunanistan'da şube veya şirket kuruluşu, ortak muhasebeci aracılığıyla koordine edilir. VCORE, Yunanistan'daki adresinde müşterileri adına paket teslim alır, aynı gün bilgi verir, kameralı ve nem kontrollü depoda saklar; müşteri paketini Kavala'da bizzat teslim alabilir ya da paket dünyanın herhangi bir ülkesine gönderilir (şimdiye kadar 30'dan fazla ülkeye). En yaygın rota Türkiye'dir: Yunan ve Avrupa mağazalarından alışveriş, birden fazla siparişi tek gönderide birleştirme, tedarikçi numuneleri. Paketler kapalı ve mühürlü olarak teslim alınır ve gönderilir. VCORE kargo şirketi değildir; kargo kaynaklı kayıp, hasar veya gecikmeden kargo şirketi sorumludur. Hizmet bölgesi: Kavala, Drama, Serez, İskeçe, Gümülcine, Dedeağaç, Meriç, Taşoz ve Semadirek. Paket sayfası: https://www.vcore.gr/packet/ , Türkçe sayfa: https://www.vcore.gr/tr/ , AFM sayfası: https://www.vcore.gr/tr/afm/
 
 ## 中文
 
-VCORE位于希腊卡瓦拉，提供虚拟办公室和注册商业地址（按年付款：个体户每月€29，公司每月€33；按季度付款：每月€34和€39；均不含增值税）、商务管理和现场商务礼宾服务，覆盖希腊东马其顿和色雷斯地区。VCORE可在卡瓦拉代收包裹，安全保管后由客户亲自领取或转寄至土耳其、巴尔干、欧盟、中东、埃及或其他地址。包裹全程保持密封。中文页面：https://www.vcore.gr/zh/
+VCORE位于希腊卡瓦拉，提供虚拟办公室和注册商业地址（按年付款：个体户每月€29，公司每月€33；按季度付款：每月€34和€39；均不含增值税）、商务管理和现场商务礼宾服务，覆盖希腊东马其顿和色雷斯地区。VCORE可在希腊代收包裹，免费保管后由客户亲自领取或转寄至世界任何国家（迄今已寄往30多个国家）。包裹全程保持密封。中文页面：https://www.vcore.gr/zh/
 
 ## Українська
 
-VCORE у Кавалі (Греція) надає віртуальний офіс і зареєстровану бізнес-адресу (€29 на місяць для ФОП і €33 на місяць для компаній при річній оплаті, €34 і €39 на місяць при щоквартальній оплаті, без ПДВ), бізнес-адміністрування та консьєрж-підтримку на місці в Східній Македонії і Фракії. VCORE приймає посилки від імені клієнтів у Кавалі, зберігає їх і передає особисто або пересилає за вказаною адресою. Посилки залишаються запечатаними. Українська сторінка: https://www.vcore.gr/uk/
+VCORE у Кавалі (Греція) надає віртуальний офіс і зареєстровану бізнес-адресу (€29 на місяць для ФОП і €33 на місяць для компаній при річній оплаті, €34 і €39 на місяць при щоквартальній оплаті, без ПДВ), бізнес-адміністрування та консьєрж-підтримку на місці в Східній Македонії і Фракії. VCORE приймає посилки від імені клієнтів у Греції, безкоштовно зберігає їх і передає особисто або пересилає в будь-яку країну світу (вже понад 30 країн). Посилки залишаються запечатаними. Українська сторінка: https://www.vcore.gr/uk/
 
 ## Pages
 
@@ -236,11 +249,18 @@ VCORE у Кавалі (Греція) надає віртуальний офіс 
 - [Virtual Office (EN)](https://www.vcore.gr/vo/): the registered address service in English, what is included, the process, the cost compared with an office
 - [Φορολογική Έδρα / Virtual Office (EL)](https://www.vcore.gr/el/vo/): the same page in Greek
 - [Parcel Receiving & Forwarding (EN)](https://www.vcore.gr/packet/): how parcel receiving and forwarding works, destinations, terms, request form
+- [Greek Tax Number, AFM (EN)](https://www.vcore.gr/afm/): Greek tax number (AFM) for foreigners and foreign companies: the process, documents, timing, the €150 fee and what you receive (AFM, kleidarithmos, myAADE access codes)
+- [Yunan Vergi Numarası, AFM (TR)](https://www.vcore.gr/tr/afm/): the same AFM page in Turkish
 - [Τιμές (EL)](https://www.vcore.gr/el/pricing/): Virtual Office and Business Concierge prices in Greek
 - [Pricing (EN)](https://www.vcore.gr/pricing/): prices in English
 - [Συχνές ερωτήσεις (EL)](https://www.vcore.gr/el/faq/): frequently asked questions in Greek
 - [FAQ (EN)](https://www.vcore.gr/faq/): frequently asked questions in English
 - [AI Call Center (EN)](https://www.vcore.gr/call-center/): AI call handling
+- [Contact (EN)](https://www.vcore.gr/contact/): contact form, WhatsApp, Telegram, phone, email and address
+- [Επικοινωνία (EL)](https://www.vcore.gr/el/contact/): the contact page in Greek
+- [İletişim (TR)](https://www.vcore.gr/tr/contact/): the contact page in Turkish
+- [Контакти (UK)](https://www.vcore.gr/uk/contact/): the contact page in Ukrainian
+- [联系我们 (ZH)](https://www.vcore.gr/zh/contact/): the contact page in Chinese
 - [Επικοινωνία (EL)](https://www.vcore.gr/el/#contact): contact section of the Greek homepage
 - [Contact (EN)](https://www.vcore.gr/#contact): contact section of the English homepage
 

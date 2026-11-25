@@ -329,3 +329,21 @@
     gsap.from(word, { yPercent: 105, opacity: 0, duration: 1.3, ease: "expo.out", scrollTrigger: { trigger: row, start: "top 88%" } });
   });
 })();
+
+/* Shop Anywhere in Greece: only the photos move (parallax inside each card, like vo.js data-image-parallax); cards and text are always visible. */
+(function(){
+  'use strict';
+  if (!window.gsap || !window.ScrollTrigger || !window.matchMedia) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia('(hover: none)').matches;
+
+  /* ---------- B: parallax inside each photo card ---------- */
+  if (!calm && !isTouch) document.querySelectorAll('[data-nx-parallax]').forEach(function(card){
+    var img = card.querySelector('img');
+    gsap.set(img, { height: '125%' });
+    gsap.timeline({ scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom 0', scrub: .3 } })
+      .fromTo(img, { yPercent: -20 }, { yPercent: 0, ease: 'none' });
+  });
+
+})();
